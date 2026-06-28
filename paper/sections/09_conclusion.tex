@@ -1,0 +1,11 @@
+\section{Conclusion}
+
+We introduced Re-prompt Tax as a way to measure hidden interaction costs for
+multilingual and code-switched LLM users. On a 120-item synthetic stress pilot,
+three GPT-4.1-family models exhibit measurable first-turn contract failures,
+especially on implicit editing-preservation tasks. A lightweight Global
+Interaction Contract prompt improves first-turn global alignment and reduces
+repair burden, but residual exact-preservation and script/register/locale
+failures remain. The broader takeaway is methodological: global evaluation
+should measure not only whether a model can eventually produce a correct answer,
+but also how much repair work users must perform to make the answer usable.
