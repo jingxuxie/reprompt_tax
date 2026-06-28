@@ -1,0 +1,29 @@
+\section{Limitations and ethics}
+
+This is a pilot benchmark, not a representative sample of multilingual or
+code-switched use. It covers only three language pairs and uses synthetic
+prompts. The English content embedded in the items reflects a common editing
+workflow, but many global workflows involve non-English target content,
+non-Latin scripts, dialectal variation, or richer social-register distinctions
+that are not covered here.
+
+The automatic scorer is intentionally conservative and strongest for exact
+span-preservation and script checks. It is weaker for nuanced register and
+cultural appropriateness. The blinded LLM-judge audit supports the sampled
+pass/fail labels, but it is not a substitute for native/near-native human
+validation. Any release or final workshop version should clearly label the
+human audit status and avoid claims that the benchmark validates cultural
+appropriateness for all included communities.
+
+The WildChat cue scan uses only aggregate counts and hashed metadata. We do not
+release raw user logs or quote private conversation text. The scan is useful for
+motivating the taxonomy, but regex cue hits are not reliable prevalence
+estimates. The benchmark items are synthetic and should be released with a
+benchmark card explaining intended use, non-representativeness, language-pair
+coverage, and known scorer limitations.
+
+Finally, token tax is a normalized repair-burden metric, not a direct economic
+claim. In our experiments, the longer contract prompt reduces repair-normalized
+token tax but increases absolute token use. Reporting both numbers is important
+for users whose constraints are monetary cost, latency, or context-window
+budget.
