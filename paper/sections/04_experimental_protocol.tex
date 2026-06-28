@@ -1,0 +1,42 @@
+\section{Experimental protocol}
+
+\paragraph{Models.}
+We evaluate \texttt{gpt-4.1-nano}, \texttt{gpt-4.1-mini}, and
+\texttt{gpt-4.1}, all accessed through the API with temperature 0 and a maximum
+of 256 output tokens. The paper-facing experiments were run on June 28, 2026.
+Because OpenAI's current model documentation lists GPT-5.5 as the flagship model
+and GPT-5.4 mini/nano as lower-cost variants \citep{openai2026models}, our
+model coverage should be read as a GPT-4.1-family pilot rather than a claim
+about the newest available model family.
+
+\paragraph{Prompting conditions.}
+Each model is run under two system-prompt conditions. The baseline prompt is
+``You are a helpful assistant.'' The mitigation condition uses a \textbf{Global
+Interaction Contract} prompt that instructs the model to infer instruction and
+content language separately, preserve content language during editing unless
+translation is requested, preserve quoted spans and literal data, obey explicit
+script/register/locale constraints, and avoid unnecessary explanatory framing.
+
+\paragraph{Repairs.}
+For each failed first response, we append the item's first standardized repair
+prompt and rescore the next response. If the response still fails, we append a
+second standardized repair. The trajectory stops at first success or after two
+repairs. This fixed repair budget lets us compare models and prompts under the
+same user burden. It also separates first-turn usability from recoverability:
+some models fail initially but repair quickly, while others continue to violate
+literal-preservation constraints.
+
+\paragraph{Scoring.}
+Automatic scoring combines deterministic checks for exact span preservation and
+script with rule-based language and task checks. The scorer emits both a binary
+FTGA label and component labels for language, script, preservation, task, and
+register/locale. We run scorer-ablation diagnostics by relaxing one component
+at a time, and deterministic regression tests cover controlled language, script,
+preservation, task, and register/locale failures.
+
+\paragraph{Audit.}
+We run a blinded \texttt{gpt-4.1} judge audit on 72 first-turn responses,
+sampling three responses from each model-condition-family stratum. The judge
+sees the user prompt, expected contract, and assistant response, but not model
+identity or prompting condition. This is a scorer sanity check, not a native- or
+near-native human validation study.
