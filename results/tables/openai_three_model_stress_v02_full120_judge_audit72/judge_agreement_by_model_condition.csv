@@ -1,0 +1,7 @@
+model,condition,n,pass_fail_agreement_n,pass_fail_agreement_pct,pass_fail_agreement_ci_low,pass_fail_agreement_ci_high,auto_pass_n,auto_pass_pct,judge_pass_n,judge_pass_pct,auto_fail_judge_pass_n,auto_pass_judge_fail_n,judge_parse_error_n
+gpt-4.1,baseline,12,11,91.7,64.6,98.5,10,83.3,11,91.7,1,0,0
+gpt-4.1,contract,12,12,100.0,75.8,100.0,12,100.0,12,100.0,0,0,0
+gpt-4.1-mini,baseline,12,12,100.0,75.8,100.0,12,100.0,12,100.0,0,0,0
+gpt-4.1-mini,contract,12,12,100.0,75.8,100.0,10,83.3,10,83.3,0,0,0
+gpt-4.1-nano,baseline,12,12,100.0,75.8,100.0,10,83.3,10,83.3,0,0,0
+gpt-4.1-nano,contract,12,12,100.0,75.8,100.0,10,83.3,10,83.3,0,0,0

@@ -1,0 +1,13 @@
+item_id,language_pair,task_family,baseline_fail_models_n,contract_fail_models_n,fail_models_reduction,contract_failure_models,contract_unresolved_models_n,contract_unresolved_models,mean_rtt_reduction
+ar_en_SD_008,ar-en,script_register_locale,3,3,0,gpt-4.1;gpt-4.1-mini;gpt-4.1-nano,3,gpt-4.1;gpt-4.1-mini;gpt-4.1-nano,-0.333
+es_en_SD_008,es-en,script_register_locale,3,3,0,gpt-4.1;gpt-4.1-mini;gpt-4.1-nano,3,gpt-4.1;gpt-4.1-mini;gpt-4.1-nano,-0.333
+ar_en_SD_006,ar-en,script_register_locale,3,3,0,gpt-4.1;gpt-4.1-mini;gpt-4.1-nano,2,gpt-4.1;gpt-4.1-nano,-0.667
+hi_en_SD_008,hi-en,script_register_locale,3,3,0,gpt-4.1;gpt-4.1-mini;gpt-4.1-nano,2,gpt-4.1;gpt-4.1-nano,0.333
+ar_en_SD_010,ar-en,script_register_locale,3,3,0,gpt-4.1;gpt-4.1-mini;gpt-4.1-nano,1,gpt-4.1,-0.667
+es_en_SA_010,es-en,editing_preservation,3,3,0,gpt-4.1;gpt-4.1-mini;gpt-4.1-nano,0,,0.0
+ar_en_SD_007,ar-en,script_register_locale,3,3,0,gpt-4.1;gpt-4.1-mini;gpt-4.1-nano,0,,0.0
+es_en_SD_010,es-en,script_register_locale,3,3,0,gpt-4.1;gpt-4.1-mini;gpt-4.1-nano,0,,0.0
+ar_en_SA_004,ar-en,editing_preservation,3,2,1,gpt-4.1-mini;gpt-4.1-nano,0,,0.333
+es_en_SA_002,es-en,editing_preservation,3,2,1,gpt-4.1-mini;gpt-4.1-nano,0,,0.333
+es_en_SA_003,es-en,editing_preservation,3,2,1,gpt-4.1-mini;gpt-4.1-nano,0,,0.333
+es_en_SA_004,es-en,editing_preservation,3,2,1,gpt-4.1-mini;gpt-4.1-nano,0,,0.333

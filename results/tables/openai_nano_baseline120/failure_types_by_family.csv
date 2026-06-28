@@ -1,0 +1,3 @@
+model,condition,task_family,failure_type,count,share_of_initial_failures
+gpt-4.1-nano,baseline,quote_preservation,preservation_failure,2,1.0
+gpt-4.1-nano,baseline,quote_preservation,task_noncompletion,2,1.0

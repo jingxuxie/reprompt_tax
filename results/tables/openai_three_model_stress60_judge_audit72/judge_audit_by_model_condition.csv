@@ -1,0 +1,7 @@
+model,condition,n,agreement,auto_pass_rate,judge_pass_rate,auto_fail_judge_pass,auto_pass_judge_fail
+gpt-4.1,baseline,12,1.0,0.9166666666666666,0.9166666666666666,0,0
+gpt-4.1,contract,12,1.0,1.0,1.0,0,0
+gpt-4.1-mini,baseline,12,1.0,0.8333333333333334,0.8333333333333334,0,0
+gpt-4.1-mini,contract,12,1.0,0.9166666666666666,0.9166666666666666,0,0
+gpt-4.1-nano,baseline,12,1.0,0.8333333333333334,0.8333333333333334,0,0
+gpt-4.1-nano,contract,12,1.0,0.9166666666666666,0.9166666666666666,0,0

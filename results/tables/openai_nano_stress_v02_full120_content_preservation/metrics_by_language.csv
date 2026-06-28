@@ -1,0 +1,4 @@
+model,condition,language_pair,n,ftga,mean_rtt,unresolved_rate,repair_success_at_1,repair_success_at_2,mean_token_tax,initially_failed_n,ftga_ci_low,ftga_ci_high,mean_rtt_ci_low,mean_rtt_ci_high
+gpt-4.1-nano,content_preservation,ar-en,40,0.675,0.425,0.05,0.8461538461538461,0.8461538461538461,1.482968096896529,13,0.525,0.825,0.225,0.675
+gpt-4.1-nano,content_preservation,es-en,40,0.8,0.3,0.05,0.75,0.75,1.2601313863065935,8,0.675,0.925,0.1,0.525
+gpt-4.1-nano,content_preservation,hi-en,40,0.925,0.075,0,1.0,1.0,1.0933930476303357,3,0.85,1,0,0.15

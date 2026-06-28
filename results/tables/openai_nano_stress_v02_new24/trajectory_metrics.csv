@@ -1,0 +1,49 @@
+item_id,model,condition,language_pair,task_family,ftga,rtt,resolved,unresolved,initially_failed,repair_success_1,repair_success_2,token_tax,first_failure_types
+es_en_SA_006,gpt-4.1-nano,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.580246913580247,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_006,gpt-4.1-nano,contract,es-en,editing_preservation,0,1,1,0,1,1,1,2.183333333333333,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_007,gpt-4.1-nano,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.6823529411764704,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_007,gpt-4.1-nano,contract,es-en,editing_preservation,0,1,1,0,1,1,1,2.1814159292035398,"['wrong_output_language', 'task_noncompletion']"
+es_en_SB_006,gpt-4.1-nano,baseline,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_006,gpt-4.1-nano,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_007,gpt-4.1-nano,baseline,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_007,gpt-4.1-nano,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_006,gpt-4.1-nano,baseline,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_006,gpt-4.1-nano,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_007,gpt-4.1-nano,baseline,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_007,gpt-4.1-nano,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_006,gpt-4.1-nano,baseline,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_006,gpt-4.1-nano,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_007,gpt-4.1-nano,baseline,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_007,gpt-4.1-nano,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_006,gpt-4.1-nano,baseline,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_006,gpt-4.1-nano,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_007,gpt-4.1-nano,baseline,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_007,gpt-4.1-nano,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_006,gpt-4.1-nano,baseline,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_006,gpt-4.1-nano,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_007,gpt-4.1-nano,baseline,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_007,gpt-4.1-nano,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_006,gpt-4.1-nano,baseline,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_006,gpt-4.1-nano,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_007,gpt-4.1-nano,baseline,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_007,gpt-4.1-nano,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_006,gpt-4.1-nano,baseline,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_006,gpt-4.1-nano,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_007,gpt-4.1-nano,baseline,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_007,gpt-4.1-nano,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_006,gpt-4.1-nano,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.5825242718446604,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_006,gpt-4.1-nano,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_007,gpt-4.1-nano,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.548780487804878,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_007,gpt-4.1-nano,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_006,gpt-4.1-nano,baseline,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_006,gpt-4.1-nano,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_007,gpt-4.1-nano,baseline,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_007,gpt-4.1-nano,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_006,gpt-4.1-nano,baseline,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_006,gpt-4.1-nano,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_007,gpt-4.1-nano,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.4594594594594597,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_007,gpt-4.1-nano,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_006,gpt-4.1-nano,baseline,ar-en,script_register_locale,0,3,0,1,1,0,0,4.406593406593407,['preservation_failure']
+ar_en_SD_006,gpt-4.1-nano,contract,ar-en,script_register_locale,0,3,0,1,1,0,0,3.5161290322580645,['preservation_failure']
+ar_en_SD_007,gpt-4.1-nano,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.6744186046511627,"['preservation_failure', 'task_noncompletion']"
+ar_en_SD_007,gpt-4.1-nano,contract,ar-en,script_register_locale,0,1,1,0,1,1,1,2.1507936507936507,"['preservation_failure', 'task_noncompletion']"

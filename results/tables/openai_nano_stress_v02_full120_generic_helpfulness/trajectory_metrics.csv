@@ -1,0 +1,121 @@
+item_id,model,condition,language_pair,task_family,ftga,rtt,resolved,unresolved,initially_failed,repair_success_1,repair_success_2,token_tax,first_failure_types
+ar_en_SA_001,gpt-4.1-nano,generic_helpfulness,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_002,gpt-4.1-nano,generic_helpfulness,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_003,gpt-4.1-nano,generic_helpfulness,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_004,gpt-4.1-nano,generic_helpfulness,ar-en,editing_preservation,0,1,1,0,1,1,1,2.2967032967032965,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_005,gpt-4.1-nano,generic_helpfulness,ar-en,editing_preservation,0,1,1,0,1,1,1,2.308988764044944,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_006,gpt-4.1-nano,generic_helpfulness,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_007,gpt-4.1-nano,generic_helpfulness,ar-en,editing_preservation,0,1,1,0,1,1,1,2.260115606936416,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_008,gpt-4.1-nano,generic_helpfulness,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_009,gpt-4.1-nano,generic_helpfulness,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_010,gpt-4.1-nano,generic_helpfulness,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_001,gpt-4.1-nano,generic_helpfulness,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_002,gpt-4.1-nano,generic_helpfulness,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_003,gpt-4.1-nano,generic_helpfulness,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_004,gpt-4.1-nano,generic_helpfulness,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_005,gpt-4.1-nano,generic_helpfulness,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_006,gpt-4.1-nano,generic_helpfulness,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_007,gpt-4.1-nano,generic_helpfulness,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_008,gpt-4.1-nano,generic_helpfulness,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_009,gpt-4.1-nano,generic_helpfulness,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_010,gpt-4.1-nano,generic_helpfulness,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_001,gpt-4.1-nano,generic_helpfulness,ar-en,quote_preservation,0,1,1,0,1,1,1,2.187878787878788,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_002,gpt-4.1-nano,generic_helpfulness,ar-en,quote_preservation,0,1,1,0,1,1,1,2.198757763975155,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_003,gpt-4.1-nano,generic_helpfulness,ar-en,quote_preservation,0,1,1,0,1,1,1,2.2058823529411766,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_004,gpt-4.1-nano,generic_helpfulness,ar-en,quote_preservation,0,1,1,0,1,1,1,2.1901840490797544,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_005,gpt-4.1-nano,generic_helpfulness,ar-en,quote_preservation,0,1,1,0,1,1,1,2.2,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_006,gpt-4.1-nano,generic_helpfulness,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_007,gpt-4.1-nano,generic_helpfulness,ar-en,quote_preservation,0,1,1,0,1,1,1,2.206060606060606,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_008,gpt-4.1-nano,generic_helpfulness,ar-en,quote_preservation,0,1,1,0,1,1,1,2.1987951807228914,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_009,gpt-4.1-nano,generic_helpfulness,ar-en,quote_preservation,0,1,1,0,1,1,1,2.19375,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_010,gpt-4.1-nano,generic_helpfulness,ar-en,quote_preservation,0,1,1,0,1,1,1,2.201219512195122,"['preservation_failure', 'task_noncompletion']"
+ar_en_SD_001,gpt-4.1-nano,generic_helpfulness,ar-en,script_register_locale,0,1,1,0,1,1,1,2.2176470588235295,"['preservation_failure', 'task_noncompletion']"
+ar_en_SD_002,gpt-4.1-nano,generic_helpfulness,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_003,gpt-4.1-nano,generic_helpfulness,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_004,gpt-4.1-nano,generic_helpfulness,ar-en,script_register_locale,0,1,1,0,1,1,1,2.212121212121212,"['preservation_failure', 'task_noncompletion']"
+ar_en_SD_005,gpt-4.1-nano,generic_helpfulness,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_006,gpt-4.1-nano,generic_helpfulness,ar-en,script_register_locale,0,3,0,1,1,0,0,3.7032967032967035,['preservation_failure']
+ar_en_SD_007,gpt-4.1-nano,generic_helpfulness,ar-en,script_register_locale,0,1,1,0,1,1,1,2.241573033707865,"['preservation_failure', 'task_noncompletion']"
+ar_en_SD_008,gpt-4.1-nano,generic_helpfulness,ar-en,script_register_locale,0,3,0,1,1,0,0,3.8469945355191255,['preservation_failure']
+ar_en_SD_009,gpt-4.1-nano,generic_helpfulness,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_010,gpt-4.1-nano,generic_helpfulness,ar-en,script_register_locale,0,1,1,0,1,1,1,2.227777777777778,['preservation_failure']
+es_en_SA_001,gpt-4.1-nano,generic_helpfulness,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_002,gpt-4.1-nano,generic_helpfulness,es-en,editing_preservation,0,1,1,0,1,1,1,2.259259259259259,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_003,gpt-4.1-nano,generic_helpfulness,es-en,editing_preservation,0,1,1,0,1,1,1,2.2634730538922154,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_004,gpt-4.1-nano,generic_helpfulness,es-en,editing_preservation,0,1,1,0,1,1,1,2.2738095238095237,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_005,gpt-4.1-nano,generic_helpfulness,es-en,editing_preservation,0,1,1,0,1,1,1,2.276470588235294,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_006,gpt-4.1-nano,generic_helpfulness,es-en,editing_preservation,0,1,1,0,1,1,1,2.2699386503067487,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_007,gpt-4.1-nano,generic_helpfulness,es-en,editing_preservation,0,1,1,0,1,1,1,2.25625,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_008,gpt-4.1-nano,generic_helpfulness,es-en,editing_preservation,0,1,1,0,1,1,1,2.268292682926829,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_009,gpt-4.1-nano,generic_helpfulness,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_010,gpt-4.1-nano,generic_helpfulness,es-en,editing_preservation,0,1,1,0,1,1,1,2.252808988764045,"['wrong_output_language', 'task_noncompletion']"
+es_en_SB_001,gpt-4.1-nano,generic_helpfulness,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_002,gpt-4.1-nano,generic_helpfulness,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_003,gpt-4.1-nano,generic_helpfulness,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_004,gpt-4.1-nano,generic_helpfulness,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_005,gpt-4.1-nano,generic_helpfulness,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_006,gpt-4.1-nano,generic_helpfulness,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_007,gpt-4.1-nano,generic_helpfulness,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_008,gpt-4.1-nano,generic_helpfulness,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_009,gpt-4.1-nano,generic_helpfulness,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_010,gpt-4.1-nano,generic_helpfulness,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_001,gpt-4.1-nano,generic_helpfulness,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_002,gpt-4.1-nano,generic_helpfulness,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_003,gpt-4.1-nano,generic_helpfulness,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_004,gpt-4.1-nano,generic_helpfulness,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_005,gpt-4.1-nano,generic_helpfulness,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_006,gpt-4.1-nano,generic_helpfulness,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_007,gpt-4.1-nano,generic_helpfulness,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_008,gpt-4.1-nano,generic_helpfulness,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_009,gpt-4.1-nano,generic_helpfulness,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_010,gpt-4.1-nano,generic_helpfulness,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_001,gpt-4.1-nano,generic_helpfulness,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_002,gpt-4.1-nano,generic_helpfulness,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_003,gpt-4.1-nano,generic_helpfulness,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_004,gpt-4.1-nano,generic_helpfulness,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_005,gpt-4.1-nano,generic_helpfulness,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_006,gpt-4.1-nano,generic_helpfulness,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_007,gpt-4.1-nano,generic_helpfulness,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_008,gpt-4.1-nano,generic_helpfulness,es-en,script_register_locale,0,3,0,1,1,0,0,3.691860465116279,['preservation_failure']
+es_en_SD_009,gpt-4.1-nano,generic_helpfulness,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_010,gpt-4.1-nano,generic_helpfulness,es-en,script_register_locale,0,1,1,0,1,1,1,2.238372093023256,['preservation_failure']
+hi_en_SA_001,gpt-4.1-nano,generic_helpfulness,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_002,gpt-4.1-nano,generic_helpfulness,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_003,gpt-4.1-nano,generic_helpfulness,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_004,gpt-4.1-nano,generic_helpfulness,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_005,gpt-4.1-nano,generic_helpfulness,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_006,gpt-4.1-nano,generic_helpfulness,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_007,gpt-4.1-nano,generic_helpfulness,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_008,gpt-4.1-nano,generic_helpfulness,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_009,gpt-4.1-nano,generic_helpfulness,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_010,gpt-4.1-nano,generic_helpfulness,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_001,gpt-4.1-nano,generic_helpfulness,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_002,gpt-4.1-nano,generic_helpfulness,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_003,gpt-4.1-nano,generic_helpfulness,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_004,gpt-4.1-nano,generic_helpfulness,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_005,gpt-4.1-nano,generic_helpfulness,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_006,gpt-4.1-nano,generic_helpfulness,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_007,gpt-4.1-nano,generic_helpfulness,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_008,gpt-4.1-nano,generic_helpfulness,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_009,gpt-4.1-nano,generic_helpfulness,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_010,gpt-4.1-nano,generic_helpfulness,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_001,gpt-4.1-nano,generic_helpfulness,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_002,gpt-4.1-nano,generic_helpfulness,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_003,gpt-4.1-nano,generic_helpfulness,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_004,gpt-4.1-nano,generic_helpfulness,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_005,gpt-4.1-nano,generic_helpfulness,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_006,gpt-4.1-nano,generic_helpfulness,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_007,gpt-4.1-nano,generic_helpfulness,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_008,gpt-4.1-nano,generic_helpfulness,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_009,gpt-4.1-nano,generic_helpfulness,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_010,gpt-4.1-nano,generic_helpfulness,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_001,gpt-4.1-nano,generic_helpfulness,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_002,gpt-4.1-nano,generic_helpfulness,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_003,gpt-4.1-nano,generic_helpfulness,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_004,gpt-4.1-nano,generic_helpfulness,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_005,gpt-4.1-nano,generic_helpfulness,hi-en,script_register_locale,0,2,1,0,1,0,1,3.5783132530120483,['wrong_output_language']
+hi_en_SD_006,gpt-4.1-nano,generic_helpfulness,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_007,gpt-4.1-nano,generic_helpfulness,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_008,gpt-4.1-nano,generic_helpfulness,hi-en,script_register_locale,0,3,0,1,1,0,0,3.6510416666666665,['preservation_failure']
+hi_en_SD_009,gpt-4.1-nano,generic_helpfulness,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_010,gpt-4.1-nano,generic_helpfulness,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]

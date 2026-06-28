@@ -1,0 +1,4 @@
+model,n_pairs,mean_rtt_reduction,improved_n,worsened_n,tied_n,baseline_fail_contract_pass_n,baseline_pass_contract_fail_n,baseline_unresolved_contract_resolved_n,baseline_resolved_contract_unresolved_n
+gpt-4.1,120,0.133,20,2,98,20,0,0,2
+gpt-4.1-mini,120,0.033,5,1,114,4,0,0,1
+gpt-4.1-nano,120,0.142,17,3,100,12,1,4,2

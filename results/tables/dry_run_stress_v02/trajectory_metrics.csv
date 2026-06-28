@@ -1,0 +1,241 @@
+item_id,model,condition,language_pair,task_family,ftga,rtt,resolved,unresolved,initially_failed,repair_success_1,repair_success_2,token_tax,first_failure_types
+es_en_SA_001,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.491228070175439,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_001,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_002,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.5454545454545454,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_002,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_003,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.4915254237288136,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_003,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_004,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.5185185185185186,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_004,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_005,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.5357142857142856,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_005,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_006,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.508771929824561,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_006,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_007,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.537037037037037,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_007,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_008,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.508771929824561,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_008,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_009,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.5272727272727273,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_009,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_010,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.5,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_010,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_001,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.3529411764705883,['task_noncompletion']
+es_en_SB_001,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_002,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.411764705882353,['task_noncompletion']
+es_en_SB_002,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_003,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.46,['task_noncompletion']
+es_en_SB_003,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_004,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.3653846153846154,['task_noncompletion']
+es_en_SB_004,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_005,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.358490566037736,['task_noncompletion']
+es_en_SB_005,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_006,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.4375,['task_noncompletion']
+es_en_SB_006,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_007,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.4166666666666665,['task_noncompletion']
+es_en_SB_007,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_008,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.411764705882353,['task_noncompletion']
+es_en_SB_008,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_009,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.3541666666666665,['task_noncompletion']
+es_en_SB_009,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_010,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.36,['task_noncompletion']
+es_en_SB_010,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_001,dry-model,baseline,es-en,quote_preservation,0,1,1,0,1,1,1,2.59375,"['preservation_failure', 'task_noncompletion']"
+es_en_SC_001,dry-model,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_002,dry-model,baseline,es-en,quote_preservation,0,1,1,0,1,1,1,2.6153846153846154,"['preservation_failure', 'task_noncompletion']"
+es_en_SC_002,dry-model,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_003,dry-model,baseline,es-en,quote_preservation,0,1,1,0,1,1,1,2.6307692307692307,"['preservation_failure', 'task_noncompletion']"
+es_en_SC_003,dry-model,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_004,dry-model,baseline,es-en,quote_preservation,0,1,1,0,1,1,1,2.619047619047619,"['preservation_failure', 'task_noncompletion']"
+es_en_SC_004,dry-model,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_005,dry-model,baseline,es-en,quote_preservation,0,1,1,0,1,1,1,2.625,"['preservation_failure', 'task_noncompletion']"
+es_en_SC_005,dry-model,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_006,dry-model,baseline,es-en,quote_preservation,0,1,1,0,1,1,1,2.5873015873015874,"['preservation_failure', 'task_noncompletion']"
+es_en_SC_006,dry-model,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_007,dry-model,baseline,es-en,quote_preservation,0,1,1,0,1,1,1,2.6031746031746033,"['preservation_failure', 'task_noncompletion']"
+es_en_SC_007,dry-model,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_008,dry-model,baseline,es-en,quote_preservation,0,1,1,0,1,1,1,2.6,"['preservation_failure', 'task_noncompletion']"
+es_en_SC_008,dry-model,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_009,dry-model,baseline,es-en,quote_preservation,0,1,1,0,1,1,1,2.625,"['preservation_failure', 'task_noncompletion']"
+es_en_SC_009,dry-model,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_010,dry-model,baseline,es-en,quote_preservation,0,1,1,0,1,1,1,2.625,"['preservation_failure', 'task_noncompletion']"
+es_en_SC_010,dry-model,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_001,dry-model,baseline,es-en,script_register_locale,0,1,1,0,1,1,1,2.619047619047619,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+es_en_SD_001,dry-model,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_002,dry-model,baseline,es-en,script_register_locale,0,1,1,0,1,1,1,2.626865671641791,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+es_en_SD_002,dry-model,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_003,dry-model,baseline,es-en,script_register_locale,0,1,1,0,1,1,1,2.5692307692307694,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+es_en_SD_003,dry-model,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_004,dry-model,baseline,es-en,script_register_locale,0,1,1,0,1,1,1,2.609375,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+es_en_SD_004,dry-model,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_005,dry-model,baseline,es-en,script_register_locale,0,1,1,0,1,1,1,2.6153846153846154,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+es_en_SD_005,dry-model,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_006,dry-model,baseline,es-en,script_register_locale,0,1,1,0,1,1,1,2.5972222222222223,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+es_en_SD_006,dry-model,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_007,dry-model,baseline,es-en,script_register_locale,0,1,1,0,1,1,1,2.5671641791044775,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+es_en_SD_007,dry-model,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_008,dry-model,baseline,es-en,script_register_locale,0,1,1,0,1,1,1,2.5970149253731343,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+es_en_SD_008,dry-model,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_009,dry-model,baseline,es-en,script_register_locale,0,1,1,0,1,1,1,2.609375,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+es_en_SD_009,dry-model,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_010,dry-model,baseline,es-en,script_register_locale,0,1,1,0,1,1,1,2.609375,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+es_en_SD_010,dry-model,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_001,dry-model,baseline,hi-en,editing_preservation,0,1,1,0,1,1,1,2.5283018867924527,"['wrong_output_language', 'task_noncompletion']"
+hi_en_SA_001,dry-model,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_002,dry-model,baseline,hi-en,editing_preservation,0,1,1,0,1,1,1,2.576923076923077,"['wrong_output_language', 'task_noncompletion']"
+hi_en_SA_002,dry-model,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_003,dry-model,baseline,hi-en,editing_preservation,0,1,1,0,1,1,1,2.517857142857143,"['wrong_output_language', 'task_noncompletion']"
+hi_en_SA_003,dry-model,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_004,dry-model,baseline,hi-en,editing_preservation,0,1,1,0,1,1,1,2.549019607843137,"['wrong_output_language', 'task_noncompletion']"
+hi_en_SA_004,dry-model,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_005,dry-model,baseline,hi-en,editing_preservation,0,1,1,0,1,1,1,2.5660377358490565,"['wrong_output_language', 'task_noncompletion']"
+hi_en_SA_005,dry-model,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_006,dry-model,baseline,hi-en,editing_preservation,0,1,1,0,1,1,1,2.537037037037037,"['wrong_output_language', 'task_noncompletion']"
+hi_en_SA_006,dry-model,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_007,dry-model,baseline,hi-en,editing_preservation,0,1,1,0,1,1,1,2.5686274509803924,"['wrong_output_language', 'task_noncompletion']"
+hi_en_SA_007,dry-model,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_008,dry-model,baseline,hi-en,editing_preservation,0,1,1,0,1,1,1,2.547169811320755,"['wrong_output_language', 'task_noncompletion']"
+hi_en_SA_008,dry-model,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_009,dry-model,baseline,hi-en,editing_preservation,0,1,1,0,1,1,1,2.5686274509803924,"['wrong_output_language', 'task_noncompletion']"
+hi_en_SA_009,dry-model,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_010,dry-model,baseline,hi-en,editing_preservation,0,1,1,0,1,1,1,2.5272727272727273,"['wrong_output_language', 'task_noncompletion']"
+hi_en_SA_010,dry-model,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_001,dry-model,baseline,hi-en,output_language_inference,0,1,1,0,1,1,1,2.372549019607843,['task_noncompletion']
+hi_en_SB_001,dry-model,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_002,dry-model,baseline,hi-en,output_language_inference,0,1,1,0,1,1,1,2.3846153846153846,['task_noncompletion']
+hi_en_SB_002,dry-model,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_003,dry-model,baseline,hi-en,output_language_inference,0,1,1,0,1,1,1,2.48,['task_noncompletion']
+hi_en_SB_003,dry-model,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_004,dry-model,baseline,hi-en,output_language_inference,0,1,1,0,1,1,1,2.3846153846153846,['task_noncompletion']
+hi_en_SB_004,dry-model,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_005,dry-model,baseline,hi-en,output_language_inference,0,1,1,0,1,1,1,2.3333333333333335,['task_noncompletion']
+hi_en_SB_005,dry-model,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_006,dry-model,baseline,hi-en,output_language_inference,0,1,1,0,1,1,1,2.4081632653061225,['task_noncompletion']
+hi_en_SB_006,dry-model,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_007,dry-model,baseline,hi-en,output_language_inference,0,1,1,0,1,1,1,2.4375,['task_noncompletion']
+hi_en_SB_007,dry-model,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_008,dry-model,baseline,hi-en,output_language_inference,0,1,1,0,1,1,1,2.3846153846153846,['task_noncompletion']
+hi_en_SB_008,dry-model,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_009,dry-model,baseline,hi-en,output_language_inference,0,1,1,0,1,1,1,2.375,['task_noncompletion']
+hi_en_SB_009,dry-model,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_010,dry-model,baseline,hi-en,output_language_inference,0,1,1,0,1,1,1,2.3333333333333335,['task_noncompletion']
+hi_en_SB_010,dry-model,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_001,dry-model,baseline,hi-en,quote_preservation,0,1,1,0,1,1,1,2.4696969696969697,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SC_001,dry-model,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_002,dry-model,baseline,hi-en,quote_preservation,0,1,1,0,1,1,1,2.4705882352941178,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SC_002,dry-model,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_003,dry-model,baseline,hi-en,quote_preservation,0,1,1,0,1,1,1,2.485294117647059,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SC_003,dry-model,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_004,dry-model,baseline,hi-en,quote_preservation,0,1,1,0,1,1,1,2.4696969696969697,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SC_004,dry-model,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_005,dry-model,baseline,hi-en,quote_preservation,0,1,1,0,1,1,1,2.4776119402985075,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SC_005,dry-model,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_006,dry-model,baseline,hi-en,quote_preservation,0,1,1,0,1,1,1,2.4615384615384617,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SC_006,dry-model,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_007,dry-model,baseline,hi-en,quote_preservation,0,1,1,0,1,1,1,2.4545454545454546,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SC_007,dry-model,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_008,dry-model,baseline,hi-en,quote_preservation,0,1,1,0,1,1,1,2.4776119402985075,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SC_008,dry-model,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_009,dry-model,baseline,hi-en,quote_preservation,0,1,1,0,1,1,1,2.4776119402985075,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SC_009,dry-model,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_010,dry-model,baseline,hi-en,quote_preservation,0,1,1,0,1,1,1,2.4776119402985075,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SC_010,dry-model,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_001,dry-model,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.4923076923076923,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SD_001,dry-model,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_002,dry-model,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.4857142857142858,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SD_002,dry-model,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_003,dry-model,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.4925373134328357,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SD_003,dry-model,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_004,dry-model,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.515151515151515,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SD_004,dry-model,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_005,dry-model,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.514705882352941,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SD_005,dry-model,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_006,dry-model,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.4594594594594597,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SD_006,dry-model,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_007,dry-model,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.4782608695652173,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SD_007,dry-model,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_008,dry-model,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.4782608695652173,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SD_008,dry-model,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_009,dry-model,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.5303030303030303,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SD_009,dry-model,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_010,dry-model,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.5,"['wrong_output_language', 'preservation_failure', 'task_noncompletion']"
+hi_en_SD_010,dry-model,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_001,dry-model,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.5090909090909093,"['wrong_output_language', 'task_noncompletion']"
+ar_en_SA_001,dry-model,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_002,dry-model,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.5555555555555554,"['wrong_output_language', 'task_noncompletion']"
+ar_en_SA_002,dry-model,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_003,dry-model,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.5,"['wrong_output_language', 'task_noncompletion']"
+ar_en_SA_003,dry-model,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_004,dry-model,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.5283018867924527,"['wrong_output_language', 'task_noncompletion']"
+ar_en_SA_004,dry-model,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_005,dry-model,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.5454545454545454,"['wrong_output_language', 'task_noncompletion']"
+ar_en_SA_005,dry-model,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_006,dry-model,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.517857142857143,"['wrong_output_language', 'task_noncompletion']"
+ar_en_SA_006,dry-model,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_007,dry-model,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.547169811320755,"['wrong_output_language', 'task_noncompletion']"
+ar_en_SA_007,dry-model,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_008,dry-model,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.5272727272727273,"['wrong_output_language', 'task_noncompletion']"
+ar_en_SA_008,dry-model,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_009,dry-model,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.547169811320755,"['wrong_output_language', 'task_noncompletion']"
+ar_en_SA_009,dry-model,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_010,dry-model,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.508771929824561,"['wrong_output_language', 'task_noncompletion']"
+ar_en_SA_010,dry-model,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_001,dry-model,baseline,ar-en,output_language_inference,0,1,1,0,1,1,1,2.404255319148936,['task_noncompletion']
+ar_en_SB_001,dry-model,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_002,dry-model,baseline,ar-en,output_language_inference,0,1,1,0,1,1,1,2.4166666666666665,['task_noncompletion']
+ar_en_SB_002,dry-model,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_003,dry-model,baseline,ar-en,output_language_inference,0,1,1,0,1,1,1,2.5217391304347827,['task_noncompletion']
+ar_en_SB_003,dry-model,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_004,dry-model,baseline,ar-en,output_language_inference,0,1,1,0,1,1,1,2.4166666666666665,['task_noncompletion']
+ar_en_SB_004,dry-model,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_005,dry-model,baseline,ar-en,output_language_inference,0,1,1,0,1,1,1,2.36,['task_noncompletion']
+ar_en_SB_005,dry-model,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_006,dry-model,baseline,ar-en,output_language_inference,0,1,1,0,1,1,1,2.4444444444444446,['task_noncompletion']
+ar_en_SB_006,dry-model,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_007,dry-model,baseline,ar-en,output_language_inference,0,1,1,0,1,1,1,2.477272727272727,['task_noncompletion']
+ar_en_SB_007,dry-model,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_008,dry-model,baseline,ar-en,output_language_inference,0,1,1,0,1,1,1,2.4166666666666665,['task_noncompletion']
+ar_en_SB_008,dry-model,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_009,dry-model,baseline,ar-en,output_language_inference,0,1,1,0,1,1,1,2.409090909090909,['task_noncompletion']
+ar_en_SB_009,dry-model,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_010,dry-model,baseline,ar-en,output_language_inference,0,1,1,0,1,1,1,2.3617021276595747,['task_noncompletion']
+ar_en_SB_010,dry-model,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_001,dry-model,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.435483870967742,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SC_001,dry-model,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_002,dry-model,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.4603174603174605,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SC_002,dry-model,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_003,dry-model,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.4603174603174605,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SC_003,dry-model,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_004,dry-model,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.442622950819672,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SC_004,dry-model,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_005,dry-model,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.4516129032258065,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SC_005,dry-model,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_006,dry-model,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.4262295081967213,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SC_006,dry-model,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_007,dry-model,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.442622950819672,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SC_007,dry-model,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_008,dry-model,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.4444444444444446,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SC_008,dry-model,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_009,dry-model,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.4516129032258065,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SC_009,dry-model,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_010,dry-model,baseline,ar-en,quote_preservation,0,1,1,0,1,1,1,2.4516129032258065,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SC_010,dry-model,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_001,dry-model,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.4310344827586206,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SD_001,dry-model,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_002,dry-model,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.4516129032258065,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SD_002,dry-model,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_003,dry-model,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.433333333333333,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SD_003,dry-model,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_004,dry-model,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.457627118644068,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SD_004,dry-model,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_005,dry-model,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.466666666666667,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SD_005,dry-model,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_006,dry-model,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.4328358208955225,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SD_006,dry-model,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_007,dry-model,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.435483870967742,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SD_007,dry-model,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_008,dry-model,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.467741935483871,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SD_008,dry-model,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_009,dry-model,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.4745762711864407,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SD_009,dry-model,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_010,dry-model,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.4745762711864407,"['wrong_output_language', 'script_mismatch', 'preservation_failure', 'task_noncompletion']"
+ar_en_SD_010,dry-model,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]

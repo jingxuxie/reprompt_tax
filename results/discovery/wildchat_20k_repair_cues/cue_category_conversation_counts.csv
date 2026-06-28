@@ -1,0 +1,7 @@
+category,cue_hits,unique_conversations,top_row_language,top_row_language_hits,top_message_language,top_message_language_hits
+generic_repair,93,81,English,90,English,85
+preservation_failure,25,18,English,24,English,23
+register_locale_mismatch,16,13,English,16,English,16
+script_mismatch,4,2,English,4,English,4
+unwanted_translation,13,13,English,10,English,13
+wrong_output_language,68,48,English,38,English,45

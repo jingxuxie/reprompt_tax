@@ -1,0 +1,5 @@
+model,condition,task_family,n,ftga,mean_rtt,unresolved_rate,repair_success_at_1,repair_success_at_2,mean_token_tax,initially_failed_n,ftga_ci_low,ftga_ci_high,mean_rtt_ci_low,mean_rtt_ci_high
+dry-model,baseline,editing_preservation,10,0,1,0,1.0,1.0,2.449676761117199,10,0,0,1,1
+dry-model,baseline,output_language_inference,2,0,1,0,1.0,1.0,2.3389487870619945,2,0,0,1,1
+dry-model,contract,editing_preservation,10,1,0,0,,,1.0,0,1,1,0,0
+dry-model,contract,output_language_inference,2,1,0,0,,,1.0,0,1,1,0,0

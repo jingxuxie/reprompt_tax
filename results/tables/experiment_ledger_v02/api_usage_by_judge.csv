@@ -1,0 +1,2 @@
+artifact_label,judge_model,api_response_rows,input_tokens,output_tokens,total_tokens,created_at_start,created_at_end
+judge_audit,gpt-4.1,72,20607,5339,25946,2026-06-28T03:58:53.153879+00:00,2026-06-28T03:59:58.189049+00:00

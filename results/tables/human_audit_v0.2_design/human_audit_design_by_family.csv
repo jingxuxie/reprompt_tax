@@ -1,0 +1,5 @@
+task_family,n,auto_pass_n,auto_fail_n,auto_pass_rate
+editing_preservation,18,9,9,0.5
+output_language_inference,18,18,0,1.0
+quote_preservation,18,16,2,0.8889
+script_register_locale,18,14,4,0.7778

@@ -1,0 +1,4 @@
+language_pair,models,mean_delta_ftga_pp,mean_rtt_reduction,mean_token_tax_reduction,total_ftga_improved_n,total_ftga_worsened_n,total_ftga_tied_n
+ar-en,3,20.0,0.217,0.511,24,0,96
+es-en,3,9.2,0.083,0.265,11,0,109
+hi-en,3,0.0,0.008,0.035,1,1,118

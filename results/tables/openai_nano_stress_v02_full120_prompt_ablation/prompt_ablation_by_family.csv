@@ -1,0 +1,17 @@
+model,condition,task_family,n,ftga,mean_rtt,mean_token_tax,unresolved_rate,initially_failed_n
+gpt-4.1-nano,baseline,editing_preservation,30,0.3333333333333333,0.6666666666666666,2.062884849061465,0.0,20
+gpt-4.1-nano,baseline,output_language_inference,30,1.0,0.0,1.0,0.0,0
+gpt-4.1-nano,baseline,quote_preservation,30,0.7,0.6333333333333333,1.948480012954899,0.13333333333333333,9
+gpt-4.1-nano,baseline,script_register_locale,30,0.6666666666666666,0.5666666666666667,1.7596455171874783,0.1,10
+gpt-4.1-nano,generic_helpfulness,editing_preservation,30,0.6333333333333333,0.36666666666666664,1.4662036804959524,0.0,11
+gpt-4.1-nano,generic_helpfulness,output_language_inference,30,1.0,0.0,1.0,0.0,0
+gpt-4.1-nano,generic_helpfulness,quote_preservation,30,0.7,0.3,1.3594176084284497,0.0,9
+gpt-4.1-nano,generic_helpfulness,script_register_locale,30,0.6666666666666666,0.6333333333333333,1.6536332599688155,0.13333333333333333,10
+gpt-4.1-nano,content_preservation,editing_preservation,30,0.8,0.26666666666666666,1.2135085150754579,0.03333333333333333,6
+gpt-4.1-nano,content_preservation,output_language_inference,30,1.0,0.0,1.0,0.0,0
+gpt-4.1-nano,content_preservation,quote_preservation,30,0.7333333333333333,0.26666666666666666,1.330081083009255,0.0,8
+gpt-4.1-nano,content_preservation,script_register_locale,30,0.6666666666666666,0.5333333333333333,1.571733776359898,0.1,10
+gpt-4.1-nano,contract,editing_preservation,30,0.6666666666666666,0.3333333333333333,1.3973110704354312,0.0,10
+gpt-4.1-nano,contract,output_language_inference,30,1.0,0.0,1.0,0.0,0
+gpt-4.1-nano,contract,quote_preservation,30,0.7333333333333333,0.36666666666666664,1.398505593465821,0.03333333333333333,8
+gpt-4.1-nano,contract,script_register_locale,30,0.6666666666666666,0.6,1.569835395157398,0.13333333333333333,10

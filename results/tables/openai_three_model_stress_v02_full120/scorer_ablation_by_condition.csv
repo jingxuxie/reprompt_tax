@@ -1,0 +1,3 @@
+condition,n,actual_ftga_n,actual_ftga_pct,actual_fail_n,relax_language_ftga_n,relax_language_ftga_pct,relax_language_delta_pp,sole_language_blocker_n,relax_script_ftga_n,relax_script_ftga_pct,relax_script_delta_pp,sole_script_blocker_n,relax_preservation_ftga_n,relax_preservation_ftga_pct,relax_preservation_delta_pp,sole_preservation_blocker_n,relax_task_ftga_n,relax_task_ftga_pct,relax_task_delta_pp,sole_task_blocker_n,relax_register_locale_ftga_n,relax_register_locale_ftga_pct,relax_register_locale_delta_pp,sole_register_locale_blocker_n
+baseline,360,264,73.3,96,275,76.4,3.1,11,264,73.3,0.0,0,284,78.9,5.6,20,264,73.3,0.0,0,264,73.3,0.0,0
+contract,360,299,83.1,61,300,83.3,0.2,1,299,83.1,0.0,0,318,88.3,5.2,19,299,83.1,0.0,0,299,83.1,0.0,0

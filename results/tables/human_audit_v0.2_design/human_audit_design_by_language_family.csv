@@ -1,0 +1,13 @@
+language_pair,task_family,n,auto_pass_n,auto_fail_n,auto_pass_rate
+ar-en,editing_preservation,6,2,4,0.3333
+ar-en,output_language_inference,6,6,0,1.0
+ar-en,quote_preservation,6,4,2,0.6667
+ar-en,script_register_locale,6,4,2,0.6667
+es-en,editing_preservation,6,1,5,0.1667
+es-en,output_language_inference,6,6,0,1.0
+es-en,quote_preservation,6,6,0,1.0
+es-en,script_register_locale,6,5,1,0.8333
+hi-en,editing_preservation,6,6,0,1.0
+hi-en,output_language_inference,6,6,0,1.0
+hi-en,quote_preservation,6,6,0,1.0
+hi-en,script_register_locale,6,5,1,0.8333

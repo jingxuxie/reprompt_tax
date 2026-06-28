@@ -1,0 +1,121 @@
+item_id,model,condition,language_pair,task_family,ftga,rtt,resolved,unresolved,initially_failed,repair_success_1,repair_success_2,token_tax,first_failure_types
+es_en_SA_001,gpt-4.1-nano,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.5384615384615383,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_001,gpt-4.1-nano,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SA_002,gpt-4.1-nano,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.589041095890411,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_002,gpt-4.1-nano,contract,es-en,editing_preservation,0,1,1,0,1,1,1,2.18859649122807,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_003,gpt-4.1-nano,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.546511627906977,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_003,gpt-4.1-nano,contract,es-en,editing_preservation,0,1,1,0,1,1,1,2.1931330472103006,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_004,gpt-4.1-nano,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.6153846153846154,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_004,gpt-4.1-nano,contract,es-en,editing_preservation,0,1,1,0,1,1,1,2.1991341991341993,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_005,gpt-4.1-nano,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.6447368421052633,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_005,gpt-4.1-nano,contract,es-en,editing_preservation,0,1,1,0,1,1,1,2.1864406779661016,"['wrong_output_language', 'task_noncompletion']"
+es_en_SB_001,gpt-4.1-nano,baseline,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_001,gpt-4.1-nano,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_002,gpt-4.1-nano,baseline,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_002,gpt-4.1-nano,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_003,gpt-4.1-nano,baseline,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_003,gpt-4.1-nano,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_004,gpt-4.1-nano,baseline,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_004,gpt-4.1-nano,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_005,gpt-4.1-nano,baseline,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_005,gpt-4.1-nano,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_001,gpt-4.1-nano,baseline,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_001,gpt-4.1-nano,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_002,gpt-4.1-nano,baseline,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_002,gpt-4.1-nano,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_003,gpt-4.1-nano,baseline,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_003,gpt-4.1-nano,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_004,gpt-4.1-nano,baseline,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_004,gpt-4.1-nano,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_005,gpt-4.1-nano,baseline,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_005,gpt-4.1-nano,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_001,gpt-4.1-nano,baseline,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_001,gpt-4.1-nano,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_002,gpt-4.1-nano,baseline,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_002,gpt-4.1-nano,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_003,gpt-4.1-nano,baseline,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_003,gpt-4.1-nano,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_004,gpt-4.1-nano,baseline,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_004,gpt-4.1-nano,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_005,gpt-4.1-nano,baseline,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_005,gpt-4.1-nano,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_001,gpt-4.1-nano,baseline,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_001,gpt-4.1-nano,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_002,gpt-4.1-nano,baseline,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_002,gpt-4.1-nano,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_003,gpt-4.1-nano,baseline,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_003,gpt-4.1-nano,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_004,gpt-4.1-nano,baseline,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_004,gpt-4.1-nano,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_005,gpt-4.1-nano,baseline,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_005,gpt-4.1-nano,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_001,gpt-4.1-nano,baseline,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_001,gpt-4.1-nano,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_002,gpt-4.1-nano,baseline,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_002,gpt-4.1-nano,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_003,gpt-4.1-nano,baseline,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_003,gpt-4.1-nano,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_004,gpt-4.1-nano,baseline,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_004,gpt-4.1-nano,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_005,gpt-4.1-nano,baseline,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_005,gpt-4.1-nano,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_001,gpt-4.1-nano,baseline,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_001,gpt-4.1-nano,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_002,gpt-4.1-nano,baseline,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_002,gpt-4.1-nano,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_003,gpt-4.1-nano,baseline,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_003,gpt-4.1-nano,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_004,gpt-4.1-nano,baseline,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_004,gpt-4.1-nano,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_005,gpt-4.1-nano,baseline,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_005,gpt-4.1-nano,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_001,gpt-4.1-nano,baseline,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_001,gpt-4.1-nano,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_002,gpt-4.1-nano,baseline,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_002,gpt-4.1-nano,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_003,gpt-4.1-nano,baseline,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_003,gpt-4.1-nano,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_004,gpt-4.1-nano,baseline,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_004,gpt-4.1-nano,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_005,gpt-4.1-nano,baseline,hi-en,script_register_locale,0,1,1,0,1,1,1,2.4133333333333336,['wrong_output_language']
+hi_en_SD_005,gpt-4.1-nano,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_001,gpt-4.1-nano,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.5491803278688523,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_001,gpt-4.1-nano,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_002,gpt-4.1-nano,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.63265306122449,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_002,gpt-4.1-nano,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_003,gpt-4.1-nano,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.556701030927835,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_003,gpt-4.1-nano,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_004,gpt-4.1-nano,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.548076923076923,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_004,gpt-4.1-nano,contract,ar-en,editing_preservation,0,1,1,0,1,1,1,2.216,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_005,gpt-4.1-nano,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.5585585585585586,"['wrong_output_language', 'script_mismatch', 'task_noncompletion']"
+ar_en_SA_005,gpt-4.1-nano,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_001,gpt-4.1-nano,baseline,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_001,gpt-4.1-nano,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_002,gpt-4.1-nano,baseline,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_002,gpt-4.1-nano,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_003,gpt-4.1-nano,baseline,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_003,gpt-4.1-nano,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_004,gpt-4.1-nano,baseline,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_004,gpt-4.1-nano,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_005,gpt-4.1-nano,baseline,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_005,gpt-4.1-nano,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_001,gpt-4.1-nano,baseline,ar-en,quote_preservation,0,3,0,1,1,0,0,4.763888888888889,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_001,gpt-4.1-nano,contract,ar-en,quote_preservation,0,1,1,0,1,1,1,2.134782608695652,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_002,gpt-4.1-nano,baseline,ar-en,quote_preservation,0,3,0,1,1,0,0,4.944444444444445,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_002,gpt-4.1-nano,contract,ar-en,quote_preservation,0,1,1,0,1,1,1,2.140969162995595,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_003,gpt-4.1-nano,baseline,ar-en,quote_preservation,0,3,0,1,1,0,0,4.944444444444445,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_003,gpt-4.1-nano,contract,ar-en,quote_preservation,0,2,1,0,1,0,1,3.4424778761061945,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_004,gpt-4.1-nano,baseline,ar-en,quote_preservation,0,2,1,0,1,0,1,4.986111111111111,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_004,gpt-4.1-nano,contract,ar-en,quote_preservation,0,3,0,1,1,0,0,3.668141592920354,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_005,gpt-4.1-nano,baseline,ar-en,quote_preservation,0,3,0,1,1,0,0,5.25,"['preservation_failure', 'task_noncompletion']"
+ar_en_SC_005,gpt-4.1-nano,contract,ar-en,quote_preservation,0,1,1,0,1,1,1,2.137777777777778,"['preservation_failure', 'task_noncompletion']"
+ar_en_SD_001,gpt-4.1-nano,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.4415584415584415,"['preservation_failure', 'task_noncompletion']"
+ar_en_SD_001,gpt-4.1-nano,contract,ar-en,script_register_locale,0,1,1,0,1,1,1,2.1440677966101696,"['preservation_failure', 'task_noncompletion']"
+ar_en_SD_002,gpt-4.1-nano,baseline,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_002,gpt-4.1-nano,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_003,gpt-4.1-nano,baseline,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_003,gpt-4.1-nano,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_004,gpt-4.1-nano,baseline,ar-en,script_register_locale,0,1,1,0,1,1,1,2.472972972972973,"['preservation_failure', 'task_noncompletion']"
+ar_en_SD_004,gpt-4.1-nano,contract,ar-en,script_register_locale,0,1,1,0,1,1,1,2.1403508771929824,"['preservation_failure', 'task_noncompletion']"
+ar_en_SD_005,gpt-4.1-nano,baseline,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_005,gpt-4.1-nano,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]

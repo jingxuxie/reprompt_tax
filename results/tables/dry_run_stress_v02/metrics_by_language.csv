@@ -1,0 +1,7 @@
+model,condition,language_pair,n,ftga,mean_rtt,unresolved_rate,repair_success_at_1,repair_success_at_2,mean_token_tax,initially_failed_n,ftga_ci_low,ftga_ci_high,mean_rtt_ci_low,mean_rtt_ci_high
+dry-model,baseline,ar-en,40,0,1,0,1.0,1.0,2.462687875186247,40,0,0,1,1
+dry-model,baseline,es-en,40,0,1,0,1.0,1.0,2.5309364057055936,40,0,0,1,1
+dry-model,baseline,hi-en,40,0,1,0,1.0,1.0,2.4762276980187052,40,0,0,1,1
+dry-model,contract,ar-en,40,1,0,0,,,1.0,0,1,1,0,0
+dry-model,contract,es-en,40,1,0,0,,,1.0,0,1,1,0,0
+dry-model,contract,hi-en,40,1,0,0,,,1.0,0,1,1,0,0

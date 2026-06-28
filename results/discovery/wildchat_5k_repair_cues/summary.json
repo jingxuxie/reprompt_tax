@@ -1,0 +1,23 @@
+{
+  "dataset": "allenai/WildChat",
+  "split": "train",
+  "max_conversations": 5000,
+  "conversations_scanned": 5000,
+  "user_turns_scanned": 14435,
+  "multiturn_conversations": 2661,
+  "conversations_with_repair_cues": 44,
+  "cue_hits_total": 55,
+  "category_counts": {
+    "generic_repair": 29,
+    "preservation_failure": 12,
+    "register_locale_mismatch": 2,
+    "unwanted_translation": 5,
+    "wrong_output_language": 7
+  },
+  "conversation_language_counts_with_hits": {
+    "Chinese": 1,
+    "English": 43
+  },
+  "created_at": "2026-06-28T02:03:33.467749+00:00",
+  "raw_text_written": false
+}

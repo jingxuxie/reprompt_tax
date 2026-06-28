@@ -1,0 +1,7 @@
+condition,language_pair,n,mean_rtt,initial_failures_n,first_turn_pass_n,first_turn_pass_pct,repaired_after_one_n,repaired_after_one_pct,repaired_after_two_n,repaired_after_two_pct,unresolved_after_two_n,unresolved_after_two_pct,repair1_of_initial_failures_pct,repair2_exact_of_initial_failures_pct,unresolved_of_initial_failures_pct
+baseline,ar-en,120,0.592,54,66,55.0,44,36.7,3,2.5,7,5.8,81.5,5.6,13.0
+baseline,es-en,120,0.358,38,82,68.3,35,29.2,1,0.8,2,1.7,92.1,2.6,5.3
+baseline,hi-en,120,0.075,4,116,96.7,1,0.8,1,0.8,2,1.7,25.0,25.0,50.0
+contract,ar-en,120,0.375,30,90,75.0,22,18.3,1,0.8,7,5.8,73.3,3.3,23.3
+contract,es-en,120,0.275,27,93,77.5,24,20.0,0,0.0,3,2.5,88.9,0.0,11.1
+contract,hi-en,120,0.067,4,116,96.7,2,1.7,0,0.0,2,1.7,50.0,0.0,50.0

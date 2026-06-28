@@ -1,0 +1,4 @@
+language_pair,n,auto_pass_n,auto_fail_n,auto_pass_rate
+ar-en,24,16,8,0.6667
+es-en,24,18,6,0.75
+hi-en,24,23,1,0.9583

@@ -1,0 +1,372 @@
+#!/usr/bin/env python
+"""Write and validate a deterministic manifest for RePromptTax paper artifacts."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+from typing import Any
+
+
+ARTIFACT_PATHS = [
+    "README.md",
+    "reprompt_tax_workshop_paper_plan.md",
+    "data/benchmark_stress_v0.1.jsonl",
+    "data/benchmark_stress_v0.2.jsonl",
+    "data/stress_v02_new_60_ids.txt",
+    "data/stress_v02_new_balanced_24_ids.txt",
+    "data/stress_v02_remaining_36_ids.txt",
+    "data/human_audit/audit_manifest_v0.2.md",
+    "data/human_audit/human_audit_answer_key_v0.2.csv",
+    "data/human_audit/human_audit_annotator_roster_template_v0.2.csv",
+    "data/human_audit/human_audit_launch_checklist_v0.2.md",
+    "data/human_audit/human_audit_packet_v0.2.csv",
+    "data/human_audit/human_audit_packet_v0.2_ar-en.csv",
+    "data/human_audit/human_audit_packet_v0.2_es-en.csv",
+    "data/human_audit/human_audit_packet_v0.2_hi-en.csv",
+    "docs/benchmark_card.md",
+    "docs/evaluation_card.md",
+    "docs/human_audit_guide.md",
+    "docs/result_card.md",
+    "paper/appendix.md",
+    "paper/benchmark_quality_audit_v02.md",
+    "paper/claim_evidence_checklist.md",
+    "paper/component_breakdown_v02_full120.md",
+    "paper/discovery_cue_analysis.md",
+    "paper/discovery_snapshot.md",
+    "paper/error_atlas_v02_full120.md",
+    "paper/experiment_ledger_v02.md",
+    "paper/extended_abstract_draft.md",
+    "paper/failure_mode_analysis_v02_full120.md",
+    "paper/human_audit_design_audit_v02.md",
+    "paper/human_audit_completion_plan.md",
+    "paper/item_consistency_analysis_v02_full120.md",
+    "paper/judge_agreement_analysis_v02_full120.md",
+    "paper/language_slice_analysis_v02_full120.md",
+    "paper/figures/ftga_by_condition.png",
+    "paper/figures/repair_curve.png",
+    "paper/main.pdf",
+    "paper/main.tex",
+    "paper/paired_significance_v02_full120.md",
+    "paper/prompt_control_analysis.md",
+    "paper/prompt_ablation_analysis.md",
+    "paper/qualitative_examples.md",
+    "paper/related_work_positioning_v02.md",
+    "paper/refs.bib",
+    "paper/repair_dynamics_v02_full120.md",
+    "paper/results_snapshot.md",
+    "paper/scorer_ablation_sensitivity_v02_full120.md",
+    "paper/task_useful_failure_analysis_v02_full120.md",
+    "paper/token_burden_analysis_v02_full120.md",
+    "prompts/baseline_system.txt",
+    "prompts/content_preservation_system.txt",
+    "prompts/generic_helpfulness_system.txt",
+    "prompts/global_interaction_contract.txt",
+    "prompts/judge_prompt.txt",
+    "results/discovery/wildchat_20k_repair_cues/category_counts.csv",
+    "results/discovery/wildchat_20k_repair_cues/cue_category_conversation_counts.csv",
+    "results/discovery/wildchat_20k_repair_cues/cue_discovery_overview.csv",
+    "results/discovery/wildchat_20k_repair_cues/cue_language_category_counts.csv",
+    "results/discovery/wildchat_20k_repair_cues/cue_pattern_counts.csv",
+    "results/discovery/wildchat_20k_repair_cues/hit_metadata_hashed.csv",
+    "results/discovery/wildchat_20k_repair_cues/repeated_cue_conversations_hashed.csv",
+    "results/discovery/wildchat_20k_repair_cues/summary.json",
+    "results/figures/openai_three_model_stress_v02_full120/ftga_by_condition.png",
+    "results/figures/openai_three_model_stress_v02_full120/repair_curve.png",
+    "results/tables/benchmark_quality_v02/benchmark_quality_by_family.csv",
+    "results/tables/benchmark_quality_v02/benchmark_quality_by_language.csv",
+    "results/tables/benchmark_quality_v02/benchmark_quality_by_language_family.csv",
+    "results/tables/benchmark_quality_v02/benchmark_quality_summary.csv",
+    "results/tables/experiment_ledger_v02/api_usage_by_artifact.csv",
+    "results/tables/experiment_ledger_v02/api_usage_by_judge.csv",
+    "results/tables/experiment_ledger_v02/api_usage_by_model_condition.csv",
+    "results/tables/experiment_ledger_v02/experiment_ledger_summary.csv",
+    "results/tables/human_audit_v0.2_design/human_audit_design_by_auto_failure_type.csv",
+    "results/tables/human_audit_v0.2_design/human_audit_design_by_family.csv",
+    "results/tables/human_audit_v0.2_design/human_audit_design_by_language.csv",
+    "results/tables/human_audit_v0.2_design/human_audit_design_by_language_family.csv",
+    "results/tables/human_audit_v0.2_design/human_audit_design_by_model_condition.csv",
+    "results/tables/human_audit_v0.2_design/human_audit_design_summary.csv",
+    "results/scores/openai_mini_gpt41_stress_v02_remaining36_auto_scores.jsonl",
+    "results/scores/openai_nano_stress60_generic_helpfulness_auto_scores.jsonl",
+    "results/scores/openai_nano_stress_v02_full120_content_preservation_auto_scores.jsonl",
+    "results/scores/openai_nano_stress_v02_full120_generic_helpfulness_auto_scores.jsonl",
+    "results/scores/openai_nano_stress_v02_new60_generic_helpfulness_auto_scores.jsonl",
+    "results/scores/openai_nano_stress_v02_remaining36_auto_scores.jsonl",
+    "results/scores/openai_three_model_stress60_auto_scores.jsonl",
+    "results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl",
+    "results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl",
+    "results/scores/openai_three_model_stress_v02_new24_auto_scores.jsonl",
+    "results/tables/openai_nano_stress_v02_full120_generic_helpfulness/failure_types_by_family.csv",
+    "results/tables/openai_nano_stress_v02_full120_generic_helpfulness/metrics_by_family.csv",
+    "results/tables/openai_nano_stress_v02_full120_generic_helpfulness/metrics_by_language.csv",
+    "results/tables/openai_nano_stress_v02_full120_generic_helpfulness/metrics_summary.csv",
+    "results/tables/openai_nano_stress_v02_full120_generic_helpfulness/trajectory_metrics.csv",
+    "results/tables/openai_nano_stress_v02_full120_content_preservation/failure_types_by_family.csv",
+    "results/tables/openai_nano_stress_v02_full120_content_preservation/metrics_by_family.csv",
+    "results/tables/openai_nano_stress_v02_full120_content_preservation/metrics_by_language.csv",
+    "results/tables/openai_nano_stress_v02_full120_content_preservation/metrics_summary.csv",
+    "results/tables/openai_nano_stress_v02_full120_content_preservation/trajectory_metrics.csv",
+    "results/tables/openai_nano_stress_v02_full120_prompt_ablation/prompt_ablation_by_family.csv",
+    "results/tables/openai_nano_stress_v02_full120_prompt_ablation/prompt_ablation_contract_vs_content_by_family.csv",
+    "results/tables/openai_nano_stress_v02_full120_prompt_ablation/prompt_ablation_contract_vs_content_by_language.csv",
+    "results/tables/openai_nano_stress_v02_full120_prompt_ablation/prompt_ablation_contract_vs_content_examples.csv",
+    "results/tables/openai_nano_stress_v02_full120_prompt_ablation/prompt_ablation_contract_vs_content_items.csv",
+    "results/tables/openai_nano_stress_v02_full120_prompt_ablation/prompt_ablation_paired_effects.csv",
+    "results/tables/openai_nano_stress_v02_full120_prompt_ablation/prompt_ablation_summary.csv",
+    "results/tables/openai_nano_stress_v02_full120_prompt_control/prompt_control_paired_effects.csv",
+    "results/tables/openai_nano_stress_v02_full120_prompt_control/prompt_control_summary.csv",
+    "results/tables/openai_three_model_stress60/trajectory_metrics.csv",
+    "results/tables/openai_three_model_stress_v02_full120/failure_type_summary.csv",
+    "results/tables/openai_three_model_stress_v02_full120/failure_types_by_family.csv",
+    "results/tables/openai_three_model_stress_v02_full120/family_effect_summary.csv",
+    "results/tables/openai_three_model_stress_v02_full120/component_paired_effects_by_model.csv",
+    "results/tables/openai_three_model_stress_v02_full120/component_pass_by_family_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/component_pass_by_language_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/component_pass_by_model_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/first_turn_error_atlas.csv",
+    "results/tables/openai_three_model_stress_v02_full120/item_consistency_by_family.csv",
+    "results/tables/openai_three_model_stress_v02_full120/item_consistency_by_item.csv",
+    "results/tables/openai_three_model_stress_v02_full120/item_consistency_hardest_items.csv",
+    "results/tables/openai_three_model_stress_v02_full120/item_consistency_summary.csv",
+    "results/tables/openai_three_model_stress_v02_full120/language_slice_aggregate_effects.csv",
+    "results/tables/openai_three_model_stress_v02_full120/language_slice_metrics.csv",
+    "results/tables/openai_three_model_stress_v02_full120/language_slice_paired_effects.csv",
+    "results/tables/openai_three_model_stress_v02_full120/metrics_by_family.csv",
+    "results/tables/openai_three_model_stress_v02_full120/metrics_by_language.csv",
+    "results/tables/openai_three_model_stress_v02_full120/metrics_summary.csv",
+    "results/tables/openai_three_model_stress_v02_full120/paired_contract_effects_by_family.csv",
+    "results/tables/openai_three_model_stress_v02_full120/paired_contract_effects_by_model.csv",
+    "results/tables/openai_three_model_stress_v02_full120/paired_significance_by_model.csv",
+    "results/tables/openai_three_model_stress_v02_full120/repair_dynamics_by_family_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/repair_dynamics_by_language_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/repair_dynamics_by_model_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/repair_paired_effects_by_model.csv",
+    "results/tables/openai_three_model_stress_v02_full120/repair_rtt_transition_by_model.csv",
+    "results/tables/openai_three_model_stress_v02_full120/scorer_ablation_by_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/scorer_ablation_by_family_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/scorer_ablation_by_model_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/scorer_ablation_failure_signatures.csv",
+    "results/tables/openai_three_model_stress_v02_full120/scorer_ablation_top_failure_signatures.csv",
+    "results/tables/openai_three_model_stress_v02_full120/task_useful_failure_by_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/task_useful_failure_by_family_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/task_useful_failure_by_language_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/task_useful_failure_by_model_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120/task_useful_failure_signatures.csv",
+    "results/tables/openai_three_model_stress_v02_full120/token_burden_by_family.csv",
+    "results/tables/openai_three_model_stress_v02_full120/token_burden_by_language.csv",
+    "results/tables/openai_three_model_stress_v02_full120/token_burden_by_model.csv",
+    "results/tables/openai_three_model_stress_v02_full120/token_burden_paired_effects_by_model.csv",
+    "results/tables/openai_three_model_stress_v02_full120/token_burden_trajectory_metrics.csv",
+    "results/tables/openai_three_model_stress_v02_full120/trajectory_metrics.csv",
+    "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_audit_by_family.csv",
+    "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_audit_by_model_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_audit_disagreements.csv",
+    "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_audit_summary.csv",
+    "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_agreement_by_family.csv",
+    "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_agreement_by_model_condition.csv",
+    "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_agreement_summary.csv",
+    "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_component_agreement.csv",
+    "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_component_disagreements.csv",
+    "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_pass_fail_disagreements.csv",
+    "results/tables/openai_three_model_stress_v02_new24/metrics_summary.csv",
+    "scripts/analyze_benchmark_quality.py",
+    "scripts/analyze_component_breakdown.py",
+    "scripts/analyze_failure_modes.py",
+    "scripts/analyze_discovery_cues.py",
+    "scripts/analyze_human_audit_design.py",
+    "scripts/analyze_item_consistency.py",
+    "scripts/analyze_judge_agreement.py",
+    "scripts/analyze_language_slices.py",
+    "scripts/analyze_prompt_ablation.py",
+    "scripts/analyze_prompt_control.py",
+    "scripts/analyze_repair_dynamics.py",
+    "scripts/analyze_scorer_ablation.py",
+    "scripts/analyze_task_useful_failures.py",
+    "scripts/analyze_token_burden.py",
+    "scripts/build_full_v02_scores.py",
+    "scripts/build_full_v02_prompt_control_scores.py",
+    "scripts/build_error_atlas.py",
+    "scripts/compute_metrics.py",
+    "scripts/discover_repair_cues.py",
+    "scripts/generate_benchmark.py",
+    "scripts/generate_stress_benchmark.py",
+    "scripts/generate_stress_benchmark_v02.py",
+    "scripts/judge_outputs.py",
+    "scripts/lint_claim_boundaries.py",
+    "scripts/make_artifact_manifest.py",
+    "scripts/make_figures.py",
+    "scripts/make_human_audit_packet.py",
+    "scripts/paired_effects.py",
+    "scripts/paired_significance.py",
+    "scripts/run_models.py",
+    "scripts/run_submission_checks.py",
+    "scripts/score_auto.py",
+    "scripts/summarize_human_audit.py",
+    "scripts/summarize_experiment_ledger.py",
+    "scripts/summarize_judge_audit.py",
+    "scripts/test_score_auto.py",
+    "scripts/test_human_audit_completion.py",
+    "scripts/validate_completed_human_audit.py",
+    "scripts/validate_followup_probe.py",
+    "scripts/validate_human_audit_packet.py",
+    "scripts/validate_paper_claims.py",
+    "scripts/validate_qualitative_examples.py",
+    "scripts/validate_stress_benchmark.py",
+]
+
+REPRODUCTION_COMMANDS = [
+    "conda run -n reprompt_tax python scripts/run_submission_checks.py",
+    "conda run -n reprompt_tax python scripts/build_full_v02_scores.py",
+    "conda run -n reprompt_tax python scripts/compute_metrics.py --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir results/tables/openai_three_model_stress_v02_full120",
+    "conda run -n reprompt_tax python scripts/build_full_v02_prompt_control_scores.py",
+    "conda run -n reprompt_tax python scripts/compute_metrics.py --scores results/scores/openai_nano_stress_v02_full120_generic_helpfulness_auto_scores.jsonl --out-dir results/tables/openai_nano_stress_v02_full120_generic_helpfulness",
+    "conda run -n reprompt_tax python scripts/score_auto.py --benchmark data/benchmark_stress_v0.2.jsonl --outputs results/model_outputs/openai_nano_stress_v02_full120_content_preservation.jsonl --out results/scores/openai_nano_stress_v02_full120_content_preservation_auto_scores.jsonl",
+    "conda run -n reprompt_tax python scripts/compute_metrics.py --scores results/scores/openai_nano_stress_v02_full120_content_preservation_auto_scores.jsonl --out-dir results/tables/openai_nano_stress_v02_full120_content_preservation",
+    "conda run -n reprompt_tax python scripts/paired_effects.py --trajectory-metrics results/tables/openai_three_model_stress_v02_full120/trajectory_metrics.csv --out-dir results/tables/openai_three_model_stress_v02_full120",
+    "conda run -n reprompt_tax python scripts/analyze_language_slices.py --trajectory-metrics results/tables/openai_three_model_stress_v02_full120/trajectory_metrics.csv --out-dir results/tables/openai_three_model_stress_v02_full120 --out-md paper/language_slice_analysis_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/analyze_repair_dynamics.py --trajectory-metrics results/tables/openai_three_model_stress_v02_full120/trajectory_metrics.csv --out-dir results/tables/openai_three_model_stress_v02_full120 --out-md paper/repair_dynamics_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/analyze_benchmark_quality.py --benchmark data/benchmark_stress_v0.2.jsonl --out-dir results/tables/benchmark_quality_v02 --out-md paper/benchmark_quality_audit_v02.md",
+    "conda run -n reprompt_tax python scripts/analyze_token_burden.py --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir results/tables/openai_three_model_stress_v02_full120 --out-md paper/token_burden_analysis_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/summarize_experiment_ledger.py --out-dir results/tables/experiment_ledger_v02 --out-md paper/experiment_ledger_v02.md",
+    "conda run -n reprompt_tax python scripts/analyze_failure_modes.py --tables-dir results/tables/openai_three_model_stress_v02_full120 --paper-out paper/failure_mode_analysis_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/analyze_item_consistency.py --trajectory-metrics results/tables/openai_three_model_stress_v02_full120/trajectory_metrics.csv --out-dir results/tables/openai_three_model_stress_v02_full120 --out-md paper/item_consistency_analysis_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/analyze_component_breakdown.py --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir results/tables/openai_three_model_stress_v02_full120 --out-md paper/component_breakdown_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/analyze_scorer_ablation.py --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir results/tables/openai_three_model_stress_v02_full120 --out-md paper/scorer_ablation_sensitivity_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/analyze_task_useful_failures.py --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir results/tables/openai_three_model_stress_v02_full120 --out-md paper/task_useful_failure_analysis_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/analyze_prompt_control.py",
+    "conda run -n reprompt_tax python scripts/analyze_prompt_ablation.py",
+    "conda run -n reprompt_tax python scripts/build_error_atlas.py --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --trajectories results/tables/openai_three_model_stress_v02_full120/trajectory_metrics.csv --out-csv results/tables/openai_three_model_stress_v02_full120/first_turn_error_atlas.csv --out-md paper/error_atlas_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/paired_significance.py --trajectory-metrics results/tables/openai_three_model_stress_v02_full120/trajectory_metrics.csv --out-csv results/tables/openai_three_model_stress_v02_full120/paired_significance_by_model.csv --out-md paper/paired_significance_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/analyze_judge_agreement.py --audit results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir results/tables/openai_three_model_stress_v02_full120_judge_audit72 --out-md paper/judge_agreement_analysis_v02_full120.md",
+    "conda run -n reprompt_tax python scripts/make_figures.py --tables-dir results/tables/openai_three_model_stress_v02_full120 --out-dir results/figures/openai_three_model_stress_v02_full120",
+    "conda run -n reprompt_tax python scripts/make_human_audit_packet.py --benchmark data/benchmark_stress_v0.2.jsonl --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir data/human_audit --packet-version v0.2 --seed 23",
+    "conda run -n reprompt_tax python scripts/analyze_human_audit_design.py --packet data/human_audit/human_audit_packet_v0.2.csv --answer-key data/human_audit/human_audit_answer_key_v0.2.csv --out-dir results/tables/human_audit_v0.2_design --out-md paper/human_audit_design_audit_v02.md",
+    "conda run -n reprompt_tax python scripts/test_score_auto.py",
+    "conda run -n reprompt_tax python scripts/lint_claim_boundaries.py",
+    "cd paper && latexmk -pdf -interaction=nonstopmode main.tex",
+    "conda run -n reprompt_tax python scripts/validate_paper_claims.py",
+    "conda run -n reprompt_tax python scripts/validate_qualitative_examples.py",
+    "conda run -n reprompt_tax python scripts/validate_followup_probe.py",
+    "conda run -n reprompt_tax python scripts/validate_human_audit_packet.py",
+    "conda run -n reprompt_tax python scripts/validate_stress_benchmark.py --benchmark data/benchmark_stress_v0.2.jsonl --expected-per-cell 10",
+    "conda run -n reprompt_tax python scripts/discover_repair_cues.py --dataset allenai/WildChat --split train --max-conversations 20000 --out-dir results/discovery/wildchat_20k_repair_cues",
+    "conda run -n reprompt_tax python scripts/analyze_discovery_cues.py --summary results/discovery/wildchat_20k_repair_cues/summary.json --metadata results/discovery/wildchat_20k_repair_cues/hit_metadata_hashed.csv --out-dir results/discovery/wildchat_20k_repair_cues --out-md paper/discovery_cue_analysis.md",
+    "rg -n \"Warning|undefined|Overfull|Underfull|Error\" paper/main.log",
+]
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def line_count(path: Path) -> int | str:
+    try:
+        return len(path.read_text(encoding="utf-8").splitlines())
+    except UnicodeDecodeError:
+        return ""
+
+
+def artifact_entry(root: Path, rel_path: str) -> dict[str, Any]:
+    path = root / rel_path
+    if not path.exists():
+        raise FileNotFoundError(f"missing artifact: {rel_path}")
+    return {
+        "path": rel_path,
+        "bytes": path.stat().st_size,
+        "lines": line_count(path),
+        "sha256": sha256(path),
+    }
+
+
+def build_manifest(root: Path) -> dict[str, Any]:
+    return {
+        "schema_version": "reprompt-tax-artifact-manifest-v1",
+        "notes": [
+            "Deterministic manifest for paper-facing artifacts only.",
+            "API keys, raw external logs, caches, and TeX build intermediates are intentionally excluded.",
+            "Run scripts/make_artifact_manifest.py after regenerating artifacts.",
+        ],
+        "reproduction_commands": REPRODUCTION_COMMANDS,
+        "artifacts": [artifact_entry(root, rel_path) for rel_path in sorted(ARTIFACT_PATHS)],
+    }
+
+
+def write_markdown(path: Path, manifest: dict[str, Any]) -> None:
+    lines = [
+        "# RePromptTax Artifact Manifest",
+        "",
+        f"Schema: `{manifest['schema_version']}`",
+        "",
+        "## Notes",
+        "",
+    ]
+    for note in manifest["notes"]:
+        lines.append(f"- {note}")
+    lines.extend(["", "## Reproduction Commands", ""])
+    for command in manifest["reproduction_commands"]:
+        lines.append(f"- `{command}`")
+    lines.extend(["", "## Artifacts", "", "| Path | Bytes | Lines | SHA-256 |", "|---|---:|---:|---|"])
+    for artifact in manifest["artifacts"]:
+        lines.append(
+            "| "
+            f"`{artifact['path']}` | "
+            f"{artifact['bytes']} | "
+            f"{artifact['lines']} | "
+            f"`{artifact['sha256']}` |"
+        )
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def check_manifest(root: Path, json_path: Path) -> None:
+    if not json_path.exists():
+        raise AssertionError(f"missing artifact manifest {json_path}")
+    expected = json.loads(json_path.read_text(encoding="utf-8"))
+    actual = build_manifest(root)
+    if actual != expected:
+        expected_by_path = {row["path"]: row for row in expected.get("artifacts", [])}
+        actual_by_path = {row["path"]: row for row in actual.get("artifacts", [])}
+        missing = sorted(set(actual_by_path) - set(expected_by_path))
+        extra = sorted(set(expected_by_path) - set(actual_by_path))
+        changed = sorted(
+            path
+            for path in set(actual_by_path).intersection(expected_by_path)
+            if actual_by_path[path] != expected_by_path[path]
+        )
+        raise AssertionError(
+            "artifact manifest is stale or inconsistent: "
+            f"missing={missing}, extra={extra}, changed={changed[:10]}"
+        )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", type=Path, default=Path("."))
+    parser.add_argument("--out-json", type=Path, default=Path("paper/artifact_manifest.json"))
+    parser.add_argument("--out-md", type=Path, default=Path("paper/artifact_manifest.md"))
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args()
+
+    root = args.root.resolve()
+    out_json = args.out_json if args.out_json.is_absolute() else root / args.out_json
+    out_md = args.out_md if args.out_md.is_absolute() else root / args.out_md
+    if args.check:
+        check_manifest(root, out_json)
+        print(f"artifact manifest validation passed for {out_json}")
+        return
+
+    manifest = build_manifest(root)
+    out_json.parent.mkdir(parents=True, exist_ok=True)
+    out_json.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_markdown(out_md, manifest)
+    print(f"wrote artifact manifest to {out_json} and {out_md}")
+
+
+if __name__ == "__main__":
+    main()

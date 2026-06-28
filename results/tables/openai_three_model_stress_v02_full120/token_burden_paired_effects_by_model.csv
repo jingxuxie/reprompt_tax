@@ -1,0 +1,4 @@
+model,n_pairs,mean_total_tokens_baseline_minus_contract,mean_extra_tokens_baseline_minus_contract,mean_token_tax_baseline_minus_contract,sum_total_tokens_baseline_minus_contract,sum_extra_tokens_baseline_minus_contract
+gpt-4.1,120,-123.58333333333333,18.308333333333334,0.3003743526528601,-14830,2197
+gpt-4.1-mini,120,-172.24166666666667,-21.591666666666665,0.1594539677686343,-20669,-2591
+gpt-4.1-nano,120,-168.83333333333334,-22.183333333333334,0.35133958003629806,-20260,-2662

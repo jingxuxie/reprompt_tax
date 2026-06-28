@@ -1,0 +1,56 @@
+conversation_hash,message_index,user_turn_index,category,cue_pattern,row_language,message_language
+0218c633e87b3c7c,24,13,generic_repair,\btry again\b,Chinese,English
+bbff10956526739d,4,3,generic_repair,\btry again\b,English,English
+891c7b0c3dd441ae,8,5,wrong_output_language,\bin english\b,English,English
+891c7b0c3dd441ae,14,8,wrong_output_language,\bin english\b,English,English
+891c7b0c3dd441ae,20,11,wrong_output_language,\bin english\b,English,Chinese
+891c7b0c3dd441ae,22,12,wrong_output_language,\bin english\b,English,English
+8df3d77e01435fc5,6,4,generic_repair,\btry again\b,English,English
+57c68a673d3cee9a,10,6,wrong_output_language,\bin english\b,English,English
+8a22a8abebc0148f,2,2,generic_repair,\bi meant\b,English,English
+17289d79c9d6e251,8,5,generic_repair,\bi meant\b,English,English
+836996c8de9dd214,2,2,generic_repair,\bi meant\b,English,English
+836996c8de9dd214,6,4,generic_repair,\bi meant\b,English,English
+c80d49fe62178d03,2,2,register_locale_mismatch,\brespectful\b,English,English
+fb057ac38cbfb6c1,2,2,generic_repair,\bi meant\b,English,English
+807a8a6b97e89d4a,12,7,generic_repair,\bi meant\b,English,English
+4a562e7822b8dd23,6,4,wrong_output_language,\bin english\b,English,English
+8ca6f492999c8141,2,2,generic_repair,\bi meant\b,English,English
+022031e079417578,4,3,generic_repair,\bi meant\b,English,English
+c493edeb48eed476,2,2,generic_repair,\bi meant\b,English,English
+bf16c1d99afa2779,10,6,unwanted_translation,\bsame language\b,English,English
+93868277a7625f63,4,3,generic_repair,\btry again\b,English,English
+2260ee2659a26fed,12,7,generic_repair,\bi meant\b,English,English
+9f6b42f0ba9133a2,6,4,generic_repair,\btry again\b,English,English
+382f8d042976bd4f,2,2,generic_repair,\bi meant\b,English,English
+382f8d042976bd4f,4,3,generic_repair,\bi meant\b,English,English
+d5741a0117b3000a,8,5,generic_repair,\btry again\b,English,English
+2aec194e404391b5,14,8,unwanted_translation,\bsame language\b,English,English
+368c9053ecda3696,4,3,generic_repair,\bi meant\b,English,English
+e9287fa9bc1c10eb,2,2,wrong_output_language,\bin english\b,English,English
+184b264e16a7c419,2,2,generic_repair,\bi meant\b,English,English
+e2319d3146f9add1,2,2,unwanted_translation,\bkeep (it|this|the text) in\b,English,English
+4a34bd8d4cac7bd5,6,4,generic_repair,\bi meant\b,English,English
+2b0673acaf6c74e8,4,3,unwanted_translation,\bsame language\b,English,English
+593d843a54ea64f9,4,3,generic_repair,\bi meant\b,English,English
+247c6ba3282b4c07,8,5,generic_repair,\bi meant\b,English,English
+b04008de35eb4d82,2,2,generic_repair,\bi meant\b,English,English
+a068ac18b771df4e,2,2,register_locale_mismatch,\brespectful\b,English,English
+56ae3b03fdc3be53,4,3,preservation_failure,\bpreserve\b,English,English
+7e3a395547f2d1b3,2,2,generic_repair,\bi meant\b,English,English
+b4e9a1d3274689b2,12,7,generic_repair,\bi meant\b,English,English
+f39783160b5e43a1,18,10,unwanted_translation,\bsame language\b,English,English
+53d78558fa5f5962,12,7,preservation_failure,\bdo not change\b,English,English
+605f51fef0887fe6,2,2,generic_repair,\btry again\b,English,English
+e8dc1d112a3a82e4,2,2,generic_repair,\bi meant\b,English,French
+58603a924fcfd588,4,3,generic_repair,\bi meant\b,English,English
+3fff27dcb5381771,6,4,preservation_failure,\bpreserve\b,English,English
+3fff27dcb5381771,8,5,preservation_failure,\bpreserve\b,English,English
+3fff27dcb5381771,10,6,preservation_failure,\bpreserve\b,English,English
+c11fd96873f338e1,6,4,preservation_failure,\bpreserve\b,English,English
+cfcdafc6548095df,2,2,preservation_failure,\bpreserve\b,English,English
+cfcdafc6548095df,4,3,preservation_failure,\bpreserve\b,English,English
+cfcdafc6548095df,6,4,preservation_failure,\bpreserve\b,English,English
+cfcdafc6548095df,8,5,preservation_failure,\bpreserve\b,English,English
+c1659921b1dd0f94,2,2,preservation_failure,\bpreserve\b,English,English
+c1659921b1dd0f94,4,3,preservation_failure,\bpreserve\b,English,English

@@ -1,0 +1,4 @@
+language_pair,n,unique_user_prompts,rows_with_required_markers,rows_with_known_bad_outputs,rows_with_forbidden_markers,rows_with_preservation_spans,total_preservation_spans,min_prompt_words,mean_prompt_words,max_prompt_words
+ar-en,40,40,40,40,20,20,33,13,21.6,32
+es-en,40,40,40,40,20,20,33,15,22.9,33
+hi-en,40,40,40,40,20,20,33,13,22.9,35

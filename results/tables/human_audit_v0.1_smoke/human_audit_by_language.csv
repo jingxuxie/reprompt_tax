@@ -1,0 +1,4 @@
+language_pair,n,pass_agreement,pass_kappa,pass_human_pass_rate,pass_auto_pass_rate,language_agreement,language_kappa,language_human_pass_rate,language_auto_pass_rate,script_agreement,script_kappa,script_human_pass_rate,script_auto_pass_rate,preservation_agreement,preservation_kappa,preservation_human_pass_rate,preservation_auto_pass_rate,task_agreement,task_kappa,task_human_pass_rate,task_auto_pass_rate,register_locale_agreement,register_locale_kappa,register_locale_human_pass_rate,register_locale_auto_pass_rate
+ar-en,24,1.0,1.0,0.75,0.75,1.0,1.0,0.875,0.875,1.0,1.0,0.875,0.875,1.0,1.0,0.875,0.875,1.0,1.0,0.75,0.75,1.0,1.0,1.0,1.0
+es-en,24,1.0,1.0,0.7916666666666666,0.7916666666666666,1.0,1.0,0.7916666666666666,0.7916666666666666,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.8333333333333334,0.8333333333333334,1.0,1.0,1.0,1.0
+hi-en,24,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0

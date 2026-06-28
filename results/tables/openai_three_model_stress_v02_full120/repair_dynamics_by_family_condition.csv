@@ -1,0 +1,9 @@
+condition,task_family,n,mean_rtt,initial_failures_n,first_turn_pass_n,first_turn_pass_pct,repaired_after_one_n,repaired_after_one_pct,repaired_after_two_n,repaired_after_two_pct,unresolved_after_two_n,unresolved_after_two_pct,repair1_of_initial_failures_pct,repair2_exact_of_initial_failures_pct,unresolved_of_initial_failures_pct
+baseline,editing_preservation,90,0.667,60,30,33.3,60,66.7,0,0.0,0,0.0,100.0,0.0,0.0
+baseline,output_language_inference,90,0.0,0,90,100.0,0,0.0,0,0.0,0,0.0,0.0,0.0,0.0
+baseline,quote_preservation,90,0.211,9,81,90.0,3,3.3,2,2.2,4,4.4,33.3,22.2,44.4
+baseline,script_register_locale,90,0.489,27,63,70.0,17,18.9,3,3.3,7,7.8,63.0,11.1,25.9
+contract,editing_preservation,90,0.3,27,63,70.0,27,30.0,0,0.0,0,0.0,100.0,0.0,0.0
+contract,output_language_inference,90,0.0,0,90,100.0,0,0.0,0,0.0,0,0.0,0.0,0.0,0.0
+contract,quote_preservation,90,0.122,8,82,91.1,6,6.7,1,1.1,1,1.1,75.0,12.5,12.5
+contract,script_register_locale,90,0.533,26,64,71.1,15,16.7,0,0.0,11,12.2,57.7,0.0,42.3

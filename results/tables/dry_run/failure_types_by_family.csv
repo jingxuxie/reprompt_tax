@@ -1,0 +1,4 @@
+model,condition,task_family,failure_type,count,share_of_initial_failures
+dry-model,baseline,editing_preservation,task_noncompletion,10,1.0
+dry-model,baseline,editing_preservation,wrong_output_language,10,1.0
+dry-model,baseline,output_language_inference,task_noncompletion,2,1.0

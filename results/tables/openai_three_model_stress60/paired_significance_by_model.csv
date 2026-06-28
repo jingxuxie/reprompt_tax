@@ -1,0 +1,13 @@
+model,metric,label,direction,n_pairs,positive_n,negative_n,tie_n,mean_delta,two_sided_sign_p
+gpt-4.1,ftga,FTGA,contract_minus_baseline,60,10,0,50,0.16666666666666666,0.001953125
+gpt-4.1,rtt,RTT reduction,baseline_minus_contract,60,10,0,50,0.16666666666666666,0.001953125
+gpt-4.1,token_tax,Token-tax reduction,baseline_minus_contract,60,10,0,50,0.29002195003435316,0.001953125
+gpt-4.1,unresolved,Unresolved reduction,baseline_minus_contract,60,0,0,60,0.0,1.0
+gpt-4.1-mini,ftga,FTGA,contract_minus_baseline,60,3,0,57,0.05,0.25
+gpt-4.1-mini,rtt,RTT reduction,baseline_minus_contract,60,3,0,57,0.05,0.25
+gpt-4.1-mini,token_tax,Token-tax reduction,baseline_minus_contract,60,11,0,49,0.13803878406339712,0.0009765625
+gpt-4.1-mini,unresolved,Unresolved reduction,baseline_minus_contract,60,0,0,60,0.0,1.0
+gpt-4.1-nano,ftga,FTGA,contract_minus_baseline,60,6,0,54,0.1,0.03125
+gpt-4.1-nano,rtt,RTT reduction,baseline_minus_contract,60,10,1,49,0.2,0.01171875
+gpt-4.1-nano,token_tax,Token-tax reduction,baseline_minus_contract,60,18,0,42,0.3867364525053617,7.62939453125e-06
+gpt-4.1-nano,unresolved,Unresolved reduction,baseline_minus_contract,60,4,1,55,0.05,0.375

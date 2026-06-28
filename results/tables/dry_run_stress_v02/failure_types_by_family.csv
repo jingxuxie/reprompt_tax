@@ -1,0 +1,12 @@
+model,condition,task_family,failure_type,count,share_of_initial_failures
+dry-model,baseline,editing_preservation,task_noncompletion,30,1.0
+dry-model,baseline,editing_preservation,wrong_output_language,30,1.0
+dry-model,baseline,output_language_inference,task_noncompletion,30,1.0
+dry-model,baseline,quote_preservation,preservation_failure,30,1.0
+dry-model,baseline,quote_preservation,script_mismatch,10,0.3333333333333333
+dry-model,baseline,quote_preservation,task_noncompletion,30,1.0
+dry-model,baseline,quote_preservation,wrong_output_language,20,0.6666666666666666
+dry-model,baseline,script_register_locale,preservation_failure,30,1.0
+dry-model,baseline,script_register_locale,script_mismatch,10,0.3333333333333333
+dry-model,baseline,script_register_locale,task_noncompletion,30,1.0
+dry-model,baseline,script_register_locale,wrong_output_language,30,1.0

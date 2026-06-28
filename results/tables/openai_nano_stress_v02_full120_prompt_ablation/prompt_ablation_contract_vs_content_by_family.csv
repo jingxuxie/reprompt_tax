@@ -1,0 +1,5 @@
+task_family,n,both_pass,content_only_pass,contract_only_pass,both_fail,content_lower_rtt,contract_lower_rtt,same_rtt
+editing_preservation,30,20,4,0,6,4,1,25
+output_language_inference,30,30,0,0,0,0,0,30
+quote_preservation,30,21,1,1,7,3,1,26
+script_register_locale,30,18,2,2,8,3,2,25

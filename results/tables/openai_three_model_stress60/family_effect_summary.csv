@@ -1,0 +1,13 @@
+model,task_family,n_pairs,baseline_ftga_pct,contract_ftga_pct,delta_ftga_pp,delta_ftga_ci_low,delta_ftga_ci_high,baseline_mean_rtt,contract_mean_rtt,rtt_reduction,baseline_token_tax,contract_token_tax,token_tax_reduction,baseline_unresolved_pct,contract_unresolved_pct,baseline_initial_failures,contract_initial_failures,baseline_failure_types,contract_failure_types
+gpt-4.1,editing_preservation,15,33.3,100.0,66.7,40.0,86.7,0.67,0.0,0.67,2.16,1.0,1.16,0.0,0.0,10,0,wrong_output_language:10; script_mismatch:5; task_noncompletion:5,
+gpt-4.1,output_language_inference,15,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1,quote_preservation,15,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1,script_register_locale,15,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1-mini,editing_preservation,15,33.3,53.3,20.0,0.0,40.0,0.67,0.47,0.2,2.09,1.56,0.53,0.0,0.0,10,7,task_noncompletion:10; wrong_output_language:10; script_mismatch:5,task_noncompletion:7; wrong_output_language:7; script_mismatch:2
+gpt-4.1-mini,output_language_inference,15,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1-mini,quote_preservation,15,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1-mini,script_register_locale,15,93.3,93.3,0.0,0.0,0.0,0.07,0.07,0.0,1.1,1.08,0.02,0.0,0.0,1,1,preservation_failure:1; task_noncompletion:1,preservation_failure:1; task_noncompletion:1
+gpt-4.1-nano,editing_preservation,15,33.3,66.7,33.3,13.3,60.0,0.67,0.33,0.33,2.05,1.4,0.65,0.0,0.0,10,5,task_noncompletion:10; wrong_output_language:10; script_mismatch:5,task_noncompletion:5; wrong_output_language:5; script_mismatch:1
+gpt-4.1-nano,output_language_inference,15,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1-nano,quote_preservation,15,66.7,66.7,0.0,0.0,0.0,0.93,0.53,0.4,2.33,1.57,0.76,26.7,6.7,5,5,preservation_failure:5; task_noncompletion:5,preservation_failure:5; task_noncompletion:5
+gpt-4.1-nano,script_register_locale,15,80.0,86.7,6.7,0.0,20.0,0.2,0.13,0.07,1.29,1.15,0.14,0.0,0.0,3,2,preservation_failure:2; task_noncompletion:2; wrong_output_language:1,preservation_failure:2; task_noncompletion:2

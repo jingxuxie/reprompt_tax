@@ -1,0 +1,7 @@
+model,condition,n,mean_rtt,initial_failures_n,first_turn_pass_n,first_turn_pass_pct,repaired_after_one_n,repaired_after_one_pct,repaired_after_two_n,repaired_after_two_pct,unresolved_after_two_n,unresolved_after_two_pct,repair1_of_initial_failures_pct,repair2_exact_of_initial_failures_pct,unresolved_of_initial_failures_pct
+gpt-4.1,baseline,120,0.283,28,92,76.7,25,20.8,0,0.0,3,2.5,89.3,0.0,10.7
+gpt-4.1,contract,120,0.15,8,112,93.3,3,2.5,0,0.0,5,4.2,37.5,0.0,62.5
+gpt-4.1-mini,baseline,120,0.275,29,91,75.8,26,21.7,2,1.7,1,0.8,89.7,6.9,3.4
+gpt-4.1-mini,contract,120,0.242,25,95,79.2,23,19.2,0,0.0,2,1.7,92.0,0.0,8.0
+gpt-4.1-nano,baseline,120,0.467,39,81,67.5,29,24.2,3,2.5,7,5.8,74.4,7.7,17.9
+gpt-4.1-nano,contract,120,0.325,28,92,76.7,22,18.3,1,0.8,5,4.2,78.6,3.6,17.9

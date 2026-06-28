@@ -1,0 +1,2 @@
+paper_facing_artifacts,api_response_rows,model_response_rows,judge_response_rows,trajectories_or_judged_rows,input_tokens,output_tokens,total_tokens,created_at_start,created_at_end
+4,1290,1218,72,1032,190463,38368,228831,2026-06-28T01:15:43.155159+00:00,2026-06-28T05:50:04.200919+00:00

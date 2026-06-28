@@ -1,0 +1,9 @@
+Create realistic multilingual user prompts for the RePromptTax benchmark.
+Do not include sensitive personal data, copyrighted text, real addresses, or real names.
+Prompts should be natural, short, and unambiguous enough to score.
+
+Return JSONL with fields:
+user_prompt, expected_response_language, expected_script, must_preserve_spans,
+register_requirement, locale_requirement, known_bad_outputs, repair_prompt_1,
+repair_prompt_2, notes_for_annotators.
+

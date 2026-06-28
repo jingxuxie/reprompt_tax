@@ -1,0 +1,13 @@
+language_pair,task_family,n,unique_user_prompts,rows_with_required_markers,rows_with_known_bad_outputs,rows_with_forbidden_markers,rows_with_preservation_spans,total_preservation_spans,min_prompt_words,mean_prompt_words,max_prompt_words
+ar-en,editing_preservation,10,10,10,10,10,0,0,20,22.6,25
+ar-en,output_language_inference,10,10,10,10,0,0,0,13,14.9,17
+ar-en,quote_preservation,10,10,10,10,0,10,20,20,20,20
+ar-en,script_register_locale,10,10,10,10,10,10,13,26,28.9,32
+es-en,editing_preservation,10,10,10,10,10,0,0,21,23.6,26
+es-en,output_language_inference,10,10,10,10,0,0,0,15,16.9,19
+es-en,quote_preservation,10,10,10,10,0,10,20,21,21,21
+es-en,script_register_locale,10,10,10,10,10,10,13,27,29.9,33
+hi-en,editing_preservation,10,10,10,10,10,0,0,19,21.6,24
+hi-en,output_language_inference,10,10,10,10,0,0,0,13,14.9,17
+hi-en,quote_preservation,10,10,10,10,0,10,20,23,23,23
+hi-en,script_register_locale,10,10,10,10,10,10,13,29,31.9,35

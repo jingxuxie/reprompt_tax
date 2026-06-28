@@ -1,0 +1,5 @@
+task_family,n,agreement,auto_pass_rate,judge_pass_rate,auto_fail_judge_pass,auto_pass_judge_fail
+editing_preservation,18,0.9444444444444444,0.7222222222222222,0.7777777777777778,1,0
+output_language_inference,18,1.0,1.0,1.0,0,0
+quote_preservation,18,1.0,0.9444444444444444,0.9444444444444444,0,0
+script_register_locale,18,1.0,0.8888888888888888,0.8888888888888888,0,0

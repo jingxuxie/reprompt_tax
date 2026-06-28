@@ -1,0 +1,13 @@
+model,task_family,n_pairs,delta_ftga_pp,delta_ftga_pp_ci_low,delta_ftga_pp_ci_high,rtt_reduction,rtt_reduction_ci_low,rtt_reduction_ci_high,token_tax_reduction,token_tax_reduction_ci_low,token_tax_reduction_ci_high,unresolved_reduction_pp,unresolved_reduction_pp_ci_low,unresolved_reduction_pp_ci_high
+gpt-4.1,editing_preservation,15,66.66666666666666,40.0,86.66666666666667,0.6666666666666666,0.4,0.8666666666666667,1.1600878001374129,0.7152658248618293,1.5439004789997044,0.0,0.0,0.0
+gpt-4.1,output_language_inference,15,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+gpt-4.1,quote_preservation,15,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+gpt-4.1,script_register_locale,15,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+gpt-4.1-mini,editing_preservation,15,20.0,0.0,40.0,0.2,0.0,0.4,0.5326905264532255,0.2689535208100272,0.832802786303209,0.0,0.0,0.0
+gpt-4.1-mini,output_language_inference,15,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+gpt-4.1-mini,quote_preservation,15,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+gpt-4.1-mini,script_register_locale,15,0.0,0.0,0.0,0.0,0.0,0.0,0.019464609800362975,0.0,0.05839382940108893,0.0,0.0,0.0
+gpt-4.1-nano,editing_preservation,15,33.33333333333333,13.333333333333334,60.0,0.3333333333333333,0.13333333333333333,0.6,0.6530667470577861,0.3351191265024103,0.9888821189296805,0.0,0.0,0.0
+gpt-4.1-nano,output_language_inference,15,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+gpt-4.1-nano,quote_preservation,15,0.0,0.0,0.0,0.4,0.0,0.8666666666666667,0.7576493246928877,0.20748148148148146,1.3606080267577845,20.0,-6.666666666666667,46.666666666666664
+gpt-4.1-nano,script_register_locale,15,6.666666666666667,0.0,20.0,0.06666666666666667,0.0,0.2,0.13622973827077306,0.0,0.3445068923784357,0.0,0.0,0.0

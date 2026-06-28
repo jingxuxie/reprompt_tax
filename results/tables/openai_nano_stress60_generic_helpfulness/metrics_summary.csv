@@ -1,0 +1,2 @@
+model,condition,n,ftga,mean_rtt,unresolved_rate,repair_success_at_1,repair_success_at_2,mean_token_tax,initially_failed_n,ftga_ci_low,ftga_ci_high,mean_rtt_ci_low,mean_rtt_ci_high
+gpt-4.1-nano,generic_helpfulness,60,0.7666666666666667,0.25,0,0.9285714285714286,1.0,1.3111581493962698,14,0.6666666666666666,0.8666666666666667,0.13333333333333333,0.36666666666666664

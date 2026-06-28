@@ -1,0 +1,32 @@
+You are evaluating whether an assistant response satisfies a multilingual user request.
+Do not reward general helpfulness if the response violates the user's language, script,
+quote-preservation, register, locale, or task constraints.
+
+Return JSON only.
+
+User prompt:
+{user_prompt}
+
+Expected contract:
+- expected_response_language: {expected_response_language}
+- expected_script: {expected_script}
+- must_preserve_spans: {must_preserve_spans}
+- register_requirement: {register_requirement}
+- locale_requirement: {locale_requirement}
+- task_family: {task_family}
+
+Assistant response:
+{assistant_response}
+
+JSON schema:
+{
+  "pass": true,
+  "language_pass": true,
+  "script_pass": true,
+  "preservation_pass": true,
+  "task_pass": true,
+  "register_locale_pass": true,
+  "failure_types": ["wrong_output_language"],
+  "short_reason": "one sentence"
+}
+

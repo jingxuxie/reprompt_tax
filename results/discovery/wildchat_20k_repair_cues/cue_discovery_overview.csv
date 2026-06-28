@@ -1,0 +1,2 @@
+dataset,split,conversations_scanned,user_turns_scanned,multiturn_conversations,conversations_with_repair_cues,cue_hits_total,metadata_rows,unique_conversations_in_metadata,repeated_cue_conversations,max_cue_hits_in_conversation,raw_text_written
+allenai/WildChat,train,20000,58764,10681,172,219,219,172,31,5,False

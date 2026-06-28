@@ -1,0 +1,5 @@
+artifact_label,artifact_kind,path,api_response_rows,first_turn_rows,trajectories,input_tokens,output_tokens,total_tokens,created_at_start,created_at_end
+main_evaluation,model_responses,results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl,917,720,720,126306,25737,152043,2026-06-28T01:15:43.155159+00:00,2026-06-28T03:55:17.999559+00:00
+prompt_control,model_responses,results/scores/openai_nano_stress_v02_full120_generic_helpfulness_auto_scores.jsonl,155,120,120,23494,3968,27462,2026-06-28T03:38:43.787025+00:00,2026-06-28T04:27:10.313212+00:00
+prompt_ablation_content_preservation,model_responses,results/scores/openai_nano_stress_v02_full120_content_preservation_auto_scores.jsonl,146,120,120,20056,3324,23380,2026-06-28T05:48:16.144065+00:00,2026-06-28T05:50:04.200919+00:00
+judge_audit,judge_audit,results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl,72,72,72,20607,5339,25946,2026-06-28T03:58:53.153879+00:00,2026-06-28T03:59:58.189049+00:00

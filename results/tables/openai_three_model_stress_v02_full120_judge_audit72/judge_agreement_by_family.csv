@@ -1,0 +1,5 @@
+task_family,n,pass_fail_agreement_n,pass_fail_agreement_pct,pass_fail_agreement_ci_low,pass_fail_agreement_ci_high,auto_pass_n,auto_pass_pct,judge_pass_n,judge_pass_pct,auto_fail_judge_pass_n,auto_pass_judge_fail_n,judge_parse_error_n
+editing_preservation,18,17,94.4,74.2,99.0,13,72.2,14,77.8,1,0,0
+output_language_inference,18,18,100.0,82.4,100.0,18,100.0,18,100.0,0,0,0
+quote_preservation,18,18,100.0,82.4,100.0,17,94.4,17,94.4,0,0,0
+script_register_locale,18,18,100.0,82.4,100.0,16,88.9,16,88.9,0,0,0

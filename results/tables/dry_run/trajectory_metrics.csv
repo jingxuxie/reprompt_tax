@@ -1,0 +1,25 @@
+item_id,model,condition,language_pair,task_family,ftga,rtt,resolved,unresolved,initially_failed,repair_success_1,repair_success_2,token_tax,first_failure_types
+es_en_A_001,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.4411764705882355,"['wrong_output_language', 'task_noncompletion']"
+es_en_A_001,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_A_002,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.4754098360655736,"['wrong_output_language', 'task_noncompletion']"
+es_en_A_002,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_A_003,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.4603174603174605,"['wrong_output_language', 'task_noncompletion']"
+es_en_A_003,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_A_004,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.4375,"['wrong_output_language', 'task_noncompletion']"
+es_en_A_004,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_A_005,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.453125,"['wrong_output_language', 'task_noncompletion']"
+es_en_A_005,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_A_006,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.4603174603174605,"['wrong_output_language', 'task_noncompletion']"
+es_en_A_006,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_A_007,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.4328358208955225,"['wrong_output_language', 'task_noncompletion']"
+es_en_A_007,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_A_008,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.4615384615384617,"['wrong_output_language', 'task_noncompletion']"
+es_en_A_008,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_A_009,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.46875,"['wrong_output_language', 'task_noncompletion']"
+es_en_A_009,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_A_010,dry-model,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.4057971014492754,"['wrong_output_language', 'task_noncompletion']"
+es_en_A_010,dry-model,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_B_001,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.357142857142857,['task_noncompletion']
+es_en_B_001,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_B_002,dry-model,baseline,es-en,output_language_inference,0,1,1,0,1,1,1,2.3207547169811322,['task_noncompletion']
+es_en_B_002,dry-model,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]

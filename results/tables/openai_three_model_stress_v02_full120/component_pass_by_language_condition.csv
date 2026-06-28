@@ -1,0 +1,7 @@
+condition,language_pair,n,ftga_pass_n,ftga_pass_pct,language_pass_n,language_pass_pct,script_pass_n,script_pass_pct,preservation_pass_n,preservation_pass_pct,task_pass_n,task_pass_pct,register_locale_pass_n,register_locale_pass_pct
+baseline,ar-en,120,66,55.0,90,75.0,90,75.0,96,80.0,75,62.5,120,100.0
+baseline,es-en,120,82,68.3,90,75.0,120,100.0,112,93.3,100,83.3,120,100.0
+baseline,hi-en,120,116,96.7,119,99.2,120,100.0,117,97.5,120,100.0,120,100.0
+contract,ar-en,120,90,75.0,113,94.2,113,94.2,97,80.8,99,82.5,120,100.0
+contract,es-en,120,93,77.5,100,83.3,120,100.0,113,94.2,100,83.3,120,100.0
+contract,hi-en,120,116,96.7,119,99.2,120,100.0,117,97.5,120,100.0,120,100.0

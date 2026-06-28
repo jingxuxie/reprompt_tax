@@ -1,0 +1,13 @@
+model,task_family,n_pairs,baseline_ftga_pct,contract_ftga_pct,delta_ftga_pp,delta_ftga_ci_low,delta_ftga_ci_high,baseline_mean_rtt,contract_mean_rtt,rtt_reduction,baseline_token_tax,contract_token_tax,token_tax_reduction,baseline_unresolved_pct,contract_unresolved_pct,baseline_initial_failures,contract_initial_failures,baseline_failure_types,contract_failure_types
+gpt-4.1,editing_preservation,30,33.3,96.7,63.3,46.7,80.0,0.67,0.03,0.63,2.15,1.04,1.11,0.0,0.0,20,1,wrong_output_language:20; script_mismatch:10; task_noncompletion:10,task_noncompletion:1; wrong_output_language:1
+gpt-4.1,output_language_inference,30,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1,quote_preservation,30,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1,script_register_locale,30,73.3,76.7,3.3,0.0,10.0,0.47,0.57,-0.1,1.59,1.5,0.1,10.0,16.7,8,7,preservation_failure:8; task_noncompletion:1,preservation_failure:7; task_noncompletion:1
+gpt-4.1-mini,editing_preservation,30,33.3,46.7,13.3,3.3,26.7,0.67,0.53,0.13,2.09,1.64,0.44,0.0,0.0,20,16,task_noncompletion:20; wrong_output_language:20; script_mismatch:10,task_noncompletion:16; wrong_output_language:16; script_mismatch:6
+gpt-4.1-mini,output_language_inference,30,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1-mini,quote_preservation,30,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1-mini,script_register_locale,30,70.0,70.0,0.0,0.0,0.0,0.43,0.43,0.0,1.64,1.44,0.19,3.3,6.7,9,9,preservation_failure:9; task_noncompletion:2,preservation_failure:9; task_noncompletion:2
+gpt-4.1-nano,editing_preservation,30,33.3,66.7,33.3,16.7,50.0,0.67,0.33,0.33,2.06,1.4,0.67,0.0,0.0,20,10,task_noncompletion:20; wrong_output_language:20; script_mismatch:10,task_noncompletion:10; wrong_output_language:10; script_mismatch:1
+gpt-4.1-nano,output_language_inference,30,100.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0,0,,
+gpt-4.1-nano,quote_preservation,30,70.0,73.3,3.3,0.0,10.0,0.63,0.37,0.27,1.95,1.4,0.55,13.3,3.3,9,8,preservation_failure:9; task_noncompletion:9,preservation_failure:8; task_noncompletion:8
+gpt-4.1-nano,script_register_locale,30,66.7,66.7,0.0,-10.0,10.0,0.57,0.6,-0.03,1.76,1.57,0.19,10.0,13.3,10,10,preservation_failure:9; task_noncompletion:3; wrong_output_language:1,preservation_failure:9; task_noncompletion:3; wrong_output_language:1

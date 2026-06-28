@@ -1,0 +1,220 @@
+conversation_hash,message_index,user_turn_index,category,cue_pattern,row_language,message_language
+0218c633e87b3c7c,24,13,generic_repair,\btry again\b,Chinese,English
+bbff10956526739d,4,3,generic_repair,\btry again\b,English,English
+891c7b0c3dd441ae,8,5,wrong_output_language,\bin english\b,English,English
+891c7b0c3dd441ae,14,8,wrong_output_language,\bin english\b,English,English
+891c7b0c3dd441ae,20,11,wrong_output_language,\bin english\b,English,Chinese
+891c7b0c3dd441ae,22,12,wrong_output_language,\bin english\b,English,English
+8df3d77e01435fc5,6,4,generic_repair,\btry again\b,English,English
+57c68a673d3cee9a,10,6,wrong_output_language,\bin english\b,English,English
+8a22a8abebc0148f,2,2,generic_repair,\bi meant\b,English,English
+17289d79c9d6e251,8,5,generic_repair,\bi meant\b,English,English
+836996c8de9dd214,2,2,generic_repair,\bi meant\b,English,English
+836996c8de9dd214,6,4,generic_repair,\bi meant\b,English,English
+c80d49fe62178d03,2,2,register_locale_mismatch,\brespectful\b,English,English
+fb057ac38cbfb6c1,2,2,generic_repair,\bi meant\b,English,English
+807a8a6b97e89d4a,12,7,generic_repair,\bi meant\b,English,English
+4a562e7822b8dd23,6,4,wrong_output_language,\bin english\b,English,English
+8ca6f492999c8141,2,2,generic_repair,\bi meant\b,English,English
+022031e079417578,4,3,generic_repair,\bi meant\b,English,English
+c493edeb48eed476,2,2,generic_repair,\bi meant\b,English,English
+bf16c1d99afa2779,10,6,unwanted_translation,\bsame language\b,English,English
+93868277a7625f63,4,3,generic_repair,\btry again\b,English,English
+2260ee2659a26fed,12,7,generic_repair,\bi meant\b,English,English
+9f6b42f0ba9133a2,6,4,generic_repair,\btry again\b,English,English
+382f8d042976bd4f,2,2,generic_repair,\bi meant\b,English,English
+382f8d042976bd4f,4,3,generic_repair,\bi meant\b,English,English
+d5741a0117b3000a,8,5,generic_repair,\btry again\b,English,English
+2aec194e404391b5,14,8,unwanted_translation,\bsame language\b,English,English
+368c9053ecda3696,4,3,generic_repair,\bi meant\b,English,English
+e9287fa9bc1c10eb,2,2,wrong_output_language,\bin english\b,English,English
+184b264e16a7c419,2,2,generic_repair,\bi meant\b,English,English
+e2319d3146f9add1,2,2,unwanted_translation,\bkeep (it|this|the text) in\b,English,English
+4a34bd8d4cac7bd5,6,4,generic_repair,\bi meant\b,English,English
+2b0673acaf6c74e8,4,3,unwanted_translation,\bsame language\b,English,English
+593d843a54ea64f9,4,3,generic_repair,\bi meant\b,English,English
+247c6ba3282b4c07,8,5,generic_repair,\bi meant\b,English,English
+b04008de35eb4d82,2,2,generic_repair,\bi meant\b,English,English
+a068ac18b771df4e,2,2,register_locale_mismatch,\brespectful\b,English,English
+56ae3b03fdc3be53,4,3,preservation_failure,\bpreserve\b,English,English
+7e3a395547f2d1b3,2,2,generic_repair,\bi meant\b,English,English
+b4e9a1d3274689b2,12,7,generic_repair,\bi meant\b,English,English
+f39783160b5e43a1,18,10,unwanted_translation,\bsame language\b,English,English
+53d78558fa5f5962,12,7,preservation_failure,\bdo not change\b,English,English
+605f51fef0887fe6,2,2,generic_repair,\btry again\b,English,English
+e8dc1d112a3a82e4,2,2,generic_repair,\bi meant\b,English,French
+58603a924fcfd588,4,3,generic_repair,\bi meant\b,English,English
+3fff27dcb5381771,6,4,preservation_failure,\bpreserve\b,English,English
+3fff27dcb5381771,8,5,preservation_failure,\bpreserve\b,English,English
+3fff27dcb5381771,10,6,preservation_failure,\bpreserve\b,English,English
+c11fd96873f338e1,6,4,preservation_failure,\bpreserve\b,English,English
+cfcdafc6548095df,2,2,preservation_failure,\bpreserve\b,English,English
+cfcdafc6548095df,4,3,preservation_failure,\bpreserve\b,English,English
+cfcdafc6548095df,6,4,preservation_failure,\bpreserve\b,English,English
+cfcdafc6548095df,8,5,preservation_failure,\bpreserve\b,English,English
+c1659921b1dd0f94,2,2,preservation_failure,\bpreserve\b,English,English
+c1659921b1dd0f94,4,3,preservation_failure,\bpreserve\b,English,English
+a957cd14e6aadfcc,4,3,preservation_failure,\bpreserve\b,English,English
+ce8a1e1fe6147d94,2,2,generic_repair,\bi meant\b,English,English
+4d89116676a79dd2,2,2,generic_repair,\bi meant\b,English,Latin
+84ecccbcf939ac7a,2,2,wrong_output_language,\bin english\b,English,English
+cbd2dda1a85545e1,2,2,unwanted_translation,\bsame language\b,English,English
+16e8a65333908fc1,18,10,generic_repair,\btry again\b,English,English
+205a23ff295099c9,4,3,generic_repair,\bi meant\b,English,English
+513bcbb0838152bc,6,4,wrong_output_language,\ben ingl[eé]s\b,Spanish,Spanish
+aa4fe79aaac0ae0d,2,2,generic_repair,\btry again\b,English,English
+df237b9da77bc1a8,2,2,generic_repair,\bi meant\b,English,English
+ff7335ea9aba7127,2,2,preservation_failure,\bexactamente\b,Spanish,Spanish
+7a8bbaaec586cf0e,30,16,preservation_failure,\bdon'?t change\b,English,French
+300eb15fb10ba211,2,2,wrong_output_language,\ben espa[nñ]ol\b,Spanish,Spanish
+78dbb7232a7c1737,16,9,unwanted_translation,\bsame language\b,Chinese,English
+875e89490407dbb1,4,3,unwanted_translation,\bsame language\b,Chinese,English
+145fc4cc7ad49817,32,17,register_locale_mismatch,\brespectful\b,English,English
+f747e0604f89809f,2,2,wrong_output_language,\bin english\b,English,English
+94598a6719bc0535,8,5,unwanted_translation,\bsame language\b,English,English
+cdc9d596842d5955,4,3,unwanted_translation,\bsame language\b,English,English
+80b63e7879f8c728,6,4,generic_repair,\btry again\b,English,English
+80b63e7879f8c728,8,5,generic_repair,\btry again\b,English,English
+80b63e7879f8c728,10,6,generic_repair,\btry again\b,English,English
+80b63e7879f8c728,18,10,generic_repair,\btry again\b,English,English
+9d93604782b8f5a4,24,13,generic_repair,\bi meant\b,English,English
+81b37f9a23df8257,4,3,generic_repair,\btry again\b,English,English
+18bbc18d2a6256a7,2,2,generic_repair,\btry again\b,English,English
+d453f2a4e009cd92,18,10,wrong_output_language,\ben ingl[eé]s\b,English,Spanish
+ca6d803e069521f1,6,4,wrong_output_language,\ben ingl[eé]s\b,Spanish,Italian
+4db675c91df1e968,2,2,wrong_output_language,\bin english\b,Russian,English
+6567788ad89da796,2,2,generic_repair,\btry again\b,English,English
+6567788ad89da796,4,3,generic_repair,\btry again\b,English,English
+cebfc125bb225d21,2,2,generic_repair,\bte dije\b,Spanish,Spanish
+d9d338f878c72e2c,2,2,generic_repair,\bte dije\b,English,Spanish
+d9d338f878c72e2c,6,4,generic_repair,\bte dije\b,English,Spanish
+ca370da77affec81,2,2,wrong_output_language,\bin english\b,English,English
+6c99e53777849f22,6,4,wrong_output_language,\bin english\b,English,English
+d60255c3a48eb3b4,2,2,wrong_output_language,\bin english\b,English,English
+d60255c3a48eb3b4,2,2,generic_repair,\bte dije\b,English,English
+c86cb106d6aacecd,2,2,generic_repair,\bi meant\b,English,English
+cf65c03bcff587a4,22,12,unwanted_translation,\bkeep (it|this|the text) in\b,Chinese,English
+5a3abd478f8b5f0a,6,4,wrong_output_language,\ben espa[nñ]ol\b,Spanish,Spanish
+ed61fce41be81bf3,8,5,generic_repair,\bi meant\b,English,English
+7b9f0533d1d498cf,6,4,register_locale_mismatch,\brespectful\b,English,English
+7b9f0533d1d498cf,8,5,register_locale_mismatch,\brespectful\b,English,English
+08b6775aaa4e19bd,2,2,register_locale_mismatch,\bmore formal\b,English,English
+724f193a9cf5202e,14,8,script_mismatch,\bromanized\b,English,English
+724f193a9cf5202e,18,10,script_mismatch,\bromanized\b,English,English
+724f193a9cf5202e,20,11,script_mismatch,\bromanized\b,English,English
+2ceccc9ce4befbc1,4,3,wrong_output_language,\ben espa[nñ]ol\b,Spanish,Spanish
+53143f6e8a8e0dca,14,8,generic_repair,\btry again\b,English,English
+53143f6e8a8e0dca,18,10,generic_repair,\btry again\b,English,English
+53143f6e8a8e0dca,22,12,generic_repair,\btry again\b,English,English
+afeae16e272f1910,14,8,generic_repair,\btry again\b,English,English
+8d5debae9bcb7058,10,6,generic_repair,\bi meant\b,English,English
+e1f23c5c79676a0f,2,2,wrong_output_language,\ben espa[nñ]ol\b,Spanish,Spanish
+7ddb5af2fd4c6d3e,2,2,wrong_output_language,\ben espa[nñ]ol\b,Spanish,Spanish
+b6b5566fdb366e3d,4,3,generic_repair,\btry again\b,English,English
+b6b5566fdb366e3d,6,4,generic_repair,\btry again\b,English,English
+b0a4c32216a59bc6,2,2,preservation_failure,\bpreserve\b,English,English
+c8bf20b6058cb621,4,3,preservation_failure,\bkeep .* exactly\b,English,English
+a07464d635b8479c,4,3,wrong_output_language,\bin english\b,English,English
+de82587551087baf,2,2,wrong_output_language,\ben ingl[eé]s\b,Spanish,Spanish
+de82587551087baf,4,3,wrong_output_language,\ben ingl[eé]s\b,Spanish,Spanish
+de82587551087baf,6,4,wrong_output_language,\ben ingl[eé]s\b,Spanish,Spanish
+de82587551087baf,8,5,wrong_output_language,\ben ingl[eé]s\b,Spanish,Spanish
+362a0d272df72881,10,6,script_mismatch,\bromanized\b,English,English
+e91ae1e3b976f2b1,4,3,generic_repair,\bi meant\b,English,English
+aaf954d875cf1014,14,8,generic_repair,\btry again\b,English,English
+5c00533704ab4353,6,4,generic_repair,\bi meant\b,English,English
+11bd3f2d0fa5249a,2,2,register_locale_mismatch,\bmore formal\b,English,English
+115f9d8d42221d00,26,14,wrong_output_language,بالعربية,Arabic,Arabic
+5992f2570ee3baa6,12,7,generic_repair,\bi meant\b,English,English
+f411edf6811d1021,2,2,unwanted_translation,\bdo not translate\b,English,English
+1e88ea274e7312c0,2,2,generic_repair,\bi meant\b,English,English
+4df838183c9b78e7,2,2,generic_repair,\bi meant\b,English,English
+4d6a4e8289fadd2f,2,2,generic_repair,\bi meant\b,English,English
+4f5f3c2ddc93b64a,2,2,wrong_output_language,\bin english\b,English,English
+d02ec0c4299a20c8,4,3,generic_repair,\bi meant\b,English,English
+de95d9ffca84564e,4,3,wrong_output_language,\bin english\b,English,English
+15d46fae1149cd7f,8,5,register_locale_mismatch,\bmore formal\b,English,English
+92a6398a17f8ca1d,4,3,wrong_output_language,\bin english\b,English,English
+c89f783674f7f068,4,3,wrong_output_language,\ben ingl[eé]s\b,Spanish,Spanish
+c89f783674f7f068,14,8,wrong_output_language,\ben ingl[eé]s\b,Spanish,Spanish
+915f239d462231fe,12,7,wrong_output_language,\ben ingl[eé]s\b,Spanish,Spanish
+4584275cf06c74cd,6,4,generic_repair,\btry again\b,English,English
+370196c6bef59475,4,3,register_locale_mismatch,\brespectful\b,English,English
+370196c6bef59475,10,6,register_locale_mismatch,\brespectful\b,English,English
+7b59fbc16acdeb51,2,2,wrong_output_language,\bin english\b,English,English
+3bb17b0ec73ca7c2,10,6,generic_repair,\btry again\b,English,English
+8809c39a9abd8b2f,32,17,wrong_output_language,\bin english\b,English,English
+f97984a6b79cdc35,2,2,preservation_failure,\bdon'?t change\b,English,English
+fb8abef08e1f38e2,2,2,generic_repair,\btry again\b,English,English
+35f7109005eee13e,4,3,generic_repair,\bi meant\b,English,English
+35f7109005eee13e,8,5,preservation_failure,\bdon'?t change\b,English,English
+9216296cac72c52c,4,3,wrong_output_language,\bin english\b,English,English
+48c3a8bf382cdd91,2,2,wrong_output_language,\bin english\b,Chinese,Chinese
+69158f2e1caa6627,2,2,preservation_failure,\bdo not change\b,English,English
+523186ee3dea2b9b,2,2,generic_repair,\btry again\b,English,English
+a888577c145c1c1e,4,3,register_locale_mismatch,\bmore formal\b,English,English
+09fc08cd0ad0cd16,2,2,generic_repair,\bi meant\b,English,Xhosa
+10999bf0941b99e8,4,3,preservation_failure,\bpreserve\b,English,English
+10999bf0941b99e8,8,5,preservation_failure,\bpreserve\b,English,English
+27959f17ee73a6af,6,4,register_locale_mismatch,\bmore formal\b,English,English
+642fbce5d170d865,2,2,generic_repair,\bi meant\b,English,English
+1a31488f183da99f,2,2,generic_repair,\bi meant\b,English,English
+1717cd413a5088b0,2,2,preservation_failure,\bdo not change\b,English,English
+c785e32be6ceeef2,6,4,register_locale_mismatch,\bmore formal\b,English,English
+c327e7190af0100d,2,2,generic_repair,\bi meant\b,English,English
+460d889154371d36,2,2,generic_repair,\bi meant\b,English,English
+da2474394e6c8572,2,2,generic_repair,\bi meant\b,English,English
+59a0b488407deb42,4,3,generic_repair,\bi meant\b,English,English
+69f31b2a1e2bae8c,2,2,wrong_output_language,\bin english\b,English,Chinese
+b70a50509269c311,2,2,generic_repair,\bi meant\b,English,English
+0b19808fd47ab7db,8,5,wrong_output_language,\bin english\b,English,English
+0b19808fd47ab7db,18,10,register_locale_mismatch,\btoo formal\b,English,English
+0b19808fd47ab7db,22,12,register_locale_mismatch,\btoo casual\b,English,English
+df8e8adfb10865e5,4,3,wrong_output_language,\ben espa[nñ]ol\b,English,Spanish
+dad1c37b8e662b54,4,3,wrong_output_language,\ben espa[nñ]ol\b,English,Spanish
+dad1c37b8e662b54,10,6,wrong_output_language,\ben espa[nñ]ol\b,English,Spanish
+caae59f074c7343f,2,2,unwanted_translation,\bsame language\b,English,English
+310c37baa0454f70,2,2,generic_repair,\bi meant\b,English,English
+e35caf5189b55486,2,2,preservation_failure,\bpreserve\b,English,English
+688bb4ffa6b65851,2,2,generic_repair,\btry again\b,English,English
+291d7176f1f0078f,2,2,generic_repair,\btry again\b,English,English
+291d7176f1f0078f,6,4,generic_repair,\btry again\b,English,English
+75c672a204a7d49a,10,6,generic_repair,\bplease revise\b,English,English
+6e702e850e574075,8,5,register_locale_mismatch,\bmore formal\b,English,English
+750a6f83e1d0ca54,4,3,generic_repair,\bte dije\b,Spanish,Spanish
+973e1cba64011ba0,6,4,generic_repair,\bi meant\b,English,Esperanto
+a015440c7ccccd25,4,3,wrong_output_language,\bin english\b,English,English
+a015440c7ccccd25,8,5,wrong_output_language,\buse (english|spanish|arabic|hindi)\b,English,English
+e49db81737e65426,2,2,generic_repair,\btry again\b,English,English
+e49db81737e65426,4,3,generic_repair,\btry again\b,English,English
+1abece28bd9cd5a3,2,2,generic_repair,\bi meant\b,English,English
+247fa4618552aecf,2,2,wrong_output_language,\bin english\b,English,English
+2997aa69101e4e3f,34,18,preservation_failure,\bpreserve\b,English,English
+3cda4edc52d4534b,2,2,wrong_output_language,\ben espa[nñ]ol\b,Spanish,Spanish
+3e76aa1af356396d,6,4,generic_repair,\bi meant\b,English,English
+1f15a89e483d32f8,18,10,wrong_output_language,\bin english\b,Vietnamese,English
+14384652daf892b4,2,2,generic_repair,\bplease revise\b,English,English
+7c83b5edbf33e297,2,2,wrong_output_language,\bin english\b,English,English
+7c83b5edbf33e297,4,3,wrong_output_language,\bin english\b,English,English
+7c83b5edbf33e297,6,4,wrong_output_language,\bin english\b,English,English
+e6af33f103668d11,2,2,wrong_output_language,\bin english\b,English,English
+2ba23626c3cf12c3,4,3,generic_repair,\btry again\b,English,English
+d6c22be0ef980e77,4,3,generic_repair,\bi meant\b,English,English
+5b37e77f011b3e7a,18,10,wrong_output_language,\bin english\b,Turkish,English
+5b37e77f011b3e7a,20,11,wrong_output_language,\bin english\b,Turkish,English
+ace707742d55d251,2,2,wrong_output_language,\bin english\b,Turkish,English
+ace707742d55d251,4,3,wrong_output_language,\bin english\b,Turkish,English
+fee95117c6f099d9,2,2,wrong_output_language,\bin english\b,Turkish,English
+fee95117c6f099d9,6,4,wrong_output_language,\bin english\b,Turkish,English
+fee95117c6f099d9,10,6,wrong_output_language,\bin english\b,Turkish,English
+fee95117c6f099d9,12,7,wrong_output_language,\bin english\b,Turkish,English
+fee95117c6f099d9,14,8,wrong_output_language,\bin english\b,Turkish,English
+217d26eb74f30f95,2,2,wrong_output_language,\bin english\b,English,English
+567064fee5e930e0,2,2,wrong_output_language,\bin english\b,English,English
+00c597ac2158de35,2,2,wrong_output_language,\bin english\b,English,English
+00c597ac2158de35,4,3,wrong_output_language,\bin english\b,English,English
+25f51178c43acb0e,2,2,wrong_output_language,\bin english\b,English,English
+25f51178c43acb0e,4,3,wrong_output_language,\bin english\b,English,English
+93797d19c88d5605,2,2,wrong_output_language,\bin english\b,Turkish,English
+93797d19c88d5605,4,3,wrong_output_language,\bin english\b,Turkish,English
+53ea054780e6d6e5,4,3,generic_repair,\bi meant\b,English,English

@@ -1,0 +1,4 @@
+model,condition,n,ftga,mean_rtt,mean_token_tax,unresolved_rate,initially_failed_n
+gpt-4.1-nano,baseline,60,0.7,0.45,1.666600987635985,0.06666666666666667,18
+gpt-4.1-nano,generic_helpfulness,60,0.7666666666666667,0.25,1.3111581493962698,0.0,14
+gpt-4.1-nano,contract,60,0.8,0.25,1.2798645351306233,0.016666666666666666,12

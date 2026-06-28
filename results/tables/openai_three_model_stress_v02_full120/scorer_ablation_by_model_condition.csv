@@ -1,0 +1,7 @@
+model,condition,n,actual_ftga_n,actual_ftga_pct,actual_fail_n,relax_language_ftga_n,relax_language_ftga_pct,relax_language_delta_pp,sole_language_blocker_n,relax_script_ftga_n,relax_script_ftga_pct,relax_script_delta_pp,sole_script_blocker_n,relax_preservation_ftga_n,relax_preservation_ftga_pct,relax_preservation_delta_pp,sole_preservation_blocker_n,relax_task_ftga_n,relax_task_ftga_pct,relax_task_delta_pp,sole_task_blocker_n,relax_register_locale_ftga_n,relax_register_locale_ftga_pct,relax_register_locale_delta_pp,sole_register_locale_blocker_n
+gpt-4.1,baseline,120,92,76.7,28,102,85.0,8.3,10,92,76.7,0.0,0,99,82.5,5.8,7,92,76.7,0.0,0,92,76.7,0.0,0
+gpt-4.1,contract,120,112,93.3,8,112,93.3,0.0,0,112,93.3,0.0,0,118,98.3,5.0,6,112,93.3,0.0,0,112,93.3,0.0,0
+gpt-4.1-mini,baseline,120,91,75.8,29,91,75.8,0.0,0,91,75.8,0.0,0,98,81.7,5.9,7,91,75.8,0.0,0,91,75.8,0.0,0
+gpt-4.1-mini,contract,120,95,79.2,25,95,79.2,0.0,0,95,79.2,0.0,0,102,85.0,5.8,7,95,79.2,0.0,0,95,79.2,0.0,0
+gpt-4.1-nano,baseline,120,81,67.5,39,82,68.3,0.8,1,81,67.5,0.0,0,87,72.5,5.0,6,81,67.5,0.0,0,81,67.5,0.0,0
+gpt-4.1-nano,contract,120,92,76.7,28,93,77.5,0.8,1,92,76.7,0.0,0,98,81.7,5.0,6,92,76.7,0.0,0,92,76.7,0.0,0

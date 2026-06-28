@@ -1,0 +1,9 @@
+model,condition,task_family,failure_type,count,share_of_initial_failures
+gpt-4.1-nano,generic_helpfulness,editing_preservation,script_mismatch,3,0.2727272727272727
+gpt-4.1-nano,generic_helpfulness,editing_preservation,task_noncompletion,11,1.0
+gpt-4.1-nano,generic_helpfulness,editing_preservation,wrong_output_language,11,1.0
+gpt-4.1-nano,generic_helpfulness,quote_preservation,preservation_failure,9,1.0
+gpt-4.1-nano,generic_helpfulness,quote_preservation,task_noncompletion,9,1.0
+gpt-4.1-nano,generic_helpfulness,script_register_locale,preservation_failure,9,0.9
+gpt-4.1-nano,generic_helpfulness,script_register_locale,task_noncompletion,3,0.3
+gpt-4.1-nano,generic_helpfulness,script_register_locale,wrong_output_language,1,0.1

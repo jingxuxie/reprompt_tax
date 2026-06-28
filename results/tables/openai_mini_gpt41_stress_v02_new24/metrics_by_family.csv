@@ -1,0 +1,17 @@
+model,condition,task_family,n,ftga,mean_rtt,unresolved_rate,repair_success_at_1,repair_success_at_2,mean_token_tax,initially_failed_n,ftga_ci_low,ftga_ci_high,mean_rtt_ci_low,mean_rtt_ci_high
+gpt-4.1,baseline,editing_preservation,6,0.3333333333333333,0.6666666666666666,0,1.0,1.0,2.127987577459221,4,0,0.6666666666666666,0.3333333333333333,1
+gpt-4.1,baseline,output_language_inference,6,1,0,0,,,1.0,0,1,1,0,0
+gpt-4.1,baseline,quote_preservation,6,1,0,0,,,1.0,0,1,1,0,0
+gpt-4.1,baseline,script_register_locale,6,0.5,0.5,0,1.0,1.0,1.7346769362430468,3,0.16666666666666666,0.8333333333333334,0.16666666666666666,0.8333333333333334
+gpt-4.1,contract,editing_preservation,6,1,0,0,,,1.0,0,1,1,0,0
+gpt-4.1,contract,output_language_inference,6,1,0,0,,,1.0,0,1,1,0,0
+gpt-4.1,contract,quote_preservation,6,1,0,0,,,1.0,0,1,1,0,0
+gpt-4.1,contract,script_register_locale,6,0.6666666666666666,0.6666666666666666,0.16666666666666666,0.5,0.5,1.6139103641456582,2,0.3333333333333333,1,0,1.6666666666666667
+gpt-4.1-mini,baseline,editing_preservation,6,0.3333333333333333,0.6666666666666666,0,1.0,1.0,2.085036966175359,4,0,0.6666666666666666,0.3333333333333333,1
+gpt-4.1-mini,baseline,output_language_inference,6,1,0,0,,,1.0,0,1,1,0,0
+gpt-4.1-mini,baseline,quote_preservation,6,1,0,0,,,1.0,0,1,1,0,0
+gpt-4.1-mini,baseline,script_register_locale,6,0.5,0.5,0,1.0,1.0,1.7388387635756057,3,0.16666666666666666,0.8333333333333334,0.16666666666666666,0.8333333333333334
+gpt-4.1-mini,contract,editing_preservation,6,0.5,0.5,0,1.0,1.0,1.6016047644194098,3,0.16666666666666666,0.8333333333333334,0.16666666666666666,0.8333333333333334
+gpt-4.1-mini,contract,output_language_inference,6,1,0,0,,,1.0,0,1,1,0,0
+gpt-4.1-mini,contract,quote_preservation,6,1,0,0,,,1.0,0,1,1,0,0
+gpt-4.1-mini,contract,script_register_locale,6,0.5,0.5,0,1.0,1.0,1.5853241016536186,3,0.16666666666666666,0.8333333333333334,0.16666666666666666,0.8333333333333334

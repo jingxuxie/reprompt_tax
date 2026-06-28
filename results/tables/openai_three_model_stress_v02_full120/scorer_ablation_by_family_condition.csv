@@ -1,0 +1,9 @@
+condition,task_family,n,actual_ftga_n,actual_ftga_pct,actual_fail_n,relax_language_ftga_n,relax_language_ftga_pct,relax_language_delta_pp,sole_language_blocker_n,relax_script_ftga_n,relax_script_ftga_pct,relax_script_delta_pp,sole_script_blocker_n,relax_preservation_ftga_n,relax_preservation_ftga_pct,relax_preservation_delta_pp,sole_preservation_blocker_n,relax_task_ftga_n,relax_task_ftga_pct,relax_task_delta_pp,sole_task_blocker_n,relax_register_locale_ftga_n,relax_register_locale_ftga_pct,relax_register_locale_delta_pp,sole_register_locale_blocker_n
+baseline,editing_preservation,90,30,33.3,60,40,44.4,11.1,10,30,33.3,0.0,0,30,33.3,0.0,0,30,33.3,0.0,0,30,33.3,0.0,0
+baseline,output_language_inference,90,90,100.0,0,90,100.0,0.0,0,90,100.0,0.0,0,90,100.0,0.0,0,90,100.0,0.0,0,90,100.0,0.0,0
+baseline,quote_preservation,90,81,90.0,9,81,90.0,0.0,0,81,90.0,0.0,0,81,90.0,0.0,0,81,90.0,0.0,0,81,90.0,0.0,0
+baseline,script_register_locale,90,63,70.0,27,64,71.1,1.1,1,63,70.0,0.0,0,83,92.2,22.2,20,63,70.0,0.0,0,63,70.0,0.0,0
+contract,editing_preservation,90,63,70.0,27,63,70.0,0.0,0,63,70.0,0.0,0,63,70.0,0.0,0,63,70.0,0.0,0,63,70.0,0.0,0
+contract,output_language_inference,90,90,100.0,0,90,100.0,0.0,0,90,100.0,0.0,0,90,100.0,0.0,0,90,100.0,0.0,0,90,100.0,0.0,0
+contract,quote_preservation,90,82,91.1,8,82,91.1,0.0,0,82,91.1,0.0,0,82,91.1,0.0,0,82,91.1,0.0,0,82,91.1,0.0,0
+contract,script_register_locale,90,64,71.1,26,65,72.2,1.1,1,64,71.1,0.0,0,83,92.2,21.1,19,64,71.1,0.0,0,64,71.1,0.0,0

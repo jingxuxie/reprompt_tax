@@ -1,0 +1,14 @@
+condition,task_family,failure_signature,count,share_of_first_turn_failures
+baseline,editing_preservation,language,10,0.167
+baseline,editing_preservation,language+script+task,30,0.5
+baseline,editing_preservation,language+task,20,0.333
+baseline,quote_preservation,preservation+task,9,1.0
+baseline,script_register_locale,language,1,0.037
+baseline,script_register_locale,preservation,20,0.741
+baseline,script_register_locale,preservation+task,6,0.222
+contract,editing_preservation,language+script+task,7,0.259
+contract,editing_preservation,language+task,20,0.741
+contract,quote_preservation,preservation+task,8,1.0
+contract,script_register_locale,language,1,0.038
+contract,script_register_locale,preservation,19,0.731
+contract,script_register_locale,preservation+task,6,0.231

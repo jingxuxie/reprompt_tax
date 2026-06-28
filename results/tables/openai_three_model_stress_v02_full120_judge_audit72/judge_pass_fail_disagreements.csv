@@ -1,0 +1,2 @@
+item_id,model,condition,turn,task_family,language_pair,auto_pass,judge_pass,auto_failure_types,judge_failure_types,judge_short_reason
+es_en_SA_007,gpt-4.1,baseline,0,editing_preservation,es-en,False,True,"[""wrong_output_language""]",[],"The assistant provided improved English versions as requested, maintaining politeness and content."

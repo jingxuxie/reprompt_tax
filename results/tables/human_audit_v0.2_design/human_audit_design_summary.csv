@@ -1,0 +1,2 @@
+packet_rows,answer_key_rows,language_pairs,task_families,models,conditions,model_condition_language_family_strata,first_turn_only,packet_private_fields_present,annotation_fields_blank,auto_pass_rows,auto_fail_rows,auto_pass_rate
+72,72,3,4,3,2,72,True,False,True,57,15,0.7917

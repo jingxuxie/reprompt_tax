@@ -1,0 +1,16 @@
+condition,task_family,failure_type,count,initial_failure_denominator,share_of_initial_failures
+baseline,editing_preservation,script_mismatch,15,30,0.5
+baseline,editing_preservation,task_noncompletion,25,30,0.833
+baseline,editing_preservation,wrong_output_language,30,30,1.0
+baseline,quote_preservation,preservation_failure,5,5,1.0
+baseline,quote_preservation,task_noncompletion,5,5,1.0
+baseline,script_register_locale,preservation_failure,3,4,0.75
+baseline,script_register_locale,task_noncompletion,3,4,0.75
+baseline,script_register_locale,wrong_output_language,1,4,0.25
+contract,editing_preservation,script_mismatch,3,12,0.25
+contract,editing_preservation,task_noncompletion,12,12,1.0
+contract,editing_preservation,wrong_output_language,12,12,1.0
+contract,quote_preservation,preservation_failure,5,5,1.0
+contract,quote_preservation,task_noncompletion,5,5,1.0
+contract,script_register_locale,preservation_failure,3,3,1.0
+contract,script_register_locale,task_noncompletion,3,3,1.0

@@ -1,0 +1,3 @@
+item_id,model,condition,language_pair,task_family,ftga,rtt,resolved,unresolved,initially_failed,repair_success_1,repair_success_2,token_tax,first_failure_types
+es_en_A_001,gpt-4.1-nano,baseline,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_A_001,gpt-4.1-nano,contract,es-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]

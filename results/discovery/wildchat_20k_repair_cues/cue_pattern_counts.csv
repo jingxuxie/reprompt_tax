@@ -1,0 +1,23 @@
+category,cue_pattern,cue_hits
+generic_repair,\bi meant\b,52
+wrong_output_language,\bin english\b,47
+generic_repair,\btry again\b,34
+preservation_failure,\bpreserve\b,17
+unwanted_translation,\bsame language\b,10
+wrong_output_language,\ben ingl[eé]s\b,10
+wrong_output_language,\ben espa[nñ]ol\b,9
+register_locale_mismatch,\bmore formal\b,7
+register_locale_mismatch,\brespectful\b,7
+generic_repair,\bte dije\b,5
+script_mismatch,\bromanized\b,4
+preservation_failure,\bdo not change\b,3
+preservation_failure,\bdon'?t change\b,3
+generic_repair,\bplease revise\b,2
+unwanted_translation,\bkeep (it|this|the text) in\b,2
+preservation_failure,\bexactamente\b,1
+preservation_failure,\bkeep .* exactly\b,1
+register_locale_mismatch,\btoo casual\b,1
+register_locale_mismatch,\btoo formal\b,1
+unwanted_translation,\bdo not translate\b,1
+wrong_output_language,\buse (english|spanish|arabic|hindi)\b,1
+wrong_output_language,بالعربية,1

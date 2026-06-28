@@ -1,0 +1,5 @@
+auto_failure_type,sampled_failure_rows_with_type,sampled_auto_fail_rows
+preservation_failure,6,15
+script_mismatch,4,15
+task_noncompletion,11,15
+wrong_output_language,9,15
