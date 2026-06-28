@@ -1,0 +1,68 @@
+\section{Introduction}
+
+The GenAI4World workshop asks how generative AI systems should be evaluated for
+global tasks, contexts, vulnerabilities, and usability beyond standard accuracy
+metrics \citep{genai4world2026cfp}. This question matters because many real
+users do not interact with LLMs through clean monolingual benchmark items. A
+single request may contain an instruction in one language, content in another,
+an English file name embedded in Hindi written in Latin script, or a local date,
+currency, or honorific convention. A model may understand the literal task and
+still violate the pragmatic contract that makes the response usable.
+
+Consider the following Spanish-English editing request:
+\begin{quote}\small
+\texttt{Me ayudas a mejorar este texto para que suene natural? ``I can't join
+the call today, but I can share my update by email.''}
+\end{quote}
+A globally aligned assistant should infer that Spanish is the instruction
+language and that the quoted English sentence is the object of editing. Unless
+translation is requested, the edited sentence should remain English. A response
+that translates the sentence into Spanish is fluent and superficially helpful,
+but it is unusable for the user's intended workflow. The user must diagnose the
+failure, issue a corrective follow-up such as ``Please keep the rewritten text in
+English,'' and check whether the repair succeeded. We call this extra burden the
+\emph{Re-prompt Tax}.
+
+Existing multilingual evaluations have greatly expanded language coverage and
+have shown that translated benchmarks can be culturally distorted
+\citep{singh2024globalmmlu,xuan2025mmluprox,huang2025benchmax}. Other work has
+studied multilingual instruction following \citep{zhou2023ifeval,li2025xifbench}
+and output-language alignment in code-switched interactions \citep{oh2026ola}.
+These efforts are essential, but they leave an interactional gap. A user-facing
+system is not only a question-answering engine; it is a collaborator in a
+multi-turn workflow. When a first response violates a language, script,
+preservation, register, or locale constraint, the cost is paid by the user in
+extra turns, extra tokens, and uncertainty about whether the model will repair
+the failure.
+
+This paper treats multilingual usability as an \emph{interaction contract}
+between a user and a model. The contract may specify, explicitly or implicitly:
+(1) the task, (2) the expected response language, (3) the language of content to
+be edited or summarized, (4) script or romanization requirements, (5) literal
+spans that must not be changed, and (6) register or locale constraints. A model
+can violate this contract even when a semantic task label such as ``rewrite'' or
+``summarize'' is satisfied. Measuring only one-turn task success therefore
+understates the burden imposed on multilingual and code-switched users.
+
+Our contributions are:
+\begin{itemize}
+    \item We define \textbf{Re-prompt Tax}, a metric family for hidden
+    multilingual repair burden: first-turn global alignment, re-prompt turn tax,
+    Repair@1/2, unresolved rate, and repair-normalized token tax.
+    \item We construct \textsc{RePromptTax-Stress-v0.2}, a balanced 120-item
+    synthetic stress pilot over three language pairs and four task families:
+    implicit editing preservation, output-language inference, quote
+    preservation, and script/register/locale constraints.
+    \item We evaluate three GPT-4.1-family API models \citep{openai2025gpt41}
+    under baseline and Global Interaction Contract prompts, and show that a
+    lightweight prompt mitigation reduces interaction burden while leaving
+    residual exact-preservation failures.
+    \item We provide diagnostics beyond the headline table: language slices,
+    family-level failure modes, paired sign-test sensitivity, token-burden
+    analysis, prompt-control and prompt-ablation diagnostics, item-consistency
+    analysis, and a stratified blinded LLM-judge audit.
+\end{itemize}
+
+We intentionally keep the claim boundary narrow. The pilot is synthetic and
+stress-oriented, not a prevalence estimate for all global users. Its purpose is
+to make a neglected class of repair costs measurable and reproducible.
