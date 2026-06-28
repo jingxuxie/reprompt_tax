@@ -8,6 +8,8 @@
 \usepackage{graphicx}
 \usepackage{array}
 \usepackage{lineno}
+\usepackage{xcolor}
+\usepackage{amsmath}
 
 \definecolor{darkblue}{rgb}{0,0,0.5}
 \hypersetup{colorlinks=true,citecolor=darkblue,linkcolor=darkblue,urlcolor=darkblue}
@@ -25,216 +27,16 @@
 
 \maketitle
 
-\begin{abstract}
-Multilingual users often interact with LLMs through code-switched prompts,
-mixed-language editing requests, and constraints about script, register,
-locale, and literal text preservation. Standard one-turn evaluations miss a
-common usability failure: the model returns a fluent, plausible answer that
-violates the user's interaction contract, forcing the user to spend extra turns
-repairing the response. We introduce \emph{Re-prompt Tax}, a metric family that
-measures the turns, tokens, and repair success required to recover from these
-failures. We construct a 120-item stress pilot across Spanish-English,
-Hindi-English, and Arabic-English interactions and evaluate three GPT-4.1-family
-API models under a baseline prompt and a Global Interaction Contract prompt.
-Baseline first-turn global alignment ranges from 67.5\% to 76.7\%; the
-mitigation improves alignment to 76.7--93.3\% and reduces mean repair turns. A
-10\% stratified blinded LLM-judge audit agrees with the automatic scorer on
-98.6\% of sampled pass/fail labels.
-\end{abstract}
-
-\section{Introduction}
-
-The GenAI4World workshop asks how evaluations should capture global tasks,
-contexts, vulnerabilities, and usability beyond standard accuracy metrics
-\citep{genai4world2026cfp}. We study one such gap: a model can return a
-semantically plausible answer while violating the user's multilingual
-interaction contract. The failure may look minor in a one-turn benchmark, but it
-imposes an extra interaction burden on the user.
-
-For example, a user may ask in Spanish:
-\begin{quote}\small
-\texttt{Me ayudas a mejorar este texto para que suene natural? "I can't join
-the call today, but I can share my update by email."}
-\end{quote}
-A globally aligned assistant should infer that the quoted English sentence is
-the object of editing and should remain English unless translation is requested.
-In our pilot, models sometimes answer with Spanish preambles or full Spanish
-translations. The answer may be fluent and helpful-looking, but the user still
-has to re-prompt: ``Please keep the rewritten text in English.''
-
-We call this burden the \emph{Re-prompt Tax}. Our contributions are:
-\begin{itemize}
-    \item We define metrics for hidden multilingual repair burden: first-turn
-    global alignment, re-prompt turn tax, repair success, unresolved rate, and
-    token tax.
-    \item We build a small, privacy-safe stress pilot spanning language,
-    script, literal-preservation, register, and locale constraints.
-    \item We evaluate three GPT-4.1-family API models \citep{openai2025gpt41}
-    under baseline and mitigation conditions, then validate a stratified sample
-    with a blinded LLM judge.
-\end{itemize}
-
-As a lightweight motivation check, we also scan the first 20,000 streamed
-WildChat conversations \citep{zhao2024wildchat} using predefined repair cues.
-Among 10,681 multi-turn conversations, 172 contain at least one follow-up cue
-related to generic repair, preservation, output language, unwanted translation,
-script, or register/locale. We use this only to motivate the taxonomy, not as a
-representative prevalence estimate.
-
-\section{Re-prompt Tax}
-
-Let item $i$ contain a user prompt, expected output language and script, spans
-that must be preserved exactly, and any register or locale requirements. We
-define \textbf{First-Turn Global Alignment}:
-\[
-\mathrm{FTGA}(i,m)=1
-\]
-if model $m$ satisfies all expected language, script, preservation, task,
-register, and locale constraints on the first response, and $0$ otherwise.
-
-If the first response fails, we append up to two standardized repair prompts.
-\textbf{Re-prompt Turn Tax} (RTT) is the minimum number of repair prompts needed
-before success:
-\[
-\mathrm{RTT}(i,m)\in\{0,1,2,3\},
-\]
-where 3 denotes unresolved after two repairs. We also report Repair@1,
-Repair@2, unresolved rate, and token tax: total tokens consumed until success,
-divided by first-attempt tokens.
-
-This framing is related to output-language alignment in code-switched
-interactions \citep{oh2026ola}, but differs in two ways. First, we measure
-repair trajectories rather than only first-turn outcomes. Second, the contract
-includes not only output language, but also script, literal span preservation,
-register, and locale-sensitive data.
-
-\section{Benchmark and protocol}
-
-\paragraph{Items.}
-We created \textsc{RePromptTax-Stress-v0.2}, a 120-item pilot with three
-language pairs: Spanish-English, Hindi-English, and Arabic-English. Each pair
-has ten items in four task families: implicit editing preservation,
-output-language inference, quote preservation, and script/register/locale
-constraints. Items are synthetic and privacy-safe, but were designed to reflect
-repair patterns that appear plausible in real multilingual chat use.
-
-\paragraph{Models and prompts.}
-We evaluate \texttt{gpt-4.1-nano}, \texttt{gpt-4.1-mini}, and \texttt{gpt-4.1}
-with temperature 0. Each model is run under two conditions. The baseline system
-prompt is ``You are a helpful assistant.'' The mitigation condition uses a
-Global Interaction Contract: infer the language of the instruction and content,
-preserve content language during editing unless translation is requested,
-preserve quoted spans and literal data, obey explicit script/register/locale
-constraints, and avoid unnecessary explanation.
-
-\paragraph{Scoring and audit.}
-Automatic scoring combines deterministic checks for exact span preservation and
-script with rule-based language and task checks. We then ran a blinded
-\texttt{gpt-4.1} judge audit on 72 first-turn responses, sampling three
-responses from each model-condition-family stratum. The judge saw only the user
-prompt, expected contract, and assistant response, not model identity or
-condition. Experiments were run on June 28, 2026.
-
-\section{Results}
-
-\begin{table}[t]
-\centering
-\small
-\begin{tabular}{llrrrrrr}
-\toprule
-Model & Condition & FTGA & Mean RTT & Tok. tax & Unres. & R@1 & R@2 \\
-\midrule
-GPT-4.1 nano & Baseline & 67.5 & 0.47 & 1.69 & 5.8 & 74.4 & 82.1 \\
-GPT-4.1 nano & Contract & 76.7 & 0.33 & 1.34 & 4.2 & 78.6 & 82.1 \\
-GPT-4.1 mini & Baseline & 75.8 & 0.28 & 1.43 & 0.8 & 89.7 & 96.6 \\
-GPT-4.1 mini & Contract & 79.2 & 0.24 & 1.27 & 1.7 & 92.0 & 92.0 \\
-GPT-4.1 & Baseline & 76.7 & 0.28 & 1.43 & 2.5 & 89.3 & 89.3 \\
-GPT-4.1 & Contract & 93.3 & 0.15 & 1.13 & 4.2 & 37.5 & 37.5 \\
-\bottomrule
-\end{tabular}
-\caption{Stress-pilot results. FTGA, unresolved rate, Repair@1, and Repair@2
-are percentages. RTT and token tax are lower-is-better; token tax is total
-tokens until success divided by first-attempt tokens.}
-\label{tab:main}
-\end{table}
-
-Table~\ref{tab:main} shows measurable baseline re-prompt tax for all three
-models. The mitigation improves FTGA for every model, reduces mean RTT and mean
-token tax, and brings the strongest model to 93.3\% FTGA, though residual
-exact-preservation failures remain. Paired bootstrap estimates over the same
-120 items show FTGA gains of +9.2, +3.3, and +16.7 points for nano, mini, and
-GPT-4.1; mean token tax falls by 0.35$\times$, 0.16$\times$, and
-0.30$\times$. Single-model prompt diagnostics on nano show that a generic
-helpfulness prompt improves FTGA from 67.5\% to 75.0\%, while the full contract
-reaches 76.7\%. A narrower content-preservation prompt reaches 80.0\% FTGA,
-0.27 mean RTT, and the lowest token tax, so we treat the full contract as the
-pre-registered three-model intervention, not as the best possible prompt.
-Among first-turn failures, 31/96 baseline first-turn failures still pass the
-task component; the stricter task-plus-preservation slice falls from 11 to 1
-under the contract, isolating repair burden that is not simple task failure.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.98\linewidth]{figures/ftga_by_condition.png}
-\caption{First-turn global alignment by model and condition on the 120-item
-stress pilot.}
-\label{fig:ftga}
-\end{figure}
-
-\paragraph{Implicit editing preservation is the dominant failure mode.}
-Family-level analysis shows aggregate baseline FTGA is 33.3\% for editing
-preservation, with 60/90 first-turn failures across models. By contrast,
-output-language inference is saturated at 100.0\% FTGA in this pilot. The
-contract raises editing-preservation FTGA by +63.3, +13.3, and +33.3 points for
-\texttt{gpt-4.1}, \texttt{gpt-4.1-mini}, and \texttt{gpt-4.1-nano}.
-
-\paragraph{Cheaper models still struggle with exact preservation.}
-\texttt{gpt-4.1-nano} translates semantically transparent quoted headings such
-as \texttt{"Budget Review"} and \texttt{"Community Questions"} despite explicit
-preservation instructions. On quote-preservation items, its first-turn FTGA is
-70.0\% in baseline and 73.3\% under the contract, but the contract lowers mean
-RTT from 0.63 to 0.37 and unresolved rate from 13.3\% to 3.3\%.
-
-\paragraph{Audit.}
-The 72-response blinded judge audit agrees with the corrected automatic scorer
-on 71/72 sampled pass/fail labels (98.6\%). The single disagreement is an
-editing-preservation response where the rule scorer penalizes Spanish framing
-around English rewrites while the judge accepts the answer. The audit is not a
-substitute for native-speaker validation, but it reduces the risk that the
-headline trend is an artifact of the rule-based scorer.
-
-\paragraph{Qualitative examples.}
-Validated examples match the aggregate patterns: baseline \texttt{gpt-4.1-nano}
-translates English content into Spanish before repair in one editing case, and
-repeatedly asks for already-present Arabic-English quoted text in an unresolved
-quote-preservation case.
-
-\section{Related work}
-
-Recent multilingual benchmarks such as MMLU-ProX and BenchMAX broaden accuracy
-and instruction-following evaluation across languages
-\citep{xuan2025mmluprox,huang2025benchmax}; OLA studies output-language
-alignment in code-switched interactions \citep{oh2026ola}. Multi-turn dialogue
-evaluations such as MT-Bench and Chatbot Arena evaluate conversational quality
-\citep{zheng2023mtbench}; our protocol instead fixes the initial contract
-violation and asks how many standardized repairs are needed for recovery.
-Re-prompt Tax is complementary: it measures the interactional cost of recovery
-and expands the contract beyond output language to include script, preservation,
-register, and locale constraints. WildChat \citep{zhao2024wildchat} motivates
-studying multi-turn repair because LLM use is diverse and interactional.
-
-\section{Limitations and ethics}
-
-This is a pilot benchmark, not a representative sample of global multilingual
-use. It covers only three language pairs and uses synthetic prompts. Automatic
-checks are reliable for exact spans and scripts, and the blinded judge audit
-supports the sampled language/task decisions, but native-speaker audit remains
-necessary before strong final claims. Token tax is a repair-burden ratio, not
-an API-cost estimate: the longer contract prompt increases absolute token use
-despite reducing repair-normalized token tax. We do not release raw user logs;
-all benchmark items are synthetic. The intended impact is to make hidden global
-usability burdens measurable, not to characterize all speakers of any included
-language.
+\input{sections/00_abstract}
+\input{sections/01_introduction}
+\input{sections/02_interaction_contracts_and_metrics}
+\input{sections/03_benchmark_construction}
+\input{sections/04_experimental_protocol}
+\input{sections/05_results}
+\input{sections/06_discussion}
+\input{sections/07_related_work}
+\input{sections/08_limitations_and_ethics}
+\input{sections/09_conclusion}
 
 \bibliography{refs}
 \bibliographystyle{colm2026_conference}
