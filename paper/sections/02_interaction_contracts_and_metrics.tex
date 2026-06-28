@@ -1,0 +1,49 @@
+\section{Interaction contracts and metrics}
+
+\paragraph{Interaction contract.}
+For each benchmark item $i$, we specify a user prompt $u_i$ and a contract
+$c_i$. The contract records expected response language, expected script,
+required task behavior, literal spans that must be preserved, forbidden markers
+or translations, and any register or locale constraints. Some contract elements
+are explicit in the prompt, while others are implicit but recoverable from the
+workflow. In the Spanish-English editing example above, the prompt asks for text
+improvement in Spanish, but the target content is quoted in English. The
+contract therefore requires English edited output, not Spanish translation.
+
+\paragraph{First-turn global alignment.}
+For model $m$ and condition $s$, we define first-turn global alignment as:
+\[
+\mathrm{FTGA}(i,m,s)=
+\begin{cases}
+1 & \text{if the first response satisfies all contract checks,}\\
+0 & \text{otherwise.}
+\end{cases}
+\]
+The checks cover language, script, preservation, task completion, and
+register/locale constraints. FTGA is stricter than ordinary task success: a
+response can complete the requested operation while still failing because it
+uses the wrong response language, translates a quoted span, or changes a literal
+file name.
+
+\paragraph{Repair trajectory.}
+If the first response fails, we append up to two standardized repair prompts
+associated with the item. The repair prompts point to the violated contract
+class without revealing a reference answer. The \textbf{Re-prompt Turn Tax}
+(RTT) is the minimum number of repair prompts required before success:
+\[
+\mathrm{RTT}(i,m,s)\in\{0,1,2,3\},
+\]
+where $0$ denotes first-turn success and $3$ denotes unresolved after two repair
+prompts. We also report Repair@1, Repair@2, and unresolved rate among initially
+failed trajectories.
+
+\paragraph{Token tax.}
+Let $T_{\mathrm{total}}(i,m,s)$ be provider-reported total tokens consumed by
+the trajectory through success or exhaustion of the two-repair budget, and let
+$T_{0}(i,m,s)$ be the first-attempt token count. We define:
+\[
+\mathrm{TokenTax}(i,m,s)=\frac{T_{\mathrm{total}}(i,m,s)}{T_{0}(i,m,s)}.
+\]
+Token tax is a repair-burden ratio, not an API-cost estimate. A longer system
+prompt can reduce repair-normalized token tax while increasing absolute tokens.
+We therefore report absolute token burden separately in the analysis.
