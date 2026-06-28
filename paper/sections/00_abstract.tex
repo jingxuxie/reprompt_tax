@@ -1,0 +1,23 @@
+\begin{abstract}
+Multilingual users often interact with large language models (LLMs) through
+code-switched prompts, mixed-language editing requests, and constraints about
+script, register, locale, and literal text preservation. Standard one-turn
+evaluations usually ask whether the final answer is correct, but they miss a
+common usability failure: the model returns a fluent, plausible answer that
+violates the user's interaction contract, forcing the user to spend extra turns
+repairing the response. We introduce \emph{Re-prompt Tax}, a metric family that
+measures first-turn global alignment, the number of repair turns needed for
+recovery, unresolved failures, and token overhead. We construct
+\textsc{RePromptTax-Stress-v0.2}, a 120-item synthetic stress pilot across
+Spanish-English, Hindi-English, and Arabic-English interactions, and evaluate
+three GPT-4.1-family API models under a baseline prompt and a Global Interaction
+Contract prompt. Baseline first-turn global alignment ranges from 67.5\% to
+76.7\%; the mitigation improves alignment to 76.7--93.3\% and reduces mean
+repair turns and repair-normalized token tax. Analysis shows that the dominant
+failure mode is not generic multilingual QA, but implicit editing preservation:
+models often translate or frame content in the instruction language when the
+user intended the quoted content to remain in English. A 10\% stratified blinded
+LLM-judge audit agrees with the automatic scorer on 71/72 sampled pass/fail
+labels. We release a conservative evaluation protocol and claim boundary for
+measuring hidden global usability costs rather than broad multilingual ability.
+\end{abstract}
