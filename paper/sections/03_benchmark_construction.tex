@@ -1,0 +1,41 @@
+\section{Benchmark construction}
+
+\paragraph{Motivation from public chat logs.}
+As a lightweight motivation check, we scan the first 20,000 streamed WildChat
+conversations \citep{zhao2024wildchat} using predefined repair cues. Among
+10,681 multi-turn conversations, 172 contain at least one follow-up cue related
+to generic repair, preservation, output language, unwanted translation, script,
+or register/locale. The scan records only aggregate counts and hashed metadata:
+no raw user or assistant text is written. We use the scan to motivate the
+failure taxonomy, not to estimate population prevalence.
+
+\paragraph{Stress-pilot design.}
+We created \textsc{RePromptTax-Stress-v0.2}, a 120-item synthetic benchmark
+with a balanced $3\times4$ design: Spanish-English, Hindi-English, and
+Arabic-English; and four task families with ten items per language-pair/family
+cell. Table~\ref{tab:families} summarizes the families.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{p{0.20\linewidth}p{0.28\linewidth}p{0.39\linewidth}}
+\toprule
+Family & User-side ambiguity & Expected contract \\
+\midrule
+Editing preservation & Instruction language differs from quoted content language. & Improve or rewrite the content while preserving its intended language; do not translate unless asked. \\
+Output-language inference & Prompt mixes languages without an explicit ``answer in X'' instruction. & Infer the expected output language from the pragmatic context. \\
+Quote preservation & The task concerns text around quoted headings or labels. & Preserve required quoted spans and literal data exactly. \\
+Script/register/locale & The user specifies romanization, formal/informal register, or local literal formats. & Obey script, register, and locale constraints while preserving IDs, file names, times, and headings. \\
+\bottomrule
+\end{tabular}
+\caption{The four task families in \textsc{RePromptTax-Stress-v0.2}. The pilot is designed to stress interaction contracts, not to estimate natural prevalence.}
+\label{tab:families}
+\end{table}
+
+The benchmark is synthetic and privacy-safe. A release-hygiene audit confirms
+120 unique prompts, zero normalized duplicate prompts, required scoring markers
+for all rows, zero privacy-marker hits under the audit regexes, and 99 literal
+preservation spans across the families that require them. The benchmark also
+contains known-bad-output notes to clarify what each item is designed to catch.
+These checks are not a substitute for native-speaker validation, but they make
+the artifact easier to audit and reproduce.
