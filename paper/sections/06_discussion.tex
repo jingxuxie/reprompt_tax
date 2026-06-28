@@ -1,0 +1,25 @@
+\section{Discussion}
+
+Re-prompt Tax changes the unit of analysis from a single answer to a repair
+trajectory. This matters because a first answer can be semantically plausible
+but interactionally wrong. For global users, the cost of that error includes
+not only extra tokens, but also the cognitive work of diagnosing the failure,
+writing a corrective prompt, and verifying the repair. These costs are easy to
+miss when benchmarks ask only whether a final response is acceptable.
+
+The strongest empirical finding is that implicit content-language preservation
+is a measurable bottleneck. Models often follow the language of the instruction
+rather than the language of the quoted content to be edited. A simple contract
+prompt reduces this failure, but does not eliminate exact-preservation errors.
+This pattern suggests that multilingual system prompts should separate
+\emph{instruction language}, \emph{content language}, and \emph{response
+language} as distinct variables rather than treating the prompt as a monolithic
+language signal.
+
+The results also show why mitigation claims should be bounded. The full Global
+Interaction Contract improves all three models, but a narrower content-
+preservation prompt outperforms it on the nano diagnostic. This suggests that
+more specific scaffolds may be better than broad multilingual policy text for
+some workflows. Future systems could infer a lightweight interaction contract
+from the user's prompt and attach only the relevant constraints, reducing both
+absolute prompt length and over-instruction risk.
