@@ -1,0 +1,46 @@
+\section{Related work}
+
+\paragraph{Multilingual and cultural evaluation.}
+Multilingual benchmark work has expanded language coverage and highlighted
+large performance gaps across languages. MMLU-ProX evaluates advanced reasoning
+across typologically diverse languages \citep{xuan2025mmluprox}, BenchMAX
+proposes a broad multilingual evaluation suite \citep{huang2025benchmax}, and
+OMGEval evaluates open-ended multilingual generation with localized questions
+\citep{liu2024omgeval}. Global MMLU shows that simply translating English
+benchmarks can preserve Western-centric cultural assumptions and distort model
+rankings \citep{singh2024globalmmlu}. Cultural benchmarks such as CDEval and
+MCEval argue that model behavior should be evaluated through culturally specific
+and cross-cultural lenses \citep{wang2023cdeval,huang2025mceval}. Our work is
+smaller and narrower: it does not attempt broad cultural coverage, but instead
+measures the repair cost of violating multilingual interaction contracts.
+
+\paragraph{Instruction following and code-switching.}
+IFEval introduced verifiable instruction-following checks for LLMs
+\citep{zhou2023ifeval}; XIFBench and Marco-Bench-MIF extend this concern to
+multilingual instruction following with localized constraints
+\citep{li2025xifbench,zeng2025marcomif}. OLA is the closest prior work to ours:
+it studies output-language alignment in code-switched interactions and shows
+that models often infer the wrong response language \citep{oh2026ola}. CodeMixQA
+and related work further show that code-switched reasoning and generation remain
+challenging \citep{winata2026codemixqa}. Re-prompt Tax includes output-language
+alignment, but adds repair trajectories and a broader contract containing
+script, literal preservation, register, and locale constraints.
+
+\paragraph{Multi-turn dialogue, real-world chat logs, and judges.}
+MT-Bench and Chatbot Arena evaluate conversational quality and preference using
+multi-turn prompts and LLM or human judgments \citep{zheng2023mtbench}. WildChat
+and LMSYS-Chat-1M provide large-scale public records of real LLM interactions
+\citep{zhao2024wildchat,zheng2023lmsyschat1m}. We use WildChat only for a
+bounded aggregate cue scan and release synthetic stress items instead of raw
+user conversations. Our judge audit is related to LLM-as-a-judge methodology,
+but multilingual judging itself is known to be inconsistent across languages
+\citep{fu2025multilingualjudge}. We therefore treat the judge audit as a sanity
+check rather than as final human validation.
+
+\paragraph{Cost and accessibility.}
+Prior work on multilingual tokenization shows that language users can face
+unequal token costs and utility when using commercial APIs
+\citep{ahia2023languagecost,petrov2023tokenizers}. Re-prompt Tax is
+complementary: instead of asking whether the same content costs more to encode
+in different languages, we ask how many extra turns and tokens are consumed when
+the model violates a multilingual interaction contract.
