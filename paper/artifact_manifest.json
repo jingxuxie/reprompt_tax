@@ -595,10 +595,10 @@
       "sha256": "12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a"
     },
     {
-      "bytes": 241307,
+      "bytes": 240230,
       "lines": "",
       "path": "paper/main.pdf",
-      "sha256": "ba370ccc440455167805763921f4a85b240177167fcc9ae91d28cced042a22a1"
+      "sha256": "dce37e5dd847fa426008754c5eca3e9223823d6e27b5d7d88b5a3d0d417d16f3"
     },
     {
       "bytes": 1082,
@@ -649,16 +649,16 @@
       "sha256": "1a417d225c1f47354a4648d094daca7618f0ab78ae54b16824e309a544b0746e"
     },
     {
-      "bytes": 7702,
-      "lines": 203,
+      "bytes": 8892,
+      "lines": 233,
       "path": "paper/refs.bib",
-      "sha256": "c1ab6c66c539df6a68a2f44b2c3c787485268e027bb78b5004874acba392f28c"
+      "sha256": "c8951f43a0f2b3dd4a3f80e0cb907d701fe9e3266d849cdb664bd004cdd56faf"
     },
     {
-      "bytes": 3261,
-      "lines": 48,
+      "bytes": 3886,
+      "lines": 53,
       "path": "paper/related_work_positioning_v02.md",
-      "sha256": "cdf9eaf3004f688ae1eb43b92b259e9ba54d610c0e9a2b7f460b1e999ba8fb44"
+      "sha256": "5510dedcb29bb2f20bd293415dd364b8647bbe77c6692367cf65ab324c6a114e"
     },
     {
       "bytes": 2838,
@@ -715,10 +715,10 @@
       "sha256": "50e4e7d0a96cea15ada689386529b2444869209d79b9aa9c8a5c0c883ad9c678"
     },
     {
-      "bytes": 11384,
-      "lines": 198,
+      "bytes": 7930,
+      "lines": 148,
       "path": "paper/sections/05_results.tex",
-      "sha256": "84e317c3b0eae34da9296bc5dccf306e45220a4f83347e977d7e4a58a1afa968"
+      "sha256": "602c3bdaeb0675152bed0f379bc9c5a3deea453000f89cf122934e92218c74ed"
     },
     {
       "bytes": 1789,
@@ -727,10 +727,10 @@
       "sha256": "9dddcc91764c33c13b3424767360903da6c95504262e29e71fa202e86b43c733"
     },
     {
-      "bytes": 3124,
-      "lines": 49,
+      "bytes": 3567,
+      "lines": 57,
       "path": "paper/sections/07_related_work.tex",
-      "sha256": "ead488bb2cd64e463bd55e7d4917a7f7534d7f1d8b996dea8bbe486e9f5b884a"
+      "sha256": "2f59ebb5af789aefc1d83701f9150e1262b144e66ebc5dc83a60c36a430ad5b0"
     },
     {
       "bytes": 1939,
@@ -3115,10 +3115,10 @@
       "sha256": "a488b744eb896cfe6d449002851d286202b98a53754649dd84f443a30b235ced"
     },
     {
-      "bytes": 136682,
-      "lines": 2586,
+      "bytes": 137197,
+      "lines": 2605,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "66dfd2e5e8753ff292a273c3a1ccb49e1d84753edbd26948741691a0715b6aa4"
+      "sha256": "b7b02b1c607d44f7115e4cb895b1b93f2719dc973e1a01fc6e27bb5253d3dd16"
     },
     {
       "bytes": 6982,

@@ -17,9 +17,11 @@ interaction contracts.
 
 \paragraph{Instruction following and code-switching.}
 IFEval introduced verifiable instruction-following checks for LLMs
-\citep{zhou2023ifeval}; XIFBench and Marco-Bench-MIF extend this concern to
-multilingual instruction following with localized constraints
-\citep{li2025xifbench,zeng2025marcomif}. OLA is the closest prior work to ours:
+\citep{zhou2023ifeval}; M-IFEval, XIFBench, and Marco-Bench-MIF extend this
+concern to multilingual instruction following with language-specific and
+localized constraints
+\citep{dussolle2025mifeval,li2025xifbench,zeng2025marcomif}. OLA is the
+closest prior work to ours:
 it studies output-language alignment in code-switched interactions and shows
 that models often infer the wrong response language \citep{oh2026ola}. CodeMixQA
 and related work further show that code-switched reasoning and generation remain
@@ -35,10 +37,16 @@ multi-turn prompts and LLM or human judgments \citep{zheng2023mtbench}. WildChat
 and LMSYS-Chat-1M provide large-scale public records of real LLM interactions
 \citep{zhao2024wildchat,zheng2023lmsyschat1m}. We use WildChat only for a
 bounded aggregate cue scan and release synthetic stress items instead of raw
-user conversations. Our judge audit is related to LLM-as-a-judge methodology,
-but multilingual judging itself is known to be inconsistent across languages
-\citep{fu2025multilingualjudge}. We therefore treat the judge audit as a sanity
-check rather than as final human validation.
+user conversations. Recent multi-turn instruction-following benchmarks such as
+StructFlowBench and MultiChallenge evaluate structural dependencies, context
+allocation, and realistic dialogue challenges
+\citep{li2025structflowbench,sirdeshmukh2025multichallenge}. Re-prompt Tax is
+more controlled: it fixes the failure-triggered repair prompt and measures
+recovery cost after a multilingual contract violation. Our judge audit is
+related to LLM-as-a-judge methodology, but multilingual judging itself is known
+to be inconsistent across languages \citep{fu2025multilingualjudge}. We
+therefore treat the judge audit as a sanity check rather than as final human
+validation.
 
 \paragraph{Cost and accessibility.}
 Prior work on multilingual tokenization shows that language users can face

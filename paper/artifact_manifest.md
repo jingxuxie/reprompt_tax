@@ -239,7 +239,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/judge_refresh_gpt55_v02_full120.md` | 2238 | 38 | `bbf319f6e1a682e260976f6559ca28102410596521d444b6e09d3d8c620f0a07` |
 | `paper/label_collection_launch_pack_v02.md` | 9095 | 78 | `7ee715c7fb4f5a17816d31b148a0871c5c485deacc60c743c54839b2e604ac18` |
 | `paper/language_slice_analysis_v02_full120.md` | 3925 | 72 | `12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a` |
-| `paper/main.pdf` | 241307 |  | `ba370ccc440455167805763921f4a85b240177167fcc9ae91d28cced042a22a1` |
+| `paper/main.pdf` | 240230 |  | `dce37e5dd847fa426008754c5eca3e9223823d6e27b5d7d88b5a3d0d417d16f3` |
 | `paper/main.tex` | 1082 | 44 | `1a09b462988020ead361be338a7d3ec29e9c104e27c384cafe408080dcdf9474` |
 | `paper/paired_significance_gpt54mini_v02_full120.md` | 755 | 13 | `d29116e1c39e4a56e08e84fd86b022ce220b4b35c696c57689fc019154d8b3cc` |
 | `paper/paired_significance_gpt55_v02_full120.md` | 729 | 13 | `e6bdb635f4b8bca1cdf5ceb707c6a852a2cdd581e6f344df3d476b28af4a212a` |
@@ -248,8 +248,8 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/prompt_ablation_analysis.md` | 6347 | 74 | `6ab68c79d3f7f459a7d765d0473ae2d9b55ffabc9dc4ef2df05150f205b727a8` |
 | `paper/prompt_control_analysis.md` | 1614 | 33 | `268f517a0050c6eb65d8dcd1bf0f2d5274fc3f1c1fcd15d0e98fe94d811bff6d` |
 | `paper/qualitative_examples.md` | 3977 | 142 | `1a417d225c1f47354a4648d094daca7618f0ab78ae54b16824e309a544b0746e` |
-| `paper/refs.bib` | 7702 | 203 | `c1ab6c66c539df6a68a2f44b2c3c787485268e027bb78b5004874acba392f28c` |
-| `paper/related_work_positioning_v02.md` | 3261 | 48 | `cdf9eaf3004f688ae1eb43b92b259e9ba54d610c0e9a2b7f460b1e999ba8fb44` |
+| `paper/refs.bib` | 8892 | 233 | `c8951f43a0f2b3dd4a3f80e0cb907d701fe9e3266d849cdb664bd004cdd56faf` |
+| `paper/related_work_positioning_v02.md` | 3886 | 53 | `5510dedcb29bb2f20bd293415dd364b8647bbe77c6692367cf65ab324c6a114e` |
 | `paper/repair_dynamics_v02_full120.md` | 2838 | 56 | `51355fe1c072c65b807558c210eefa2ed9529fbf0d8ffc8bf87b493e5f605269` |
 | `paper/repair_realism_editing_baseline24.md` | 11576 | 82 | `abf3e0f1093555d1902dae28c95af0a18386b90800bd5aa325e437064c613073` |
 | `paper/results_snapshot.md` | 27734 | 494 | `1997319a71b2a41a2acf5da70511578850266a5fa08901a45d0650f03f90dad8` |
@@ -259,9 +259,9 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/sections/02_interaction_contracts_and_metrics.tex` | 2373 | 49 | `dc87229ec6879056dffda6407050692c575fd5e7649b0ea4113eea8ebc9a3641` |
 | `paper/sections/03_benchmark_construction.tex` | 2660 | 41 | `38059ae3db8bd1b3a312083d4f251ef327837631a987cebbe3166cf7c5e45a62` |
 | `paper/sections/04_experimental_protocol.tex` | 2475 | 43 | `50e4e7d0a96cea15ada689386529b2444869209d79b9aa9c8a5c0c883ad9c678` |
-| `paper/sections/05_results.tex` | 11384 | 198 | `84e317c3b0eae34da9296bc5dccf306e45220a4f83347e977d7e4a58a1afa968` |
+| `paper/sections/05_results.tex` | 7930 | 148 | `602c3bdaeb0675152bed0f379bc9c5a3deea453000f89cf122934e92218c74ed` |
 | `paper/sections/06_discussion.tex` | 1789 | 28 | `9dddcc91764c33c13b3424767360903da6c95504262e29e71fa202e86b43c733` |
-| `paper/sections/07_related_work.tex` | 3124 | 49 | `ead488bb2cd64e463bd55e7d4917a7f7534d7f1d8b996dea8bbe486e9f5b884a` |
+| `paper/sections/07_related_work.tex` | 3567 | 57 | `2f59ebb5af789aefc1d83701f9150e1262b144e66ebc5dc83a60c36a430ad5b0` |
 | `paper/sections/08_limitations_and_ethics.tex` | 1939 | 32 | `6fec65aa722f6ef74bca12132aa15329e0d645df079972bb8a5df33b4bba303f` |
 | `paper/sections/09_conclusion.tex` | 1042 | 16 | `4ddf2e265b15a319284fe4c67a46e69c95876bababd6cb191e98713fef2f2cbd` |
 | `paper/task_useful_failure_analysis_gpt54mini_v02_full120.md` | 2857 | 61 | `c574bcbfd3b7307974cbcc7ae68c46158faa18374ee5c8a7ba6ddb640d2e5f76` |
@@ -659,7 +659,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/validate_judge_refresh.py` | 6241 | 173 | `04718b3339405c80b138ec9daa7a137991b543618b08da1a9829b160da9e5942` |
 | `scripts/validate_label_collection_bundles.py` | 3922 | 112 | `4a6d3a09919404aff8f78191683266b21b2b82e32e48ceda37f5a8b2f6215d43` |
 | `scripts/validate_label_collection_launch_pack.py` | 5365 | 116 | `a488b744eb896cfe6d449002851d286202b98a53754649dd84f443a30b235ced` |
-| `scripts/validate_paper_claims.py` | 136682 | 2586 | `66dfd2e5e8753ff292a273c3a1ccb49e1d84753edbd26948741691a0715b6aa4` |
+| `scripts/validate_paper_claims.py` | 137197 | 2605 | `b7b02b1c607d44f7115e4cb895b1b93f2719dc973e1a01fc6e27bb5253d3dd16` |
 | `scripts/validate_qualitative_examples.py` | 6982 | 202 | `b483926397b7df75c18a626d0af28332e7c5c22e34ae9b8dc1f61ff28be78d62` |
 | `scripts/validate_release_docs.py` | 4041 | 112 | `c8e0d2f10acfc9d70b8948135f3fe0e8b44a0879cecb7ac1a51ef4a5bbd14690` |
 | `scripts/validate_repair_realism.py` | 5832 | 165 | `0ccdaffe830d77407b097e16b53608a81b0d98bac5aa050b265744c31d75e0f5` |

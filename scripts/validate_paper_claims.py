@@ -2198,15 +2198,30 @@ def check_related_work(tex_path: Path, refs_path: Path) -> None:
     required_tex_phrases = [
         "MMLU-ProX",
         "BenchMAX",
+        "M-IFEval",
         "MT-Bench",
+        "StructFlowBench",
+        "MultiChallenge",
         "interactional cost of recovery",
         "standardized repairs are needed",
         "script, preservation, register, and locale",
+        "recovery cost after a multilingual contract violation",
         "xuan2025mmluprox",
         "huang2025benchmax",
+        "dussolle2025mifeval",
         "zheng2023mtbench",
+        "li2025structflowbench",
+        "sirdeshmukh2025multichallenge",
     ]
-    required_bib_keys = ["xuan2025mmluprox", "huang2025benchmax", "oh2026ola", "zheng2023mtbench"]
+    required_bib_keys = [
+        "xuan2025mmluprox",
+        "huang2025benchmax",
+        "dussolle2025mifeval",
+        "oh2026ola",
+        "zheng2023mtbench",
+        "li2025structflowbench",
+        "sirdeshmukh2025multichallenge",
+    ]
     for phrase in required_tex_phrases:
         require(phrase in normalized_tex, f"main TeX related work missing phrase: {phrase}")
     for key in required_bib_keys:
@@ -2221,10 +2236,14 @@ def check_related_work_positioning(path: Path) -> None:
         "Safe Novelty Claim",
         "MMLU-ProX",
         "BenchMAX",
+        "M-IFEval",
         "OLA",
         "MT-Bench",
         "Chatbot Arena",
+        "StructFlowBench",
+        "MultiChallenge",
         "standardized repair protocol",
+        "repair trajectory after constraint failures",
         "GPT-5.x refresh makes the result timely",
         "current-model refreshes for `gpt-5.4-mini` and `gpt-5.5`",
         "repair-realism checks",

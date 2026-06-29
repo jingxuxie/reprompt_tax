@@ -8,8 +8,9 @@ positioning artifact, not an additional experiment.
 | Line of work | Representative sources | Main evaluation target | RePromptTax distinction |
 |---|---|---|---|
 | Broad multilingual capability benchmarks | MMLU-ProX, BenchMAX | Accuracy, reasoning, and instruction following across many languages | RePromptTax is smaller and synthetic, but targets interaction contracts that can be violated even when the answer is semantically plausible. |
+| Multilingual verifiable instruction following | M-IFEval, XIFBench, Marco-Bench-MIF | Whether models satisfy explicit constraints in many languages | RePromptTax adopts verifiable constraints but scores the downstream repair burden after failures, rather than only first-turn compliance. |
 | Output-language alignment in code-switched prompts | OLA | Whether the model infers the expected response language from pragmatic cues | RePromptTax includes output language but also script, literal span preservation, register, and locale constraints. |
-| Multi-turn dialogue evaluation and preference judging | MT-Bench, Chatbot Arena | Conversational quality, pairwise preference, and LLM-as-judge agreement | RePromptTax fixes a standardized repair protocol after a first-turn contract failure and measures turn/token burden to recover. |
+| Multi-turn dialogue and instruction-following evaluation | MT-Bench, Chatbot Arena, StructFlowBench, MultiChallenge | Conversational quality, pairwise preference, structural dependencies, and realistic dialogue challenges | RePromptTax fixes a standardized repair protocol after a first-turn contract failure and measures turn/token burden to recover. |
 | Real-world chat-log datasets | WildChat, LMSYS-Chat-1M | Observational diversity of public LLM use | RePromptTax uses only an aggregate cue scan for motivation and releases synthetic stress items rather than raw user logs. |
 
 ## Safe Novelty Claim
@@ -37,9 +38,13 @@ cross-provider generality. The defensible contribution is the combination of:
   representative prevalence study.
 - OLA is the closest one-turn multilingual interaction benchmark; the paper's
   differentiator is recovery cost and a broader interaction contract.
-- MT-Bench and Chatbot Arena are the closest multi-turn evaluation reference
-  points; the paper's differentiator is a controlled repair trajectory rather
-  than open-ended dialogue preference.
+- M-IFEval, XIFBench, and Marco-Bench-MIF are close multilingual
+  instruction-following references; the paper's differentiator is measuring
+  the repair trajectory after constraint failures.
+- MT-Bench, Chatbot Arena, StructFlowBench, and MultiChallenge are the closest
+  multi-turn evaluation reference points; the paper's differentiator is a
+  controlled repair trajectory rather than open-ended dialogue preference or
+  broad dialogue challenge coverage.
 - The GPT-5.x refresh makes the result timely, but it should be framed as a
   current-model stress-pilot diagnostic rather than a broad leaderboard.
 - The `gpt-5.5` headline is strongest on editing-preservation failures; the
