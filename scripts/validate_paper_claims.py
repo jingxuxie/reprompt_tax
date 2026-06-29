@@ -2556,6 +2556,7 @@ def main() -> None:
     check_auxiliary_validator(root, "scripts/validate_current_model_regression_risk.py", "current-model regression-risk validation passed")
     check_auxiliary_validator(root, "scripts/validate_current_model_case_studies.py", "current-model case-study validation passed")
     check_auxiliary_validator(root, "scripts/validate_current_model_scorer_sensitivity.py", "current-model scorer-sensitivity validation passed")
+    check_auxiliary_validator(root, "scripts/validate_scorer_challenge_v02.py", "scorer-challenge validation passed")
     check_auxiliary_validator(root, "scripts/validate_generation_progress_probe.py", "generation-progress probe validation passed")
     check_auxiliary_validator(root, "scripts/validate_efficiency_tradeoff.py", "efficiency tradeoff validation passed")
     check_auxiliary_validator(root, "scripts/validate_followup_plan_readiness.py", "follow-up plan readiness validation passed")

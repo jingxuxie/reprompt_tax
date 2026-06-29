@@ -1,0 +1,6 @@
+challenge_type,n_challenges,auto_failed_n,auto_failed_pct,expected_signal_detected_n,expected_signal_detected_pct,auto_pass_n,top_failure_types
+forbidden_marker,60,60,100.0,60,100.0,0,task_noncompletion:60;wrong_output_language:30;register_locale_mismatch:30
+overformal_register,30,30,100.0,30,100.0,0,task_noncompletion:30;register_locale_mismatch:30;wrong_output_language:23;script_mismatch:10
+preservation_drop,60,60,100.0,60,100.0,0,preservation_failure:60;task_noncompletion:60
+required_marker_omission,120,120,100.0,120,100.0,0,task_noncompletion:120;preservation_failure:60
+wrong_script,120,120,100.0,120,100.0,0,wrong_output_language:120;script_mismatch:120;task_noncompletion:120;preservation_failure:60

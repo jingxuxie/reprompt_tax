@@ -1,0 +1,4 @@
+language_pair,n_challenges,auto_failed_n,auto_failed_pct,expected_signal_detected_n,expected_signal_detected_pct,auto_pass_n,top_failure_types
+ar-en,130,130,100.0,130,100.0,0,task_noncompletion:130;wrong_output_language:60;preservation_failure:60;script_mismatch:50;register_locale_mismatch:20
+es-en,130,130,100.0,130,100.0,0,task_noncompletion:130;preservation_failure:60;wrong_output_language:55;script_mismatch:40;register_locale_mismatch:20
+hi-en,130,130,100.0,130,100.0,0,task_noncompletion:130;preservation_failure:60;wrong_output_language:58;script_mismatch:40;register_locale_mismatch:20

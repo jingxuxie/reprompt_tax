@@ -81,6 +81,16 @@ when language is relaxed; `gpt-5.4-mini` contract moves from 85.0% to 89.2%
 when preservation is relaxed, isolating the lower-cost model's literal-data
 boundary.
 
+Scorer challenge audit:
+`paper/scorer_challenge_v02.md`
+
+A synthetic challenge audit generates 390 known-bad probes from the v0.2
+benchmark and feeds them through `scripts/score_auto.py`: forbidden-marker,
+required-marker omission, wrong-script, preservation-drop, and
+over-formal-register probes. The scorer fails 390/390 probes and detects
+390/390 expected deterministic failure signals. This strengthens scorer
+plumbing evidence while preserving the native/human validation boundary.
+
 Current-model regression risk:
 `paper/current_model_regression_risk_v02.md`
 

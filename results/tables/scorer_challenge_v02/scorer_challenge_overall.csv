@@ -1,0 +1,2 @@
+n_challenges,auto_failed_n,auto_failed_pct,expected_signal_detected_n,expected_signal_detected_pct,auto_pass_n,top_failure_types
+390,390,100.0,390,100.0,0,task_noncompletion:390;preservation_failure:180;wrong_output_language:173;script_mismatch:130;register_locale_mismatch:60

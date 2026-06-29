@@ -343,16 +343,16 @@
       "sha256": "3c82600bd8db67ba38864412dcb94cfee1a204d94a68f3eb2b87abe101e8b724"
     },
     {
-      "bytes": 7216,
-      "lines": 181,
+      "bytes": 7355,
+      "lines": 183,
       "path": "docs/benchmark_card.md",
-      "sha256": "9958d35f91dbd1ececdf242ede0113fc5e7e48cfe90e37de3b920efc56ea232d"
+      "sha256": "29a48b34c66b8f411a080d5d6093d3767f0e68213a2e0bc74e276b004b926c60"
     },
     {
-      "bytes": 8426,
-      "lines": 237,
+      "bytes": 8885,
+      "lines": 248,
       "path": "docs/evaluation_card.md",
-      "sha256": "45fac4eca93c72ad226ab7249b8ef1c972b01fa33faa54ac07beda11df0d93f8"
+      "sha256": "6a0edc23efd93802cb21850b4b624a701eac33ccaef853615e72ddcf312c5688"
     },
     {
       "bytes": 13449,
@@ -361,10 +361,10 @@
       "sha256": "f3537e907ade875514c28aa0c9dd0b8ffc2c82f72cddc58f603fcc8f0d257ba3"
     },
     {
-      "bytes": 18865,
-      "lines": 424,
+      "bytes": 19353,
+      "lines": 434,
       "path": "docs/result_card.md",
-      "sha256": "ffdae1e7a7c278b16d74310d6f806c41a6e0abc01b1605e9f17b4eca7c6831f5"
+      "sha256": "d12fd7bd7ca97efe32123b94d622ad8c443deabdffa067b8ddce82634e6f54f3"
     },
     {
       "bytes": 3774,
@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 41913,
-      "lines": 234,
+      "bytes": 42467,
+      "lines": 235,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "8bae805b6234cae49aa9a3d8abcb8f73313e0ef63d0ab4df4b16a8ca21d28f80"
+      "sha256": "5d8366124a740a251b09067f947231da6840d2100c4b360586507d79df18bcca"
     },
     {
       "bytes": 1125,
@@ -643,10 +643,10 @@
       "sha256": "12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a"
     },
     {
-      "bytes": 241088,
+      "bytes": 241283,
       "lines": "",
       "path": "paper/main.pdf",
-      "sha256": "d1bbd4dacf8cd1c64477a083650b4250e8190355de14415d29ea0c3d0b532d5a"
+      "sha256": "e48a540b112b87df262a78d8feac43d84bbdadb00ed9fce05bdfa84dae4543a9"
     },
     {
       "bytes": 1082,
@@ -739,6 +739,12 @@
       "sha256": "fed29921eb43863bda11a671beae3b3e531e93bbffc2632d4e55bdfa044da6b3"
     },
     {
+      "bytes": 2364,
+      "lines": 50,
+      "path": "paper/scorer_challenge_v02.md",
+      "sha256": "8c4ab7b924541e1e02ab34bd320a5403291d7620348c33ab292377c5fca2f9a2"
+    },
+    {
       "bytes": 2043,
       "lines": 29,
       "path": "paper/sections/00_abstract.tex",
@@ -769,10 +775,10 @@
       "sha256": "50e4e7d0a96cea15ada689386529b2444869209d79b9aa9c8a5c0c883ad9c678"
     },
     {
-      "bytes": 8763,
-      "lines": 159,
+      "bytes": 8980,
+      "lines": 162,
       "path": "paper/sections/05_results.tex",
-      "sha256": "71b7e13b9fb2cfa9309a7aab11f849d746a87f1a02106741c3fbf80a83c0b5db"
+      "sha256": "948eba122d80e0417a21fc7e9e215b642508f4540029642db5c33da5654d1f71"
     },
     {
       "bytes": 1789,
@@ -2671,6 +2677,36 @@
       "sha256": "013dda14681ad23ed1f86628bc8215a0411b5e8bad01a412c3199a9b828f5b98"
     },
     {
+      "bytes": 666,
+      "lines": 5,
+      "path": "results/tables/scorer_challenge_v02/scorer_challenge_by_family.csv",
+      "sha256": "7356028636a05cb16a6b5da57f1ac631fe201b3bb0c21b5b736a07341d1df278"
+    },
+    {
+      "bytes": 596,
+      "lines": 4,
+      "path": "results/tables/scorer_challenge_v02/scorer_challenge_by_language.csv",
+      "sha256": "2539b7fdf14e11ecf1cc27fbfa281fe1e8df517e26da3cb77d5cf0977b5ac2e1"
+    },
+    {
+      "bytes": 713,
+      "lines": 6,
+      "path": "results/tables/scorer_challenge_v02/scorer_challenge_by_type.csv",
+      "sha256": "e56ee82ecbf2b3d77fce6929c279d80c59e6b412052e884436048a11562bd213"
+    },
+    {
+      "bytes": 277,
+      "lines": 2,
+      "path": "results/tables/scorer_challenge_v02/scorer_challenge_overall.csv",
+      "sha256": "e672ae510d3ec51ac9f70da8395a85eafa9b18f0515c8409651378592492018a"
+    },
+    {
+      "bytes": 85305,
+      "lines": 391,
+      "path": "results/tables/scorer_challenge_v02/scorer_challenge_rows.csv",
+      "sha256": "b008caffa9ecf8aa0fb56ffe62505cf9463319245cd622b62a24fb09ecdf48d3"
+    },
+    {
       "bytes": 631,
       "lines": 10,
       "path": "results/tables/sentinel_suite_v02/sentinel_coverage_summary.csv",
@@ -2941,6 +2977,12 @@
       "sha256": "72a401b925a05507b625bbdcce224216c08af642a2aa012841c8d9858697d95f"
     },
     {
+      "bytes": 12396,
+      "lines": 319,
+      "path": "scripts/analyze_scorer_challenge_v02.py",
+      "sha256": "d8a62c2fea9c9e038db549588c619d821b6a805e6535344e93f81e636ee01cc9"
+    },
+    {
       "bytes": 16748,
       "lines": 372,
       "path": "scripts/analyze_sentinel_suite_v02.py",
@@ -3049,10 +3091,10 @@
       "sha256": "b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d"
     },
     {
-      "bytes": 71835,
-      "lines": 848,
+      "bytes": 72491,
+      "lines": 858,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "9916a48830b01bda2a103d0c22d69ad0d6519feb082f3a3e4e7cde67c964a49d"
+      "sha256": "3e99788624ddc674b9ce4189b002e03a496af808c426e00e6a1ef694051cbac6"
     },
     {
       "bytes": 16653,
@@ -3115,10 +3157,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 34241,
-      "lines": 778,
+      "bytes": 34554,
+      "lines": 781,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "d184d135640f0b02ee80c8d388d73388bc78c6a918f87c6e9ae5037e39fe1297"
+      "sha256": "612a3804e2f7f4b15e37b8a12567684de5c15939eb810e6dda100e0cf129e614"
     },
     {
       "bytes": 8236,
@@ -3397,10 +3439,10 @@
       "sha256": "adb71e37fdcfa7ca98df0e1241f6384eddb7bd928a1724a749954a0642da986d"
     },
     {
-      "bytes": 138880,
-      "lines": 2622,
+      "bytes": 138998,
+      "lines": 2623,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "486c7e8e0712542ca4796d0d6fe97bc02ac5f486ec3fd73d3b789c7ae333478a"
+      "sha256": "eb95b66b3f04de93dafc37993ad70c17feab1b61558b56e4552c5039ddd53736"
     },
     {
       "bytes": 5629,
@@ -3415,10 +3457,10 @@
       "sha256": "b483926397b7df75c18a626d0af28332e7c5c22e34ae9b8dc1f61ff28be78d62"
     },
     {
-      "bytes": 5110,
-      "lines": 128,
+      "bytes": 5324,
+      "lines": 132,
       "path": "scripts/validate_release_docs.py",
-      "sha256": "823763fd0326018d18110755b0ef4202dedee68d27aaa00007aa1bba1d4c5b2f"
+      "sha256": "63b1ee94696ad794a12676331ca23a3e86d06d13d0e99eb77334a98e3fc63fa4"
     },
     {
       "bytes": 5832,
@@ -3427,10 +3469,16 @@
       "sha256": "0ccdaffe830d77407b097e16b53608a81b0d98bac5aa050b265744c31d75e0f5"
     },
     {
-      "bytes": 6269,
-      "lines": 130,
+      "bytes": 6546,
+      "lines": 137,
       "path": "scripts/validate_result_card.py",
-      "sha256": "408e26a031b6d4d91221e58a7187b124d667fa5c11e48beecc7306df36709f42"
+      "sha256": "d3239325595d88e23f9a1311087264c8d204a2374a7cf9f77da070fc409eadc3"
+    },
+    {
+      "bytes": 5123,
+      "lines": 120,
+      "path": "scripts/validate_scorer_challenge_v02.py",
+      "sha256": "ddae00600690c0385c15e36a40349601f66e09aeb03df8a2cee50d4ee382bca7"
     },
     {
       "bytes": 5248,
@@ -3527,6 +3575,8 @@
     "conda run -n reprompt_tax python scripts/validate_current_model_case_studies.py",
     "conda run -n reprompt_tax python scripts/analyze_current_model_scorer_sensitivity.py",
     "conda run -n reprompt_tax python scripts/validate_current_model_scorer_sensitivity.py",
+    "conda run -n reprompt_tax python scripts/analyze_scorer_challenge_v02.py",
+    "conda run -n reprompt_tax python scripts/validate_scorer_challenge_v02.py",
     "conda run -n reprompt_tax python scripts/analyze_generation_progress_probe.py",
     "conda run -n reprompt_tax python scripts/validate_generation_progress_probe.py",
     "conda run -n reprompt_tax python scripts/analyze_efficiency_tradeoff.py",
