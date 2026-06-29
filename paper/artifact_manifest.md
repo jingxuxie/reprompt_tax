@@ -116,6 +116,8 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 - `conda run -n reprompt_tax python scripts/validate_label_collection_dispatch.py`
 - `conda run -n reprompt_tax python scripts/analyze_label_collection_operator_handoff.py`
 - `conda run -n reprompt_tax python scripts/validate_label_collection_operator_handoff.py`
+- `conda run -n reprompt_tax python scripts/analyze_label_return_preflight.py`
+- `conda run -n reprompt_tax python scripts/validate_label_return_preflight.py`
 - `conda run -n reprompt_tax python scripts/analyze_label_collection_priority.py`
 - `conda run -n reprompt_tax python scripts/validate_label_collection_priority.py`
 - `conda run -n reprompt_tax python scripts/analyze_current_prompt_mechanism.py`
@@ -239,7 +241,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/appendix.md` | 22926 | 547 | `d14fb6b4875db1998645d5f42bb15ca3c4e7aa58529ca1e102f098a5b8cb0d65` |
 | `paper/balanced_subsample_robustness_v02.md` | 5985 | 76 | `eede0a4da797d73f15d85845c79d53b4844647e132bc4c5ce73b2c1b58cc7a0c` |
 | `paper/benchmark_quality_audit_v02.md` | 2165 | 64 | `4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc` |
-| `paper/claim_evidence_checklist.md` | 45939 | 242 | `120e813ad04834e64cedd892977f89997a068930dc1e2e9c5cdd662c9be88bf1` |
+| `paper/claim_evidence_checklist.md` | 46422 | 243 | `d29380021ab291b82db9898345cea62f64b8145d74d177ef401ed69c5eb67393` |
 | `paper/completed_label_claim_gates_v02.md` | 1125 | 15 | `00a418f89d02ff3db69b9076952826011e7895c51f51929a597881e246bbadcc` |
 | `paper/component_breakdown_v02_full120.md` | 3508 | 70 | `55cefed242fc5279ab83995d48ce07768490ba1f47f07d9ea54d94eb719107cc` |
 | `paper/contract_benefit_decomposition_v02.md` | 2686 | 68 | `095f255499a9e1d2d6885fb6b65622e16beea677ac2db502586c0db0335ccb33` |
@@ -280,6 +282,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/label_collection_launch_pack_v02.md` | 14361 | 82 | `7423919bbdb910d019f6d6ec1203be5d1fb97f5a5b25b41dee77145e6fec991a` |
 | `paper/label_collection_operator_handoff_v02.md` | 12910 | 106 | `1823ea219cfaaaddbc2075b000b213996b73ff776209398763dfb5f3c236c44b` |
 | `paper/label_collection_priority_v02.md` | 4236 | 61 | `531fde37a4cf86adc1afce2b4cbdee4b0b2ac14c33b878a5f9a9294dff87f948` |
+| `paper/label_return_preflight_v02.md` | 10045 | 69 | `9301a8936dddcc50cdc4ad3ee3dc70f51daa055d564280d95f82fba953d1b4e1` |
 | `paper/language_slice_analysis_v02_full120.md` | 3925 | 72 | `12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a` |
 | `paper/main.pdf` | 241615 |  | `727b1256873d6997cd48b52755f19ed4bfcae5156cdebe9247b96c1ec7b2b8b6` |
 | `paper/main.tex` | 1082 | 44 | `1a09b462988020ead361be338a7d3ec29e9c104e27c384cafe408080dcdf9474` |
@@ -311,7 +314,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/sections/08_limitations_and_ethics.tex` | 1939 | 32 | `6fec65aa722f6ef74bca12132aa15329e0d645df079972bb8a5df33b4bba303f` |
 | `paper/sections/09_conclusion.tex` | 1042 | 16 | `4ddf2e265b15a319284fe4c67a46e69c95876bababd6cb191e98713fef2f2cbd` |
 | `paper/sentinel_suite_v02.md` | 4878 | 68 | `549c4192ac3437df8e4b167933e70bcb5c4a6b2e595c342322d75109f43da769` |
-| `paper/submission_anonymity_v02.md` | 1657 | 36 | `b6a89b48f7c9c9955075ab489ea167939eef4a837fdfb1149efb8548a350a793` |
+| `paper/submission_anonymity_v02.md` | 1657 | 36 | `5512a6108e35fe495391e938b768fcddf0e77f505c93e1c3938e2d5bbd1d23ff` |
 | `paper/submission_decision_v02.md` | 4265 | 48 | `2772f08a16d1b0c0e595bb5bd01ca29a223501de36914d8194e77a18964faed5` |
 | `paper/task_useful_failure_analysis_gpt54mini_v02_full120.md` | 2857 | 61 | `c574bcbfd3b7307974cbcc7ae68c46158faa18374ee5c8a7ba6ddb640d2e5f76` |
 | `paper/task_useful_failure_analysis_gpt55_v02_full120.md` | 2541 | 57 | `97ac234566ce9683b988854b153bbb77477584cd78d2ad13a5950db80086dbd4` |
@@ -468,6 +471,8 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `results/tables/label_collection_operator_handoff_v02/operator_return_intake.csv` | 15792 | 19 | `d9f227a09a37c514f30a83469dcc4b9759d7bc78b546ec43031d1ceac514fa02` |
 | `results/tables/label_collection_priority_v02/label_collection_priority.csv` | 1834 | 4 | `d2a3a1f882df30fa4098e6c7f2389e4c0d507e3d79901532b589afb20c5bf996` |
 | `results/tables/label_collection_priority_v02/label_collection_priority_by_slice.csv` | 3349 | 13 | `81627b2cdd0d8850d4b5281cd1cf2260c92148b7da508047b1ba767e9c5cbf09` |
+| `results/tables/label_return_preflight_v02/label_return_preflight_files.csv` | 8611 | 37 | `23c193230bb72692028378f51d8b1e174624ea66c9c52a2bafe73da743f47b32` |
+| `results/tables/label_return_preflight_v02/label_return_preflight_summary.csv` | 2232 | 7 | `592fcd0900526920f09631286fb3b32e8a3988efef92a26744382181c1f80a14` |
 | `results/tables/openai_gpt54mini_stress_v02_full120/failure_types_by_family.csv` | 859 | 12 | `bd9f5859aa571ec77fa4f668ecbd2f99368a15ef9ac090c9cd3c848c61fa2111` |
 | `results/tables/openai_gpt54mini_stress_v02_full120/metrics_by_family.csv` | 1282 | 9 | `1687b371b0ff2518142dae439708c496a5535d8dc7e97a6caa294942b690ca71` |
 | `results/tables/openai_gpt54mini_stress_v02_full120/metrics_by_language.csv` | 828 | 7 | `b3b00654b0c153b584bbb233910d66c2d095862d93f4e99f916f57c3ae31d93b` |
@@ -643,7 +648,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `results/tables/sentinel_suite_v02/sentinel_coverage_summary.csv` | 631 | 10 | `ca539dfe6263999ee93a3fbecb46f551fe46445b67f5b1fdd58f3d0b28f8bcc9` |
 | `results/tables/sentinel_suite_v02/sentinel_item_scores.csv` | 16554 | 121 | `7652d9c1fcce894864cbef7350ba38fed830f79ad9d351f02cf0c0edf876666e` |
 | `results/tables/sentinel_suite_v02/sentinel_selected_items.csv` | 4393 | 25 | `d5c95343a3a2a60ffc64ce4051e04aa6022120990d551505858818d3488c2ecf` |
-| `results/tables/submission_anonymity_v02/submission_anonymity_checks.csv` | 714 | 6 | `efd65a7788305359ba3637c04a2f35e76d97e6e00824105bc4cce094aba38dfe` |
+| `results/tables/submission_anonymity_v02/submission_anonymity_checks.csv` | 714 | 6 | `5297f231b863e98029823b6f825acf60b4b161ad8fd31d90be6d4e5f90840039` |
 | `results/tables/submission_anonymity_v02/submission_anonymity_findings.csv` | 51 | 2 | `b76c381fb52680cbef789f301a1304a527dd7319d016dcae08087968ec5fab36` |
 | `results/tables/submission_decision_v02/submission_decision.csv` | 3183 | 6 | `672ef8572335a00a20a1ad853d92fc873787ebcb91d4d1d37aaec4fe9a4a1adf` |
 | `results/tables/submission_decision_v02/submission_decision_summary.csv` | 395 | 2 | `9b01e7928eb2e6d0aa309430d0123704e73ada997a9ec5c104b18bccfb0012de` |
@@ -685,6 +690,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/analyze_label_collection_launch_pack.py` | 25761 | 339 | `a9432d742681076a1cda671317831e2d3c1134a7688bc7c50da838be76990b09` |
 | `scripts/analyze_label_collection_operator_handoff.py` | 14719 | 351 | `d811cb5c1be0f14bb6cd28c909d6d99504a8e0a9a629a7af6751891ab42359c4` |
 | `scripts/analyze_label_collection_priority.py` | 12627 | 265 | `e26c438ff0fcd946c84243dec0e185adebf7b5ada4cbd061621594cd21b36ceb` |
+| `scripts/analyze_label_return_preflight.py` | 11778 | 274 | `8b72d32ea01e880de9388bdaf191912cb9faa884e79394b16e43d26cb8262fd0` |
 | `scripts/analyze_language_slices.py` | 11656 | 262 | `cc1449c42578c389809574c14ba0c2db8ee8ff4b974de4d270b24971f838408c` |
 | `scripts/analyze_prompt_ablation.py` | 20681 | 515 | `1e277f0aa80ce8cd21ca9f3339248925fb95e4517f8e99c085330b172888e8dd` |
 | `scripts/analyze_prompt_control.py` | 9823 | 248 | `6e901ad027174411c5efe9d8c2e193457992650b653d5b0567fe7d68e24368ba` |
@@ -716,7 +722,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/generate_stress_benchmark_v02.py` | 10953 | 262 | `ee407c0bbc5567895b155a59e5dce7722a2e320703a64995ff5fdf51238b4ff1` |
 | `scripts/judge_outputs.py` | 10150 | 274 | `bc090a1735c5ce24f9941949b042956c03c5f287255ff1f7f83d099854e4dffb` |
 | `scripts/lint_claim_boundaries.py` | 4892 | 141 | `2e174a3e97414a84d9cad555556f35ae2be3cde72c6cadb655ad8e15bcff3487` |
-| `scripts/make_artifact_manifest.py` | 75910 | 906 | `6d97ed768ea399730bd741f1b484b47f365a5b9dfe084977228a3bd4774de80b` |
+| `scripts/make_artifact_manifest.py` | 76383 | 913 | `2fad24789fcd62ae6486b507d8454138c5989f888386f239fa4376571676c3c0` |
 | `scripts/make_coverage_native_review_packet_v03.py` | 16653 | 365 | `fd0d380e50e12da17a71d3989393c6ad485b5e68ef530b95960fe242bbf45d2e` |
 | `scripts/make_coverage_native_review_sheets_v03.py` | 13720 | 307 | `9158944b71d8e932ccdc4c95e6308a967a686dac22bf84a5ad6bbc1f3a5fdc94` |
 | `scripts/make_figures.py` | 6172 | 180 | `16bdd9f91481beb5eb2b28719e1cde1af0399d64782856e782feb83d302e5191` |
@@ -727,7 +733,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/paired_significance.py` | 5385 | 147 | `1e1a6a3105a73e40c2363d3924d0e38d0442818065353aa63846015aa2dedd34` |
 | `scripts/run_models.py` | 12414 | 336 | `ff371a5339518700df7467ce611aeb754d321a39b4d1471821c301f04e001e63` |
 | `scripts/run_repair_prompt_variants.py` | 9442 | 235 | `ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e` |
-| `scripts/run_submission_checks.py` | 36586 | 799 | `96c9c258ae91df6374703123e36d082ba4db9b44aac39cb8756a3573309911c9` |
+| `scripts/run_submission_checks.py` | 36905 | 802 | `05a361660f3706e713e2b4688b73b7049db5fee7d83edf54fcbd1a2f996a5439` |
 | `scripts/score_auto.py` | 8236 | 302 | `401194f2530033217cc33e7617539a46bee792b93a4af525512f43f055c82b5e` |
 | `scripts/summarize_coverage_native_review_v03.py` | 6214 | 155 | `5b5a1bafa0d89a3bdc782362adf98fa736a570e9a5e282593e79b831d090f4df` |
 | `scripts/summarize_experiment_ledger.py` | 18150 | 438 | `b8c110d4c92c3bc489febb115f39a76e491f6f2b11de859c490c584ff8671c31` |
@@ -776,7 +782,8 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/validate_label_collection_launch_pack.py` | 9004 | 167 | `3cbbe56c695d5c8cb0a7bdcad5d8ebddfed48c4cea8bb8663cbfc4e464a5d079` |
 | `scripts/validate_label_collection_operator_handoff.py` | 12247 | 218 | `2c931ccb8d640c0c0cb475d32ce3a035314c54f6ff4d595212db6154cfe3d3ee` |
 | `scripts/validate_label_collection_priority.py` | 6163 | 131 | `73d6af099754c6cf9d6e52bc8c7f8fdc37404b84cbe9e84e4f4500ae5442ad9e` |
-| `scripts/validate_paper_claims.py` | 141946 | 2659 | `5d7dd8327968afa84373d3ed7aacef0c59e6275e708295fbcb157e13ffaddd83` |
+| `scripts/validate_label_return_preflight.py` | 5674 | 110 | `38f0820fa776ed6b260892e7897fdc1e3de7806b0ea3e190626ac81a57e6a837` |
+| `scripts/validate_paper_claims.py` | 142173 | 2662 | `75986eb6c192cf2bf52cd2786114efe5db795a742eba222d545614a1d5ce4ba3` |
 | `scripts/validate_prompt_family_scorecard.py` | 5629 | 134 | `31f27419b50671eeb1888b9689e228fcfcdf5b976d2854db57269d7062b74467` |
 | `scripts/validate_qualitative_examples.py` | 6982 | 202 | `b483926397b7df75c18a626d0af28332e7c5c22e34ae9b8dc1f61ff28be78d62` |
 | `scripts/validate_release_docs.py` | 5757 | 140 | `ed2be300fac24e934b7455199bc047b38f9396850fcd7550ee894f6534362d6c` |

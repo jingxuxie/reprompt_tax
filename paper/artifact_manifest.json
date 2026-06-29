@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 45939,
-      "lines": 242,
+      "bytes": 46422,
+      "lines": 243,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "120e813ad04834e64cedd892977f89997a068930dc1e2e9c5cdd662c9be88bf1"
+      "sha256": "d29380021ab291b82db9898345cea62f64b8145d74d177ef401ed69c5eb67393"
     },
     {
       "bytes": 1125,
@@ -643,6 +643,12 @@
       "sha256": "531fde37a4cf86adc1afce2b4cbdee4b0b2ac14c33b878a5f9a9294dff87f948"
     },
     {
+      "bytes": 10045,
+      "lines": 69,
+      "path": "paper/label_return_preflight_v02.md",
+      "sha256": "9301a8936dddcc50cdc4ad3ee3dc70f51daa055d564280d95f82fba953d1b4e1"
+    },
+    {
       "bytes": 3925,
       "lines": 72,
       "path": "paper/language_slice_analysis_v02_full120.md",
@@ -832,7 +838,7 @@
       "bytes": 1657,
       "lines": 36,
       "path": "paper/submission_anonymity_v02.md",
-      "sha256": "b6a89b48f7c9c9955075ab489ea167939eef4a837fdfb1149efb8548a350a793"
+      "sha256": "5512a6108e35fe495391e938b768fcddf0e77f505c93e1c3938e2d5bbd1d23ff"
     },
     {
       "bytes": 4265,
@@ -1769,6 +1775,18 @@
       "lines": 13,
       "path": "results/tables/label_collection_priority_v02/label_collection_priority_by_slice.csv",
       "sha256": "81627b2cdd0d8850d4b5281cd1cf2260c92148b7da508047b1ba767e9c5cbf09"
+    },
+    {
+      "bytes": 8611,
+      "lines": 37,
+      "path": "results/tables/label_return_preflight_v02/label_return_preflight_files.csv",
+      "sha256": "23c193230bb72692028378f51d8b1e174624ea66c9c52a2bafe73da743f47b32"
+    },
+    {
+      "bytes": 2232,
+      "lines": 7,
+      "path": "results/tables/label_return_preflight_v02/label_return_preflight_summary.csv",
+      "sha256": "592fcd0900526920f09631286fb3b32e8a3988efef92a26744382181c1f80a14"
     },
     {
       "bytes": 859,
@@ -2824,7 +2842,7 @@
       "bytes": 714,
       "lines": 6,
       "path": "results/tables/submission_anonymity_v02/submission_anonymity_checks.csv",
-      "sha256": "efd65a7788305359ba3637c04a2f35e76d97e6e00824105bc4cce094aba38dfe"
+      "sha256": "5297f231b863e98029823b6f825acf60b4b161ad8fd31d90be6d4e5f90840039"
     },
     {
       "bytes": 51,
@@ -3073,6 +3091,12 @@
       "sha256": "e26c438ff0fcd946c84243dec0e185adebf7b5ada4cbd061621594cd21b36ceb"
     },
     {
+      "bytes": 11778,
+      "lines": 274,
+      "path": "scripts/analyze_label_return_preflight.py",
+      "sha256": "8b72d32ea01e880de9388bdaf191912cb9faa884e79394b16e43d26cb8262fd0"
+    },
+    {
       "bytes": 11656,
       "lines": 262,
       "path": "scripts/analyze_language_slices.py",
@@ -3259,10 +3283,10 @@
       "sha256": "2e174a3e97414a84d9cad555556f35ae2be3cde72c6cadb655ad8e15bcff3487"
     },
     {
-      "bytes": 75910,
-      "lines": 906,
+      "bytes": 76383,
+      "lines": 913,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "6d97ed768ea399730bd741f1b484b47f365a5b9dfe084977228a3bd4774de80b"
+      "sha256": "2fad24789fcd62ae6486b507d8454138c5989f888386f239fa4376571676c3c0"
     },
     {
       "bytes": 16653,
@@ -3325,10 +3349,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 36586,
-      "lines": 799,
+      "bytes": 36905,
+      "lines": 802,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "96c9c258ae91df6374703123e36d082ba4db9b44aac39cb8756a3573309911c9"
+      "sha256": "05a361660f3706e713e2b4688b73b7049db5fee7d83edf54fcbd1a2f996a5439"
     },
     {
       "bytes": 8236,
@@ -3619,10 +3643,16 @@
       "sha256": "73d6af099754c6cf9d6e52bc8c7f8fdc37404b84cbe9e84e4f4500ae5442ad9e"
     },
     {
-      "bytes": 141946,
-      "lines": 2659,
+      "bytes": 5674,
+      "lines": 110,
+      "path": "scripts/validate_label_return_preflight.py",
+      "sha256": "38f0820fa776ed6b260892e7897fdc1e3de7806b0ea3e190626ac81a57e6a837"
+    },
+    {
+      "bytes": 142173,
+      "lines": 2662,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "5d7dd8327968afa84373d3ed7aacef0c59e6275e708295fbcb157e13ffaddd83"
+      "sha256": "75986eb6c192cf2bf52cd2786114efe5db795a742eba222d545614a1d5ce4ba3"
     },
     {
       "bytes": 5629,
@@ -3815,6 +3845,8 @@
     "conda run -n reprompt_tax python scripts/validate_label_collection_dispatch.py",
     "conda run -n reprompt_tax python scripts/analyze_label_collection_operator_handoff.py",
     "conda run -n reprompt_tax python scripts/validate_label_collection_operator_handoff.py",
+    "conda run -n reprompt_tax python scripts/analyze_label_return_preflight.py",
+    "conda run -n reprompt_tax python scripts/validate_label_return_preflight.py",
     "conda run -n reprompt_tax python scripts/analyze_label_collection_priority.py",
     "conda run -n reprompt_tax python scripts/validate_label_collection_priority.py",
     "conda run -n reprompt_tax python scripts/analyze_current_prompt_mechanism.py",
