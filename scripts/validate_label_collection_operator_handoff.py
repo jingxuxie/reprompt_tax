@@ -15,6 +15,14 @@ EXPECTED_SURFACES = {
     "human_audit_v02": {"assignments": 3, "rows": 72, "priority": "2"},
     "coverage_native_review_v03": {"assignments": 6, "rows": 60, "priority": "3"},
 }
+EXPECTED_DOUBLE_SURFACES = {
+    surface_id: {
+        "assignments": spec["assignments"] * 2,
+        "rows": spec["rows"] * 2,
+        "priority": spec["priority"],
+    }
+    for surface_id, spec in EXPECTED_SURFACES.items()
+}
 
 EXPECTED_COMMAND_ROLES = {
     "merge_single_label_exports",
@@ -65,7 +73,10 @@ def check_dispatch_assignments(path: Path) -> None:
     for row in rows:
         spec = EXPECTED_SURFACES[row["surface_id"]]
         require(row["dispatch_priority"] == spec["priority"], f"{row['surface_id']} priority mismatch")
+        require(row["workflow_mode"] == "minimum_single_label", f"{row['surface_id']} minimum assignment mode mismatch")
+        require(row["reviewer_index"] == "1", f"{row['surface_id']} minimum assignment should use reviewer index 1")
         require(row["expected_return_path"].endswith("_completed.csv"), f"{row['surface_id']} return path is not completed CSV")
+        require("_reviewer" not in row["expected_return_path"], f"{row['surface_id']} minimum return path should not use reviewer suffix")
         require(row["expected_export_name"] in row["expected_return_path"], f"{row['surface_id']} return/export mismatch")
         require(row["claim_boundary"] == "do_not_claim_completed_human_or_native_validation_until_finalized_labels_pass_gates", "claim boundary mismatch")
         bundle_path = Path(row["attach_bundle_path"])
@@ -81,6 +92,53 @@ def check_dispatch_assignments(path: Path) -> None:
     require(len(return_paths) == len(rows), "duplicate expected return paths")
     require(len(reviewer_slots) == len(rows), "duplicate reviewer slots")
     require(row_counts == Counter({surface: spec["rows"] for surface, spec in EXPECTED_SURFACES.items()}), f"unexpected handoff row counts: {row_counts}")
+
+
+def merge_double_commands(return_rows: list[dict[str, str]]) -> dict[str, str]:
+    commands: dict[str, str] = {}
+    for row in return_rows:
+        if row["workflow_role"] == "merge_double_label_exports":
+            commands[row["surface_id"]] = row["command"]
+    require(set(commands) == set(EXPECTED_SURFACES), f"missing double-label merge commands: {sorted(commands)}")
+    return commands
+
+
+def check_double_label_assignments(path: Path, return_intake_path: Path) -> None:
+    rows = read_csv(path)
+    require(len(rows) == sum(spec["assignments"] for spec in EXPECTED_DOUBLE_SURFACES.values()), f"unexpected double-label assignment count: {len(rows)}")
+    counts = Counter(row["surface_id"] for row in rows)
+    require(
+        counts == Counter({surface: spec["assignments"] for surface, spec in EXPECTED_DOUBLE_SURFACES.items()}),
+        f"unexpected double-label assignment surfaces: {counts}",
+    )
+    commands = merge_double_commands(read_csv(return_intake_path))
+    row_counts = Counter()
+    per_slice_reviewers = Counter((row["surface_id"], row["slice_id"]) for row in rows)
+    return_paths: set[str] = set()
+    reviewer_slots: set[str] = set()
+    for row in rows:
+        spec = EXPECTED_DOUBLE_SURFACES[row["surface_id"]]
+        require(row["dispatch_priority"] == spec["priority"], f"{row['surface_id']} priority mismatch")
+        require(row["workflow_mode"] == "preferred_double_label", f"{row['surface_id']} double-label assignment mode mismatch")
+        require(row["reviewer_index"] in {"1", "2"}, f"{row['surface_id']} double-label reviewer index mismatch")
+        require(f"_reviewer{row['reviewer_index']}_completed.csv" in row["expected_return_path"], f"{row['surface_id']} double-label return path missing reviewer suffix")
+        require(row["expected_export_name"] in row["expected_return_path"], f"{row['surface_id']} return/export mismatch")
+        require(row["expected_return_path"] in commands[row["surface_id"]], f"{row['surface_id']} double-label merge command missing {row['expected_return_path']}")
+        require(row["claim_boundary"] == "do_not_claim_completed_human_or_native_validation_until_finalized_labels_pass_gates", "claim boundary mismatch")
+        bundle_path = Path(row["attach_bundle_path"])
+        require(bundle_path.exists(), f"missing bundle {bundle_path}")
+        require(sha256_file(bundle_path) == row["bundle_sha256"], f"bundle sha256 mismatch for {bundle_path}")
+        lowered = row["outgoing_message"].lower()
+        for marker in PRIVATE_OUTGOING_MARKERS:
+            require(marker not in lowered, f"double-label outgoing message leaks private marker {marker}")
+        require(row["expected_export_name"] in row["outgoing_message"], f"{row['surface_id']} message missing expected export name")
+        row_counts[row["surface_id"]] += int(row["rows"])
+        return_paths.add(row["expected_return_path"])
+        reviewer_slots.add(row["reviewer_slot"])
+    require(all(count == 2 for count in per_slice_reviewers.values()), f"each double-label slice should have two reviewer assignments: {per_slice_reviewers}")
+    require(len(return_paths) == len(rows), "duplicate double-label expected return paths")
+    require(len(reviewer_slots) == len(rows), "duplicate double-label reviewer slots")
+    require(row_counts == Counter({surface: spec["rows"] for surface, spec in EXPECTED_DOUBLE_SURFACES.items()}), f"unexpected double-label row counts: {row_counts}")
 
 
 def check_return_intake(path: Path) -> None:
@@ -120,8 +178,12 @@ def check_report(path: Path) -> None:
     required = [
         "Label Collection Operator Handoff",
         "operational support, not completed human/native validation",
-        "Outgoing reviewer bundle assignments: 12",
-        "Reviewer-facing rows to collect: 180",
+        "Minimum single-label reviewer assignments: 12",
+        "Minimum reviewer-facing rows to collect: 180",
+        "Preferred double-label reviewer assignments: 24",
+        "Preferred double-label row judgments to collect: 360",
+        "Preferred Double-Label Send Checklist",
+        "reviewer1/reviewer2 return filenames",
         "First priority: current-model human/native audit",
         "OpenAI API calls: 0",
         "no human/native-validation claim is unlocked",
@@ -143,6 +205,10 @@ def main() -> None:
     args = parser.parse_args()
 
     check_dispatch_assignments(args.out_dir / "operator_dispatch_assignments.csv")
+    check_double_label_assignments(
+        args.out_dir / "operator_double_label_assignments.csv",
+        args.out_dir / "operator_return_intake.csv",
+    )
     check_return_intake(args.out_dir / "operator_return_intake.csv")
     check_report(args.report)
     print("label-collection operator handoff validation passed")

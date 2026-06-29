@@ -289,6 +289,7 @@ ARTIFACT_PATHS = [
     "results/tables/label_collection_dispatch_v02/label_collection_dispatch_manifest.csv",
     "results/tables/label_collection_dispatch_v02/label_collection_dispatch_summary.csv",
     "results/tables/label_collection_operator_handoff_v02/operator_dispatch_assignments.csv",
+    "results/tables/label_collection_operator_handoff_v02/operator_double_label_assignments.csv",
     "results/tables/label_collection_operator_handoff_v02/operator_return_intake.csv",
     "results/tables/label_collection_priority_v02/label_collection_priority.csv",
     "results/tables/label_collection_priority_v02/label_collection_priority_by_slice.csv",

@@ -22,7 +22,9 @@ surfaces, with five categories tied to deterministic scorer components. The
 label-collection launch pack now has surface-specific, validator-checked
 commands for single-label merging, double-label adjudication analysis, and
 adjudicated finalization across the original v0.2 audit, current GPT-5.x audit,
-and v0.3 coverage review.
+and v0.3 coverage review. The operator handoff also includes a separate
+preferred double-label assignment table with reviewer1/reviewer2 return
+filenames that are checked against the double-label merge commands.
 
 **Main remaining gap:** completed qualified human/native labels are still
 missing. The current paper can conservatively submit with the GPT-5.5
@@ -167,6 +169,9 @@ CSV packets, static review sheets, roster templates, acceptance thresholds, and
 completion/adjudication validators. The launch pack now documents
 surface-specific commands for one-reviewer finalization and the preferred
 two-reviewer-plus-adjudication workflow, including the double-label merge step.
+The operator handoff now gives explicit reviewer1/reviewer2 return filenames
+for the two-reviewer path, reducing the risk that collected labels arrive under
+single-label filenames.
 It does not contain qualified completed labels, so the paper should keep
 human/native validation as a planned or launch-ready protocol until labels are
 collected.

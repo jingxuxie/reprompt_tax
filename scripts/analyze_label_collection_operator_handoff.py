@@ -65,16 +65,54 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         writer.writerows(rows)
 
 
-def build_message(row: dict[str, str]) -> str:
+def build_message(row: dict[str, str], *, expected_export_name: str) -> str:
     return textwrap.dedent(
         f"""\
         Please complete the attached RePromptTax review bundle for {row['title']}.
         It contains {row['expected_rows']} rows. Use your assigned reviewer ID,
         fill every TRUE/FALSE field, include the matching reason code for any
         failed component, and export the completed CSV as
-        {row['expected_export_name']}. Please do not add extra columns or edit
+        {expected_export_name}. Please do not add extra columns or edit
         static prompt fields."""
     ).replace("\n", " ")
+
+
+def double_label_export_name(export_name: str, reviewer_index: int) -> str:
+    suffix = "_completed.csv"
+    require(export_name.endswith(suffix), f"unexpected completed export name {export_name}")
+    return f"{export_name.removesuffix(suffix)}_reviewer{reviewer_index}_completed.csv"
+
+
+def build_assignment_row(
+    row: dict[str, str],
+    *,
+    workflow_mode: str,
+    reviewer_index: int,
+    expected_export_name: str,
+) -> dict[str, Any]:
+    expected_return_path = str(Path(row["expected_return_path"]).with_name(expected_export_name))
+    body = build_message(row, expected_export_name=expected_export_name)
+    lowered = body.lower()
+    for marker in OUTGOING_PRIVATE_MARKERS:
+        require(marker not in lowered, f"outgoing reviewer message leaks private marker {marker}")
+    return {
+        "dispatch_priority": row["dispatch_priority"],
+        "surface_id": row["surface_id"],
+        "slice_id": row["slice_id"],
+        "workflow_mode": workflow_mode,
+        "reviewer_index": reviewer_index,
+        "reviewer_slot": f"{row['surface_id']}::{row['slice_id']}::reviewer_{reviewer_index}",
+        "surface_label": SURFACE_LABELS[row["surface_id"]],
+        "title": row["title"],
+        "rows": row["expected_rows"],
+        "attach_bundle_path": row["bundle_path"],
+        "bundle_sha256": row["bundle_sha256"],
+        "expected_return_path": expected_return_path,
+        "expected_export_name": expected_export_name,
+        "outgoing_subject": f"RePromptTax review bundle: {row['title']}",
+        "outgoing_message": body,
+        "claim_boundary": "do_not_claim_completed_human_or_native_validation_until_finalized_labels_pass_gates",
+    }
 
 
 def build_dispatch_rows(dispatch_rows: list[dict[str, str]]) -> list[dict[str, Any]]:
@@ -83,27 +121,13 @@ def build_dispatch_rows(dispatch_rows: list[dict[str, str]]) -> list[dict[str, A
         require(row["ready_to_send"] == "True", f"{row['surface_id']}:{row['slice_id']} is not ready to send")
         require(row["claim_decision"] == "no_claim", f"{row['surface_id']} must not unlock a claim")
         require(Path(row["bundle_path"]).exists(), f"missing bundle {row['bundle_path']}")
-        body = build_message(row)
-        lowered = body.lower()
-        for marker in OUTGOING_PRIVATE_MARKERS:
-            require(marker not in lowered, f"outgoing reviewer message leaks private marker {marker}")
         out.append(
-            {
-                "dispatch_priority": row["dispatch_priority"],
-                "surface_id": row["surface_id"],
-                "slice_id": row["slice_id"],
-                "reviewer_slot": f"{row['surface_id']}::{row['slice_id']}::reviewer_1",
-                "surface_label": SURFACE_LABELS[row["surface_id"]],
-                "title": row["title"],
-                "rows": row["expected_rows"],
-                "attach_bundle_path": row["bundle_path"],
-                "bundle_sha256": row["bundle_sha256"],
-                "expected_return_path": row["expected_return_path"],
-                "expected_export_name": row["expected_export_name"],
-                "outgoing_subject": f"RePromptTax review bundle: {row['title']}",
-                "outgoing_message": body,
-                "claim_boundary": "do_not_claim_completed_human_or_native_validation_until_finalized_labels_pass_gates",
-            }
+            build_assignment_row(
+                row,
+                workflow_mode="minimum_single_label",
+                reviewer_index=1,
+                expected_export_name=row["expected_export_name"],
+            )
         )
     return out
 
@@ -114,6 +138,30 @@ def command_by_surface_role(command_rows: list[dict[str, str]]) -> dict[tuple[st
         key = (row["surface_id"], row["command_role"])
         require(key not in out, f"duplicate command row {key}")
         out[key] = row["command"]
+    return out
+
+
+def build_double_label_dispatch_rows(dispatch_rows: list[dict[str, str]], command_rows: list[dict[str, str]]) -> list[dict[str, Any]]:
+    commands = command_by_surface_role(command_rows)
+    out: list[dict[str, Any]] = []
+    for row in dispatch_rows:
+        require(row["ready_to_send"] == "True", f"{row['surface_id']}:{row['slice_id']} is not ready to send")
+        require(row["claim_decision"] == "no_claim", f"{row['surface_id']} must not unlock a claim")
+        require(Path(row["bundle_path"]).exists(), f"missing bundle {row['bundle_path']}")
+        merge_double = commands[(row["surface_id"], "merge_double_label_exports")]
+        for reviewer_index in (1, 2):
+            expected_export_name = double_label_export_name(row["expected_export_name"], reviewer_index)
+            assignment = build_assignment_row(
+                row,
+                workflow_mode="preferred_double_label",
+                reviewer_index=reviewer_index,
+                expected_export_name=expected_export_name,
+            )
+            require(
+                assignment["expected_return_path"] in merge_double,
+                f"{row['surface_id']} double-label merge command missing {assignment['expected_return_path']}",
+            )
+            out.append(assignment)
     return out
 
 
@@ -181,10 +229,12 @@ def write_markdown(
     path: Path,
     *,
     dispatch_rows: list[dict[str, Any]],
+    double_dispatch_rows: list[dict[str, Any]],
     return_rows: list[dict[str, Any]],
     summary_rows: list[dict[str, str]],
 ) -> None:
     total_rows = sum(int(row["rows"]) for row in dispatch_rows)
+    double_rows = sum(int(row["rows"]) for row in double_dispatch_rows)
     lines = [
         "# Label Collection Operator Handoff",
         "",
@@ -194,8 +244,10 @@ def write_markdown(
         "",
         "## Summary",
         "",
-        f"- Outgoing reviewer bundle assignments: {len(dispatch_rows)}",
-        f"- Reviewer-facing rows to collect: {total_rows}",
+        f"- Minimum single-label reviewer assignments: {len(dispatch_rows)}",
+        f"- Minimum reviewer-facing rows to collect: {total_rows}",
+        f"- Preferred double-label reviewer assignments: {len(double_dispatch_rows)}",
+        f"- Preferred double-label row judgments to collect: {double_rows}",
         "- First priority: current-model human/native audit.",
         "- OpenAI API calls: 0",
         "- Claim boundary: no human/native-validation claim is unlocked until",
@@ -210,6 +262,26 @@ def write_markdown(
         lines.append(
             f"| {row['dispatch_priority']} | {row['surface_id']} | {row['slice_id']} | "
             f"{row['rows']} | `{row['attach_bundle_path']}` | `{row['expected_return_path']}` |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Preferred Double-Label Send Checklist",
+            "",
+            "Use this table instead of the minimum checklist when collecting two",
+            "independent labels per item. It sends the same blinded bundle to two",
+            "qualified reviewers per slice but requires distinct reviewer IDs and",
+            "the reviewer1/reviewer2 return filenames used by the double-label merge",
+            "commands.",
+            "",
+            "| Priority | Surface | Slice | Reviewer | Rows | Bundle | Expected return |",
+            "|---:|---|---|---:|---:|---|---|",
+        ]
+    )
+    for row in double_dispatch_rows:
+        lines.append(
+            f"| {row['dispatch_priority']} | {row['surface_id']} | {row['slice_id']} | "
+            f"{row['reviewer_index']} | {row['rows']} | `{row['attach_bundle_path']}` | `{row['expected_return_path']}` |"
         )
     lines.extend(
         [
@@ -256,12 +328,22 @@ def main() -> None:
     parser.add_argument("--out-md", type=Path, default=OUT_MD)
     args = parser.parse_args()
 
-    dispatch_rows = build_dispatch_rows(read_csv(args.dispatch_manifest))
+    raw_dispatch_rows = read_csv(args.dispatch_manifest)
+    command_rows = read_csv(args.launch_commands)
+    dispatch_rows = build_dispatch_rows(raw_dispatch_rows)
+    double_dispatch_rows = build_double_label_dispatch_rows(raw_dispatch_rows, command_rows)
     summary_rows = read_csv(args.dispatch_summary)
-    return_rows = build_return_rows(summary_rows, read_csv(args.launch_commands))
+    return_rows = build_return_rows(summary_rows, command_rows)
     write_csv(args.out_dir / "operator_dispatch_assignments.csv", dispatch_rows)
+    write_csv(args.out_dir / "operator_double_label_assignments.csv", double_dispatch_rows)
     write_csv(args.out_dir / "operator_return_intake.csv", return_rows)
-    write_markdown(args.out_md, dispatch_rows=dispatch_rows, return_rows=return_rows, summary_rows=summary_rows)
+    write_markdown(
+        args.out_md,
+        dispatch_rows=dispatch_rows,
+        double_dispatch_rows=double_dispatch_rows,
+        return_rows=return_rows,
+        summary_rows=summary_rows,
+    )
     print(f"wrote label-collection operator handoff to {args.out_dir} and {args.out_md}")
 
 

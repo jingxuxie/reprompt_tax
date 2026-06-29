@@ -169,7 +169,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | Path | Bytes | Lines | SHA-256 |
 |---|---:|---:|---|
 | `README.md` | 30434 | 727 | `5157c1b2e75d074bf1f17db0efab22574a16306cf571b24effdc988a0d335d30` |
-| `additional_experiments_plan .md` | 23378 | 489 | `644355409ea7851af6043e9f12f42935fa01c9dd8ce621f1220723af5f7a4eb1` |
+| `additional_experiments_plan .md` | 23745 | 494 | `12ce390f2e74855f77f0308aeef1e90ef3261f2b132186a074ce767ecd2d875d` |
 | `data/benchmark_stress_v0.1.jsonl` | 72197 | 60 | `921b241f56ce8fd2d4ebff9d66b66081376d3fb0e98b94d40a450cbf785e745d` |
 | `data/benchmark_stress_v0.2.jsonl` | 144232 | 120 | `b8389dae43cb474efa1473d7c957b1ce12176f2a951f1f1d16163c72a81bbb92` |
 | `data/benchmark_stress_v0.3_expansion.jsonl` | 102407 | 60 | `1b8010f8dc87defdaeca1a8c59b33dd9292131b27e3cfcc0aab92bc0b700245e` |
@@ -234,7 +234,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/appendix.md` | 22926 | 547 | `d14fb6b4875db1998645d5f42bb15ca3c4e7aa58529ca1e102f098a5b8cb0d65` |
 | `paper/balanced_subsample_robustness_v02.md` | 5985 | 76 | `eede0a4da797d73f15d85845c79d53b4844647e132bc4c5ce73b2c1b58cc7a0c` |
 | `paper/benchmark_quality_audit_v02.md` | 2165 | 64 | `4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc` |
-| `paper/claim_evidence_checklist.md` | 44643 | 239 | `77d035f1a94432c195640c97efa086324c48c7e820412afbc43e5c2aa37c1b57` |
+| `paper/claim_evidence_checklist.md` | 44712 | 239 | `6ab5185caa1c3764bc5b2156acc0c8e7228bdecda886385d004eec1f1f968861` |
 | `paper/completed_label_claim_gates_v02.md` | 1125 | 15 | `00a418f89d02ff3db69b9076952826011e7895c51f51929a597881e246bbadcc` |
 | `paper/component_breakdown_v02_full120.md` | 3508 | 70 | `55cefed242fc5279ab83995d48ce07768490ba1f47f07d9ea54d94eb719107cc` |
 | `paper/contract_benefit_decomposition_v02.md` | 2686 | 68 | `095f255499a9e1d2d6885fb6b65622e16beea677ac2db502586c0db0335ccb33` |
@@ -273,7 +273,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/judge_refresh_gpt55_v02_full120.md` | 2238 | 38 | `bbf319f6e1a682e260976f6559ca28102410596521d444b6e09d3d8c620f0a07` |
 | `paper/label_collection_dispatch_v02.md` | 5390 | 46 | `5fe6cb8a863f932e638319073e1fd73183478c17c957b6a90c14b132ff0dcc55` |
 | `paper/label_collection_launch_pack_v02.md` | 14361 | 82 | `7423919bbdb910d019f6d6ec1203be5d1fb97f5a5b25b41dee77145e6fec991a` |
-| `paper/label_collection_operator_handoff_v02.md` | 6063 | 69 | `a2c2df3dcc59ed945a7d2bfd14e96246a95420fbc86b5ac9198556dfd284784b` |
+| `paper/label_collection_operator_handoff_v02.md` | 12910 | 106 | `1823ea219cfaaaddbc2075b000b213996b73ff776209398763dfb5f3c236c44b` |
 | `paper/label_collection_priority_v02.md` | 4236 | 61 | `531fde37a4cf86adc1afce2b4cbdee4b0b2ac14c33b878a5f9a9294dff87f948` |
 | `paper/language_slice_analysis_v02_full120.md` | 3925 | 72 | `12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a` |
 | `paper/main.pdf` | 241615 |  | `727b1256873d6997cd48b52755f19ed4bfcae5156cdebe9247b96c1ec7b2b8b6` |
@@ -456,7 +456,8 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `results/tables/label_collection_launch_pack_v02/label_collection_commands.csv` | 11554 | 19 | `bbb9460eb0107962ac6acd037dd58b9b3568c450882e402269d5cdadab009d50` |
 | `results/tables/label_collection_launch_pack_v02/label_collection_files.csv` | 2058 | 19 | `992b99b8063795de6df4746efcfc92933befc9610054abe6e6783d20333b2245` |
 | `results/tables/label_collection_launch_pack_v02/label_collection_surfaces.csv` | 3356 | 4 | `660b79698a2f1d24a0a8dadd84713ce63cd12904b8713c022bcb461f2c3ff80d` |
-| `results/tables/label_collection_operator_handoff_v02/operator_dispatch_assignments.csv` | 12297 | 13 | `55ca9bd986a29cdd508aa73c188b182362803bb220912c8163460ece84feb03c` |
+| `results/tables/label_collection_operator_handoff_v02/operator_dispatch_assignments.csv` | 12602 | 13 | `755c775c82c3aaca4483e44d2020ba0adb8b3bccb6dc2ff3b9e63d4b0b174936` |
+| `results/tables/label_collection_operator_handoff_v02/operator_double_label_assignments.csv` | 25742 | 25 | `70fbc6e5c1c410d7f17e5318eaaf97679d20eb54fddba0bd677844364da92e3f` |
 | `results/tables/label_collection_operator_handoff_v02/operator_return_intake.csv` | 15792 | 19 | `d9f227a09a37c514f30a83469dcc4b9759d7bc78b546ec43031d1ceac514fa02` |
 | `results/tables/label_collection_priority_v02/label_collection_priority.csv` | 1834 | 4 | `d2a3a1f882df30fa4098e6c7f2389e4c0d507e3d79901532b589afb20c5bf996` |
 | `results/tables/label_collection_priority_v02/label_collection_priority_by_slice.csv` | 3349 | 13 | `81627b2cdd0d8850d4b5281cd1cf2260c92148b7da508047b1ba767e9c5cbf09` |
@@ -671,7 +672,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/analyze_judge_refresh.py` | 16180 | 351 | `970d8855da46d3d3f656dd3b27dca593e9f588d0782ddb7552800304f049c532` |
 | `scripts/analyze_label_collection_dispatch.py` | 10693 | 246 | `4ba0ee4cfa8a5f4d45646f04e2f181d5bdf0b8637d665a46dacb6e857f5d30a4` |
 | `scripts/analyze_label_collection_launch_pack.py` | 25761 | 339 | `a9432d742681076a1cda671317831e2d3c1134a7688bc7c50da838be76990b09` |
-| `scripts/analyze_label_collection_operator_handoff.py` | 11066 | 269 | `4e42c463d112ad41deb44dae4b9a35cf3747934ae68197442ccfe8333b7af658` |
+| `scripts/analyze_label_collection_operator_handoff.py` | 14719 | 351 | `d811cb5c1be0f14bb6cd28c909d6d99504a8e0a9a629a7af6751891ab42359c4` |
 | `scripts/analyze_label_collection_priority.py` | 12627 | 265 | `e26c438ff0fcd946c84243dec0e185adebf7b5ada4cbd061621594cd21b36ceb` |
 | `scripts/analyze_language_slices.py` | 11656 | 262 | `cc1449c42578c389809574c14ba0c2db8ee8ff4b974de4d270b24971f838408c` |
 | `scripts/analyze_prompt_ablation.py` | 20681 | 515 | `1e277f0aa80ce8cd21ca9f3339248925fb95e4517f8e99c085330b172888e8dd` |
@@ -702,7 +703,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/generate_stress_benchmark_v02.py` | 10953 | 262 | `ee407c0bbc5567895b155a59e5dce7722a2e320703a64995ff5fdf51238b4ff1` |
 | `scripts/judge_outputs.py` | 10150 | 274 | `bc090a1735c5ce24f9941949b042956c03c5f287255ff1f7f83d099854e4dffb` |
 | `scripts/lint_claim_boundaries.py` | 4838 | 141 | `b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d` |
-| `scripts/make_artifact_manifest.py` | 74772 | 889 | `aaa1443a762ccc70e3a2145d24fc1e24529e8ad12558eb0ee217fe70becd8528` |
+| `scripts/make_artifact_manifest.py` | 74870 | 890 | `050e6148acd5f675e07bdfb22890e4ccc343efcabe79df535aebdd3cd4c7b989` |
 | `scripts/make_coverage_native_review_packet_v03.py` | 16653 | 365 | `fd0d380e50e12da17a71d3989393c6ad485b5e68ef530b95960fe242bbf45d2e` |
 | `scripts/make_coverage_native_review_sheets_v03.py` | 13720 | 307 | `9158944b71d8e932ccdc4c95e6308a967a686dac22bf84a5ad6bbc1f3a5fdc94` |
 | `scripts/make_figures.py` | 6172 | 180 | `16bdd9f91481beb5eb2b28719e1cde1af0399d64782856e782feb83d302e5191` |
@@ -759,7 +760,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/validate_label_collection_bundles.py` | 3922 | 112 | `4a6d3a09919404aff8f78191683266b21b2b82e32e48ceda37f5a8b2f6215d43` |
 | `scripts/validate_label_collection_dispatch.py` | 5975 | 119 | `f39f7e33d373a9def4fca51ba134ada228df217622b5a45b1270370dd5148864` |
 | `scripts/validate_label_collection_launch_pack.py` | 9004 | 167 | `3cbbe56c695d5c8cb0a7bdcad5d8ebddfed48c4cea8bb8663cbfc4e464a5d079` |
-| `scripts/validate_label_collection_operator_handoff.py` | 7797 | 152 | `307294097c581e9cce4554780c7bf95602d3dcad7d54fe30b8ab7cbe365094bc` |
+| `scripts/validate_label_collection_operator_handoff.py` | 12247 | 218 | `2c931ccb8d640c0c0cb475d32ce3a035314c54f6ff4d595212db6154cfe3d3ee` |
 | `scripts/validate_label_collection_priority.py` | 6163 | 131 | `73d6af099754c6cf9d6e52bc8c7f8fdc37404b84cbe9e84e4f4500ae5442ad9e` |
 | `scripts/validate_paper_claims.py` | 141003 | 2647 | `d52155812dc8ac081e0a8906adbaf159f6f8e314767b7aec99d75097e84cc3b2` |
 | `scripts/validate_prompt_family_scorecard.py` | 5629 | 134 | `31f27419b50671eeb1888b9689e228fcfcdf5b976d2854db57269d7062b74467` |

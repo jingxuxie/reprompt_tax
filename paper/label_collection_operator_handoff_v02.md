@@ -6,8 +6,10 @@ is operational support, not completed human/native validation.
 
 ## Summary
 
-- Outgoing reviewer bundle assignments: 12
-- Reviewer-facing rows to collect: 180
+- Minimum single-label reviewer assignments: 12
+- Minimum reviewer-facing rows to collect: 180
+- Preferred double-label reviewer assignments: 24
+- Preferred double-label row judgments to collect: 360
 - First priority: current-model human/native audit.
 - OpenAI API calls: 0
 - Claim boundary: no human/native-validation claim is unlocked until
@@ -29,6 +31,41 @@ is operational support, not completed human/native validation.
 | 3 | coverage_native_review_v03 | english_instruction_spanish_content | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/english_instruction_spanish_content.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_english_instruction_spanish_content_completed.csv` |
 | 3 | coverage_native_review_v03 | hindi_english_instruction_hindi_devanagari | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/hindi_english_instruction_hindi_devanagari.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_hindi_english_instruction_hindi_devanagari_completed.csv` |
 | 3 | coverage_native_review_v03 | spanish_instruction_arabic_quote | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/spanish_instruction_arabic_quote.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_spanish_instruction_arabic_quote_completed.csv` |
+
+## Preferred Double-Label Send Checklist
+
+Use this table instead of the minimum checklist when collecting two
+independent labels per item. It sends the same blinded bundle to two
+qualified reviewers per slice but requires distinct reviewer IDs and
+the reviewer1/reviewer2 return filenames used by the double-label merge
+commands.
+
+| Priority | Surface | Slice | Reviewer | Rows | Bundle | Expected return |
+|---:|---|---|---:|---:|---|---|
+| 1 | current_model_human_audit_v02 | ar-en | 1 | 16 | `results/label_collection_bundles_v02/current_model_human_audit_v02/ar-en.zip` | `data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_ar-en_reviewer1_completed.csv` |
+| 1 | current_model_human_audit_v02 | ar-en | 2 | 16 | `results/label_collection_bundles_v02/current_model_human_audit_v02/ar-en.zip` | `data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_ar-en_reviewer2_completed.csv` |
+| 1 | current_model_human_audit_v02 | es-en | 1 | 16 | `results/label_collection_bundles_v02/current_model_human_audit_v02/es-en.zip` | `data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_es-en_reviewer1_completed.csv` |
+| 1 | current_model_human_audit_v02 | es-en | 2 | 16 | `results/label_collection_bundles_v02/current_model_human_audit_v02/es-en.zip` | `data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_es-en_reviewer2_completed.csv` |
+| 1 | current_model_human_audit_v02 | hi-en | 1 | 16 | `results/label_collection_bundles_v02/current_model_human_audit_v02/hi-en.zip` | `data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_hi-en_reviewer1_completed.csv` |
+| 1 | current_model_human_audit_v02 | hi-en | 2 | 16 | `results/label_collection_bundles_v02/current_model_human_audit_v02/hi-en.zip` | `data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_hi-en_reviewer2_completed.csv` |
+| 2 | human_audit_v02 | ar-en | 1 | 24 | `results/label_collection_bundles_v02/human_audit_v02/ar-en.zip` | `data/human_audit/human_audit_packet_v0.2_ar-en_reviewer1_completed.csv` |
+| 2 | human_audit_v02 | ar-en | 2 | 24 | `results/label_collection_bundles_v02/human_audit_v02/ar-en.zip` | `data/human_audit/human_audit_packet_v0.2_ar-en_reviewer2_completed.csv` |
+| 2 | human_audit_v02 | es-en | 1 | 24 | `results/label_collection_bundles_v02/human_audit_v02/es-en.zip` | `data/human_audit/human_audit_packet_v0.2_es-en_reviewer1_completed.csv` |
+| 2 | human_audit_v02 | es-en | 2 | 24 | `results/label_collection_bundles_v02/human_audit_v02/es-en.zip` | `data/human_audit/human_audit_packet_v0.2_es-en_reviewer2_completed.csv` |
+| 2 | human_audit_v02 | hi-en | 1 | 24 | `results/label_collection_bundles_v02/human_audit_v02/hi-en.zip` | `data/human_audit/human_audit_packet_v0.2_hi-en_reviewer1_completed.csv` |
+| 2 | human_audit_v02 | hi-en | 2 | 24 | `results/label_collection_bundles_v02/human_audit_v02/hi-en.zip` | `data/human_audit/human_audit_packet_v0.2_hi-en_reviewer2_completed.csv` |
+| 3 | coverage_native_review_v03 | arabic_instruction_arabic_filenames | 1 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/arabic_instruction_arabic_filenames.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_arabic_instruction_arabic_filenames_reviewer1_completed.csv` |
+| 3 | coverage_native_review_v03 | arabic_instruction_arabic_filenames | 2 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/arabic_instruction_arabic_filenames.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_arabic_instruction_arabic_filenames_reviewer2_completed.csv` |
+| 3 | coverage_native_review_v03 | english_instruction_arabic_content | 1 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/english_instruction_arabic_content.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_english_instruction_arabic_content_reviewer1_completed.csv` |
+| 3 | coverage_native_review_v03 | english_instruction_arabic_content | 2 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/english_instruction_arabic_content.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_english_instruction_arabic_content_reviewer2_completed.csv` |
+| 3 | coverage_native_review_v03 | english_instruction_hindi_content | 1 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/english_instruction_hindi_content.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_english_instruction_hindi_content_reviewer1_completed.csv` |
+| 3 | coverage_native_review_v03 | english_instruction_hindi_content | 2 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/english_instruction_hindi_content.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_english_instruction_hindi_content_reviewer2_completed.csv` |
+| 3 | coverage_native_review_v03 | english_instruction_spanish_content | 1 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/english_instruction_spanish_content.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_english_instruction_spanish_content_reviewer1_completed.csv` |
+| 3 | coverage_native_review_v03 | english_instruction_spanish_content | 2 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/english_instruction_spanish_content.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_english_instruction_spanish_content_reviewer2_completed.csv` |
+| 3 | coverage_native_review_v03 | hindi_english_instruction_hindi_devanagari | 1 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/hindi_english_instruction_hindi_devanagari.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_hindi_english_instruction_hindi_devanagari_reviewer1_completed.csv` |
+| 3 | coverage_native_review_v03 | hindi_english_instruction_hindi_devanagari | 2 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/hindi_english_instruction_hindi_devanagari.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_hindi_english_instruction_hindi_devanagari_reviewer2_completed.csv` |
+| 3 | coverage_native_review_v03 | spanish_instruction_arabic_quote | 1 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/spanish_instruction_arabic_quote.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_spanish_instruction_arabic_quote_reviewer1_completed.csv` |
+| 3 | coverage_native_review_v03 | spanish_instruction_arabic_quote | 2 | 10 | `results/label_collection_bundles_v02/coverage_native_review_v03/spanish_instruction_arabic_quote.zip` | `data/coverage_native_review_v03/coverage_native_review_v03_spanish_instruction_arabic_quote_reviewer2_completed.csv` |
 
 ## Return Intake
 
