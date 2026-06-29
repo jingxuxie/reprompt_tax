@@ -750,6 +750,8 @@ def main() -> None:
     run_step("validate label-collection reviewer bundles", python_step("scripts/validate_label_collection_bundles.py"))
     run_step("analyze label-collection dispatch readiness", python_step("scripts/analyze_label_collection_dispatch.py"))
     run_step("validate label-collection dispatch readiness", python_step("scripts/validate_label_collection_dispatch.py"))
+    run_step("analyze label-collection operator handoff", python_step("scripts/analyze_label_collection_operator_handoff.py"))
+    run_step("validate label-collection operator handoff", python_step("scripts/validate_label_collection_operator_handoff.py"))
     run_step("analyze label-collection priority", python_step("scripts/analyze_label_collection_priority.py"))
     run_step("validate label-collection priority", python_step("scripts/validate_label_collection_priority.py"))
     run_step(

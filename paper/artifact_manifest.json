@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 44050,
-      "lines": 238,
+      "bytes": 44605,
+      "lines": 239,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "6eb196c29c9f2f7ac2708c34a5040ad7f5b3ad4904d280a1fab8d9d7faa8649c"
+      "sha256": "e2d64b1966f9901de2a72609fa9f64c1a53a0746b3891bc0079cc87283c1b752"
     },
     {
       "bytes": 1125,
@@ -629,6 +629,12 @@
       "lines": 78,
       "path": "paper/label_collection_launch_pack_v02.md",
       "sha256": "9019d40d413f2db95d0a9aa724e6cda04ce61b644961e6691d9f5f10593e1239"
+    },
+    {
+      "bytes": 5830,
+      "lines": 65,
+      "path": "paper/label_collection_operator_handoff_v02.md",
+      "sha256": "a72ce5edac335511f256a08a44176f04dab586ee0800c8cb704afa5a35bd0896"
     },
     {
       "bytes": 4236,
@@ -1721,6 +1727,18 @@
       "lines": 4,
       "path": "results/tables/label_collection_launch_pack_v02/label_collection_surfaces.csv",
       "sha256": "f8a1063139347ef4ff0128317f2c2097e7e2cefdae8bdb02ce0bff065e247980"
+    },
+    {
+      "bytes": 12297,
+      "lines": 13,
+      "path": "results/tables/label_collection_operator_handoff_v02/operator_dispatch_assignments.csv",
+      "sha256": "55ca9bd986a29cdd508aa73c188b182362803bb220912c8163460ece84feb03c"
+    },
+    {
+      "bytes": 11629,
+      "lines": 16,
+      "path": "results/tables/label_collection_operator_handoff_v02/operator_return_intake.csv",
+      "sha256": "d5851819fd40de84f0769a7e0a6a001167361e83d3e8dcf543f30cf9f4ecc891"
     },
     {
       "bytes": 1834,
@@ -3001,6 +3019,12 @@
       "sha256": "0a5660d6df8dc176e2f576d201de775014e68e9359018f101aefdb45ab2a9e36"
     },
     {
+      "bytes": 9568,
+      "lines": 231,
+      "path": "scripts/analyze_label_collection_operator_handoff.py",
+      "sha256": "58967f12b00d1d762a525e876f242b1531e4e93d3c26ccbbe1ed7e94d8cdafe1"
+    },
+    {
       "bytes": 12627,
       "lines": 265,
       "path": "scripts/analyze_label_collection_priority.py",
@@ -3181,10 +3205,10 @@
       "sha256": "b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d"
     },
     {
-      "bytes": 74229,
-      "lines": 882,
+      "bytes": 74772,
+      "lines": 889,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "a5d2bf88fa710f1357b4ca3696a01af0adb76f8194e09bfc8bb950b427eccb6f"
+      "sha256": "aaa1443a762ccc70e3a2145d24fc1e24529e8ad12558eb0ee217fe70becd8528"
     },
     {
       "bytes": 16653,
@@ -3247,10 +3271,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 35565,
-      "lines": 790,
+      "bytes": 35821,
+      "lines": 792,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "50591ff89223350847c91c6603d96b7c1eb04d533879b78615704df68ad50a9f"
+      "sha256": "f5531cc3ac4c2b73afd0a74c54d61236ed67e84bd1f9e8ef228d1adbcdd24c0d"
     },
     {
       "bytes": 8236,
@@ -3523,16 +3547,22 @@
       "sha256": "516dfa597aaae2001bea00ada05060e65b42ac83c9fe1a91f8f9a47085c61641"
     },
     {
+      "bytes": 6600,
+      "lines": 138,
+      "path": "scripts/validate_label_collection_operator_handoff.py",
+      "sha256": "903ebf6722aceaea228b5112a2a8bc462d12f48270eb584bd0a5cf86d4882d8b"
+    },
+    {
       "bytes": 6163,
       "lines": 131,
       "path": "scripts/validate_label_collection_priority.py",
       "sha256": "adb71e37fdcfa7ca98df0e1241f6384eddb7bd928a1724a749954a0642da986d"
     },
     {
-      "bytes": 140423,
-      "lines": 2642,
+      "bytes": 140636,
+      "lines": 2644,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "e694e309a6da145ad594e36d2782fcec1f8173152d59f6c9c702e8c1e23657ab"
+      "sha256": "a77e904b92a6fbc13e9621a91006620cce771c2655564000aea49aa0ab0f2fd5"
     },
     {
       "bytes": 5629,
@@ -3707,6 +3737,8 @@
     "conda run -n reprompt_tax python scripts/validate_label_collection_bundles.py",
     "conda run -n reprompt_tax python scripts/analyze_label_collection_dispatch.py",
     "conda run -n reprompt_tax python scripts/validate_label_collection_dispatch.py",
+    "conda run -n reprompt_tax python scripts/analyze_label_collection_operator_handoff.py",
+    "conda run -n reprompt_tax python scripts/validate_label_collection_operator_handoff.py",
     "conda run -n reprompt_tax python scripts/analyze_label_collection_priority.py",
     "conda run -n reprompt_tax python scripts/validate_label_collection_priority.py",
     "conda run -n reprompt_tax python scripts/analyze_current_prompt_mechanism.py",
