@@ -1,0 +1,7 @@
+condition,language_pair,n,ftga_pass_n,ftga_pass_pct,first_turn_failure_n,first_turn_failure_pct,task_useful_contract_failure_n,task_useful_contract_failure_pct,task_useful_share_of_failures_pct,task_and_preservation_useful_failure_n,task_and_preservation_useful_failure_pct,language_or_script_framing_failure_n,language_or_script_framing_failure_pct,task_noncompletion_failure_n,task_noncompletion_failure_pct
+baseline,ar-en,14,10,71.4,4,28.6,0,0.0,0.0,0,0.0,0,0.0,4,28.6
+baseline,es-en,13,9,69.2,4,30.8,0,0.0,0.0,0,0.0,0,0.0,4,30.8
+baseline,hi-en,13,13,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0
+contract,ar-en,14,14,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0
+contract,es-en,13,13,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0
+contract,hi-en,13,13,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0

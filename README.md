@@ -38,6 +38,152 @@ conda run -n reprompt_tax python scripts/analyze_benchmark_quality.py \
   --out-md paper/benchmark_quality_audit_v02.md
 ```
 
+Generate and audit the synthetic v0.3 coverage scaffold for non-English
+target-content editing. This is not a paper-facing scored result until native
+validation and model runs are completed:
+
+```bash
+conda run -n reprompt_tax python scripts/generate_coverage_expansion_v03.py
+conda run -n reprompt_tax python scripts/analyze_coverage_expansion_v03.py
+conda run -n reprompt_tax python scripts/validate_coverage_expansion_v03.py
+```
+
+Prepare the launch-ready native-review packet for the same 60 synthetic v0.3
+rows. This validates packet structure only; it is not completed native
+validation:
+
+```bash
+conda run -n reprompt_tax python scripts/make_coverage_native_review_packet_v03.py
+conda run -n reprompt_tax python scripts/validate_coverage_native_review_packet_v03.py
+conda run -n reprompt_tax python scripts/make_coverage_native_review_sheets_v03.py
+conda run -n reprompt_tax python scripts/validate_coverage_native_review_sheets_v03.py
+conda run -n reprompt_tax python scripts/analyze_coverage_native_review_design_v03.py
+conda run -n reprompt_tax python scripts/test_coverage_native_review_adjudication.py
+```
+
+After reviewers complete one independent row per v0.3 item, validate and
+summarize the finalized one-row-per-item labels with:
+
+```bash
+conda run -n reprompt_tax python scripts/validate_completed_coverage_native_review_v03.py \
+  --annotations data/coverage_native_review_v03/coverage_native_review_packet_v03_completed.csv \
+  --launch-packet data/coverage_native_review_v03/coverage_native_review_packet_v03.csv \
+  --reviewer-roster data/coverage_native_review_v03/coverage_native_review_roster_v03.csv
+
+conda run -n reprompt_tax python scripts/summarize_coverage_native_review_v03.py \
+  --annotations data/coverage_native_review_v03/coverage_native_review_packet_v03_completed.csv \
+  --launch-packet data/coverage_native_review_v03/coverage_native_review_packet_v03.csv \
+  --reviewer-roster data/coverage_native_review_v03/coverage_native_review_roster_v03.csv
+```
+
+Preferred stronger workflow: concatenate independently completed reviewer rows
+into a long-format file with duplicate `review_id` values but unique
+`reviewer_id` values per item, generate a disagreement-only adjudication
+packet, fill it, and then finalize the labels:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_coverage_native_review_adjudication.py \
+  --annotations data/coverage_native_review_v03/coverage_native_review_packet_v03_double_completed.csv \
+  --launch-packet data/coverage_native_review_v03/coverage_native_review_packet_v03.csv \
+  --reviewer-roster data/coverage_native_review_v03/coverage_native_review_roster_v03.csv \
+  --out-dir results/tables/coverage_native_review_v03_adjudication \
+  --out-md paper/coverage_native_review_adjudication_v03.md
+
+conda run -n reprompt_tax python scripts/finalize_coverage_native_review_adjudication.py \
+  --annotations data/coverage_native_review_v03/coverage_native_review_packet_v03_double_completed.csv \
+  --launch-packet data/coverage_native_review_v03/coverage_native_review_packet_v03.csv \
+  --reviewer-roster data/coverage_native_review_v03/coverage_native_review_roster_v03.csv \
+  --adjudication results/tables/coverage_native_review_v03_adjudication/coverage_native_review_adjudication_packet.csv \
+  --out data/coverage_native_review_v03/coverage_native_review_packet_v03_adjudicated_completed.csv
+```
+
+Regenerate the saved six-item `gpt-5.4-mini` v0.3 coverage-smoke analysis
+without additional API calls:
+
+```bash
+conda run -n reprompt_tax python scripts/score_auto.py \
+  --benchmark data/benchmark_stress_v0.3_expansion.jsonl \
+  --outputs results/model_outputs/openai_gpt54mini_stress_v03_smoke6.jsonl \
+  --out results/scores/openai_gpt54mini_stress_v03_smoke6_auto_scores.jsonl
+
+conda run -n reprompt_tax python scripts/compute_metrics.py \
+  --scores results/scores/openai_gpt54mini_stress_v03_smoke6_auto_scores.jsonl \
+  --out-dir results/tables/openai_gpt54mini_stress_v03_smoke6
+
+conda run -n reprompt_tax python scripts/analyze_coverage_smoke_v03.py
+conda run -n reprompt_tax python scripts/validate_coverage_smoke_v03.py
+```
+
+Regenerate the saved 24-item `gpt-5.4-mini` v0.3 coverage-pilot analysis
+without additional API calls. This merges the six saved smoke rows with the
+18-item remaining shard:
+
+```bash
+conda run -n reprompt_tax python scripts/build_coverage_pilot_v03_outputs.py
+conda run -n reprompt_tax python scripts/score_auto.py \
+  --benchmark data/benchmark_stress_v0.3_expansion.jsonl \
+  --outputs results/model_outputs/openai_gpt54mini_stress_v03_pilot24.jsonl \
+  --out results/scores/openai_gpt54mini_stress_v03_pilot24_auto_scores.jsonl
+conda run -n reprompt_tax python scripts/compute_metrics.py \
+  --scores results/scores/openai_gpt54mini_stress_v03_pilot24_auto_scores.jsonl \
+  --out-dir results/tables/openai_gpt54mini_stress_v03_pilot24
+conda run -n reprompt_tax python scripts/analyze_coverage_pilot_v03.py
+conda run -n reprompt_tax python scripts/validate_coverage_pilot_v03.py
+```
+
+Regenerate the saved six-item `gpt-5.5` v0.3 coverage-smoke analysis without
+additional API calls:
+
+```bash
+conda run -n reprompt_tax python scripts/score_auto.py \
+  --benchmark data/benchmark_stress_v0.3_expansion.jsonl \
+  --outputs results/model_outputs/openai_gpt55_stress_v03_smoke6.jsonl \
+  --out results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl
+conda run -n reprompt_tax python scripts/compute_metrics.py \
+  --scores results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl \
+  --out-dir results/tables/openai_gpt55_stress_v03_smoke6
+conda run -n reprompt_tax python scripts/analyze_coverage_smoke_v03.py \
+  --scores results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl \
+  --outputs results/model_outputs/openai_gpt55_stress_v03_smoke6.jsonl \
+  --out-dir results/tables/openai_gpt55_stress_v03_smoke6 \
+  --out-md paper/coverage_smoke_gpt55_v03.md
+conda run -n reprompt_tax python scripts/validate_coverage_smoke_v03.py \
+  --outputs results/model_outputs/openai_gpt55_stress_v03_smoke6.jsonl \
+  --scores results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl \
+  --tables-dir results/tables/openai_gpt55_stress_v03_smoke6 \
+  --report paper/coverage_smoke_gpt55_v03.md \
+  --expected-model gpt-5.5 \
+  --expected-api-rows 12 \
+  --expected-input-tokens 1632 \
+  --expected-output-tokens 870 \
+  --expected-baseline-first-turn-passes 6 \
+  --expected-contract-first-turn-passes 6 \
+  --expected-first-turn-failure-count 0 \
+  --expected-successful-repair-rows 0 \
+  --expected-baseline-mean-rtt 0 \
+  --expected-contract-mean-rtt 0 \
+  --expected-es-ar-baseline-ftga 1 \
+  --expected-failure-item "" \
+  --expected-failure-types ""
+```
+
+Generate the human-audit packet and optional static review sheets for
+native/near-native annotators. The sheets are generated from the blinded packet
+and export completed CSV files locally in the browser:
+
+```bash
+conda run -n reprompt_tax python scripts/make_human_audit_packet.py \
+  --benchmark data/benchmark_stress_v0.2.jsonl \
+  --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl \
+  --out-dir data/human_audit \
+  --packet-version v0.2 \
+  --seed 23
+
+conda run -n reprompt_tax python scripts/validate_human_audit_packet.py
+conda run -n reprompt_tax python scripts/make_human_audit_review_sheets.py
+conda run -n reprompt_tax python scripts/validate_human_audit_review_sheets.py
+```
+
 Run a local dry-run smoke test:
 
 ```bash
@@ -108,6 +254,83 @@ conda run -n reprompt_tax python scripts/run_models.py \
   --conditions content_preservation \
   --max-output-tokens 256 \
   --max-api-calls 220
+```
+
+Regenerate the saved current-model refresh tables without additional API calls:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_current_model_refresh.py
+conda run -n reprompt_tax python scripts/validate_current_model_refresh.py
+```
+
+Regenerate current-model uncertainty and claim-scope checks without additional
+API calls. This combines paired bootstrap intervals with exact paired sign
+tests for the full GPT-5.x refresh runs:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_current_model_uncertainty.py
+conda run -n reprompt_tax python scripts/validate_current_model_uncertainty.py
+```
+
+Regenerate current-model heterogeneity checks without additional API calls.
+This reports language-pair, task-family, and leave-one-stratum effects for the
+full GPT-5.x refresh runs:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_current_model_heterogeneity.py
+conda run -n reprompt_tax python scripts/validate_current_model_heterogeneity.py
+```
+
+Regenerate current-model contract-regression risk checks without additional API
+calls. This isolates paired rows where a contract fixes or hurts first-turn
+success relative to the baseline:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_current_model_regression_risk.py
+conda run -n reprompt_tax python scripts/validate_current_model_regression_risk.py
+```
+
+Regenerate the current-model residual-error analysis without additional API
+calls. This inspects where `gpt-5.4-mini` and `gpt-5.5` still fail after the
+full refresh:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_current_model_error_analysis.py
+conda run -n reprompt_tax python scripts/validate_current_model_error_analysis.py
+```
+
+Regenerate qualitative current-model case studies from saved score logs:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_current_model_case_studies.py
+conda run -n reprompt_tax python scripts/validate_current_model_case_studies.py
+```
+
+Regenerate the current-model scorer-sensitivity diagnostic without additional
+API calls. This relaxes one automatic scoring component at a time over saved
+first-turn score logs:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_current_model_scorer_sensitivity.py
+conda run -n reprompt_tax python scripts/validate_current_model_scorer_sensitivity.py
+```
+
+Regenerate the generation-progress probe without additional API calls. This
+compares item-level failure movement from the GPT-4.1-family rows to the
+GPT-5.x-family rows:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_generation_progress_probe.py
+conda run -n reprompt_tax python scripts/validate_generation_progress_probe.py
+```
+
+Regenerate the saved current-model prompt-mechanism diagnostic without
+additional API calls. This emits the `gpt-5.4-mini` and `gpt-5.5`
+content-preservation mechanism reports:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_current_prompt_mechanism.py
+conda run -n reprompt_tax python scripts/validate_current_prompt_mechanism.py
 ```
 
 Score and aggregate:
@@ -245,6 +468,38 @@ conda run -n reprompt_tax python scripts/analyze_judge_agreement.py \
   --out-md paper/judge_agreement_analysis_v02_full120.md
 ```
 
+Run or regenerate the paired `gpt-5.5` judge refresh on the same 72-row sample:
+
+```bash
+conda run -n reprompt_tax python scripts/judge_outputs.py \
+  --benchmark data/benchmark_stress_v0.2.jsonl \
+  --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl \
+  --out results/scores/openai_three_model_stress_v02_full120_judge_gpt55_audit72.jsonl \
+  --judge-model gpt-5.5 \
+  --turn 0 \
+  --sample-per-stratum 3 \
+  --seed 17 \
+  --max-api-calls 72
+
+conda run -n reprompt_tax python scripts/analyze_judge_refresh.py
+conda run -n reprompt_tax python scripts/validate_judge_refresh.py
+```
+
+Run or regenerate the bounded repair-realism diagnostic for baseline
+editing-preservation failures:
+
+```bash
+conda run -n reprompt_tax python scripts/run_repair_prompt_variants.py \
+  --out results/scores/openai_three_model_stress_v02_repair_realism_editing_baseline24.jsonl \
+  --sample-size 24 \
+  --seed 29 \
+  --max-output-tokens 256 \
+  --max-api-calls 72
+
+conda run -n reprompt_tax python scripts/analyze_repair_realism.py
+conda run -n reprompt_tax python scripts/validate_repair_realism.py
+```
+
 For real API runs, install the OpenAI SDK in the `reprompt_tax` environment and
 use a small limit first. The runner reads the API key from
 `/home/eston/colm_workshop/apikey.txt` by default and does not print it.
@@ -350,6 +605,12 @@ Release-facing documentation:
 - `paper/related_work_positioning_v02.md`
 - `data/human_audit/audit_manifest_v0.2.md`
 - `data/human_audit/human_audit_launch_checklist_v0.2.md`
+- `data/current_model_human_audit/audit_manifest_v0.2_current_gpt5.md`
+- `data/current_model_human_audit/human_audit_launch_checklist_v0.2_current_gpt5.md`
+- `paper/current_model_human_audit_design_v02.md`
+- `data/coverage_native_review_v03/coverage_native_review_manifest_v03.md`
+- `data/coverage_native_review_v03/coverage_native_review_launch_checklist_v03.md`
+- `paper/coverage_native_review_design_v03.md`
 
 Prepare and summarize a human/native-speaker audit packet:
 
@@ -377,6 +638,82 @@ conda run -n reprompt_tax python scripts/summarize_human_audit.py \
   --annotations data/human_audit/human_audit_packet_v0.2_completed.csv \
   --answer-key data/human_audit/human_audit_answer_key_v0.2.csv \
   --out-dir results/tables/human_audit_v0.2
+```
+
+The summarizer fails on incomplete completed-audit files by default. Use
+`--allow-partial` only for debugging partially returned annotation batches, not
+for paper-facing human-validation claims.
+
+Optional stronger two-annotator workflow: concatenate independently completed
+annotation rows into a long-format file with duplicate `audit_id` values but
+unique `annotator_id` values per item, then compute inter-annotator agreement
+and generate a blinded adjudication packet for disagreements:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_human_audit_adjudication.py \
+  --annotations data/human_audit/human_audit_packet_v0.2_double_completed.csv \
+  --answer-key data/human_audit/human_audit_answer_key_v0.2.csv \
+  --annotator-roster data/human_audit/human_audit_annotator_roster_v0.2.csv \
+  --out-dir results/tables/human_audit_v0.2_adjudication \
+  --out-md paper/human_audit_adjudication_v02.md
+
+# After filling results/tables/human_audit_v0.2_adjudication/human_audit_adjudication_packet.csv:
+conda run -n reprompt_tax python scripts/finalize_human_audit_adjudication.py \
+  --annotations data/human_audit/human_audit_packet_v0.2_double_completed.csv \
+  --answer-key data/human_audit/human_audit_answer_key_v0.2.csv \
+  --annotator-roster data/human_audit/human_audit_annotator_roster_v0.2.csv \
+  --adjudication results/tables/human_audit_v0.2_adjudication/human_audit_adjudication_packet.csv \
+  --out data/human_audit/human_audit_packet_v0.2_adjudicated_completed.csv
+```
+
+Prepare the separate current-model human-audit launch packet. This is a
+48-row, failure-enriched, blinded packet for the saved `gpt-5.4-mini` and
+`gpt-5.5` first-turn outputs; it is not completed human validation.
+
+```bash
+conda run -n reprompt_tax python scripts/make_human_audit_packet.py \
+  --benchmark data/benchmark_stress_v0.2.jsonl \
+  --scores results/scores/openai_gpt54mini_stress_v02_full120_auto_scores.jsonl \
+    results/scores/openai_gpt55_stress_v02_full120_auto_scores.jsonl \
+  --out-dir data/current_model_human_audit \
+  --packet-version v0.2_current_gpt5 \
+  --seed 29 \
+  --prefer-failures
+
+conda run -n reprompt_tax python scripts/validate_current_model_human_audit_packet.py
+
+conda run -n reprompt_tax python scripts/validate_completed_human_audit.py \
+  --annotations data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_completed.csv \
+  --answer-key data/current_model_human_audit/human_audit_answer_key_v0.2_current_gpt5.csv \
+  --annotator-roster data/current_model_human_audit/human_audit_annotator_roster_v0.2_current_gpt5.csv \
+  --expected-models gpt-5.4-mini,gpt-5.5
+
+conda run -n reprompt_tax python scripts/summarize_human_audit.py \
+  --annotations data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_completed.csv \
+  --answer-key data/current_model_human_audit/human_audit_answer_key_v0.2_current_gpt5.csv \
+  --out-dir results/tables/human_audit_v0.2_current_gpt5
+```
+
+Prepare and validate the separate v0.3 coverage native-review packet:
+
+```bash
+conda run -n reprompt_tax python scripts/make_coverage_native_review_packet_v03.py
+conda run -n reprompt_tax python scripts/validate_coverage_native_review_packet_v03.py
+conda run -n reprompt_tax python scripts/make_coverage_native_review_sheets_v03.py
+conda run -n reprompt_tax python scripts/validate_coverage_native_review_sheets_v03.py
+conda run -n reprompt_tax python scripts/analyze_coverage_native_review_design_v03.py
+conda run -n reprompt_tax python scripts/test_coverage_native_review_completion.py
+conda run -n reprompt_tax python scripts/test_coverage_native_review_adjudication.py
+```
+
+Regenerate the pre-specified human/native-review acceptance gates before using
+completed labels to widen claims:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_human_audit_acceptance_rules.py
+conda run -n reprompt_tax python scripts/validate_human_audit_acceptance_rules.py
+conda run -n reprompt_tax python scripts/analyze_label_collection_launch_pack.py
+conda run -n reprompt_tax python scripts/validate_label_collection_launch_pack.py
 ```
 
 Run a bounded, aggregate-only WildChat repair-cue discovery scan:

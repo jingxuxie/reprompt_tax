@@ -1,0 +1,5 @@
+model,task_family,n_pairs,delta_ftga_pp,delta_ftga_pp_ci_low,delta_ftga_pp_ci_high,rtt_reduction,rtt_reduction_ci_low,rtt_reduction_ci_high,token_tax_reduction,token_tax_reduction_ci_low,token_tax_reduction_ci_high,unresolved_reduction_pp,unresolved_reduction_pp_ci_low,unresolved_reduction_pp_ci_high
+gpt-5.4-mini,editing_preservation,3,33.33333333333333,0.0,100.0,0.3333333333333333,0.0,1.0,0.8037926521170059,0.0,1.6666666666666665,0.0,0.0,0.0
+gpt-5.4-mini,output_language_inference,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+gpt-5.4-mini,quote_preservation,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+gpt-5.4-mini,script_register_locale,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

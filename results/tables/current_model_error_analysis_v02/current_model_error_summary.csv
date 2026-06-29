@@ -1,0 +1,5 @@
+model,condition,trajectories,first_turn_successes,first_turn_failures,first_turn_failure_pct,one_repair_successes,two_repair_successes,unresolved,unresolved_pct,failure_type_counts
+gpt-5.4-mini,baseline,120,96,24,20.0,21,0,3,2.5,wrong_output_language=21; script_mismatch=10; task_noncompletion=10; preservation_failure=3
+gpt-5.4-mini,contract,120,102,18,15.0,12,0,6,5.0,wrong_output_language=12; task_noncompletion=9; preservation_failure=6; script_mismatch=1
+gpt-5.5,baseline,120,98,22,18.3,19,1,2,1.7,wrong_output_language=21; task_noncompletion=20; script_mismatch=10
+gpt-5.5,contract,120,118,2,1.7,2,0,0,0.0,wrong_output_language=2

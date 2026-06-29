@@ -18,6 +18,14 @@ PAPER_FIGURES_DIR = Path("paper/figures")
 SCORES_PATH = Path("results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl")
 GENERIC_HELPFULNESS_FULL_SCORES_PATH = Path("results/scores/openai_nano_stress_v02_full120_generic_helpfulness_auto_scores.jsonl")
 CONTENT_PRESERVATION_SCORES_PATH = Path("results/scores/openai_nano_stress_v02_full120_content_preservation_auto_scores.jsonl")
+GPT54_TABLES_DIR = Path("results/tables/openai_gpt54mini_stress_v02_full120")
+GPT54_CONTENT_TABLES_DIR = Path("results/tables/openai_gpt54mini_stress_v02_full120_content_preservation")
+GPT55_TABLES_DIR = Path("results/tables/openai_gpt55_stress_v02_full120")
+GPT55_CONTENT_TABLES_DIR = Path("results/tables/openai_gpt55_stress_v02_full120_content_preservation")
+GPT54_SCORES_PATH = Path("results/scores/openai_gpt54mini_stress_v02_full120_auto_scores.jsonl")
+GPT54_CONTENT_SCORES_PATH = Path("results/scores/openai_gpt54mini_stress_v02_full120_content_preservation_auto_scores.jsonl")
+GPT55_SCORES_PATH = Path("results/scores/openai_gpt55_stress_v02_full120_auto_scores.jsonl")
+GPT55_CONTENT_SCORES_PATH = Path("results/scores/openai_gpt55_stress_v02_full120_content_preservation_auto_scores.jsonl")
 
 
 def run_step(name: str, command: list[str], *, cwd: Path = ROOT) -> None:
@@ -213,6 +221,8 @@ def main() -> None:
             str(TABLES_DIR),
             "--out-md",
             "paper/task_useful_failure_analysis_v02_full120.md",
+            "--expected-first-turn-rows",
+            "720",
         ),
     )
     run_step(
@@ -241,6 +251,194 @@ def main() -> None:
             "paper/paired_significance_v02_full120.md",
         ),
     )
+    run_step(
+        "score GPT-5.4-mini current-model full120",
+        python_step(
+            "scripts/score_auto.py",
+            "--benchmark",
+            "data/benchmark_stress_v0.2.jsonl",
+            "--outputs",
+            "results/model_outputs/openai_gpt54mini_stress_v02_full120.jsonl",
+            "--out",
+            str(GPT54_SCORES_PATH),
+        ),
+    )
+    run_step(
+        "compute GPT-5.4-mini current-model metrics",
+        python_step(
+            "scripts/compute_metrics.py",
+            "--scores",
+            str(GPT54_SCORES_PATH),
+            "--out-dir",
+            str(GPT54_TABLES_DIR),
+        ),
+    )
+    run_step(
+        "compute GPT-5.4-mini current-model paired effects",
+        python_step(
+            "scripts/paired_effects.py",
+            "--trajectory-metrics",
+            str(GPT54_TABLES_DIR / "trajectory_metrics.csv"),
+            "--out-dir",
+            str(GPT54_TABLES_DIR),
+        ),
+    )
+    run_step(
+        "compute GPT-5.4-mini current-model paired sign tests",
+        python_step(
+            "scripts/paired_significance.py",
+            "--trajectory-metrics",
+            str(GPT54_TABLES_DIR / "trajectory_metrics.csv"),
+            "--out-csv",
+            str(GPT54_TABLES_DIR / "paired_significance_by_model.csv"),
+            "--out-md",
+            "paper/paired_significance_gpt54mini_v02_full120.md",
+        ),
+    )
+    run_step(
+        "analyze GPT-5.4-mini current-model task-useful failures",
+        python_step(
+            "scripts/analyze_task_useful_failures.py",
+            "--scores",
+            str(GPT54_SCORES_PATH),
+            "--out-dir",
+            str(GPT54_TABLES_DIR),
+            "--out-md",
+            "paper/task_useful_failure_analysis_gpt54mini_v02_full120.md",
+            "--expected-first-turn-rows",
+            "240",
+        ),
+    )
+    run_step(
+        "score GPT-5.4-mini current-model content-preservation",
+        python_step(
+            "scripts/score_auto.py",
+            "--benchmark",
+            "data/benchmark_stress_v0.2.jsonl",
+            "--outputs",
+            "results/model_outputs/openai_gpt54mini_stress_v02_full120_content_preservation.jsonl",
+            "--out",
+            str(GPT54_CONTENT_SCORES_PATH),
+        ),
+    )
+    run_step(
+        "compute GPT-5.4-mini current-model content-preservation metrics",
+        python_step(
+            "scripts/compute_metrics.py",
+            "--scores",
+            str(GPT54_CONTENT_SCORES_PATH),
+            "--out-dir",
+            str(GPT54_CONTENT_TABLES_DIR),
+        ),
+    )
+    run_step(
+        "score GPT-5.5 current-model full120",
+        python_step(
+            "scripts/score_auto.py",
+            "--benchmark",
+            "data/benchmark_stress_v0.2.jsonl",
+            "--outputs",
+            "results/model_outputs/openai_gpt55_stress_v02_full120.jsonl",
+            "--out",
+            str(GPT55_SCORES_PATH),
+        ),
+    )
+    run_step(
+        "compute GPT-5.5 current-model metrics",
+        python_step(
+            "scripts/compute_metrics.py",
+            "--scores",
+            str(GPT55_SCORES_PATH),
+            "--out-dir",
+            str(GPT55_TABLES_DIR),
+        ),
+    )
+    run_step(
+        "compute GPT-5.5 current-model paired effects",
+        python_step(
+            "scripts/paired_effects.py",
+            "--trajectory-metrics",
+            str(GPT55_TABLES_DIR / "trajectory_metrics.csv"),
+            "--out-dir",
+            str(GPT55_TABLES_DIR),
+        ),
+    )
+    run_step(
+        "compute GPT-5.5 current-model paired sign tests",
+        python_step(
+            "scripts/paired_significance.py",
+            "--trajectory-metrics",
+            str(GPT55_TABLES_DIR / "trajectory_metrics.csv"),
+            "--out-csv",
+            str(GPT55_TABLES_DIR / "paired_significance_by_model.csv"),
+            "--out-md",
+            "paper/paired_significance_gpt55_v02_full120.md",
+        ),
+    )
+    run_step(
+        "analyze GPT-5.5 current-model task-useful failures",
+        python_step(
+            "scripts/analyze_task_useful_failures.py",
+            "--scores",
+            str(GPT55_SCORES_PATH),
+            "--out-dir",
+            str(GPT55_TABLES_DIR),
+            "--out-md",
+            "paper/task_useful_failure_analysis_gpt55_v02_full120.md",
+            "--expected-first-turn-rows",
+            "240",
+        ),
+    )
+    run_step(
+        "score GPT-5.5 current-model content-preservation",
+        python_step(
+            "scripts/score_auto.py",
+            "--benchmark",
+            "data/benchmark_stress_v0.2.jsonl",
+            "--outputs",
+            "results/model_outputs/openai_gpt55_stress_v02_full120_content_preservation.jsonl",
+            "--out",
+            str(GPT55_CONTENT_SCORES_PATH),
+        ),
+    )
+    run_step(
+        "compute GPT-5.5 current-model content-preservation metrics",
+        python_step(
+            "scripts/compute_metrics.py",
+            "--scores",
+            str(GPT55_CONTENT_SCORES_PATH),
+            "--out-dir",
+            str(GPT55_CONTENT_TABLES_DIR),
+        ),
+    )
+    run_step("analyze current-model refresh", python_step("scripts/analyze_current_model_refresh.py"))
+    run_step("validate current-model refresh", python_step("scripts/validate_current_model_refresh.py"))
+    run_step("analyze current-model uncertainty", python_step("scripts/analyze_current_model_uncertainty.py"))
+    run_step("validate current-model uncertainty", python_step("scripts/validate_current_model_uncertainty.py"))
+    run_step("analyze current-model heterogeneity", python_step("scripts/analyze_current_model_heterogeneity.py"))
+    run_step("validate current-model heterogeneity", python_step("scripts/validate_current_model_heterogeneity.py"))
+    run_step("analyze current-model regression risk", python_step("scripts/analyze_current_model_regression_risk.py"))
+    run_step("validate current-model regression risk", python_step("scripts/validate_current_model_regression_risk.py"))
+    run_step("analyze current-model residual errors", python_step("scripts/analyze_current_model_error_analysis.py"))
+    run_step("validate current-model residual errors", python_step("scripts/validate_current_model_error_analysis.py"))
+    run_step("analyze current-model case studies", python_step("scripts/analyze_current_model_case_studies.py"))
+    run_step("validate current-model case studies", python_step("scripts/validate_current_model_case_studies.py"))
+    run_step("analyze current-model scorer sensitivity", python_step("scripts/analyze_current_model_scorer_sensitivity.py"))
+    run_step("validate current-model scorer sensitivity", python_step("scripts/validate_current_model_scorer_sensitivity.py"))
+    run_step("analyze generation progress probe", python_step("scripts/analyze_generation_progress_probe.py"))
+    run_step("validate generation progress probe", python_step("scripts/validate_generation_progress_probe.py"))
+    run_step("analyze efficiency tradeoff", python_step("scripts/analyze_efficiency_tradeoff.py"))
+    run_step("validate efficiency tradeoff", python_step("scripts/validate_efficiency_tradeoff.py"))
+    run_step("analyze completed-label claim gates", python_step("scripts/analyze_completed_label_claim_gates.py"))
+    run_step("validate completed-label claim gates", python_step("scripts/validate_completed_label_claim_gates.py"))
+    run_step("analyze current-model prompt mechanism", python_step("scripts/analyze_current_prompt_mechanism.py"))
+    run_step("validate current-model prompt mechanism", python_step("scripts/validate_current_prompt_mechanism.py"))
+    run_step("analyze human/native-review acceptance rules", python_step("scripts/analyze_human_audit_acceptance_rules.py"))
+    run_step("validate human/native-review acceptance rules", python_step("scripts/validate_human_audit_acceptance_rules.py"))
+    run_step("analyze label-collection launch pack", python_step("scripts/analyze_label_collection_launch_pack.py"))
+    run_step("validate label-collection launch pack", python_step("scripts/validate_label_collection_launch_pack.py"))
+    run_step("analyze follow-up plan readiness", python_step("scripts/analyze_followup_plan_readiness.py"))
+    run_step("validate follow-up plan readiness", python_step("scripts/validate_followup_plan_readiness.py"))
     run_step("analyze prompt-control diagnostic", python_step("scripts/analyze_prompt_control.py"))
     run_step("analyze prompt-ablation diagnostic", python_step("scripts/analyze_prompt_ablation.py"))
     run_step(
@@ -257,6 +455,145 @@ def main() -> None:
             "paper/judge_agreement_analysis_v02_full120.md",
         ),
     )
+    run_step("analyze GPT-5.5 judge refresh", python_step("scripts/analyze_judge_refresh.py"))
+    run_step("validate GPT-5.5 judge refresh", python_step("scripts/validate_judge_refresh.py"))
+    run_step("analyze repair-realism diagnostic", python_step("scripts/analyze_repair_realism.py"))
+    run_step("validate repair-realism diagnostic", python_step("scripts/validate_repair_realism.py"))
+    run_step("generate v0.3 coverage expansion scaffold", python_step("scripts/generate_coverage_expansion_v03.py"))
+    run_step("analyze v0.3 coverage expansion scaffold", python_step("scripts/analyze_coverage_expansion_v03.py"))
+    run_step("validate v0.3 coverage expansion scaffold", python_step("scripts/validate_coverage_expansion_v03.py"))
+    run_step("generate v0.3 coverage native-review packet", python_step("scripts/make_coverage_native_review_packet_v03.py"))
+    run_step("validate v0.3 coverage native-review packet", python_step("scripts/validate_coverage_native_review_packet_v03.py"))
+    run_step("generate v0.3 coverage native-review sheets", python_step("scripts/make_coverage_native_review_sheets_v03.py"))
+    run_step("validate v0.3 coverage native-review sheets", python_step("scripts/validate_coverage_native_review_sheets_v03.py"))
+    run_step("analyze v0.3 coverage native-review design", python_step("scripts/analyze_coverage_native_review_design_v03.py"))
+    run_step(
+        "score v0.3 coverage smoke",
+        python_step(
+            "scripts/score_auto.py",
+            "--benchmark",
+            "data/benchmark_stress_v0.3_expansion.jsonl",
+            "--outputs",
+            "results/model_outputs/openai_gpt54mini_stress_v03_smoke6.jsonl",
+            "--out",
+            "results/scores/openai_gpt54mini_stress_v03_smoke6_auto_scores.jsonl",
+        ),
+    )
+    run_step(
+        "compute v0.3 coverage smoke metrics",
+        python_step(
+            "scripts/compute_metrics.py",
+            "--scores",
+            "results/scores/openai_gpt54mini_stress_v03_smoke6_auto_scores.jsonl",
+            "--out-dir",
+            "results/tables/openai_gpt54mini_stress_v03_smoke6",
+        ),
+    )
+    run_step("analyze v0.3 coverage smoke", python_step("scripts/analyze_coverage_smoke_v03.py"))
+    run_step("validate v0.3 coverage smoke", python_step("scripts/validate_coverage_smoke_v03.py"))
+    run_step(
+        "score GPT-5.5 v0.3 coverage smoke",
+        python_step(
+            "scripts/score_auto.py",
+            "--benchmark",
+            "data/benchmark_stress_v0.3_expansion.jsonl",
+            "--outputs",
+            "results/model_outputs/openai_gpt55_stress_v03_smoke6.jsonl",
+            "--out",
+            "results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl",
+        ),
+    )
+    run_step(
+        "compute GPT-5.5 v0.3 coverage smoke metrics",
+        python_step(
+            "scripts/compute_metrics.py",
+            "--scores",
+            "results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl",
+            "--out-dir",
+            "results/tables/openai_gpt55_stress_v03_smoke6",
+        ),
+    )
+    run_step(
+        "analyze GPT-5.5 v0.3 coverage smoke",
+        python_step(
+            "scripts/analyze_coverage_smoke_v03.py",
+            "--benchmark",
+            "data/benchmark_stress_v0.3_expansion.jsonl",
+            "--scores",
+            "results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl",
+            "--outputs",
+            "results/model_outputs/openai_gpt55_stress_v03_smoke6.jsonl",
+            "--out-dir",
+            "results/tables/openai_gpt55_stress_v03_smoke6",
+            "--out-md",
+            "paper/coverage_smoke_gpt55_v03.md",
+        ),
+    )
+    run_step(
+        "validate GPT-5.5 v0.3 coverage smoke",
+        python_step(
+            "scripts/validate_coverage_smoke_v03.py",
+            "--outputs",
+            "results/model_outputs/openai_gpt55_stress_v03_smoke6.jsonl",
+            "--scores",
+            "results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl",
+            "--tables-dir",
+            "results/tables/openai_gpt55_stress_v03_smoke6",
+            "--report",
+            "paper/coverage_smoke_gpt55_v03.md",
+            "--expected-model",
+            "gpt-5.5",
+            "--expected-api-rows",
+            "12",
+            "--expected-input-tokens",
+            "1632",
+            "--expected-output-tokens",
+            "870",
+            "--expected-baseline-first-turn-passes",
+            "6",
+            "--expected-contract-first-turn-passes",
+            "6",
+            "--expected-first-turn-failure-count",
+            "0",
+            "--expected-successful-repair-rows",
+            "0",
+            "--expected-baseline-mean-rtt",
+            "0",
+            "--expected-contract-mean-rtt",
+            "0",
+            "--expected-es-ar-baseline-ftga",
+            "1",
+            "--expected-failure-item",
+            "",
+            "--expected-failure-types",
+            "",
+        ),
+    )
+    run_step("build v0.3 coverage pilot outputs", python_step("scripts/build_coverage_pilot_v03_outputs.py"))
+    run_step(
+        "score v0.3 coverage pilot",
+        python_step(
+            "scripts/score_auto.py",
+            "--benchmark",
+            "data/benchmark_stress_v0.3_expansion.jsonl",
+            "--outputs",
+            "results/model_outputs/openai_gpt54mini_stress_v03_pilot24.jsonl",
+            "--out",
+            "results/scores/openai_gpt54mini_stress_v03_pilot24_auto_scores.jsonl",
+        ),
+    )
+    run_step(
+        "compute v0.3 coverage pilot metrics",
+        python_step(
+            "scripts/compute_metrics.py",
+            "--scores",
+            "results/scores/openai_gpt54mini_stress_v03_pilot24_auto_scores.jsonl",
+            "--out-dir",
+            "results/tables/openai_gpt54mini_stress_v03_pilot24",
+        ),
+    )
+    run_step("analyze v0.3 coverage pilot", python_step("scripts/analyze_coverage_pilot_v03.py"))
+    run_step("validate v0.3 coverage pilot", python_step("scripts/validate_coverage_pilot_v03.py"))
     run_step("summarize experiment ledger", python_step("scripts/summarize_experiment_ledger.py"))
     run_step(
         "make figures",
@@ -264,6 +601,14 @@ def main() -> None:
             "scripts/make_figures.py",
             "--tables-dir",
             str(TABLES_DIR),
+            "--extra-summary",
+            "results/tables/openai_gpt54mini_stress_v02_full120/metrics_summary.csv",
+            "--extra-summary",
+            "results/tables/openai_gpt55_stress_v02_full120/metrics_summary.csv",
+            "--extra-trajectories",
+            "results/tables/openai_gpt54mini_stress_v02_full120/trajectory_metrics.csv",
+            "--extra-trajectories",
+            "results/tables/openai_gpt55_stress_v02_full120/trajectory_metrics.csv",
             "--out-dir",
             str(FIGURES_DIR),
         ),
@@ -274,10 +619,18 @@ def main() -> None:
             "build PDF",
             ["latexmk", "-pdf", "-interaction=nonstopmode", "main.tex"],
             cwd=ROOT / "paper",
-        )
+    )
     run_step("score regression tests", python_step("scripts/test_score_auto.py"))
     run_step("human-audit completion regression tests", python_step("scripts/test_human_audit_completion.py"))
+    run_step("human-audit adjudication regression tests", python_step("scripts/test_human_audit_adjudication.py"))
+    run_step("coverage native-review completion regression tests", python_step("scripts/test_coverage_native_review_completion.py"))
+    run_step("coverage native-review adjudication regression tests", python_step("scripts/test_coverage_native_review_adjudication.py"))
+    run_step("review-export merge regression tests", python_step("scripts/test_merge_review_exports.py"))
+    run_step("completed-label claim-gate regression tests", python_step("scripts/test_completed_label_claim_gates.py"))
+    run_step("coverage native-review sheet validation", python_step("scripts/validate_coverage_native_review_sheets_v03.py"))
     run_step("claim-boundary lint", python_step("scripts/lint_claim_boundaries.py"))
+    run_step("validate release docs", python_step("scripts/validate_release_docs.py"))
+    run_step("validate result card", python_step("scripts/validate_result_card.py"))
     run_step("validate qualitative examples", python_step("scripts/validate_qualitative_examples.py"))
     run_step("validate follow-up probe", python_step("scripts/validate_followup_probe.py"))
     run_step(
@@ -297,7 +650,84 @@ def main() -> None:
         ),
     )
     run_step("validate human audit packet", python_step("scripts/validate_human_audit_packet.py"))
+    run_step("generate human audit review sheets", python_step("scripts/make_human_audit_review_sheets.py"))
+    run_step("validate human audit review sheets", python_step("scripts/validate_human_audit_review_sheets.py"))
     run_step("analyze human audit design", python_step("scripts/analyze_human_audit_design.py"))
+    run_step(
+        "generate current-model human audit packet",
+        python_step(
+            "scripts/make_human_audit_packet.py",
+            "--benchmark",
+            "data/benchmark_stress_v0.2.jsonl",
+            "--scores",
+            str(GPT54_SCORES_PATH),
+            str(GPT55_SCORES_PATH),
+            "--out-dir",
+            "data/current_model_human_audit",
+            "--packet-version",
+            "v0.2_current_gpt5",
+            "--seed",
+            "29",
+            "--prefer-failures",
+        ),
+    )
+    run_step(
+        "validate current-model human audit packet",
+        python_step(
+            "scripts/validate_human_audit_packet.py",
+            "--out-dir",
+            "data/current_model_human_audit",
+            "--packet-version",
+            "v0.2_current_gpt5",
+            "--expected-models",
+            "gpt-5.4-mini,gpt-5.5",
+        ),
+    )
+    run_step(
+        "generate current-model human audit review sheets",
+        python_step(
+            "scripts/make_human_audit_review_sheets.py",
+            "--packet",
+            "data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5.csv",
+            "--out-dir",
+            "data/current_model_human_audit/review_sheets_v0.2_current_gpt5",
+            "--packet-version",
+            "v0.2_current_gpt5",
+        ),
+    )
+    run_step(
+        "validate current-model human audit review sheets",
+        python_step(
+            "scripts/validate_human_audit_review_sheets.py",
+            "--packet",
+            "data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5.csv",
+            "--out-dir",
+            "data/current_model_human_audit/review_sheets_v0.2_current_gpt5",
+            "--packet-version",
+            "v0.2_current_gpt5",
+        ),
+    )
+    run_step(
+        "analyze current-model human audit design",
+        python_step(
+            "scripts/analyze_human_audit_design.py",
+            "--packet",
+            "data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5.csv",
+            "--answer-key",
+            "data/current_model_human_audit/human_audit_answer_key_v0.2_current_gpt5.csv",
+            "--out-dir",
+            "results/tables/current_model_human_audit_v02_design",
+            "--out-md",
+            "paper/current_model_human_audit_design_v02.md",
+            "--expected-models",
+            "gpt-5.4-mini,gpt-5.5",
+            "--title",
+            "Current-Model Human Audit Design Audit",
+        ),
+    )
+    run_step("validate current-model human audit launch packet", python_step("scripts/validate_current_model_human_audit_packet.py"))
+    run_step("build label-collection reviewer bundles", python_step("scripts/build_label_collection_bundles.py"))
+    run_step("validate label-collection reviewer bundles", python_step("scripts/validate_label_collection_bundles.py"))
     run_step(
         "validate expanded stress benchmark",
         python_step(
@@ -310,6 +740,7 @@ def main() -> None:
     )
     run_step("analyze discovery cues", python_step("scripts/analyze_discovery_cues.py"))
     run_step("analyze benchmark quality", python_step("scripts/analyze_benchmark_quality.py"))
+    run_step("validate label-collection launch pack", python_step("scripts/validate_label_collection_launch_pack.py"))
     run_step("refresh artifact manifest", python_step("scripts/make_artifact_manifest.py"))
     run_step("validate paper claims", python_step("scripts/validate_paper_claims.py"))
     run_step("check artifact manifest", python_step("scripts/make_artifact_manifest.py", "--check"))

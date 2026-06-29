@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RePromptTax v0.2 Human Audit Sheets</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 880px; margin: 32px auto; padding: 0 18px; line-height: 1.5; color: #1f2933; }
+    a { color: #0b6bcb; font-weight: 700; }
+    code { background: #edf2f7; padding: 2px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>RePromptTax v0.2 Human Audit Sheets</h1>
+  <p>Send annotators only the sheet for their language pair. The private answer key is not needed for annotation.</p>
+  <ul>
+    <li><a href="human_audit_review_sheet_v0.2_ar-en.html">Arabic-English</a> (24 rows)</li>
+<li><a href="human_audit_review_sheet_v0.2_es-en.html">Spanish-English</a> (24 rows)</li>
+<li><a href="human_audit_review_sheet_v0.2_hi-en.html">Hindi-English</a> (24 rows)</li>
+  </ul>
+  <p>Merge completed CSV exports with <code>scripts/merge_review_exports.py</code>, then validate with <code>scripts/validate_completed_human_audit.py</code> after filling the annotator roster.</p>
+</body>
+</html>

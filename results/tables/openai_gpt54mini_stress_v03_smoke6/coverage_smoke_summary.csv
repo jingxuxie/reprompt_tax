@@ -1,0 +1,2 @@
+model,benchmark,items,trajectories,api_response_rows,scored_response_rows,baseline_ftga,contract_ftga,ftga_delta_pp,baseline_mean_rtt,contract_mean_rtt,baseline_unresolved,contract_unresolved,input_tokens,output_tokens,total_tokens
+gpt-5.4-mini,v0.3 coverage expansion smoke,6,12,13,13,0.8333333333333334,1.0,16.666666666666664,0.16666666666666666,0.0,0,0,1781,479,2260

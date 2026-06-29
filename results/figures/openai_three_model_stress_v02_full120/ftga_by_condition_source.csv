@@ -1,0 +1,11 @@
+model,condition,n,ftga_pct
+gpt-4.1-nano,baseline,120,67.5
+gpt-4.1-nano,contract,120,76.7
+gpt-4.1-mini,baseline,120,75.8
+gpt-4.1-mini,contract,120,79.2
+gpt-4.1,baseline,120,76.7
+gpt-4.1,contract,120,93.3
+gpt-5.4-mini,baseline,120,80.0
+gpt-5.4-mini,contract,120,85.0
+gpt-5.5,baseline,120,81.7
+gpt-5.5,contract,120,98.3

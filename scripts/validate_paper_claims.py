@@ -84,14 +84,15 @@ EXPECTED_BENCHMARK_QUALITY_BY_FAMILY = {
 }
 
 EXPECTED_EXPERIMENT_LEDGER_SUMMARY = {
-    "paper_facing_artifacts": 4,
-    "api_response_rows": 1290,
-    "model_response_rows": 1218,
-    "judge_response_rows": 72,
-    "trajectories_or_judged_rows": 1032,
-    "input_tokens": 190463,
-    "output_tokens": 38368,
-    "total_tokens": 228831,
+    "tracked_api_artifacts": 8,
+    "api_response_rows": 1504,
+    "model_response_rows": 1288,
+    "repair_variant_response_rows": 72,
+    "judge_response_rows": 144,
+    "trajectories_or_judged_rows": 1236,
+    "input_tokens": 229646,
+    "output_tokens": 56284,
+    "total_tokens": 285930,
 }
 
 EXPECTED_EXPERIMENT_LEDGER_BY_ARTIFACT = {
@@ -122,6 +123,24 @@ EXPECTED_EXPERIMENT_LEDGER_BY_ARTIFACT = {
         "output_tokens": 3324,
         "total_tokens": 23380,
     },
+    "coverage_pilot_v03_gpt54mini": {
+        "artifact_kind": "model_responses",
+        "api_response_rows": 58,
+        "first_turn_rows": 48,
+        "trajectories": 48,
+        "input_tokens": 8007,
+        "output_tokens": 1958,
+        "total_tokens": 9965,
+    },
+    "coverage_smoke_v03_gpt55": {
+        "artifact_kind": "model_responses",
+        "api_response_rows": 12,
+        "first_turn_rows": 12,
+        "trajectories": 12,
+        "input_tokens": 1632,
+        "output_tokens": 870,
+        "total_tokens": 2502,
+    },
     "judge_audit": {
         "artifact_kind": "judge_audit",
         "api_response_rows": 72,
@@ -130,6 +149,24 @@ EXPECTED_EXPERIMENT_LEDGER_BY_ARTIFACT = {
         "input_tokens": 20607,
         "output_tokens": 5339,
         "total_tokens": 25946,
+    },
+    "judge_refresh_gpt55": {
+        "artifact_kind": "judge_audit",
+        "api_response_rows": 72,
+        "first_turn_rows": 72,
+        "trajectories": 72,
+        "input_tokens": 20535,
+        "output_tokens": 10512,
+        "total_tokens": 31047,
+    },
+    "repair_realism_editing_baseline24": {
+        "artifact_kind": "repair_variant_responses",
+        "api_response_rows": 72,
+        "first_turn_rows": 0,
+        "trajectories": 72,
+        "input_tokens": 9009,
+        "output_tokens": 4576,
+        "total_tokens": 13585,
     },
 }
 
@@ -142,6 +179,10 @@ EXPECTED_EXPERIMENT_LEDGER_BY_MODEL = {
     ("main_evaluation", "gpt-4.1-nano", "contract"): {"api_response_rows": 155, "first_turn_rows": 120, "trajectories": 120, "total_tokens": 37203},
     ("prompt_control", "gpt-4.1-nano", "generic_helpfulness"): {"api_response_rows": 155, "first_turn_rows": 120, "trajectories": 120, "total_tokens": 27462},
     ("prompt_ablation_content_preservation", "gpt-4.1-nano", "content_preservation"): {"api_response_rows": 146, "first_turn_rows": 120, "trajectories": 120, "total_tokens": 23380},
+    ("coverage_pilot_v03_gpt54mini", "gpt-5.4-mini", "baseline"): {"api_response_rows": 32, "first_turn_rows": 24, "trajectories": 24, "total_tokens": 3713},
+    ("coverage_pilot_v03_gpt54mini", "gpt-5.4-mini", "contract"): {"api_response_rows": 26, "first_turn_rows": 24, "trajectories": 24, "total_tokens": 6252},
+    ("coverage_smoke_v03_gpt55", "gpt-5.5", "baseline"): {"api_response_rows": 6, "first_turn_rows": 6, "trajectories": 6, "total_tokens": 825},
+    ("coverage_smoke_v03_gpt55", "gpt-5.5", "contract"): {"api_response_rows": 6, "first_turn_rows": 6, "trajectories": 6, "total_tokens": 1677},
 }
 
 EXPECTED_COMPONENT_MODEL_ROWS = {
@@ -687,6 +728,22 @@ def require(condition: bool, message: str) -> None:
         raise AssertionError(message)
 
 
+def read_tex_surface(path: Path) -> str:
+    text = path.read_text(encoding="utf-8")
+    if path.name != "main.tex":
+        return text
+
+    parts = [text]
+    for match in re.finditer(r"\\input\{([^}]+)\}", text):
+        rel = match.group(1)
+        input_path = path.parent / rel
+        if input_path.suffix == "":
+            input_path = input_path.with_suffix(".tex")
+        require(input_path.exists(), f"missing included TeX file {input_path}")
+        parts.append(input_path.read_text(encoding="utf-8"))
+    return "\n".join(parts)
+
+
 def rounded_percent(value: str | float) -> float:
     return round(100.0 * float(value), 1)
 
@@ -761,6 +818,7 @@ def check_experiment_ledger(
     artifact_path: Path,
     model_path: Path,
     judge_path: Path,
+    repair_path: Path,
     markdown_path: Path,
 ) -> None:
     summary_rows = load_csv(summary_path)
@@ -770,7 +828,7 @@ def check_experiment_ledger(
         require(int(summary[field]) == expected, f"experiment-ledger summary mismatch for {field}")
 
     artifact_rows = load_csv(artifact_path)
-    require(len(artifact_rows) == 4, f"expected 4 experiment-ledger artifact rows, found {len(artifact_rows)}")
+    require(len(artifact_rows) == 8, f"expected 8 experiment-ledger artifact rows, found {len(artifact_rows)}")
     by_artifact = {row["artifact_label"]: row for row in artifact_rows}
     for artifact_label, expected in EXPECTED_EXPERIMENT_LEDGER_BY_ARTIFACT.items():
         require(artifact_label in by_artifact, f"missing experiment-ledger artifact {artifact_label}")
@@ -780,7 +838,7 @@ def check_experiment_ledger(
             require(int(row[field]) == expected[field], f"experiment-ledger artifact mismatch for {artifact_label}/{field}")
 
     model_rows = load_csv(model_path)
-    require(len(model_rows) == 8, f"expected 8 experiment-ledger model rows, found {len(model_rows)}")
+    require(len(model_rows) == 12, f"expected 12 experiment-ledger model rows, found {len(model_rows)}")
     by_model = {(row["artifact_label"], row["model"], row["condition"]): row for row in model_rows}
     for key, expected in EXPECTED_EXPERIMENT_LEDGER_BY_MODEL.items():
         require(key in by_model, f"missing experiment-ledger model row {key}")
@@ -789,23 +847,34 @@ def check_experiment_ledger(
             require(int(row[field]) == expected_value, f"experiment-ledger model mismatch for {key}/{field}")
 
     judge_rows = load_csv(judge_path)
-    require(len(judge_rows) == 1, f"expected one experiment-ledger judge row, found {len(judge_rows)}")
-    judge = judge_rows[0]
-    require(judge["artifact_label"] == "judge_audit", "unexpected experiment-ledger judge artifact")
-    require(judge["judge_model"] == "gpt-4.1", "unexpected experiment-ledger judge model")
-    require(int(judge["api_response_rows"]) == 72, "unexpected experiment-ledger judge row count")
-    require(int(judge["total_tokens"]) == 25946, "unexpected experiment-ledger judge token count")
+    require(len(judge_rows) == 2, f"expected two experiment-ledger judge rows, found {len(judge_rows)}")
+    by_judge = {row["artifact_label"]: row for row in judge_rows}
+    require(by_judge["judge_audit"]["judge_model"] == "gpt-4.1", "unexpected original judge model")
+    require(by_judge["judge_refresh_gpt55"]["judge_model"] == "gpt-5.5", "unexpected judge-refresh model")
+    require(int(by_judge["judge_audit"]["total_tokens"]) == 25946, "unexpected original judge token count")
+    require(int(by_judge["judge_refresh_gpt55"]["total_tokens"]) == 31047, "unexpected judge-refresh token count")
+
+    repair_rows = load_csv(repair_path)
+    require(len(repair_rows) == 9, f"expected 9 repair-variant usage rows, found {len(repair_rows)}")
+    repair_total = sum(int(row["total_tokens"]) for row in repair_rows)
+    require(repair_total == 13585, f"unexpected repair-variant token total: {repair_total}")
 
     markdown = " ".join(markdown_path.read_text(encoding="utf-8").split())
     for phrase in (
         "does not estimate dollar cost",
         "Historical diagnostic shards are excluded",
-        "paper_facing_artifacts | 4",
-        "api_response_rows | 1290",
-        "model_response_rows | 1218",
-        "judge_response_rows | 72",
+        "not a paper-facing benchmark result",
+        "tracked_api_artifacts | 8",
+        "api_response_rows | 1504",
+        "model_response_rows | 1288",
+        "repair_variant_response_rows | 72",
+        "judge_response_rows | 144",
         "prompt_ablation_content_preservation | model_responses | 146",
-        "total_tokens | 228831",
+        "coverage_pilot_v03_gpt54mini | model_responses | 58",
+        "coverage_smoke_v03_gpt55 | model_responses | 12",
+        "judge_refresh_gpt55 | judge_audit | 72",
+        "repair_realism_editing_baseline24 | repair_variant_responses | 72",
+        "total_tokens | 285930",
     ):
         require(phrase in markdown, f"experiment-ledger markdown missing phrase: {phrase}")
 
@@ -813,7 +882,7 @@ def check_experiment_ledger(
 def check_metrics(summary_path: Path, tex_path: Path) -> None:
     rows = load_csv(summary_path)
     require(len(rows) == 6, f"expected 6 main metric rows, found {len(rows)}")
-    tex = " ".join(tex_path.read_text(encoding="utf-8").split())
+    tex = " ".join(read_tex_surface(tex_path).split())
     for row in rows:
         key = (row["model"], row["condition"])
         require(key in EXPECTED_MAIN, f"unexpected metric row {key}")
@@ -838,11 +907,24 @@ def check_metrics(summary_path: Path, tex_path: Path) -> None:
                 require(rendered in tex, f"paper TeX missing rendered metric {rendered} for {key}")
 
 
+def check_current_model_table(tex_path: Path) -> None:
+    tex = " ".join(read_tex_surface(tex_path).split())
+    required_phrases = [
+        "including the current-model refresh rows",
+        "GPT-5.4 mini & Baseline & 80.0 & 0.25 & 1.38 & 2.5 & 87.5 & 87.5",
+        "GPT-5.4 mini & Contract & 85.0 & 0.25 & 1.24 & 5.0 & 66.7 & 66.7",
+        "GPT-5.5 & Baseline & 81.7 & 0.23 & 1.28 & 1.7 & 86.4 & 90.9",
+        "GPT-5.5 & Contract & 98.3 & 0.02 & 1.02 & 0.0 & 100.0 & 100.0",
+    ]
+    for phrase in required_phrases:
+        require(phrase in tex, f"paper TeX missing current-model table phrase: {phrase}")
+
+
 def check_paired_effects(path: Path, tex_path: Path) -> None:
     rows = load_csv(path)
     require(len(rows) == 3, f"expected 3 paired-effect rows, found {len(rows)}")
-    tex = tex_path.read_text(encoding="utf-8")
-    require("Paired bootstrap estimates" in tex, "paper TeX missing paired bootstrap sentence")
+    tex = read_tex_surface(tex_path)
+    require("Paired sign-test sensitivity" in tex, "paper TeX missing paired sensitivity sentence")
     for row in rows:
         model = row["model"]
         require(model in EXPECTED_PAIRED_EFFECTS, f"unexpected paired-effect model {model}")
@@ -1344,11 +1426,11 @@ def check_task_useful_failures(
         "baseline | 96 | 31 (8.6% of all rows) | 32.3% | 11 | 11",
         "contract | 61 | 20 (5.6% of all rows) | 32.8% | 1 | 1",
         "The stricter task+preservation useful subset falls from 11 to 1",
-        "script/register/locale (20) rows",
+        "Script/register/locale (20) rows",
     ):
         require(phrase in markdown, f"task-useful markdown missing phrase: {phrase}")
 
-    tex = " ".join(tex_path.read_text(encoding="utf-8").split())
+    tex = " ".join(read_tex_surface(tex_path).split())
     for phrase in (
         "31/96 baseline first-turn failures still pass the task component",
         "stricter task-plus-preservation slice falls from 11 to 1",
@@ -1394,7 +1476,7 @@ def check_failure_mode_analysis(
     for phrase in required_markdown_phrases:
         require(phrase in markdown, f"failure-mode markdown missing phrase: {phrase}")
 
-    tex = " ".join(tex_path.read_text(encoding="utf-8").split())
+    tex = " ".join(read_tex_surface(tex_path).split())
     required_tex_phrases = [
         "aggregate baseline FTGA is 33.3\\%",
         "60/90 first-turn failures",
@@ -1561,6 +1643,85 @@ def check_judge_agreement(
         require(phrase in markdown, f"judge-agreement markdown missing phrase: {phrase}")
 
 
+def check_judge_refresh(
+    raw_path: Path,
+    summary_path: Path,
+    pairwise_path: Path,
+    disagreements_path: Path,
+    markdown_path: Path,
+) -> None:
+    rows = load_jsonl(raw_path)
+    require(len(rows) == 72, f"expected 72 GPT-5.5 judge-refresh rows, found {len(rows)}")
+    require(all(row["judge_model"] == "gpt-5.5" for row in rows), "judge refresh has unexpected judge model")
+    require(all(not row.get("judge_parse_error") for row in rows), "judge refresh has parse errors")
+    require(len({(row["item_id"], row["model"], row["condition"], int(row["turn"])) for row in rows}) == 72, "duplicate judge-refresh keys")
+    agree = sum(bool(row["auto_pass"]) == bool(row["judge_pass"]) for row in rows)
+    require(agree == 70, f"expected 70/72 GPT-5.5 judge agreement, got {agree}/72")
+    disagreements = [row["item_id"] for row in rows if bool(row["auto_pass"]) != bool(row["judge_pass"])]
+    require(disagreements == ["hi_en_SA_009", "hi_en_SC_008"], f"unexpected GPT-5.5 judge disagreements: {disagreements}")
+
+    summary_rows = {row["judge_label"]: row for row in load_csv(summary_path)}
+    require(set(summary_rows) == {"gpt41", "gpt55"}, f"unexpected judge-refresh summary rows: {set(summary_rows)}")
+    require(int(summary_rows["gpt41"]["auto_agreement_n"]) == 71, "unexpected GPT-4.1 refresh summary agreement")
+    require(int(summary_rows["gpt55"]["auto_agreement_n"]) == 70, "unexpected GPT-5.5 refresh summary agreement")
+    require(int(summary_rows["gpt55"]["total_tokens"]) == 31047, "unexpected GPT-5.5 refresh token count")
+
+    pairwise_rows = load_csv(pairwise_path)
+    require(len(pairwise_rows) == 1, f"expected one judge-refresh pairwise row, found {len(pairwise_rows)}")
+    pairwise = pairwise_rows[0]
+    require(int(pairwise["pass_fail_agreement_n"]) == 69, "unexpected judge-to-judge agreement")
+    require(int(pairwise["judge_a_pass_judge_b_fail_n"]) == 3, "unexpected judge-to-judge strictness count")
+    require(int(pairwise["judge_a_fail_judge_b_pass_n"]) == 0, "unexpected judge-to-judge reverse disagreement count")
+
+    disagreement_rows = {row["item_id"]: row for row in load_csv(disagreements_path)}
+    require(set(disagreement_rows) == {"es_en_SA_007", "hi_en_SA_009", "hi_en_SC_008"}, f"unexpected judge-refresh disagreement rows: {set(disagreement_rows)}")
+    require(disagreement_rows["es_en_SA_007"]["auto_pass"] == "False", "es_en_SA_007 should be auto fail")
+    require(disagreement_rows["es_en_SA_007"]["gpt55_judge_pass"] == "False", "GPT-5.5 should reject es_en_SA_007")
+    require(disagreement_rows["hi_en_SA_009"]["auto_pass"] == "True", "hi_en_SA_009 should be auto pass")
+    require(disagreement_rows["hi_en_SA_009"]["gpt55_judge_pass"] == "False", "GPT-5.5 should reject hi_en_SA_009")
+    require(disagreement_rows["hi_en_SC_008"]["auto_pass"] == "True", "hi_en_SC_008 should be auto pass")
+    require(disagreement_rows["hi_en_SC_008"]["gpt55_judge_pass"] == "False", "GPT-5.5 should reject hi_en_SC_008")
+
+    markdown = " ".join(markdown_path.read_text(encoding="utf-8").split())
+    for phrase in (
+        "`gpt-5.5` judge agrees on 70/72",
+        "two judges agree with each other on 69/72",
+        "Spanish framing around English rewrites should fail",
+        "do not replace native/near-native validation",
+    ):
+        require(phrase in markdown, f"judge-refresh markdown missing phrase: {phrase}")
+
+
+def check_repair_realism(summary_path: Path, paired_path: Path, markdown_path: Path) -> None:
+    summary_rows = {row["repair_variant"]: row for row in load_csv(summary_path)}
+    expected_summary = {
+        "standard_saved": {"repair_success_n": 24, "repair_success_pct": 100.0},
+        "terse_keep_english": {"repair_success_n": 24, "repair_success_pct": 100.0},
+        "frustrated_dont_translate": {"repair_success_n": 17, "repair_success_pct": 70.8},
+        "explicit_contract": {"repair_success_n": 5, "repair_success_pct": 20.8},
+    }
+    require(set(summary_rows) == set(expected_summary), f"unexpected repair-realism variants: {set(summary_rows)}")
+    for variant, expected in expected_summary.items():
+        row = summary_rows[variant]
+        require(int(row["n"]) == 24, f"expected 24 rows for {variant}")
+        require(int(row["repair_success_n"]) == expected["repair_success_n"], f"repair success mismatch for {variant}")
+        require(round(float(row["repair_success_pct"]), 1) == expected["repair_success_pct"], f"repair success pct mismatch for {variant}")
+
+    paired_rows = {row["comparison"]: row for row in load_csv(paired_path)}
+    require(int(paired_rows["frustrated_dont_translate_minus_standard_saved"]["repair_success_worsened"]) == 7, "unexpected frustrated repair regression count")
+    require(int(paired_rows["explicit_contract_minus_standard_saved"]["repair_success_worsened"]) == 19, "unexpected explicit repair regression count")
+
+    markdown = " ".join(markdown_path.read_text(encoding="utf-8").split())
+    for phrase in (
+        "baseline editing-preservation first-turn failures",
+        "standard | 24 | 24/24 (100.0%)",
+        "frustrated | 24 | 17/24 (70.8%)",
+        "explicit | 24 | 5/24 (20.8%)",
+        "small interaction-realism diagnostic",
+    ):
+        require(phrase in markdown, f"repair-realism markdown missing phrase: {phrase}")
+
+
 def load_csv_rows(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8", newline="") as f:
         return list(csv.DictReader(f))
@@ -1708,6 +1869,84 @@ def check_human_audit_design(
         require(phrase in markdown, f"human-audit design markdown missing phrase: {phrase}")
 
 
+def check_coverage_native_review(
+    packet_path: Path,
+    roster_path: Path,
+    summary_path: Path,
+    by_slice_path: Path,
+    markdown_path: Path,
+) -> None:
+    review_fields = (
+        "reviewer_id",
+        "reviewer_prompt_clear",
+        "reviewer_target_language_natural",
+        "reviewer_script_expectation_valid",
+        "reviewer_preservation_spans_valid",
+        "reviewer_known_bad_outputs_valid",
+        "reviewer_release_usable",
+        "reviewer_issue_types",
+        "reviewer_notes",
+    )
+    expected_slices = {
+        "arabic_instruction_arabic_filenames",
+        "english_instruction_arabic_content",
+        "english_instruction_hindi_content",
+        "english_instruction_spanish_content",
+        "hindi_english_instruction_hindi_devanagari",
+        "spanish_instruction_arabic_quote",
+    }
+    packet_rows = load_csv_rows(packet_path)
+    require(len(packet_rows) == 60, f"expected 60 v0.3 native-review rows, found {len(packet_rows)}")
+    require({row["coverage_slice"] for row in packet_rows} == expected_slices, "unexpected v0.3 native-review slices")
+    counts = Counter(row["coverage_slice"] for row in packet_rows)
+    require(all(count == 10 for count in counts.values()), f"unexpected v0.3 native-review slice counts: {counts}")
+    require(all(row["task_family"] == "editing_preservation" for row in packet_rows), "v0.3 native-review rows should all be editing_preservation")
+    for field in review_fields:
+        require(field in packet_rows[0], f"v0.3 native-review packet missing review field {field}")
+        require(all(row.get(field, "") == "" for row in packet_rows), f"v0.3 native-review field {field} is not blank")
+    for field in ("must_preserve_spans", "required_any_markers", "forbidden_markers", "known_bad_outputs"):
+        require(all(json.loads(row[field]) for row in packet_rows), f"v0.3 native-review field {field} has empty JSON lists")
+
+    roster_rows = load_csv_rows(roster_path)
+    require(len(roster_rows) == 12, f"expected twelve v0.3 roster template rows, found {len(roster_rows)}")
+    require({row["coverage_slice"] for row in roster_rows} == expected_slices, "v0.3 roster template slice mismatch")
+    roster_counts = Counter(row["coverage_slice"] for row in roster_rows)
+    require(all(count == 2 for count in roster_counts.values()), f"v0.3 roster template should have two reviewer slots per slice: {roster_counts}")
+    require(all(row["reviewer_id"].startswith("replace_with_") for row in roster_rows), "v0.3 roster template should use placeholder reviewer IDs")
+
+    summary_rows = load_csv_rows(summary_path)
+    require(len(summary_rows) == 1, "expected one v0.3 native-review summary row")
+    expected_summary = {
+        "review_rows": "60",
+        "coverage_slices": "6",
+        "language_pairs": "6",
+        "instruction_languages": "4",
+        "content_languages": "4",
+        "task_families": "1",
+        "rows_per_slice_min": "10",
+        "rows_per_slice_max": "10",
+        "review_fields_blank": "True",
+        "rows_requiring_native_review": "60",
+        "validation_status": "launch_ready_but_not_completed_native_validation",
+    }
+    for field, expected in expected_summary.items():
+        require(summary_rows[0].get(field) == expected, f"v0.3 native-review summary mismatch for {field}")
+
+    by_slice = {row["coverage_slice"]: row for row in load_csv_rows(by_slice_path)}
+    require(set(by_slice) == expected_slices, "v0.3 native-review by-slice table mismatch")
+    require(all(int(row["n"]) == 10 for row in by_slice.values()), "v0.3 native-review by-slice rows should all be 10")
+    require(all(int(row["total_preservation_spans"]) == 20 for row in by_slice.values()), "v0.3 native-review by-slice preservation spans should all be 20")
+
+    markdown = " ".join(markdown_path.read_text(encoding="utf-8").split())
+    for phrase in (
+        "60 synthetic v0.3 rows",
+        "launch-ready but not completed native validation",
+        "Do not claim native validation has been completed",
+        "Completed reviewer labels and a qualified roster are still required",
+    ):
+        require(phrase in markdown, f"v0.3 native-review design markdown missing phrase: {phrase}")
+
+
 def check_human_completion_plan(path: Path) -> None:
     require(path.exists(), f"missing human audit completion plan {path}")
     text = path.read_text(encoding="utf-8")
@@ -1822,6 +2061,38 @@ def check_figures(paths: list[Path]) -> None:
         require(path.stat().st_size > 1000, f"figure too small: {path}")
 
 
+def check_figure_sources(ftga_source: Path, repair_source: Path) -> None:
+    expected = {
+        ("gpt-4.1-nano", "baseline", "67.5"),
+        ("gpt-4.1-nano", "contract", "76.7"),
+        ("gpt-4.1-mini", "baseline", "75.8"),
+        ("gpt-4.1-mini", "contract", "79.2"),
+        ("gpt-4.1", "baseline", "76.7"),
+        ("gpt-4.1", "contract", "93.3"),
+        ("gpt-5.4-mini", "baseline", "80.0"),
+        ("gpt-5.4-mini", "contract", "85.0"),
+        ("gpt-5.5", "baseline", "81.7"),
+        ("gpt-5.5", "contract", "98.3"),
+    }
+    ftga_rows = load_csv_rows(ftga_source)
+    actual = {(row["model"], row["condition"], row["ftga_pct"]) for row in ftga_rows}
+    require(actual == expected, f"unexpected FTGA figure source rows: {actual}")
+    require(all(row["n"] == "120" for row in ftga_rows), "FTGA figure source should use full 120-item runs")
+
+    repair_rows = load_csv_rows(repair_source)
+    repair_keys = {(row["model"], row["condition"]) for row in repair_rows}
+    require(
+        repair_keys == {(model, condition) for model, condition, _ in expected},
+        "repair-curve source missing full-run rows",
+    )
+    require(all(row["n"] == "120" for row in repair_rows), "repair-curve source should use full 120-item runs")
+    g55_contract = next(row for row in repair_rows if row["model"] == "gpt-5.5" and row["condition"] == "contract")
+    require(
+        g55_contract["solved_after_two_repairs_pct"] == "100.0",
+        "GPT-5.5 contract repair curve should solve all trajectories",
+    )
+
+
 def check_pdf(path: Path) -> None:
     require(path.exists(), f"missing PDF {path}")
     require(path.stat().st_size > 1000, f"PDF too small: {path}")
@@ -1831,7 +2102,7 @@ def check_pdf(path: Path) -> None:
         raise AssertionError(f"pdfinfo failed for {path}: {exc}") from exc
     match = re.search(r"^Pages:\s+(\d+)$", proc.stdout, flags=re.MULTILINE)
     require(match is not None, "pdfinfo did not report page count")
-    require(int(match.group(1)) == 4, f"expected 4-page PDF, got {match.group(1)}")
+    require(int(match.group(1)) == 10, f"expected 10-page PDF, got {match.group(1)}")
 
 
 def check_tex_log(path: Path) -> None:
@@ -1859,10 +2130,17 @@ def check_claim_checklist(path: Path) -> None:
         "scripts/analyze_task_useful_failures.py",
         "scripts/analyze_human_audit_design.py",
         "57 auto-pass and 15 auto-fail sampled rows",
+        "paper/label_collection_launch_pack_v02.md",
+        "scripts/validate_coverage_native_review_packet_v03.py",
+        "scripts/validate_coverage_native_review_sheets_v03.py",
+        "scripts/validate_completed_coverage_native_review_v03.py",
+        "scripts/test_coverage_native_review_adjudication.py",
+        "not completed native validation",
         "scripts/validate_qualitative_examples.py",
         "scripts/validate_completed_human_audit.py",
         "scripts/validate_human_audit_packet.py",
         "scripts/validate_followup_probe.py",
+        "scripts/validate_label_collection_launch_pack.py",
     ]
     for phrase in required_phrases:
         require(phrase in normalized, f"claim-evidence checklist missing required phrase: {phrase}")
@@ -1871,6 +2149,7 @@ def check_claim_checklist(path: Path) -> None:
 def check_extended_abstract(path: Path) -> None:
     require(path.exists(), f"missing extended abstract draft {path}")
     text = path.read_text(encoding="utf-8")
+    normalized = " ".join(text.split())
     required_phrases = [
         "Token tax",
         "1.69x",
@@ -1878,14 +2157,42 @@ def check_extended_abstract(path: Path) -> None:
         "1.43x",
         "1.27x",
         "1.13x",
+        "| gpt-5.4-mini | baseline | 80.0% | 0.25 | 1.38x | 2.5% | 87.5% | 87.5% |",
+        "| gpt-5.4-mini | contract | 85.0% | 0.25 | 1.24x | 5.0% | 66.7% | 66.7% |",
+        "| gpt-5.5 | baseline | 81.7% | 0.23 | 1.28x | 1.7% | 86.4% | 90.9% |",
+        "| gpt-5.5 | contract | 98.3% | 0.02 | 1.02x | 0.0% | 100.0% | 100.0% |",
+        "full 120-item current-model refreshes for",
+        "`gpt-5.4-mini` and `gpt-5.5` under the same baseline and contract conditions",
+        "paired `gpt-5.5` judge refresh on the same 72 rows",
+        "two first-turn residuals remain",
+        "all trajectories resolve within the two-repair budget",
         "reduces mean repair turns and token tax",
     ]
     for phrase in required_phrases:
-        require(phrase in text, f"extended abstract missing required phrase: {phrase}")
+        require(phrase in text or phrase in normalized, f"extended abstract missing required phrase: {phrase}")
+
+
+def check_appendix(path: Path) -> None:
+    require(path.exists(), f"missing appendix {path}")
+    text = path.read_text(encoding="utf-8")
+    normalized = " ".join(text.split())
+    required_phrases = [
+        "Judge refresh analysis: `scripts/analyze_judge_refresh.py`",
+        "Judge refresh validator: `scripts/validate_judge_refresh.py`",
+        "same blinded 72-row sample",
+        "--judge-model gpt-5.5",
+        "conda run -n reprompt_tax python scripts/analyze_judge_refresh.py",
+        "conda run -n reprompt_tax python scripts/validate_judge_refresh.py",
+        "`gpt-5.5` judge agrees with the automatic scorer on",
+        "70/72 sampled pass/fail labels",
+        "with the `gpt-4.1` judge on 69/72 labels",
+    ]
+    for phrase in required_phrases:
+        require(phrase in text or phrase in normalized, f"appendix missing required phrase: {phrase}")
 
 
 def check_related_work(tex_path: Path, refs_path: Path) -> None:
-    tex = tex_path.read_text(encoding="utf-8")
+    tex = read_tex_surface(tex_path)
     normalized_tex = " ".join(tex.split())
     refs = refs_path.read_text(encoding="utf-8")
     required_tex_phrases = [
@@ -1918,10 +2225,37 @@ def check_related_work_positioning(path: Path) -> None:
         "MT-Bench",
         "Chatbot Arena",
         "standardized repair protocol",
+        "GPT-5.x refresh makes the result timely",
+        "current-model refreshes for `gpt-5.4-mini` and `gpt-5.5`",
+        "repair-realism checks",
+        "two blinded LLM-judge audits",
+        "launch-ready human/native review protocols",
+        "`gpt-5.4-mini` regression-risk caveat",
+        "token-tax versus absolute-token distinction",
         "Native-speaker validation is still required",
     ]
     for phrase in required_phrases:
         require(phrase in text, f"related-work positioning note missing phrase: {phrase}")
+
+
+def check_auxiliary_validator(root: Path, script_name: str, expected_stdout: str, script_args: list[str] | None = None) -> None:
+    script_path = (root / script_name).resolve()
+    require(script_path.exists(), f"missing auxiliary validator {script_path}")
+    try:
+        proc = subprocess.run(
+            [sys.executable, str(script_path), *(script_args or [])],
+            cwd=root,
+            check=True,
+            text=True,
+            capture_output=True,
+        )
+    except subprocess.CalledProcessError as exc:
+        raise AssertionError(
+            f"{script_name} failed:\n"
+            f"stdout:\n{exc.stdout}\n"
+            f"stderr:\n{exc.stderr}"
+        ) from exc
+    require(expected_stdout in proc.stdout, f"{script_name} did not report success")
 
 
 def check_qualitative_examples(root: Path) -> None:
@@ -2022,9 +2356,11 @@ def main() -> None:
         root / "results/tables/experiment_ledger_v02/api_usage_by_artifact.csv",
         root / "results/tables/experiment_ledger_v02/api_usage_by_model_condition.csv",
         root / "results/tables/experiment_ledger_v02/api_usage_by_judge.csv",
+        root / "results/tables/experiment_ledger_v02/api_usage_by_repair_variant.csv",
         root / "paper/experiment_ledger_v02.md",
     )
     check_metrics(root / "results/tables/openai_three_model_stress_v02_full120/metrics_summary.csv", root / "paper/main.tex")
+    check_current_model_table(root / "paper/main.tex")
     check_paired_effects(root / "results/tables/openai_three_model_stress_v02_full120/paired_contract_effects_by_model.csv", root / "paper/main.tex")
     check_paired_significance(
         root / "results/tables/openai_three_model_stress_v02_full120/paired_significance_by_model.csv",
@@ -2109,6 +2445,18 @@ def main() -> None:
         root / "results/tables/openai_three_model_stress_v02_full120_judge_audit72/judge_component_disagreements.csv",
         root / "paper/judge_agreement_analysis_v02_full120.md",
     )
+    check_judge_refresh(
+        root / "results/scores/openai_three_model_stress_v02_full120_judge_gpt55_audit72.jsonl",
+        root / "results/tables/openai_three_model_stress_v02_full120_judge_refresh_gpt55/judge_refresh_summary.csv",
+        root / "results/tables/openai_three_model_stress_v02_full120_judge_refresh_gpt55/judge_refresh_pairwise_comparison.csv",
+        root / "results/tables/openai_three_model_stress_v02_full120_judge_refresh_gpt55/judge_refresh_disagreements.csv",
+        root / "paper/judge_refresh_gpt55_v02_full120.md",
+    )
+    check_repair_realism(
+        root / "results/tables/openai_three_model_stress_v02_repair_realism_editing_baseline24/repair_realism_summary.csv",
+        root / "results/tables/openai_three_model_stress_v02_repair_realism_editing_baseline24/repair_realism_paired_effects.csv",
+        root / "paper/repair_realism_editing_baseline24.md",
+    )
     check_human_packet(
         root / "data/human_audit/human_audit_packet_v0.2.csv",
         root / "data/human_audit/human_audit_answer_key_v0.2.csv",
@@ -2120,6 +2468,13 @@ def main() -> None:
         root / "results/tables/human_audit_v0.2_design/human_audit_design_by_model_condition.csv",
         root / "results/tables/human_audit_v0.2_design/human_audit_design_by_auto_failure_type.csv",
         root / "paper/human_audit_design_audit_v02.md",
+    )
+    check_coverage_native_review(
+        root / "data/coverage_native_review_v03/coverage_native_review_packet_v03.csv",
+        root / "data/coverage_native_review_v03/coverage_native_review_roster_template_v03.csv",
+        root / "results/tables/coverage_native_review_v03_design/coverage_native_review_summary.csv",
+        root / "results/tables/coverage_native_review_v03_design/coverage_native_review_by_slice.csv",
+        root / "paper/coverage_native_review_design_v03.md",
     )
     check_human_completion_plan(root / "paper/human_audit_completion_plan.md")
     check_discovery(
@@ -2141,15 +2496,88 @@ def main() -> None:
             root / "results/figures/openai_three_model_stress_v02_full120/repair_curve.png",
         ]
     )
+    check_figure_sources(
+        root / "results/figures/openai_three_model_stress_v02_full120/ftga_by_condition_source.csv",
+        root / "results/figures/openai_three_model_stress_v02_full120/repair_curve_source.csv",
+    )
     check_pdf(root / "paper/main.pdf")
     check_tex_log(root / "paper/main.log")
     check_claim_checklist(root / "paper/claim_evidence_checklist.md")
     check_extended_abstract(root / "paper/extended_abstract_draft.md")
+    check_appendix(root / "paper/appendix.md")
     check_related_work(root / "paper/main.tex", root / "paper/refs.bib")
     check_related_work_positioning(root / "paper/related_work_positioning_v02.md")
+    check_auxiliary_validator(root, "scripts/validate_human_audit_review_sheets.py", "human-audit review-sheet validation passed")
+    check_auxiliary_validator(root, "scripts/validate_label_collection_launch_pack.py", "label-collection launch-pack validation passed")
+    check_auxiliary_validator(root, "scripts/test_human_audit_adjudication.py", "human-audit adjudication regression tests passed")
+    check_auxiliary_validator(
+        root,
+        "scripts/validate_current_model_human_audit_packet.py",
+        "current-model human-audit packet validation passed",
+    )
+    check_auxiliary_validator(root, "scripts/test_coverage_native_review_completion.py", "coverage native-review completion regression tests passed")
+    check_auxiliary_validator(root, "scripts/test_coverage_native_review_adjudication.py", "coverage native-review adjudication regression tests passed")
+    check_auxiliary_validator(root, "scripts/validate_coverage_expansion_v03.py", "validated v0.3 coverage expansion scaffold")
+    check_auxiliary_validator(root, "scripts/validate_coverage_native_review_packet_v03.py", "validated v0.3 coverage native-review launch packet")
+    check_auxiliary_validator(root, "scripts/validate_coverage_native_review_sheets_v03.py", "coverage native-review sheet validation passed")
+    check_auxiliary_validator(root, "scripts/validate_coverage_smoke_v03.py", "validated v0.3 coverage smoke")
+    check_auxiliary_validator(root, "scripts/validate_current_model_error_analysis.py", "current-model residual error validation passed")
+    check_auxiliary_validator(root, "scripts/validate_current_model_uncertainty.py", "current-model uncertainty validation passed")
+    check_auxiliary_validator(root, "scripts/validate_current_model_heterogeneity.py", "current-model heterogeneity validation passed")
+    check_auxiliary_validator(root, "scripts/validate_current_model_regression_risk.py", "current-model regression-risk validation passed")
+    check_auxiliary_validator(root, "scripts/validate_current_model_case_studies.py", "current-model case-study validation passed")
+    check_auxiliary_validator(root, "scripts/validate_current_model_scorer_sensitivity.py", "current-model scorer-sensitivity validation passed")
+    check_auxiliary_validator(root, "scripts/validate_generation_progress_probe.py", "generation-progress probe validation passed")
+    check_auxiliary_validator(root, "scripts/validate_efficiency_tradeoff.py", "efficiency tradeoff validation passed")
+    check_auxiliary_validator(root, "scripts/validate_followup_plan_readiness.py", "follow-up plan readiness validation passed")
+    check_auxiliary_validator(root, "scripts/validate_human_audit_acceptance_rules.py", "human/native-review acceptance rules validation passed")
+    check_auxiliary_validator(
+        root,
+        "scripts/validate_coverage_smoke_v03.py",
+        "validated v0.3 coverage smoke",
+        [
+            "--outputs",
+            "results/model_outputs/openai_gpt55_stress_v03_smoke6.jsonl",
+            "--scores",
+            "results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl",
+            "--tables-dir",
+            "results/tables/openai_gpt55_stress_v03_smoke6",
+            "--report",
+            "paper/coverage_smoke_gpt55_v03.md",
+            "--expected-model",
+            "gpt-5.5",
+            "--expected-api-rows",
+            "12",
+            "--expected-input-tokens",
+            "1632",
+            "--expected-output-tokens",
+            "870",
+            "--expected-baseline-first-turn-passes",
+            "6",
+            "--expected-contract-first-turn-passes",
+            "6",
+            "--expected-first-turn-failure-count",
+            "0",
+            "--expected-successful-repair-rows",
+            "0",
+            "--expected-baseline-mean-rtt",
+            "0",
+            "--expected-contract-mean-rtt",
+            "0",
+            "--expected-es-ar-baseline-ftga",
+            "1",
+            "--expected-failure-item",
+            "",
+            "--expected-failure-types",
+            "",
+        ],
+    )
+    check_auxiliary_validator(root, "scripts/validate_coverage_pilot_v03.py", "validated v0.3 coverage pilot")
     check_qualitative_examples(root)
     check_score_regressions(root)
     check_claim_boundary_lint(root)
+    check_auxiliary_validator(root, "scripts/validate_release_docs.py", "release-doc validation passed")
+    check_auxiliary_validator(root, "scripts/validate_result_card.py", "result-card validation passed")
     check_artifact_manifest(root)
     print("paper-claim validation passed")
 

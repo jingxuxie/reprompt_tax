@@ -1,0 +1,12 @@
+model,condition,task_family,failure_type,count,share_of_initial_failures
+gpt-5.4-mini,baseline,editing_preservation,script_mismatch,10,0.5
+gpt-5.4-mini,baseline,editing_preservation,task_noncompletion,10,0.5
+gpt-5.4-mini,baseline,editing_preservation,wrong_output_language,20,1.0
+gpt-5.4-mini,baseline,script_register_locale,preservation_failure,3,0.75
+gpt-5.4-mini,baseline,script_register_locale,wrong_output_language,1,0.25
+gpt-5.4-mini,contract,editing_preservation,script_mismatch,1,0.1
+gpt-5.4-mini,contract,editing_preservation,task_noncompletion,8,0.8
+gpt-5.4-mini,contract,editing_preservation,wrong_output_language,10,1.0
+gpt-5.4-mini,contract,quote_preservation,wrong_output_language,2,1.0
+gpt-5.4-mini,contract,script_register_locale,preservation_failure,6,1.0
+gpt-5.4-mini,contract,script_register_locale,task_noncompletion,1,0.16666666666666666

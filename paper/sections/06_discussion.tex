@@ -17,9 +17,12 @@ language} as distinct variables rather than treating the prompt as a monolithic
 language signal.
 
 The results also show why mitigation claims should be bounded. The full Global
-Interaction Contract improves all three models, but a narrower content-
-preservation prompt outperforms it on the nano diagnostic. This suggests that
-more specific scaffolds may be better than broad multilingual policy text for
-some workflows. Future systems could infer a lightweight interaction contract
-from the user's prompt and attach only the relevant constraints, reducing both
-absolute prompt length and over-instruction risk.
+Interaction Contract improves all three models, but it should be read as a
+pre-registered intervention, not as the best possible prompt: a narrower
+content-preservation prompt outperforms it on the nano diagnostic and near-ties
+it on current \texttt{gpt-5.4-mini} and \texttt{gpt-5.5} diagnostics. This
+suggests that more specific scaffolds may be better than broad multilingual
+policy text for some workflows, but the current-model gaps are too small to
+claim prompt dominance. Future systems could infer a lightweight interaction
+contract from the user's prompt and attach only the relevant constraints,
+reducing both absolute prompt length and over-instruction risk.

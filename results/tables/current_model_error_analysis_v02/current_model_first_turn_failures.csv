@@ -1,0 +1,67 @@
+model,condition,item_id,language_pair,task_family,rtt,unresolved,first_failure_types,first_short_reason,final_turn,final_pass,final_failure_types,final_short_reason
+gpt-5.4-mini,baseline,es_en_SA_001,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,contract,es_en_SA_001,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,es_en_SA_002,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,contract,es_en_SA_002,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,es_en_SA_003,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,contract,es_en_SA_003,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,es_en_SA_004,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,contract,es_en_SA_004,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,es_en_SA_005,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,es_en_SA_006,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,contract,es_en_SA_006,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,es_en_SA_007,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,contract,es_en_SA_007,es-en,editing_preservation,1,0,wrong_output_language,wrong_output_language,1,True,,passes automatic checks
+gpt-5.4-mini,baseline,es_en_SA_008,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,contract,es_en_SA_008,es-en,editing_preservation,1,0,wrong_output_language,wrong_output_language,1,True,,passes automatic checks
+gpt-5.4-mini,baseline,es_en_SA_009,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,contract,es_en_SA_009,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,es_en_SA_010,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,contract,es_en_SA_010,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,es_en_SD_008,es-en,script_register_locale,3,1,preservation_failure,preservation_failure,2,False,wrong_output_language,wrong_output_language
+gpt-5.4-mini,contract,es_en_SD_008,es-en,script_register_locale,3,1,preservation_failure,preservation_failure,2,False,preservation_failure,preservation_failure
+gpt-5.4-mini,contract,es_en_SD_010,es-en,script_register_locale,1,0,preservation_failure,preservation_failure,1,True,,passes automatic checks
+gpt-5.4-mini,contract,hi_en_SC_003,hi-en,quote_preservation,3,1,wrong_output_language,wrong_output_language,2,False,wrong_output_language,wrong_output_language
+gpt-5.4-mini,contract,hi_en_SC_008,hi-en,quote_preservation,3,1,wrong_output_language,wrong_output_language,2,False,wrong_output_language,wrong_output_language
+gpt-5.4-mini,baseline,hi_en_SD_008,hi-en,script_register_locale,3,1,preservation_failure,preservation_failure,2,False,preservation_failure,preservation_failure
+gpt-5.4-mini,contract,hi_en_SD_008,hi-en,script_register_locale,3,1,preservation_failure,preservation_failure,2,False,preservation_failure,preservation_failure
+gpt-5.4-mini,baseline,hi_en_SD_009,hi-en,script_register_locale,3,1,wrong_output_language,wrong_output_language,2,False,wrong_output_language,wrong_output_language
+gpt-5.4-mini,baseline,ar_en_SA_001,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,ar_en_SA_002,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,ar_en_SA_003,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.4-mini,contract,ar_en_SA_003,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch,task_noncompletion","wrong_output_language, script_mismatch, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,ar_en_SA_004,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,ar_en_SA_005,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,ar_en_SA_006,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,ar_en_SA_007,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,ar_en_SA_008,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,ar_en_SA_009,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,ar_en_SA_010,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.4-mini,contract,ar_en_SD_006,ar-en,script_register_locale,3,1,preservation_failure,preservation_failure,2,False,preservation_failure,preservation_failure
+gpt-5.4-mini,contract,ar_en_SD_007,ar-en,script_register_locale,1,0,"preservation_failure,task_noncompletion","preservation_failure, task_noncompletion",1,True,,passes automatic checks
+gpt-5.4-mini,baseline,ar_en_SD_008,ar-en,script_register_locale,1,0,preservation_failure,preservation_failure,1,True,,passes automatic checks
+gpt-5.4-mini,contract,ar_en_SD_008,ar-en,script_register_locale,3,1,preservation_failure,preservation_failure,2,False,preservation_failure,preservation_failure
+gpt-5.5,baseline,es_en_SA_001,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,es_en_SA_002,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,es_en_SA_003,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,es_en_SA_004,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,contract,es_en_SA_004,es-en,editing_preservation,1,0,wrong_output_language,wrong_output_language,1,True,,passes automatic checks
+gpt-5.5,baseline,es_en_SA_005,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,es_en_SA_006,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,es_en_SA_007,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,es_en_SA_008,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,es_en_SA_009,es-en,editing_preservation,2,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",2,True,,passes automatic checks
+gpt-5.5,contract,es_en_SA_009,es-en,editing_preservation,1,0,wrong_output_language,wrong_output_language,1,True,,passes automatic checks
+gpt-5.5,baseline,es_en_SA_010,es-en,editing_preservation,1,0,"wrong_output_language,task_noncompletion","wrong_output_language, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,hi_en_SB_001,hi-en,output_language_inference,3,1,task_noncompletion,task_noncompletion,2,False,task_noncompletion,task_noncompletion
+gpt-5.5,baseline,hi_en_SD_005,hi-en,script_register_locale,3,1,wrong_output_language,wrong_output_language,2,False,wrong_output_language,wrong_output_language
+gpt-5.5,baseline,ar_en_SA_001,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch,task_noncompletion","wrong_output_language, script_mismatch, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,ar_en_SA_002,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch,task_noncompletion","wrong_output_language, script_mismatch, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,ar_en_SA_003,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch,task_noncompletion","wrong_output_language, script_mismatch, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,ar_en_SA_004,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch,task_noncompletion","wrong_output_language, script_mismatch, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,ar_en_SA_005,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch,task_noncompletion","wrong_output_language, script_mismatch, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,ar_en_SA_006,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch,task_noncompletion","wrong_output_language, script_mismatch, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,ar_en_SA_007,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch,task_noncompletion","wrong_output_language, script_mismatch, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,ar_en_SA_008,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch,task_noncompletion","wrong_output_language, script_mismatch, task_noncompletion",1,True,,passes automatic checks
+gpt-5.5,baseline,ar_en_SA_009,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch","wrong_output_language, script_mismatch",1,True,,passes automatic checks
+gpt-5.5,baseline,ar_en_SA_010,ar-en,editing_preservation,1,0,"wrong_output_language,script_mismatch,task_noncompletion","wrong_output_language, script_mismatch, task_noncompletion",1,True,,passes automatic checks

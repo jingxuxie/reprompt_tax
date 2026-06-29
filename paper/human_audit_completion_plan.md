@@ -20,6 +20,8 @@ Prepared but not completed:
 - launch validator: `scripts/validate_human_audit_packet.py`
 - completed-label validator: `scripts/validate_completed_human_audit.py`
 - summarizer: `scripts/summarize_human_audit.py`
+- pre-specified acceptance rules:
+  `paper/human_audit_acceptance_rules_v02.md`
 
 Any file named like `data/human_audit/human_audit_packet_v0.2_smoke_completed.csv`
 is a plumbing smoke test only. It must not be described as human validation.
@@ -72,6 +74,10 @@ conda run -n reprompt_tax python scripts/summarize_human_audit.py \
   --out-dir results/tables/human_audit_v0.2
 ```
 
+The summarizer refuses incomplete completed-audit files by default, so a
+summary table cannot be accidentally produced from blank launch packets. Use
+`--allow-partial` only for debugging partially returned annotation batches.
+
 Inspect:
 
 - `results/tables/human_audit_v0.2/human_audit_summary.csv`
@@ -83,6 +89,41 @@ Inspect:
 
 If disagreements exist, adjudicate them before widening claims. Preserve the
 raw completed annotation file and the disagreement table.
+
+For the stronger two-annotator path from the follow-up plan, concatenate two
+independent completed rows per `audit_id` into a long-format file. Each repeated
+`audit_id` must have a distinct qualified `annotator_id`. Then run:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_human_audit_adjudication.py \
+  --annotations data/human_audit/human_audit_packet_v0.2_double_completed.csv \
+  --answer-key data/human_audit/human_audit_answer_key_v0.2.csv \
+  --annotator-roster data/human_audit/human_audit_annotator_roster_v0.2.csv \
+  --out-dir results/tables/human_audit_v0.2_adjudication \
+  --out-md paper/human_audit_adjudication_v02.md
+
+# After filling the generated human_audit_adjudication_packet.csv:
+conda run -n reprompt_tax python scripts/finalize_human_audit_adjudication.py \
+  --annotations data/human_audit/human_audit_packet_v0.2_double_completed.csv \
+  --answer-key data/human_audit/human_audit_answer_key_v0.2.csv \
+  --annotator-roster data/human_audit/human_audit_annotator_roster_v0.2.csv \
+  --adjudication results/tables/human_audit_v0.2_adjudication/human_audit_adjudication_packet.csv \
+  --out data/human_audit/human_audit_packet_v0.2_adjudicated_completed.csv
+```
+
+This produces inter-annotator agreement tables and
+`human_audit_adjudication_packet.csv` for rows needing final adjudication. The
+finalization command validates completed adjudication rows and writes a
+one-row-per-item completed packet for the existing human-audit validator and
+summarizer.
+
+Apply the pre-specified acceptance rules in
+`paper/human_audit_acceptance_rules_v02.md` before widening claims. The v0.2
+GPT-4.1-family audit requires at least 65/72 pass/fail agreements and 306/360
+component agreements after the completed-label validator passes. The separate
+current-model audit requires at least 44/48 pass/fail agreements and 204/240
+component agreements. Passing validation alone is necessary but not sufficient
+for a stronger paper claim.
 
 ## Claim Boundary
 

@@ -3,8 +3,10 @@
 Generated for the current paper-facing full RePromptTax-Stress-v0.2 result.
 
 Source benchmark: `data/benchmark_stress_v0.2.jsonl`
-Source scores: `results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl`
+Source scores:
+- `results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl`
 Sampling seed: `23`
+Selection rule: one seeded first-turn row per model/condition/language/family stratum.
 
 ## Launch Files
 
@@ -12,11 +14,14 @@ Send annotators only the language slice they can validate:
 
 | Language slice | File | Rows |
 |---|---|---:|
-| Arabic-English | `human_audit_packet_v0.2_ar-en.csv` | 24 |
-| Spanish-English | `human_audit_packet_v0.2_es-en.csv` | 24 |
-| Hindi-English | `human_audit_packet_v0.2_hi-en.csv` | 24 |
+| ar-en | `human_audit_packet_v0.2_ar-en.csv` | 24 |
+| es-en | `human_audit_packet_v0.2_es-en.csv` | 24 |
+| hi-en | `human_audit_packet_v0.2_hi-en.csv` | 24 |
 
 The full blinded packet is `human_audit_packet_v0.2.csv` with 72 rows.
+Reviewer-facing static HTML sheets are available under
+`review_sheets_v0.2/`; they are generated from the blinded packet and
+support local CSV export without revealing the answer key.
 The annotator roster template is
 `human_audit_annotator_roster_template_v0.2.csv`; copy it to
 `human_audit_annotator_roster_v0.2.csv` and fill one qualified annotator
@@ -37,8 +42,8 @@ The full packet contains:
 
 - 3 language pairs,
 - 4 task families,
-- 3 models,
-- 2 prompt conditions,
+- 3 models: `gpt-4.1`, `gpt-4.1-mini`, `gpt-4.1-nano`,
+- 2 prompt conditions: `baseline`, `contract`,
 - 1 first-turn output per language/model/condition/family stratum.
 
 Each language slice contains 6 rows per task family.
@@ -46,13 +51,27 @@ Each language slice contains 6 rows per task family.
 ## Required Validation Before Launch
 
 ```bash
-conda run -n reprompt_tax python scripts/validate_human_audit_packet.py
+conda run -n reprompt_tax python scripts/validate_human_audit_packet.py \
+  --out-dir data/human_audit \
+  --packet-version v0.2 \
+  --expected-models gpt-4.1,gpt-4.1-mini,gpt-4.1-nano
 
 conda run -n reprompt_tax python scripts/analyze_human_audit_design.py \
   --packet data/human_audit/human_audit_packet_v0.2.csv \
   --answer-key data/human_audit/human_audit_answer_key_v0.2.csv \
   --out-dir results/tables/human_audit_v0.2_design \
-  --out-md paper/human_audit_design_audit_v02.md
+  --out-md paper/human_audit_design_audit_v02.md \
+  --expected-models gpt-4.1,gpt-4.1-mini,gpt-4.1-nano
+
+conda run -n reprompt_tax python scripts/make_human_audit_review_sheets.py \
+  --packet data/human_audit/human_audit_packet_v0.2.csv \
+  --out-dir data/human_audit/review_sheets_v0.2 \
+  --packet-version v0.2
+
+conda run -n reprompt_tax python scripts/validate_human_audit_review_sheets.py \
+  --packet data/human_audit/human_audit_packet_v0.2.csv \
+  --out-dir data/human_audit/review_sheets_v0.2 \
+  --packet-version v0.2
 ```
 
 This checks:
@@ -64,6 +83,7 @@ This checks:
 - JSON-list fields are parseable,
 - any smoke-only artifacts are explicitly marked,
 - the selected audit rows include both automatic passes and failures before annotation.
+- generated static review sheets cover all audit IDs without private fields.
 
 ## Completion Gate
 
@@ -72,12 +92,42 @@ After annotators fill the CSV fields, summarize labels with:
 ```bash
 conda run -n reprompt_tax python scripts/validate_completed_human_audit.py \
   --annotations data/human_audit/human_audit_packet_v0.2_completed.csv \
-  --answer-key data/human_audit/human_audit_answer_key_v0.2.csv
+  --answer-key data/human_audit/human_audit_answer_key_v0.2.csv \
+  --annotator-roster data/human_audit/human_audit_annotator_roster_v0.2.csv \
+  --expected-models gpt-4.1,gpt-4.1-mini,gpt-4.1-nano
 
 conda run -n reprompt_tax python scripts/summarize_human_audit.py \
   --annotations data/human_audit/human_audit_packet_v0.2_completed.csv \
   --answer-key data/human_audit/human_audit_answer_key_v0.2.csv \
   --out-dir results/tables/human_audit_v0.2
+```
+
+`summarize_human_audit.py` fails on incomplete files by default. Use
+`--allow-partial` only to debug partially returned batches, not for
+paper-facing validation claims.
+
+Optional stronger two-annotator workflow: concatenate independently completed
+annotation rows into a long-format file with duplicate `audit_id` values but
+unique `annotator_id` values per item, then compute inter-annotator agreement
+and generate a blinded adjudication packet for disagreements:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_human_audit_adjudication.py \
+  --annotations data/human_audit/human_audit_packet_v0.2_double_completed.csv \
+  --answer-key data/human_audit/human_audit_answer_key_v0.2.csv \
+  --annotator-roster data/human_audit/human_audit_annotator_roster_v0.2.csv \
+  --expected-models gpt-4.1,gpt-4.1-mini,gpt-4.1-nano \
+  --out-dir results/tables/human_audit_v0.2_adjudication \
+  --out-md paper/human_audit_adjudication_v02.md
+
+# After filling results/tables/human_audit_v0.2_adjudication/human_audit_adjudication_packet.csv:
+conda run -n reprompt_tax python scripts/finalize_human_audit_adjudication.py \
+  --annotations data/human_audit/human_audit_packet_v0.2_double_completed.csv \
+  --answer-key data/human_audit/human_audit_answer_key_v0.2.csv \
+  --annotator-roster data/human_audit/human_audit_annotator_roster_v0.2.csv \
+  --adjudication results/tables/human_audit_v0.2_adjudication/human_audit_adjudication_packet.csv \
+  --expected-models gpt-4.1,gpt-4.1-mini,gpt-4.1-nano \
+  --out data/human_audit/human_audit_packet_v0.2_adjudicated_completed.csv
 ```
 
 Strong final paper claims should wait for completed human/native-speaker labels.

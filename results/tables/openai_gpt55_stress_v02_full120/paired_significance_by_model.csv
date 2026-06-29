@@ -1,0 +1,5 @@
+model,metric,label,direction,n_pairs,positive_n,negative_n,tie_n,mean_delta,two_sided_sign_p
+gpt-5.5,ftga,FTGA,contract_minus_baseline,120,20,0,100,0.16666666666666666,1.9073486328125e-06
+gpt-5.5,rtt,RTT reduction,baseline_minus_contract,120,21,0,99,0.20833333333333334,9.5367431640625e-07
+gpt-5.5,token_tax,Token-tax reduction,baseline_minus_contract,120,22,0,98,0.26192569146034894,4.76837158203125e-07
+gpt-5.5,unresolved,Unresolved reduction,baseline_minus_contract,120,2,0,118,0.016666666666666666,0.5

@@ -1,0 +1,6 @@
+model_generation,model,n_pairs,delta_ftga_pp,rtt_reduction,unresolved_reduction_pp,token_tax_reduction,mean_total_tokens_baseline_minus_contract,mean_extra_tokens_baseline_minus_contract,sum_total_tokens_baseline_minus_contract
+GPT-4.1 family,gpt-4.1,120,16.7,0.133,-1.7,0.300374,-123.583,18.308,-14830
+GPT-4.1 family,gpt-4.1-mini,120,3.3,0.033,-0.8,0.159454,-172.242,-21.592,-20669
+GPT-4.1 family,gpt-4.1-nano,120,9.2,0.142,1.7,0.35134,-168.833,-22.183,-20260
+GPT-5.x family,gpt-5.4-mini,120,5.0,0,-2.5,0.13773,-151.6,-9.467,-18192
+GPT-5.x family,gpt-5.5,120,16.7,0.208,1.7,0.261926,-114.458,36.808,-13735

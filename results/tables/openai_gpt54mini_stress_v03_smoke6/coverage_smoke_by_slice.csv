@@ -1,0 +1,7 @@
+coverage_slice,item_id,language_pair,expected_response_language,baseline_ftga,contract_ftga,baseline_rtt,contract_rtt,baseline_first_failure_types,contract_first_failure_types
+arabic_instruction_arabic_filenames,v03_ar_ar_EP_001,ar-ar,Arabic,1,1,0,0,,
+english_instruction_arabic_content,v03_en_ar_EP_001,en-ar,Arabic,1,1,0,0,,
+english_instruction_hindi_content,v03_en_hi_EP_001,en-hi,Hindi,1,1,0,0,,
+english_instruction_spanish_content,v03_en_es_EP_001,en-es,Spanish,1,1,0,0,,
+hindi_english_instruction_hindi_devanagari,v03_hi_hi_EP_001,hi-hi,Hindi,1,1,0,0,,
+spanish_instruction_arabic_quote,v03_es_ar_EP_001,es-ar,Arabic,0,1,1,0,task_noncompletion,

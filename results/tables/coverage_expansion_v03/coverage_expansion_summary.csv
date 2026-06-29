@@ -1,0 +1,2 @@
+coverage_rows,benchmark_version,validation_status,coverage_slices,language_pairs,task_families,unique_user_prompts,normalized_duplicate_prompts,rows_with_preservation_spans,total_preservation_spans,rows_requiring_native_validation,model_result_rows,privacy_marker_hits,min_prompt_words,mean_prompt_words,max_prompt_words
+60,v0.3-expansion-scaffold,synthetic_scaffold_requires_native_validation,6,6,1,60,0,60,120,60,0,0,21,26.4,32

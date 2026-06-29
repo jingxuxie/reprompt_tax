@@ -6,13 +6,24 @@ Generated: 2026-06-28
 
 The current paper-facing result is the full `RePromptTax-Stress-v0.2`
 evaluation: 120 synthetic stress items, 3 language pairs, 4 task families, 10
-items per cell, 3 GPT-4.1-family models, and baseline vs Global Interaction
-Contract prompting. Repair budget is two follow-up prompts.
+items per cell, GPT-4.1-family and GPT-5.x-family model runs, and baseline vs
+Global Interaction Contract prompting. Repair budget is two follow-up prompts.
 
 Source artifacts:
 
 - benchmark: `data/benchmark_stress_v0.2.jsonl`
 - benchmark-quality audit: `paper/benchmark_quality_audit_v02.md`
+- v0.3 coverage scaffold: `data/benchmark_stress_v0.3_expansion.jsonl`,
+  `paper/coverage_expansion_v03.md`
+- v0.3 native-review launch packet:
+  `data/coverage_native_review_v03/`,
+  `paper/coverage_native_review_design_v03.md`
+- v0.3 coverage smoke: `paper/coverage_smoke_gpt54mini_v03.md`,
+  `results/model_outputs/openai_gpt54mini_stress_v03_smoke6.jsonl`
+- v0.3 coverage pilot: `paper/coverage_pilot_gpt54mini_v03.md`,
+  `results/model_outputs/openai_gpt54mini_stress_v03_pilot24.jsonl`
+- v0.3 GPT-5.5 smoke: `paper/coverage_smoke_gpt55_v03.md`,
+  `results/model_outputs/openai_gpt55_stress_v03_smoke6.jsonl`
 - full score file: `results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl`
 - main tables: `results/tables/openai_three_model_stress_v02_full120/`
 - main figures: `results/figures/openai_three_model_stress_v02_full120/`
@@ -28,10 +39,37 @@ Source artifacts:
 - experiment ledger: `paper/experiment_ledger_v02.md`
 - prompt-control diagnostic: `paper/prompt_control_analysis.md`
 - prompt-ablation diagnostic: `paper/prompt_ablation_analysis.md`
-- judge agreement analysis: `paper/judge_agreement_analysis_v02_full120.md`
+- current-model prompt mechanism: `paper/current_prompt_mechanism_gpt54mini_v02.md`,
+  `paper/current_prompt_mechanism_gpt55_v02.md`
+- current-model refresh: `paper/current_model_refresh_v02.md`
+- current-model uncertainty:
+  `paper/current_model_uncertainty_v02.md`
+- current-model heterogeneity:
+  `paper/current_model_heterogeneity_v02.md`
+- current-model regression risk:
+  `paper/current_model_regression_risk_v02.md`
+- current-model residual-error analysis:
+  `paper/current_model_error_analysis_v02.md`
+- current-model qualitative case studies:
+  `paper/current_model_case_studies_v02.md`
+- current-model scorer sensitivity:
+  `paper/current_model_scorer_sensitivity_v02.md`
+- generation progress probe: `paper/generation_progress_probe_v02.md`
+- efficiency tradeoff: `paper/efficiency_tradeoff_v02.md`
+- follow-up readiness audit: `paper/followup_plan_readiness_v02.md`
+- judge agreement analysis: `paper/judge_agreement_analysis_v02_full120.md`,
+  `paper/judge_refresh_gpt55_v02_full120.md`
 - discovery cue analysis: `paper/discovery_cue_analysis.md`
 - human audit design audit: `paper/human_audit_design_audit_v02.md`
-- full-v0.2 judge audit: `results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl`
+- human/native-review acceptance rules:
+  `paper/human_audit_acceptance_rules_v02.md`
+- human audit review sheets: `data/human_audit/review_sheets_v0.2/`
+- current-model human audit launch packet:
+  `data/current_model_human_audit/`,
+  `paper/current_model_human_audit_design_v02.md`
+- full-v0.2 judge audits:
+  `results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl`,
+  `results/scores/openai_three_model_stress_v02_full120_judge_gpt55_audit72.jsonl`
 
 ## Main Metrics
 
@@ -43,6 +81,10 @@ Source artifacts:
 | gpt-4.1-mini | contract | 79.2% | 0.24 | 1.27x | 1.7% | 92.0% | 92.0% |
 | gpt-4.1 | baseline | 76.7% | 0.28 | 1.43x | 2.5% | 89.3% | 89.3% |
 | gpt-4.1 | contract | 93.3% | 0.15 | 1.13x | 4.2% | 37.5% | 37.5% |
+| gpt-5.4-mini | baseline | 80.0% | 0.25 | 1.38x | 2.5% | 87.5% | 87.5% |
+| gpt-5.4-mini | contract | 85.0% | 0.25 | 1.24x | 5.0% | 66.7% | 66.7% |
+| gpt-5.5 | baseline | 81.7% | 0.23 | 1.28x | 1.7% | 86.4% | 90.9% |
+| gpt-5.5 | contract | 98.3% | 0.02 | 1.02x | 0.0% | 100.0% | 100.0% |
 
 ## Paired Effects
 
@@ -61,6 +103,81 @@ Paired sign-test sensitivity over item-level FTGA changes gives 12 improved vs
 `gpt-4.1-mini` (p=0.1250), and 20 vs 0 for `gpt-4.1` (p<0.0001). This supports
 the stronger nano/GPT-4.1 FTGA effects while keeping the mini FTGA claim
 directional.
+
+## Current-Model Refresh
+
+A bounded follow-up refresh adds current GPT-5.x-family evidence. On the full
+120-item `gpt-5.4-mini` run, FTGA improves from 80.0% to 85.0% and mean token
+tax falls by 0.138x, but the FTGA sign test is not decisive (p=0.2101) and
+unresolved rate increases from 2.5% to 5.0%. The safe interpretation is lower
+token burden plus a bounded FTGA gain, not universal repair improvement.
+
+The full 120-item `gpt-5.5` run is now the clean current-model headline: FTGA
+rises from 81.7% to 98.3% (+16.7 pp; exact sign-test p=0.0000019), mean RTT
+falls from 0.225 to 0.017, token tax falls by 0.262x, and unresolved
+trajectories fall from 1.7% to 0.0%. The contract still leaves two first-turn
+failures, so the claim remains bounded: RePromptTax persists on the current
+flagship, and the contract sharply reduces but does not eliminate first-turn
+misalignment. See `paper/current_model_refresh_v02.md` and
+`scripts/validate_current_model_refresh.py`.
+
+The uncertainty supplement adds paired bootstrap intervals to that current-model
+claim. `gpt-5.5` improves by +16.7 pp FTGA with a [10.0, 24.2] pp
+item-bootstrap interval and 20 improved versus 0 worsened paired FTGA items.
+`gpt-5.4-mini` improves by +5.0 pp FTGA, but its [-0.8, 11.7] pp interval
+crosses zero; its token-tax interval remains positive at [0.010, 0.269]x.
+This keeps the flagship result strong while bounding the lower-cost result to
+token-burden reduction plus directional FTGA. See
+`paper/current_model_uncertainty_v02.md`.
+
+The heterogeneity supplement shows that the `gpt-5.5` effect is not a
+single-language artifact: Arabic-English moves +25.0 pp, Spanish-English moves
++20.0 pp, Hindi-English moves +5.0 pp, and all leave-one-language checks remain
+positive. It is still task-family concentrated: editing preservation moves
++60.0 pp, and removing editing leaves only +2.2 pp because other task families
+are near ceiling. The lower-cost `gpt-5.4-mini` result is weaker: removing
+Arabic-English leaves -1.3 pp and removing editing preservation leaves -4.5 pp.
+See `paper/current_model_heterogeneity_v02.md`.
+
+The contract-regression diagnostic makes the lower-cost boundary sharper.
+`gpt-5.5` has 20 baseline-fail/contract-pass fixes, 0 first-turn regressions,
+and 0 resolved-to-unresolved shifts. `gpt-5.4-mini` has 11 fixes but 5
+first-turn regressions and 4 resolved-to-unresolved shifts; content-preservation
+avoids first-turn failure on 3 of those 5 regression cases. See
+`paper/current_model_regression_risk_v02.md`.
+
+The residual-error analysis makes that boundary concrete. For `gpt-5.5`, the
+contract fixes 20 baseline failures with zero first-turn regressions and leaves
+only two Spanish-English editing-preservation first-turn failures, both repaired
+in one turn. For `gpt-5.4-mini`, the contract fixes 11 baseline failures but
+introduces five first-turn regressions and leaves six unresolved trajectories.
+See `paper/current_model_error_analysis_v02.md` and
+`scripts/validate_current_model_error_analysis.py`.
+
+The current-model case-study supplement turns those aggregates into inspectable
+examples: one `gpt-5.5` baseline wrapper-tax row fixed by the contract, one
+`gpt-5.5` contract residual that repairs after a single prompt, and two
+unresolved `gpt-5.4-mini` contract rows covering quote/output-language and
+literal-data preservation boundaries. See
+`paper/current_model_case_studies_v02.md`.
+
+The current-model scorer-sensitivity supplement checks whether the refresh
+headline depends on one fragile automatic component. It does not: relaxing
+language moves `gpt-5.5` contract FTGA from 98.3% to 100.0%, while relaxing
+preservation moves `gpt-5.4-mini` contract FTGA from 85.0% to 89.2%. This
+separates the flagship wrapper-language residual from the lower-cost model's
+literal-preservation boundary. See
+`paper/current_model_scorer_sensitivity_v02.md`.
+
+The generation-progress probe frames this as a benchmark progress signal rather
+than only a per-model table. GPT-4.1-family baseline rows fail 96/360 model-item
+pairs and 40/120 items fail for at least one model; GPT-5.x-family baseline
+rows lower the normalized failure-pair rate to 46/240 and 26/120 any-fail
+items. With the contract, GPT-5.x-family failure pairs fall to 20/240.
+`gpt-5.5` with the contract passes 38 of the 40 items where at least one
+GPT-4.1-family baseline failed, and the two items both current models still
+fail are `es_en_SA_004` and `es_en_SA_009`. See
+`paper/generation_progress_probe_v02.md`.
 
 ## Language Slices
 
@@ -91,6 +208,34 @@ contract prompt reduces token-tax ratios for all three models, but it increases
 absolute total tokens per trajectory in this pilot. See
 `paper/token_burden_analysis_v02_full120.md` for absolute token totals.
 
+The all-five-model efficiency supplement extends this caveat to the
+current-model rows: normalized token tax falls for every full-run model, but
+absolute total tokens increase for every contract row. `gpt-5.5` contract has
+the strongest alignment surface at 98.3% FTGA and 1.016x token tax, but it
+still uses 114.5 more absolute tokens per item than baseline while saving 36.8
+repair tokens after the first turn. Do not frame the contract as an API-cost
+reduction. See `paper/efficiency_tradeoff_v02.md`.
+
+The follow-up readiness audit maps the original experiment plan to the current
+artifact set. It marks the current-model refresh, main metrics, family and
+language caveats, token-burden caveat, prompt mechanism, related work, and
+manifest/checklist surfaces as paper-facing complete; repair-realism and
+judge-refresh diagnostics as supporting complete; and the original human audit,
+current-model human audit, and v0.3 native review as launch-ready but still
+missing qualified labels. See `paper/followup_plan_readiness_v02.md`.
+
+## Repair Realism
+
+A bounded 24-item diagnostic compares the saved standardized first repair
+against three user-like repairs on baseline editing-preservation failures,
+balanced across the three GPT-4.1-family models and Arabic-English /
+Spanish-English failures. The saved standard repair and terse repair both
+recover 24/24 sampled failures. The frustrated repair ("I meant don't translate
+it.") recovers 17/24, while the explicit source-language contract repair
+recovers 5/24 and often leaves Spanish or Arabic explanatory framing around the
+English rewrite. This shows that repair burden is wording-sensitive; it is not
+a replacement for a user study. See `paper/repair_realism_editing_baseline24.md`.
+
 ## Benchmark Quality Audit
 
 The paper-facing stress set has a deterministic release-hygiene audit. It
@@ -100,12 +245,82 @@ the two preservation-relevant families, and zero email/URL/phone-like/SSN-like
 or placeholder privacy markers under the audit regexes. This supports release
 hygiene, but it is not a substitute for native-speaker validation.
 
+## Human Audit Launch Readiness
+
+The human-audit packet remains launch-ready but not completed. In addition to
+the blinded CSV slices, the repo now includes static per-language review sheets
+under `data/human_audit/review_sheets_v0.2/`. The sheets are generated only from
+the blinded launch packet, support local CSV export for annotators, and are
+validated to cover all 72 audit IDs without answer-key fields. They do not
+change the claim boundary: native/near-native labels and a completed roster are
+still required before reporting human-validation results.
+
+The current-model refresh has a separate launch-ready 48-row packet under
+`data/current_model_human_audit/`, with one first-turn response for every
+`gpt-5.4-mini` / `gpt-5.5` model-condition-language-family stratum. The design
+audit reports 32 automatic passes and 16 automatic failures after
+failure-enriched within-stratum sampling, plus blinded static review sheets for
+the three language slices. This is not completed human validation; it prepares
+the current-model rows for qualified native/near-native annotation.
+
+The acceptance-rule supplement pre-specifies how completed labels can widen
+claims. The original 72-row audit must reach at least 65 pass/fail agreements
+and 306 component agreements with a qualified roster; the 48-row current-model
+audit must reach at least 44 pass/fail agreements and 204 component agreements;
+and the v0.3 native review must mark all 60 rows release usable before v0.3 can
+be treated as paper-facing benchmark evidence. See
+`paper/human_audit_acceptance_rules_v02.md`.
+
+## Coverage Expansion Scaffold
+
+The v0.3 scaffold adds 60 synthetic non-English target-content editing rows
+across six coverage slices: English instructions with Spanish, Hindi, and
+Arabic target content; Spanish instructions around Arabic content; Hindi-English
+code-switched instructions around Hindi Devanagari content; and Arabic
+instructions around Arabic content with English file names. This is not
+paper-facing model result evidence. It requires native validation and a larger
+pre-specified run before any benchmark performance statement; v0.2 remains the
+original paper-facing stress pilot.
+
+The repo now includes a launch-ready native-review packet for all 60 synthetic
+v0.3 rows under `data/coverage_native_review_v03/`, plus a design audit in
+`paper/coverage_native_review_design_v03.md`. The packet has six 10-row
+coverage-slice CSVs, blank review fields, a roster template, and a launch
+checklist. It is not completed native validation; completed reviewer labels and
+a qualified roster must pass `scripts/validate_completed_coverage_native_review_v03.py`
+and then be summarized with `scripts/summarize_coverage_native_review_v03.py`
+before v0.3 can support paper-facing benchmark claims.
+
+A six-item `gpt-5.4-mini` smoke, one row per coverage slice, verifies that the
+v0.3 rows are runnable and scoreable. Baseline passes 5/6 first turns, while
+the contract passes 6/6; the only baseline first-turn failure is the
+Spanish-instruction/Arabic-content slice, where the answer wraps Arabic content
+in Spanish framing and then repairs in one turn. This remains a smoke diagnostic
+only, not paper-facing model result evidence.
+
+A 24-item `gpt-5.4-mini` v0.3 pilot, four rows per coverage slice, reuses the
+six smoke rows and adds an 18-item remaining shard. Baseline FTGA is 75.0%
+with mean RTT 0.417; the contract reaches 95.8% FTGA with mean RTT 0.125.
+The clearest movement is the Spanish-instruction/Arabic-content slice:
+baseline fails all 4 first turns with Spanish framing around Arabic content,
+while the contract passes all 4. A residual contract failure remains in the
+English-instruction/Arabic-content slice due to exact-preservation scoring.
+This pilot is synthetic v0.3 evidence only and still requires native validation
+before claims.
+
+A parallel six-item `gpt-5.5` smoke on the same v0.3 coverage slices saturates:
+baseline and contract both pass 6/6 first turns, with no repair rows. This is a
+small flagship contrast to the `gpt-5.4-mini` pilot; it should be framed as a
+smoke diagnostic, not as evidence that v0.3 is solved.
+
 ## Experiment Ledger
 
-The paper-facing saved artifacts contain 1,290 API response rows: 1,218
-model-response rows for the main evaluation plus nano prompt-control and
-prompt-ablation diagnostics, and 72 judge-audit rows. Provider-reported saved
-usage totals 190,463 input tokens and 38,368 output tokens. The ledger
+The tracked saved artifacts contain 1,504 API response rows: 1,288
+model-response rows for the main evaluation plus nano prompt-control,
+prompt-ablation, v0.3 pilot, and GPT-5.5 smoke diagnostics, 72 repair-variant
+rows, and 144 judge-audit rows across the original `gpt-4.1` judge audit and
+paired `gpt-5.5` judge refresh. Provider-reported saved usage totals 229,646
+input tokens and 56,284 output tokens. The ledger
 intentionally reports token usage without estimating dollar cost because
 provider prices change over time.
 
@@ -178,6 +393,27 @@ three-model intervention improves the main evaluation and that narrower
 content-language/literal-preservation rules appear to drive much of the effect.
 See `paper/prompt_control_analysis.md` and `paper/prompt_ablation_analysis.md`.
 
+A current-model mechanism diagnostic on full 120-item `gpt-5.4-mini` compares
+baseline, the full contract, and the narrower content-preservation prompt.
+Content preservation reaches 85.8% FTGA versus 85.0% for the full contract,
+with 5 paired improvements and 4 paired regressions relative to the contract
+(sign-test p=1.0). Token tax is slightly worse than the full contract
+(1.252x vs 1.241x). The safe mechanism claim is therefore that preservation
+scaffolding captures much of the benefit, not that it uniformly dominates the
+full contract on current models. See
+`paper/current_prompt_mechanism_gpt54mini_v02.md`.
+
+The same full 120-item mechanism diagnostic on `gpt-5.5` strengthens the
+preservation-mechanism interpretation while preserving the claim boundary.
+Content preservation reaches 99.2% FTGA versus 98.3% for the full contract,
+with 2 paired improvements, 1 paired regression, and an exact content-vs-contract
+sign-test p=1.0. Token tax is marginally lower than the full contract
+(1.012x vs 1.016x), and both prompts resolve all trajectories. The safe
+interpretation is that literal content-preservation scaffolding accounts for
+most of the current-model gain, but the content-vs-contract difference is one
+net item rather than a dominance result. See
+`paper/current_prompt_mechanism_gpt55_v02.md`.
+
 ## Judge Audit
 
 A blinded `gpt-4.1` judge audit covered 72 first-turn full-v0.2 responses: 3
@@ -191,21 +427,33 @@ preservation 69/72, task 71/72, and register/locale 68/72. This supports using
 the audit as a scorer sanity check, not as a replacement for native-speaker
 validation.
 
+A paired `gpt-5.5` judge refresh on the exact same 72 rows agrees with the
+automatic scorer on 70/72 pass/fail labels (97.2%; Wilson 95% CI 90.4--99.2)
+and has zero parse errors after one single-row rerun with a larger output cap.
+The two LLM judges agree with each other on 69/72 pass/fail labels. The
+`gpt-5.5` judge is stricter on three rows: it agrees with the automatic scorer
+that Spanish framing around English rewrites should fail, and it newly rejects
+one polite-request register case and one over-informative quote-summary case.
+See `paper/judge_refresh_gpt55_v02_full120.md`.
+
 ## Claim Boundary
 
 These are preliminary results with automatic scoring plus a 10% stratified
-blinded LLM-judge audit. The objective checks for exact-span preservation and
-script are reliable, and the judge audit supports the language/task decisions in
-the sampled subset. Human or native-speaker audit is still needed before making
-strong final paper claims. Safe current claim:
+blinded LLM-judge audit and a paired `gpt-5.5` judge refresh. The objective
+checks for exact-span preservation and script are reliable, and both judge
+audits support most sampled language/task decisions. Human or native-speaker
+audit is still needed before making strong final paper claims. Safe current
+claim:
 
-> On a 120-item synthetic stress pilot, three GPT-4.1-family API models exhibit
-> measurable re-prompt tax under baseline prompting, especially on implicit
-> content-language preservation. A simple Global Interaction Contract improves
-> first-turn alignment and reduces turn/token tax on this pilot, but it does not
-> remove residual exact-preservation failures. A stratified blinded LLM-judge
-> audit supports the automatic pass/fail labels, while native-speaker validation
-> remains necessary before stronger final claims.
+> On a 120-item synthetic stress pilot, GPT-4.1-family and GPT-5.x-family API
+> model runs exhibit measurable re-prompt tax under baseline prompting,
+> especially on implicit content-language preservation. A simple Global
+> Interaction Contract improves first-turn alignment and reduces turn/token tax
+> on this pilot, including a `gpt-5.5` refresh that moves from 81.7% to 98.3%
+> first-turn alignment, but it does not remove all residual first-turn failures.
+> Two stratified blinded LLM-judge audits support most sampled automatic
+> pass/fail labels, while native-speaker validation remains necessary before
+> stronger final claims.
 
 ## Validation
 
@@ -215,7 +463,7 @@ Run the full local gate:
 conda run -n reprompt_tax python scripts/run_submission_checks.py
 ```
 
-The current build produces `paper/main.pdf`, 4 pages, with no unresolved
+The current build produces `paper/main.pdf`, 10 pages, with no unresolved
 citations, undefined references, overfull boxes, or LaTeX errors found in
 `paper/main.log`.
 

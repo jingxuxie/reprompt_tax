@@ -1,0 +1,5 @@
+model,condition,n,auto_pass_n,auto_fail_n,auto_pass_rate
+gpt-5.4-mini,baseline,12,7,5,0.5833
+gpt-5.4-mini,contract,12,6,6,0.5
+gpt-5.5,baseline,12,8,4,0.6667
+gpt-5.5,contract,12,11,1,0.9167

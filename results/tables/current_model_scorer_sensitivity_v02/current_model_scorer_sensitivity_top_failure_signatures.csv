@@ -1,0 +1,15 @@
+model,condition,task_family,failure_signature,count,share_of_first_turn_failures
+gpt-5.4-mini,baseline,editing_preservation,language+script,10,0.5
+gpt-5.4-mini,baseline,editing_preservation,language+task,10,0.5
+gpt-5.4-mini,baseline,script_register_locale,preservation,3,0.75
+gpt-5.4-mini,baseline,script_register_locale,language,1,0.25
+gpt-5.4-mini,contract,editing_preservation,language+task,7,0.7
+gpt-5.4-mini,contract,editing_preservation,language,2,0.2
+gpt-5.4-mini,contract,quote_preservation,language,2,1.0
+gpt-5.4-mini,contract,script_register_locale,preservation,5,0.833
+gpt-5.4-mini,contract,script_register_locale,preservation+task,1,0.167
+gpt-5.5,baseline,editing_preservation,language+task,10,0.5
+gpt-5.5,baseline,editing_preservation,language+script+task,9,0.45
+gpt-5.5,baseline,output_language_inference,task,1,1.0
+gpt-5.5,baseline,script_register_locale,language,1,1.0
+gpt-5.5,contract,editing_preservation,language,2,1.0

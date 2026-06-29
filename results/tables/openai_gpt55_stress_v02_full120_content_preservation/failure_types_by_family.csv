@@ -1,0 +1,2 @@
+model,condition,task_family,failure_type,count,share_of_initial_failures
+gpt-5.5,content_preservation,script_register_locale,wrong_output_language,1,1.0

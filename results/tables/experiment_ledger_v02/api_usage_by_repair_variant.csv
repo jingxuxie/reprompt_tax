@@ -1,0 +1,10 @@
+artifact_label,model,repair_variant,api_response_rows,input_tokens,output_tokens,total_tokens,created_at_start,created_at_end
+repair_realism_editing_baseline24,gpt-4.1,explicit_contract,8,1157,669,1826,2026-06-29T01:48:36.125747+00:00,2026-06-29T01:49:50.792454+00:00
+repair_realism_editing_baseline24,gpt-4.1,frustrated_dont_translate,8,1109,633,1742,2026-06-29T01:48:34.714401+00:00,2026-06-29T01:49:49.576758+00:00
+repair_realism_editing_baseline24,gpt-4.1,terse_keep_english,8,1117,671,1788,2026-06-29T01:48:33.617817+00:00,2026-06-29T01:49:48.280443+00:00
+repair_realism_editing_baseline24,gpt-4.1-mini,explicit_contract,8,1041,492,1533,2026-06-29T01:49:57.039720+00:00,2026-06-29T01:50:31.037888+00:00
+repair_realism_editing_baseline24,gpt-4.1-mini,frustrated_dont_translate,8,993,508,1501,2026-06-29T01:49:55.020977+00:00,2026-06-29T01:50:29.965904+00:00
+repair_realism_editing_baseline24,gpt-4.1-mini,terse_keep_english,8,1001,548,1549,2026-06-29T01:49:52.818584+00:00,2026-06-29T01:50:28.951082+00:00
+repair_realism_editing_baseline24,gpt-4.1-nano,explicit_contract,8,893,365,1258,2026-06-29T01:50:33.296058+00:00,2026-06-29T01:50:58.391909+00:00
+repair_realism_editing_baseline24,gpt-4.1-nano,frustrated_dont_translate,8,845,341,1186,2026-06-29T01:50:32.624456+00:00,2026-06-29T01:50:57.220036+00:00
+repair_realism_editing_baseline24,gpt-4.1-nano,terse_keep_english,8,853,349,1202,2026-06-29T01:50:31.882683+00:00,2026-06-29T01:50:56.317087+00:00

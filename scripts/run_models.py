@@ -96,19 +96,20 @@ def extract_responses_text(resp: Any) -> str:
 def call_openai(client: Any, model: str, messages: list[dict[str, str]], max_output_tokens: int) -> tuple[str, dict[str, int]]:
     prompt_text = "\n".join(f"{msg['role']}: {msg['content']}" for msg in messages)
     if hasattr(client, "responses"):
+        kwargs = {
+            "model": model,
+            "input": messages,
+            "max_output_tokens": max_output_tokens,
+        }
         try:
-            resp = client.responses.create(
-                model=model,
-                input=messages,
-                temperature=0,
-                max_output_tokens=max_output_tokens,
-            )
+            resp = client.responses.create(**kwargs, temperature=0)
         except TypeError:
-            resp = client.responses.create(
-                model=model,
-                input=messages,
-                max_output_tokens=max_output_tokens,
-            )
+            resp = client.responses.create(**kwargs)
+        except Exception as exc:
+            message = str(exc).lower()
+            if "unsupported parameter" not in message or "temperature" not in message:
+                raise
+            resp = client.responses.create(**kwargs)
         text = extract_responses_text(resp).strip()
         return text, usage_dict_from_response(resp, prompt_text, text)
 
@@ -153,6 +154,12 @@ def passing_dry_response(item: dict[str, Any]) -> str:
             return f"Ye update batata hai ki {spans[0]} aur {spans[-1]} important hai."
         marker = markers[0] if markers else "main"
         return f"Sorry, main {marker} ke baare mein short message bhej dunga."
+
+    if expected == "Hindi":
+        if spans:
+            return f"यह सुधरा हुआ हिंदी पाठ {spans[0]} और {spans[-1]} को स्पष्ट रखता है।"
+        marker = markers[0] if markers else "विषय"
+        return f"यह सुधरा हुआ हिंदी पाठ {marker} को स्पष्ट रखता है।"
 
     if expected == "Arabic":
         preserved = " و ".join(spans) if spans else "الموضوع"

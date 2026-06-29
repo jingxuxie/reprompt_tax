@@ -1,0 +1,4 @@
+model,condition,n_items,ftga_pct,mean_rtt,token_tax,unresolved_pct,initial_failures
+gpt-5.4-mini,baseline,120,80.0,0.25,1.379,2.5,24
+gpt-5.4-mini,contract,120,85.0,0.25,1.241,5.0,18
+gpt-5.4-mini,content_preservation,120,85.8,0.242,1.252,5.0,17

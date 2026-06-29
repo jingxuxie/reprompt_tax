@@ -1,0 +1,3 @@
+model,condition,n,ftga_pass_n,ftga_pass_pct,first_turn_failure_n,first_turn_failure_pct,task_useful_contract_failure_n,task_useful_contract_failure_pct,task_useful_share_of_failures_pct,task_and_preservation_useful_failure_n,task_and_preservation_useful_failure_pct,language_or_script_framing_failure_n,language_or_script_framing_failure_pct,task_noncompletion_failure_n,task_noncompletion_failure_pct
+gpt-5.4-mini,baseline,120,96,80.0,24,20.0,14,11.7,58.3,11,9.2,11,9.2,10,8.3
+gpt-5.4-mini,contract,120,102,85.0,18,15.0,9,7.5,50.0,4,3.3,4,3.3,9,7.5

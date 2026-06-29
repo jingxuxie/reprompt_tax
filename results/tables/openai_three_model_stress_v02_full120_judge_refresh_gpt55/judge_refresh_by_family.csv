@@ -1,0 +1,9 @@
+judge_label,judge_model,n,auto_agreement_n,auto_agreement_pct,auto_agreement_ci_low,auto_agreement_ci_high,auto_pass_n,judge_pass_n,auto_fail_judge_pass_n,auto_pass_judge_fail_n,judge_parse_error_n,input_tokens,output_tokens,total_tokens,task_family
+gpt41,gpt-4.1,18,17,94.4,74.2,99.0,13,14,1,0,0,5168,1412,6580,editing_preservation
+gpt41,gpt-4.1,18,18,100.0,82.4,100.0,18,18,0,0,0,4467,1098,5565,output_language_inference
+gpt41,gpt-4.1,18,18,100.0,82.4,100.0,17,17,0,0,0,5352,1426,6778,quote_preservation
+gpt41,gpt-4.1,18,18,100.0,82.4,100.0,16,16,0,0,0,5620,1403,7023,script_register_locale
+gpt55,gpt-5.5,18,17,94.4,74.2,99.0,13,12,0,1,0,5150,3243,8393,editing_preservation
+gpt55,gpt-5.5,18,18,100.0,82.4,100.0,18,18,0,0,0,4449,1866,6315,output_language_inference
+gpt55,gpt-5.5,18,17,94.4,74.2,99.0,17,16,0,1,0,5334,2527,7861,quote_preservation
+gpt55,gpt-5.5,18,18,100.0,82.4,100.0,16,16,0,0,0,5602,2876,8478,script_register_locale

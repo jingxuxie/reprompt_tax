@@ -1,0 +1,5 @@
+model,task_family,n_pairs,delta_ftga_pp,delta_ftga_pp_ci_low,delta_ftga_pp_ci_high,rtt_reduction,rtt_reduction_ci_low,rtt_reduction_ci_high,token_tax_reduction,token_tax_reduction_ci_low,token_tax_reduction_ci_high,unresolved_reduction_pp,unresolved_reduction_pp_ci_low,unresolved_reduction_pp_ci_high
+gpt-5.5,editing_preservation,12,66.66666666666666,41.66666666666667,91.66666666666666,0.6666666666666666,0.4166666666666667,0.9166666666666666,0.8925561294391112,0.5214121254098492,1.2388318950281354,0.0,0.0,0.0
+gpt-5.5,output_language_inference,9,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+gpt-5.5,quote_preservation,9,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+gpt-5.5,script_register_locale,10,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

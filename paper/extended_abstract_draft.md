@@ -1,4 +1,4 @@
-# The Re-prompt Tax: Measuring Hidden Interaction Costs for Multilingual and Code-Switched LLM Users
+# The Re-prompt Tax Persists: Measuring Hidden Interaction Costs for Multilingual and Code-Switched LLM Users
 
 ## Abstract
 
@@ -11,11 +11,16 @@ repairing the response. We introduce **Re-prompt Tax**, a metric family that
 measures the turns, tokens, and repair success required to recover from these
 failures. We construct a 120-item stress pilot across Spanish-English,
 Hindi-English, and Arabic-English interactions and evaluate three GPT-4.1-family
-API models under a baseline prompt and a Global Interaction Contract prompt.
-Baseline first-turn global alignment ranges from 67.5% to 76.7%; the mitigation
-improves alignment to 76.7%-93.3% and reduces mean repair turns and token tax.
-A 10% stratified blinded LLM-judge audit agrees with the automatic scorer on
-71/72 sampled pass/fail labels.
+API models under a baseline prompt and a Global Interaction Contract prompt,
+then add full 120-item current-model refreshes for `gpt-5.4-mini` and
+`gpt-5.5`. Baseline first-turn global alignment ranges from 67.5% to 76.7% on
+the GPT-4.1-family runs; the mitigation improves alignment to 76.7%-93.3% and
+reduces mean repair turns and token tax. The current-model refresh shows the
+same pressure under `gpt-5.5`: alignment rises from 81.7% to 98.3%, mean repair
+turns fall from 0.225 to 0.017, and unresolved trajectories fall to 0.0% while
+two first-turn residuals remain. A 10% stratified blinded LLM-judge audit agrees
+with the automatic scorer on 71/72 sampled pass/fail labels, and a paired
+GPT-5.5 judge refresh agrees on 70/72 labels.
 
 ## 1. Motivation
 
@@ -66,13 +71,17 @@ prompts. We evaluated `gpt-4.1-nano`, `gpt-4.1-mini`, and `gpt-4.1` with
 temperature 0 under two system prompts: a generic baseline and a Global
 Interaction Contract that explicitly instructs the assistant to infer language,
 script, content-preservation, register, and locale constraints before
-answering. Experiments were run on June 28, 2026.
+answering. We then ran full 120-item current-model refreshes for
+`gpt-5.4-mini` and `gpt-5.5` under the same baseline and contract conditions,
+plus a content-preservation diagnostic on both current models. Experiments were
+run on June 28, 2026.
 
 Scoring combines deterministic checks for exact span preservation and script
 with rule-based language/task checks. We also ran a blinded `gpt-4.1` judge
 audit on 72 first-turn responses, sampling three examples from every
-model-condition-family stratum. The judge saw only the user prompt, expected
-contract, and assistant response, not the model identity or condition.
+model-condition-family stratum, and a paired `gpt-5.5` judge refresh on the
+same 72 rows. The judge saw only the user prompt, expected contract, and
+assistant response, not the model identity or condition.
 
 ## 4. Results
 
@@ -84,6 +93,18 @@ contract, and assistant response, not the model identity or condition.
 | gpt-4.1-mini | contract | 79.2% | 0.24 | 1.27x | 1.7% | 92.0% | 92.0% |
 | gpt-4.1 | baseline | 76.7% | 0.28 | 1.43x | 2.5% | 89.3% | 89.3% |
 | gpt-4.1 | contract | 93.3% | 0.15 | 1.13x | 4.2% | 37.5% | 37.5% |
+| gpt-5.4-mini | baseline | 80.0% | 0.25 | 1.38x | 2.5% | 87.5% | 87.5% |
+| gpt-5.4-mini | contract | 85.0% | 0.25 | 1.24x | 5.0% | 66.7% | 66.7% |
+| gpt-5.5 | baseline | 81.7% | 0.23 | 1.28x | 1.7% | 86.4% | 90.9% |
+| gpt-5.5 | contract | 98.3% | 0.02 | 1.02x | 0.0% | 100.0% | 100.0% |
+
+The current-model refresh makes the persistence claim timely. On the same 120
+items, `gpt-5.4-mini` moves from 80.0% to 85.0% FTGA with lower token tax but a
+higher unresolved rate, so we treat that as a bounded lower-cost result. The
+full `gpt-5.5` run is cleaner: FTGA rises from 81.7% to 98.3%, token tax falls
+from 1.28x to 1.02x, and all trajectories resolve within the two-repair budget.
+The remaining two GPT-5.5 contract first-turn failures are both
+Spanish-English editing-preservation cases that repair after one prompt.
 
 Paired sign-test sensitivity over item-level FTGA changes gives 12 improved vs
 1 worsened item for `gpt-4.1-nano` (two-sided p=0.0034), 4 vs 0 for
@@ -115,10 +136,12 @@ from 70.0% to 73.3%, mean RTT drops from 0.63 to 0.37, and unresolved rate
 drops from 13.3% to 3.3%. The stronger two models pass those quote-preservation cases in
 this pilot.
 
-The judge audit supports the scoring used for the main table. On 72 sampled
-first-turn responses, the blinded judge and corrected automatic scorer agree on
-71/72 pass/fail labels (98.6%). This does not replace native-speaker validation, but
-it reduces the immediate risk that the headline trend is an artifact of the
+The judge audits support the scoring used for the main table. On 72 sampled
+first-turn responses, the original blinded GPT-4.1 judge and corrected
+automatic scorer agree on 71/72 pass/fail labels (98.6%). A paired GPT-5.5
+judge refresh agrees with the automatic scorer on 70/72 labels and with the
+GPT-4.1 judge on 69/72 labels. This does not replace native-speaker validation,
+but it reduces the immediate risk that the headline trend is an artifact of the
 automatic rules.
 
 ## 5. Related Work

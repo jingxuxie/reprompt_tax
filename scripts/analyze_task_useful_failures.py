@@ -58,9 +58,10 @@ def pct(numerator: int, denominator: int) -> float:
     return round(100.0 * numerator / denominator, 1) if denominator else 0.0
 
 
-def first_turn_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def first_turn_rows(rows: list[dict[str, Any]], expected_count: int | None) -> list[dict[str, Any]]:
     out = [row for row in rows if int(row["turn"]) == 0]
-    require(len(out) == 720, f"expected 720 first-turn rows, found {len(out)}")
+    if expected_count is not None:
+        require(len(out) == expected_count, f"expected {expected_count} first-turn rows, found {len(out)}")
     for row in out:
         for field in ("item_id", "model", "condition", "task_family", "language_pair", "pass", *COMPONENTS):
             require(field in row, f"first-turn row missing {field}")
@@ -160,11 +161,39 @@ def signature_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return out
 
 
-def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
-    require(rows, f"cannot write empty CSV {path}")
+def family_summary_phrase(
+    family_rows: list[dict[str, Any]],
+    *,
+    condition: str,
+    max_items: int = 2,
+) -> str:
+    rows = [
+        row
+        for row in family_rows
+        if row["condition"] == condition and int(row["task_useful_contract_failure_n"]) > 0
+    ]
+    rows.sort(key=lambda row: (-int(row["task_useful_contract_failure_n"]), row["task_family"]))
+    if not rows:
+        return "no task-useful failure rows"
+    parts = [
+        f"{FAMILY_LABELS.get(row['task_family'], row['task_family'])} ({int(row['task_useful_contract_failure_n'])})"
+        for row in rows[:max_items]
+    ]
+    if len(rows) > max_items:
+        parts.append(f"{len(rows) - max_items} other families")
+    if len(parts) == 1:
+        return f"{parts[0]} rows"
+    return f"{', '.join(parts[:-1])}, and {parts[-1]} rows"
+
+
+def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str] | None = None) -> None:
+    if rows:
+        fieldnames = list(rows[0].keys())
+    elif fieldnames is None:
+        fieldnames = []
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -187,9 +216,8 @@ def write_markdown(
 ) -> None:
     baseline = row_by(overall_rows, condition="baseline")
     contract = row_by(overall_rows, condition="contract")
-    baseline_edit = row_by(family_rows, condition="baseline", task_family="editing_preservation")
-    baseline_script = row_by(family_rows, condition="baseline", task_family="script_register_locale")
-    contract_script = row_by(family_rows, condition="contract", task_family="script_register_locale")
+    baseline_family_phrase = family_summary_phrase(family_rows, condition="baseline")
+    contract_family_phrase = family_summary_phrase(family_rows, condition="contract")
 
     lines = [
         "# Task-Useful Contract-Failure Diagnostic",
@@ -272,31 +300,49 @@ def write_markdown(
             f"{row['failure_signature']} | {row['count']} | "
             f"{row['share_of_task_useful_failures_pct']:.1f}% |"
         )
+    if not signatures:
+        lines.extend(["", "No task-useful first-turn failures were observed in this run."])
 
+    lines.extend(["", "## Interpretation", ""])
+    if contract["first_turn_failure_n"]:
+        contract_clause = (
+            f"Under the Global Interaction Contract this count falls to "
+            f"{contract['task_useful_contract_failure_n']}/{contract['first_turn_failure_n']} failures."
+        )
+    else:
+        contract_clause = "Under the Global Interaction Contract, there are no first-turn failures in this run."
     lines.extend(
         [
-            "",
-            "## Interpretation",
-            "",
             f"Under baseline prompting, {baseline['task_useful_contract_failure_n']}/"
             f"{baseline['first_turn_failure_n']} first-turn failures are task-useful contract failures",
-            f"({baseline['task_useful_share_of_failures_pct']:.1f}% of failures). Under the Global",
-            f"Interaction Contract this count falls to {contract['task_useful_contract_failure_n']}/"
-            f"{contract['first_turn_failure_n']} failures.",
+            f"({baseline['task_useful_share_of_failures_pct']:.1f}% of failures). {contract_clause}",
             "",
-            f"The stricter task+preservation useful subset falls from {baseline['task_and_preservation_useful_failure_n']}",
-            f"to {contract['task_and_preservation_useful_failure_n']}. This is the cleanest automatic",
-            "slice for the paper's hidden-tax claim: the response has performed the task",
-            "and preserved required spans, but still violates language or script framing.",
-            "",
-            "Most baseline task-useful failures are concentrated in",
-            f"script/register/locale ({baseline_script['task_useful_contract_failure_n']}) and",
-            f"editing-preservation ({baseline_edit['task_useful_contract_failure_n']}) rows. After",
-            "the contract, residual task-useful failures are concentrated in",
-            f"script/register/locale ({contract_script['task_useful_contract_failure_n']}) rows,",
-            "which keeps the mitigation claim bounded.",
         ]
     )
+    if baseline["task_useful_contract_failure_n"] or contract["task_useful_contract_failure_n"]:
+        lines.extend(
+            [
+                f"The stricter task+preservation useful subset falls from {baseline['task_and_preservation_useful_failure_n']}",
+                f"to {contract['task_and_preservation_useful_failure_n']}. This is the cleanest automatic",
+                "slice for the paper's hidden-tax claim: the response has performed the task",
+                "and preserved required spans, but still violates language or script framing.",
+                "",
+                "Most baseline task-useful failures are concentrated in",
+                f"{baseline_family_phrase}. After",
+                "the contract, residual task-useful failures are concentrated in",
+                f"{contract_family_phrase},",
+                "which keeps the mitigation claim bounded.",
+            ]
+        )
+    else:
+        lines.extend(
+            [
+                "This run does not show a hidden task-useful failure slice: all observed",
+                "first-turn failures are task-noncompletion failures under the automatic",
+                "scorer. The result should be read as a bounded pilot diagnostic, not as",
+                "evidence that hidden repair burden is absent in the full benchmark.",
+            ]
+        )
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -305,9 +351,10 @@ def main() -> None:
     parser.add_argument("--scores", type=Path, default=Path("results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl"))
     parser.add_argument("--out-dir", type=Path, default=Path("results/tables/openai_three_model_stress_v02_full120"))
     parser.add_argument("--out-md", type=Path, default=Path("paper/task_useful_failure_analysis_v02_full120.md"))
+    parser.add_argument("--expected-first-turn-rows", type=int, default=None)
     args = parser.parse_args()
 
-    rows = first_turn_rows(load_jsonl(args.scores))
+    rows = first_turn_rows(load_jsonl(args.scores), args.expected_first_turn_rows)
     overall_rows = summary_rows(rows, ("condition",))
     model_rows = summary_rows(rows, ("model", "condition"))
     family_rows = summary_rows(rows, ("condition", "task_family"))
@@ -318,7 +365,17 @@ def main() -> None:
     write_csv(args.out_dir / "task_useful_failure_by_model_condition.csv", model_rows)
     write_csv(args.out_dir / "task_useful_failure_by_family_condition.csv", family_rows)
     write_csv(args.out_dir / "task_useful_failure_by_language_condition.csv", language_rows)
-    write_csv(args.out_dir / "task_useful_failure_signatures.csv", signatures)
+    write_csv(
+        args.out_dir / "task_useful_failure_signatures.csv",
+        signatures,
+        fieldnames=[
+            "condition",
+            "task_family",
+            "failure_signature",
+            "count",
+            "share_of_task_useful_failures_pct",
+        ],
+    )
     write_markdown(
         args.out_md,
         scores_path=args.scores,

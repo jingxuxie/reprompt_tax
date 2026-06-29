@@ -1,0 +1,7 @@
+condition,task_family,failure_signature,count,share_of_task_useful_failures_pct
+baseline,editing_preservation,language+script,10,100.0
+baseline,script_register_locale,language,1,25.0
+baseline,script_register_locale,preservation,3,75.0
+contract,editing_preservation,language,2,100.0
+contract,quote_preservation,language,2,100.0
+contract,script_register_locale,preservation,5,100.0

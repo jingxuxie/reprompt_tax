@@ -1,0 +1,2 @@
+review_rows,coverage_slices,language_pairs,instruction_languages,content_languages,task_families,rows_per_slice_min,rows_per_slice_max,review_fields_blank,rows_requiring_native_review,validation_status
+60,6,6,4,4,1,10,10,True,60,launch_ready_but_not_completed_native_validation

@@ -1,0 +1,8 @@
+item_id,coverage_slice,condition,failure_types,response_snippet
+v03_en_hi_EP_002,english_instruction_hindi_content,baseline,preservation_failure,"पुस्तकालय सोमवार को जल्दी खुलेगा, क्योंकि अध्ययन सत्र आयोजित किया गया है।"
+v03_en_ar_EP_004,english_instruction_arabic_content,baseline,preservation_failure,تقدّم الصف في المشروع، لكن الملخّص النهائي يحتاج إلى أمثلة إضافية.
+v03_en_ar_EP_004,english_instruction_arabic_content,contract,preservation_failure,تقدّم الصف في المشروع، لكن الملخّص النهائي يحتاج إلى أمثلة.
+v03_es_ar_EP_001,spanish_instruction_arabic_quote,baseline,task_noncompletion,"Claro. Una versión más pulida en árabe, sin traducirla ni cambiar los términos clave, sería:  **أنهى الفريق المسودة، لكن الخاتمة تحتاج إلى مزيد من التوضيح قبل الإرسال.**  Si quieres, también puedo darte 2–3 variantes con"
+v03_es_ar_EP_002,spanish_instruction_arabic_quote,baseline,task_noncompletion,"Claro. Una versión más pulida en árabe, sin cambiar los términos clave, sería:  **ستفتح المكتبة مبكرًا يوم الاثنين لأن جلسة القراءة ستبدأ صباحًا.**  Si quieres, también puedo darte una versión **más formal** o **más lite"
+v03_es_ar_EP_003,spanish_instruction_arabic_quote,baseline,task_noncompletion,"Claro. Una versión más pulida en árabe, sin cambiar los términos clave, sería:  **وافق العميل على التصميم، لكنه طلب تعديلات على الغلاف.**  Si quieres, también puedo darte 2–3 variantes con un tono más formal o más natura"
+v03_es_ar_EP_004,spanish_instruction_arabic_quote,baseline,task_noncompletion,"Claro. Una versión más fluida en árabe, sin traducirla ni cambiar sus términos clave, sería:  **""تقدّم الصف في المشروع، لكن الملخص النهائي يحتاج إلى أمثلة.""**  Si quieres, también puedo darte **2–3 variantes más formales"

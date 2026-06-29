@@ -1,0 +1,15 @@
+model,left_out_type,left_out_stratum,n_pairs,baseline_ftga_pct,contract_ftga_pct,delta_ftga_pp,baseline_fail_n,contract_fail_n,fixed_n,regressed_n,both_pass_n,both_fail_n,rtt_reduction,token_tax_reduction,leave_one_signal
+gpt-5.4-mini,language_pair,ar-en,80,83.8,82.5,-1.3,13,14,2,3,64,11,-0.038,0.071,negative_remaining_ftga_effect
+gpt-5.4-mini,language_pair,es-en,80,83.8,91.2,7.4,13,7,10,4,63,3,0.0,0.128,positive_remaining_effect
+gpt-5.4-mini,language_pair,hi-en,80,72.5,81.2,8.7,22,15,10,3,55,12,0.037,0.215,positive_remaining_effect
+gpt-5.4-mini,task_family,editing_preservation,90,95.6,91.1,-4.5,4,8,1,5,81,3,-0.111,-0.062,negative_remaining_ftga_effect
+gpt-5.4-mini,task_family,output_language_inference,90,73.3,80.0,6.7,24,18,11,5,61,13,0.0,0.184,positive_remaining_effect
+gpt-5.4-mini,task_family,quote_preservation,90,73.3,82.2,8.9,24,16,11,3,63,13,0.067,0.238,positive_remaining_effect
+gpt-5.4-mini,task_family,script_register_locale,90,77.8,86.7,8.9,20,12,10,2,68,10,0.044,0.191,positive_remaining_effect
+gpt-5.5,language_pair,ar-en,80,85.0,97.5,12.5,12,2,10,0,68,2,0.188,0.224,positive_remaining_effect
+gpt-5.5,language_pair,es-en,80,85.0,100.0,15.0,12,0,12,0,68,0,0.2,0.228,positive_remaining_effect
+gpt-5.5,language_pair,hi-en,80,75.0,97.5,22.5,20,2,18,0,60,2,0.238,0.334,positive_remaining_effect
+gpt-5.5,task_family,editing_preservation,90,97.8,100.0,2.2,2,0,2,0,88,0,0.067,0.052,positive_remaining_effect
+gpt-5.5,task_family,output_language_inference,90,76.7,97.8,21.1,21,2,19,0,69,2,0.244,0.33,positive_remaining_effect
+gpt-5.5,task_family,quote_preservation,90,75.6,97.8,22.2,22,2,20,0,68,2,0.278,0.349,positive_remaining_effect
+gpt-5.5,task_family,script_register_locale,90,76.7,97.8,21.1,21,2,19,0,69,2,0.244,0.317,positive_remaining_effect

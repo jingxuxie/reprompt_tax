@@ -1,0 +1,3 @@
+artifact,api_calls,input_tokens,output_tokens,total_tokens
+baseline+contract,267,34172,18995,53167
+content_preservation,121,15310,7691,23001

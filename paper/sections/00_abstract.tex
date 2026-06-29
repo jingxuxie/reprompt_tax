@@ -13,11 +13,17 @@ Spanish-English, Hindi-English, and Arabic-English interactions, and evaluate
 three GPT-4.1-family API models under a baseline prompt and a Global Interaction
 Contract prompt. Baseline first-turn global alignment ranges from 67.5\% to
 76.7\%; the mitigation improves alignment to 76.7--93.3\% and reduces mean
-repair turns and repair-normalized token tax. Analysis shows that the dominant
-failure mode is not generic multilingual QA, but implicit editing preservation:
-models often translate or frame content in the instruction language when the
-user intended the quoted content to remain in English. A 10\% stratified blinded
+repair turns and repair-normalized token tax. A current-model refresh shows the
+same pattern on full 120-item \texttt{gpt-5.4-mini} and \texttt{gpt-5.5} runs:
+under \texttt{gpt-5.5}, alignment rises from 81.7\% to 98.3\%. Prompt-mechanism
+diagnostics show that a narrower content-preservation scaffold captures most of
+this gain, but only near-ties the full contract on current models. Analysis
+shows that the dominant failure mode is not generic multilingual QA, but
+implicit editing preservation: models often translate or frame content in the
+instruction language when the user intended the quoted content to remain in
+English. A 10\% stratified blinded
 LLM-judge audit agrees with the automatic scorer on 71/72 sampled pass/fail
-labels. We release a conservative evaluation protocol and claim boundary for
+labels, and a \texttt{gpt-5.5} judge refresh agrees on 70/72. We release a
+conservative evaluation protocol and claim boundary for
 measuring hidden global usability costs rather than broad multilingual ability.
 \end{abstract}

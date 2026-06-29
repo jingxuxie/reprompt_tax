@@ -2,4 +2,8 @@ artifact_label,artifact_kind,path,api_response_rows,first_turn_rows,trajectories
 main_evaluation,model_responses,results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl,917,720,720,126306,25737,152043,2026-06-28T01:15:43.155159+00:00,2026-06-28T03:55:17.999559+00:00
 prompt_control,model_responses,results/scores/openai_nano_stress_v02_full120_generic_helpfulness_auto_scores.jsonl,155,120,120,23494,3968,27462,2026-06-28T03:38:43.787025+00:00,2026-06-28T04:27:10.313212+00:00
 prompt_ablation_content_preservation,model_responses,results/scores/openai_nano_stress_v02_full120_content_preservation_auto_scores.jsonl,146,120,120,20056,3324,23380,2026-06-28T05:48:16.144065+00:00,2026-06-28T05:50:04.200919+00:00
+coverage_pilot_v03_gpt54mini,model_responses,results/scores/openai_gpt54mini_stress_v03_pilot24_auto_scores.jsonl,58,48,48,8007,1958,9965,2026-06-29T02:12:15.114364+00:00,2026-06-29T02:29:37.292623+00:00
+coverage_smoke_v03_gpt55,model_responses,results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl,12,12,12,1632,870,2502,2026-06-29T02:42:00.621285+00:00,2026-06-29T02:42:32.020621+00:00
 judge_audit,judge_audit,results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl,72,72,72,20607,5339,25946,2026-06-28T03:58:53.153879+00:00,2026-06-28T03:59:58.189049+00:00
+judge_refresh_gpt55,judge_audit,results/scores/openai_three_model_stress_v02_full120_judge_gpt55_audit72.jsonl,72,72,72,20535,10512,31047,2026-06-29T01:27:26.045610+00:00,2026-06-29T01:33:25.038310+00:00
+repair_realism_editing_baseline24,repair_variant_responses,results/scores/openai_three_model_stress_v02_repair_realism_editing_baseline24.jsonl,72,0,72,9009,4576,13585,2026-06-29T01:48:33.617817+00:00,2026-06-29T01:50:58.391909+00:00

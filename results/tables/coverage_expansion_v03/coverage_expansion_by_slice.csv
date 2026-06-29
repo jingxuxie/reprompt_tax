@@ -1,0 +1,7 @@
+coverage_slice,language_pair,instruction_language,content_language,expected_response_language,expected_script,n,unique_user_prompts,rows_with_preservation_spans,total_preservation_spans,rows_requiring_native_validation,mean_prompt_words
+arabic_instruction_arabic_filenames,ar-ar,Arabic,Arabic with English file names,Arabic,Arabic,10,10,10,20,10,22.1
+english_instruction_arabic_content,en-ar,English,Arabic,Arabic,Arabic,10,10,10,20,10,25.6
+english_instruction_hindi_content,en-hi,English,Hindi,Hindi,Devanagari,10,10,10,20,10,29.6
+english_instruction_spanish_content,en-es,English,Spanish,Spanish,Latin,10,10,10,20,10,29
+hindi_english_instruction_hindi_devanagari,hi-hi,Hindi/English code-switched,Hindi,Hindi,Devanagari,10,10,10,20,10,28.6
+spanish_instruction_arabic_quote,es-ar,Spanish,Arabic,Arabic,Arabic,10,10,10,20,10,23.6

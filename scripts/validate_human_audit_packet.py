@@ -18,7 +18,7 @@ TASK_FAMILIES = (
     "quote_preservation",
     "script_register_locale",
 )
-MODELS = ("gpt-4.1", "gpt-4.1-mini", "gpt-4.1-nano")
+DEFAULT_MODELS = ("gpt-4.1", "gpt-4.1-mini", "gpt-4.1-nano")
 CONDITIONS = ("baseline", "contract")
 ANNOTATION_FIELDS = (
     "annotator_id",
@@ -65,8 +65,19 @@ def parse_json_list(value: str, *, row_id: str, field: str) -> list[Any]:
     return parsed
 
 
-def validate_packet_rows(packet_rows: list[dict[str, str]]) -> None:
-    require(len(packet_rows) == 72, f"expected 72 packet rows, found {len(packet_rows)}")
+def parse_expected_models(value: str) -> tuple[str, ...]:
+    models = tuple(model.strip() for model in value.split(",") if model.strip())
+    require(bool(models), "expected at least one model")
+    return models
+
+
+def expected_row_count(models: tuple[str, ...]) -> int:
+    return len(LANGUAGE_PAIRS) * len(TASK_FAMILIES) * len(models) * len(CONDITIONS)
+
+
+def validate_packet_rows(packet_rows: list[dict[str, str]], models: tuple[str, ...]) -> None:
+    expected_rows = expected_row_count(models)
+    require(len(packet_rows) == expected_rows, f"expected {expected_rows} packet rows, found {len(packet_rows)}")
     require(packet_rows, "packet is empty")
     fields = set(packet_rows[0].keys())
     require(not PACKET_FORBIDDEN_FIELDS.intersection(fields), f"packet leaks private fields: {PACKET_FORBIDDEN_FIELDS.intersection(fields)}")
@@ -78,7 +89,11 @@ def validate_packet_rows(packet_rows: list[dict[str, str]]) -> None:
     require(ids == sorted(ids), "packet audit_id values are not sorted")
 
     counts = Counter((row["language_pair"], row["task_family"]) for row in packet_rows)
-    expected_counts = {(lang, family): 6 for lang in LANGUAGE_PAIRS for family in TASK_FAMILIES}
+    expected_counts = {
+        (lang, family): len(models) * len(CONDITIONS)
+        for lang in LANGUAGE_PAIRS
+        for family in TASK_FAMILIES
+    }
     require(dict(counts) == expected_counts, f"unexpected packet language/family counts: {counts}")
 
     for row in packet_rows:
@@ -93,8 +108,9 @@ def validate_packet_rows(packet_rows: list[dict[str, str]]) -> None:
             require(row.get(field, "") == "", f"{audit_id} annotation field {field} is not blank in launch packet")
 
 
-def validate_key_rows(key_rows: list[dict[str, str]], packet_rows: list[dict[str, str]]) -> None:
-    require(len(key_rows) == 72, f"expected 72 answer-key rows, found {len(key_rows)}")
+def validate_key_rows(key_rows: list[dict[str, str]], packet_rows: list[dict[str, str]], models: tuple[str, ...]) -> None:
+    expected_rows = expected_row_count(models)
+    require(len(key_rows) == expected_rows, f"expected {expected_rows} answer-key rows, found {len(key_rows)}")
     key_ids = [row["audit_id"] for row in key_rows]
     packet_ids = [row["audit_id"] for row in packet_rows]
     require(len(key_ids) == len(set(key_ids)), "answer key has duplicate audit_id values")
@@ -109,7 +125,7 @@ def validate_key_rows(key_rows: list[dict[str, str]], packet_rows: list[dict[str
     strata = Counter((row["model"], row["condition"], row["task_family"], row["language_pair"]) for row in key_rows)
     expected_strata = {
         (model, condition, family, lang): 1
-        for model in MODELS
+        for model in models
         for condition in CONDITIONS
         for family in TASK_FAMILIES
         for lang in LANGUAGE_PAIRS
@@ -129,17 +145,17 @@ def validate_slices(out_dir: Path, packet_rows: list[dict[str, str]], packet_ver
         path = out_dir / f"human_audit_packet_{packet_version}_{lang}.csv"
         require(path.exists(), f"missing language slice {path}")
         rows = read_csv(path)
-        require(len(rows) == 24, f"expected 24 rows in {path}, found {len(rows)}")
+        require(len(rows) == len(full_by_lang[lang]), f"expected {len(full_by_lang[lang])} rows in {path}, found {len(rows)}")
         require(rows == full_by_lang[lang], f"language slice {path} does not match full packet subset")
         require(not PACKET_FORBIDDEN_FIELDS.intersection(rows[0].keys()), f"language slice leaks private fields: {path}")
 
 
-def validate_smoke_file(out_dir: Path, packet_version: str) -> None:
+def validate_smoke_file(out_dir: Path, packet_version: str, expected_rows: int) -> None:
     path = out_dir / f"human_audit_packet_{packet_version}_smoke_completed.csv"
     if not path.exists():
         return
     rows = read_csv(path)
-    require(len(rows) == 72, f"expected 72 smoke rows, found {len(rows)}")
+    require(len(rows) == expected_rows, f"expected {expected_rows} smoke rows, found {len(rows)}")
     require(all(row.get("human_notes", "").startswith("SMOKE ONLY:") for row in rows), "smoke file must be clearly marked as smoke-only")
 
 
@@ -163,8 +179,10 @@ def validate_launch_checklist(out_dir: Path, packet_version: str) -> None:
         "Minimum Launch",
         "Do not send `human_audit_answer_key_",
         "human_audit_annotator_roster_",
+        "merge_review_exports.py",
         "validate_completed_human_audit.py",
         "summarize_human_audit.py",
+        "matching `human_failure_types` code",
         "Do not claim native-speaker or human validation",
     ]
     for phrase in required_phrases:
@@ -175,7 +193,9 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--out-dir", type=Path, default=Path("data/human_audit"))
     parser.add_argument("--packet-version", default="v0.2")
+    parser.add_argument("--expected-models", default=",".join(DEFAULT_MODELS))
     args = parser.parse_args()
+    models = parse_expected_models(args.expected_models)
 
     packet_path = args.out_dir / f"human_audit_packet_{args.packet_version}.csv"
     key_path = args.out_dir / f"human_audit_answer_key_{args.packet_version}.csv"
@@ -184,12 +204,12 @@ def main() -> None:
 
     packet_rows = read_csv(packet_path)
     key_rows = read_csv(key_path)
-    validate_packet_rows(packet_rows)
-    validate_key_rows(key_rows, packet_rows)
+    validate_packet_rows(packet_rows, models)
+    validate_key_rows(key_rows, packet_rows, models)
     validate_slices(args.out_dir, packet_rows, args.packet_version)
     validate_roster_template(args.out_dir, args.packet_version)
     validate_launch_checklist(args.out_dir, args.packet_version)
-    validate_smoke_file(args.out_dir, args.packet_version)
+    validate_smoke_file(args.out_dir, args.packet_version, expected_row_count(models))
     print(f"human-audit packet validation passed for {args.out_dir}")
 
 

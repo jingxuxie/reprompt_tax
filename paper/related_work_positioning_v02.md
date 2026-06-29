@@ -22,9 +22,14 @@ cross-provider generality. The defensible contribution is the combination of:
   and locale constraints,
 - a fixed two-turn repair budget that yields RTT, Repair@1/2, unresolved rate,
   and token tax,
-- a stress pilot showing the burden on three GPT-4.1-family API models, with
-  prompt-control, content-preservation, scorer-sensitivity, and judge-audit
-  diagnostics.
+- a 120-item stress pilot spanning three GPT-4.1-family API models plus full
+  current-model refreshes for `gpt-5.4-mini` and `gpt-5.5`,
+- diagnostics that keep the mechanism and evaluation claims bounded:
+  content-preservation prompt comparisons on current models, scorer-sensitivity
+  checks, repair-realism checks, and two blinded LLM-judge audits,
+- launch-ready human/native review protocols with pre-specified claim gates,
+  while completed native/near-native validation remains a required next step
+  before stronger final claims.
 
 ## Reviewer-Facing Caveats
 
@@ -35,4 +40,9 @@ cross-provider generality. The defensible contribution is the combination of:
 - MT-Bench and Chatbot Arena are the closest multi-turn evaluation reference
   points; the paper's differentiator is a controlled repair trajectory rather
   than open-ended dialogue preference.
+- The GPT-5.x refresh makes the result timely, but it should be framed as a
+  current-model stress-pilot diagnostic rather than a broad leaderboard.
+- The `gpt-5.5` headline is strongest on editing-preservation failures; the
+  paper should explicitly retain the `gpt-5.4-mini` regression-risk caveat and
+  the token-tax versus absolute-token distinction.
 - Native-speaker validation is still required before stronger final claims.

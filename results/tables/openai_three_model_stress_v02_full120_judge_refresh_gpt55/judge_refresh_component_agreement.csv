@@ -1,0 +1,11 @@
+judge_label,component,n,agreement_n,agreement_pct,agreement_ci_low,agreement_ci_high,auto_pass_n,judge_pass_n,auto_fail_judge_pass_n,auto_pass_judge_fail_n,mismatch_n
+gpt41,language,72,71,98.6,92.5,99.8,67,68,1,0,1
+gpt41,script,72,71,98.6,92.5,99.8,70,69,0,1,1
+gpt41,preservation,72,69,95.8,88.5,98.6,69,66,0,3,3
+gpt41,task,72,71,98.6,92.5,99.8,68,67,0,1,1
+gpt41,register_locale,72,68,94.4,86.6,97.8,72,68,0,4,4
+gpt55,language,72,72,100.0,94.9,100.0,67,67,0,0,0
+gpt55,script,72,72,100.0,94.9,100.0,70,70,0,0,0
+gpt55,preservation,72,71,98.6,92.5,99.8,69,68,0,1,1
+gpt55,task,72,69,95.8,88.5,98.6,68,67,1,2,3
+gpt55,register_locale,72,67,93.1,84.8,97.0,72,67,0,5,5

@@ -1,0 +1,4 @@
+comparison,n_pairs,ftga_improved,ftga_worsened,ftga_tied,ftga_sign_test_p,delta_ftga_pp,rtt_reduction,token_tax_reduction,unresolved_reduction_pp
+contract_minus_baseline,120,11,5,104,0.210113525390625,5.0,0.0,0.138,-2.5
+content_preservation_minus_baseline,120,11,4,105,0.11846923828125,5.8,0.008,0.128,-2.5
+content_preservation_minus_contract,120,5,4,111,1.0,0.8,0.008,-0.01,0.0

@@ -1,0 +1,17 @@
+model,condition,task_family,n,actual_ftga_n,actual_ftga_pct,actual_fail_n,relax_language_ftga_n,relax_language_ftga_pct,relax_language_delta_pp,sole_language_blocker_n,relax_script_ftga_n,relax_script_ftga_pct,relax_script_delta_pp,sole_script_blocker_n,relax_preservation_ftga_n,relax_preservation_ftga_pct,relax_preservation_delta_pp,sole_preservation_blocker_n,relax_task_ftga_n,relax_task_ftga_pct,relax_task_delta_pp,sole_task_blocker_n,relax_register_locale_ftga_n,relax_register_locale_ftga_pct,relax_register_locale_delta_pp,sole_register_locale_blocker_n
+gpt-5.4-mini,baseline,editing_preservation,30,10,33.3,20,10,33.3,0.0,0,10,33.3,0.0,0,10,33.3,0.0,0,10,33.3,0.0,0,10,33.3,0.0,0
+gpt-5.4-mini,baseline,output_language_inference,30,30,100.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0
+gpt-5.4-mini,baseline,quote_preservation,30,30,100.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0
+gpt-5.4-mini,baseline,script_register_locale,30,26,86.7,4,27,90.0,3.3,1,26,86.7,0.0,0,29,96.7,10.0,3,26,86.7,0.0,0,26,86.7,0.0,0
+gpt-5.4-mini,contract,editing_preservation,30,20,66.7,10,22,73.3,6.6,2,20,66.7,0.0,0,20,66.7,0.0,0,20,66.7,0.0,0,20,66.7,0.0,0
+gpt-5.4-mini,contract,output_language_inference,30,30,100.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0
+gpt-5.4-mini,contract,quote_preservation,30,28,93.3,2,30,100.0,6.7,2,28,93.3,0.0,0,28,93.3,0.0,0,28,93.3,0.0,0,28,93.3,0.0,0
+gpt-5.4-mini,contract,script_register_locale,30,24,80.0,6,24,80.0,0.0,0,24,80.0,0.0,0,29,96.7,16.7,5,24,80.0,0.0,0,24,80.0,0.0,0
+gpt-5.5,baseline,editing_preservation,30,10,33.3,20,10,33.3,0.0,0,10,33.3,0.0,0,10,33.3,0.0,0,10,33.3,0.0,0,10,33.3,0.0,0
+gpt-5.5,baseline,output_language_inference,30,29,96.7,1,29,96.7,0.0,0,29,96.7,0.0,0,29,96.7,0.0,0,30,100.0,3.3,1,29,96.7,0.0,0
+gpt-5.5,baseline,quote_preservation,30,30,100.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0
+gpt-5.5,baseline,script_register_locale,30,29,96.7,1,30,100.0,3.3,1,29,96.7,0.0,0,29,96.7,0.0,0,29,96.7,0.0,0,29,96.7,0.0,0
+gpt-5.5,contract,editing_preservation,30,28,93.3,2,30,100.0,6.7,2,28,93.3,0.0,0,28,93.3,0.0,0,28,93.3,0.0,0,28,93.3,0.0,0
+gpt-5.5,contract,output_language_inference,30,30,100.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0
+gpt-5.5,contract,quote_preservation,30,30,100.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0
+gpt-5.5,contract,script_register_locale,30,30,100.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0,30,100.0,0.0,0

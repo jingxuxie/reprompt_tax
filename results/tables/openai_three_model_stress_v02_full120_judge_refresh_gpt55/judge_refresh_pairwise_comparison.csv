@@ -1,0 +1,2 @@
+judge_a,judge_b,n,pass_fail_agreement_n,pass_fail_agreement_pct,pass_fail_agreement_ci_low,pass_fail_agreement_ci_high,both_pass_n,both_fail_n,judge_a_pass_judge_b_fail_n,judge_a_fail_judge_b_pass_n
+gpt-4.1,gpt-5.5,72,69,95.8,88.5,98.6,62,7,3,0

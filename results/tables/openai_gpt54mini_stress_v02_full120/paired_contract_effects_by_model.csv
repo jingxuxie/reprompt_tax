@@ -1,0 +1,2 @@
+model,n_pairs,delta_ftga_pp,delta_ftga_pp_ci_low,delta_ftga_pp_ci_high,rtt_reduction,rtt_reduction_ci_low,rtt_reduction_ci_high,token_tax_reduction,token_tax_reduction_ci_low,token_tax_reduction_ci_high,unresolved_reduction_pp,unresolved_reduction_pp_ci_low,unresolved_reduction_pp_ci_high
+gpt-5.4-mini,120,5.0,-0.8333333333333334,11.666666666666666,0.0,-0.11666666666666667,0.11666666666666667,0.13773033543105978,0.010059010750213104,0.2694314479572368,-2.5,-6.666666666666667,0.8333333333333334

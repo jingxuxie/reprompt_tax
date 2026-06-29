@@ -1,0 +1,9 @@
+condition,task_family,n,ftga_pass_n,ftga_pass_pct,first_turn_failure_n,first_turn_failure_pct,task_useful_contract_failure_n,task_useful_contract_failure_pct,task_useful_share_of_failures_pct,task_and_preservation_useful_failure_n,task_and_preservation_useful_failure_pct,language_or_script_framing_failure_n,language_or_script_framing_failure_pct,task_noncompletion_failure_n,task_noncompletion_failure_pct
+baseline,editing_preservation,12,4,33.3,8,66.7,0,0.0,0.0,0,0.0,0,0.0,8,66.7
+baseline,output_language_inference,9,9,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0
+baseline,quote_preservation,9,9,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0
+baseline,script_register_locale,10,10,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0
+contract,editing_preservation,12,12,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0
+contract,output_language_inference,9,9,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0
+contract,quote_preservation,9,9,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0
+contract,script_register_locale,10,10,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0

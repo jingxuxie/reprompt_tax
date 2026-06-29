@@ -1,0 +1,15 @@
+model,stratum_type,stratum,n_pairs,baseline_ftga_pct,contract_ftga_pct,delta_ftga_pp,baseline_fail_n,contract_fail_n,fixed_n,regressed_n,both_pass_n,both_fail_n,rtt_reduction,token_tax_reduction
+gpt-5.4-mini,language_pair,ar-en,40,72.5,90.0,17.5,11,4,9,2,27,2,0.075,0.272
+gpt-5.4-mini,language_pair,es-en,40,72.5,72.5,0.0,11,11,1,1,28,10,0.0,0.158
+gpt-5.4-mini,language_pair,hi-en,40,95.0,92.5,-2.5,2,3,1,2,36,1,-0.075,-0.016
+gpt-5.4-mini,task_family,editing_preservation,30,33.3,66.7,33.4,20,10,10,0,10,10,0.333,0.737
+gpt-5.4-mini,task_family,output_language_inference,30,100.0,100.0,0.0,0,0,0,0,30,0,0.0,0.0
+gpt-5.4-mini,task_family,quote_preservation,30,100.0,93.3,-6.7,0,2,0,2,28,0,-0.2,-0.163
+gpt-5.4-mini,task_family,script_register_locale,30,86.7,80.0,-6.7,4,6,1,3,23,3,-0.133,-0.023
+gpt-5.5,language_pair,ar-en,40,75.0,100.0,25.0,10,0,10,0,30,0,0.25,0.338
+gpt-5.5,language_pair,es-en,40,75.0,95.0,20.0,10,2,8,0,30,2,0.225,0.331
+gpt-5.5,language_pair,hi-en,40,95.0,100.0,5.0,2,0,2,0,38,0,0.15,0.117
+gpt-5.5,task_family,editing_preservation,30,33.3,93.3,60.0,20,2,18,0,10,2,0.633,0.891
+gpt-5.5,task_family,output_language_inference,30,96.7,100.0,3.3,1,0,1,0,29,0,0.1,0.059
+gpt-5.5,task_family,quote_preservation,30,100.0,100.0,0.0,0,0,0,0,30,0,0.0,0.0
+gpt-5.5,task_family,script_register_locale,30,96.7,100.0,3.3,1,0,1,0,29,0,0.1,0.097

@@ -1,0 +1,3 @@
+artifact,api_calls,input_tokens,output_tokens,total_tokens
+gpt-5.4-mini full120,291,40286,8730,49016
+gpt-5.5 full120,267,34172,18995,53167

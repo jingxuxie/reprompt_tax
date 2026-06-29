@@ -1,0 +1,5 @@
+content_language,expected_response_language,expected_script,n,unique_user_prompts,rows_with_preservation_spans,total_preservation_spans,rows_requiring_native_validation,mean_prompt_words
+Arabic,Arabic,Arabic,20,20,20,40,20,24.6
+Arabic with English file names,Arabic,Arabic,10,10,10,20,10,22.1
+Hindi,Hindi,Devanagari,20,20,20,40,20,29.1
+Spanish,Spanish,Latin,10,10,10,20,10,29

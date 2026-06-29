@@ -1,0 +1,17 @@
+model,condition,task_family,trajectories,first_turn_failures,first_turn_failure_pct,unresolved,unresolved_pct,failure_type_counts
+gpt-5.4-mini,baseline,editing_preservation,30,20,66.7,0,0.0,wrong_output_language=20; script_mismatch=10; task_noncompletion=10
+gpt-5.4-mini,baseline,output_language_inference,30,0,0.0,0,0.0,
+gpt-5.4-mini,baseline,quote_preservation,30,0,0.0,0,0.0,
+gpt-5.4-mini,baseline,script_register_locale,30,4,13.3,3,10.0,preservation_failure=3; wrong_output_language=1
+gpt-5.4-mini,contract,editing_preservation,30,10,33.3,0,0.0,wrong_output_language=10; task_noncompletion=8; script_mismatch=1
+gpt-5.4-mini,contract,output_language_inference,30,0,0.0,0,0.0,
+gpt-5.4-mini,contract,quote_preservation,30,2,6.7,2,6.7,wrong_output_language=2
+gpt-5.4-mini,contract,script_register_locale,30,6,20.0,4,13.3,preservation_failure=6; task_noncompletion=1
+gpt-5.5,baseline,editing_preservation,30,20,66.7,0,0.0,wrong_output_language=20; task_noncompletion=19; script_mismatch=10
+gpt-5.5,baseline,output_language_inference,30,1,3.3,1,3.3,task_noncompletion=1
+gpt-5.5,baseline,quote_preservation,30,0,0.0,0,0.0,
+gpt-5.5,baseline,script_register_locale,30,1,3.3,1,3.3,wrong_output_language=1
+gpt-5.5,contract,editing_preservation,30,2,6.7,0,0.0,wrong_output_language=2
+gpt-5.5,contract,output_language_inference,30,0,0.0,0,0.0,
+gpt-5.5,contract,quote_preservation,30,0,0.0,0,0.0,
+gpt-5.5,contract,script_register_locale,30,0,0.0,0,0.0,

@@ -1,0 +1,13 @@
+model,condition,task_family,n_items,ftga_pct,mean_rtt,token_tax,unresolved_pct,initial_failures
+gpt-5.5,baseline,editing_preservation,30,33.3,0.7,1.957,0.0,20
+gpt-5.5,baseline,output_language_inference,30,96.7,0.1,1.059,3.3,1
+gpt-5.5,baseline,quote_preservation,30,100.0,0.0,1.0,0.0,0
+gpt-5.5,baseline,script_register_locale,30,96.7,0.1,1.097,3.3,1
+gpt-5.5,contract,editing_preservation,30,93.3,0.067,1.066,0.0,2
+gpt-5.5,contract,output_language_inference,30,100.0,0.0,1.0,0.0,0
+gpt-5.5,contract,quote_preservation,30,100.0,0.0,1.0,0.0,0
+gpt-5.5,contract,script_register_locale,30,100.0,0.0,1.0,0.0,0
+gpt-5.5,content_preservation,editing_preservation,30,100.0,0.0,1.0,0.0,0
+gpt-5.5,content_preservation,output_language_inference,30,100.0,0.0,1.0,0.0,0
+gpt-5.5,content_preservation,quote_preservation,30,100.0,0.0,1.0,0.0,0
+gpt-5.5,content_preservation,script_register_locale,30,96.7,0.033,1.046,0.0,1

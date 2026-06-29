@@ -1,0 +1,13 @@
+item_id,model,condition,language_pair,task_family,ftga,rtt,resolved,unresolved,initially_failed,repair_success_1,repair_success_2,token_tax,first_failure_types
+v03_en_es_EP_001,gpt-5.4-mini,baseline,en-es,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+v03_en_es_EP_001,gpt-5.4-mini,contract,en-es,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+v03_en_hi_EP_001,gpt-5.4-mini,baseline,en-hi,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+v03_en_hi_EP_001,gpt-5.4-mini,contract,en-hi,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+v03_en_ar_EP_001,gpt-5.4-mini,baseline,en-ar,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+v03_en_ar_EP_001,gpt-5.4-mini,contract,en-ar,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+v03_es_ar_EP_001,gpt-5.4-mini,baseline,es-ar,editing_preservation,0,1,1,0,1,1,1,2.716535433070866,['task_noncompletion']
+v03_es_ar_EP_001,gpt-5.4-mini,contract,es-ar,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+v03_hi_hi_EP_001,gpt-5.4-mini,baseline,hi-hi,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+v03_hi_hi_EP_001,gpt-5.4-mini,contract,hi-hi,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+v03_ar_ar_EP_001,gpt-5.4-mini,baseline,ar-ar,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+v03_ar_ar_EP_001,gpt-5.4-mini,contract,ar-ar,editing_preservation,1,0,1,0,0,0,0,1.0,[]

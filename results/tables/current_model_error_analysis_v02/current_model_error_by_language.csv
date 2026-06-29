@@ -1,0 +1,13 @@
+model,condition,language_pair,trajectories,first_turn_failures,first_turn_failure_pct,unresolved,unresolved_pct,failure_type_counts
+gpt-5.4-mini,baseline,ar-en,40,11,27.5,0,0.0,script_mismatch=10; wrong_output_language=10; preservation_failure=1
+gpt-5.4-mini,baseline,es-en,40,11,27.5,1,2.5,task_noncompletion=10; wrong_output_language=10; preservation_failure=1
+gpt-5.4-mini,baseline,hi-en,40,2,5.0,2,5.0,preservation_failure=1; wrong_output_language=1
+gpt-5.4-mini,contract,ar-en,40,4,10.0,2,5.0,preservation_failure=3; task_noncompletion=2; script_mismatch=1; wrong_output_language=1
+gpt-5.4-mini,contract,es-en,40,11,27.5,1,2.5,wrong_output_language=9; task_noncompletion=7; preservation_failure=2
+gpt-5.4-mini,contract,hi-en,40,3,7.5,3,7.5,wrong_output_language=2; preservation_failure=1
+gpt-5.5,baseline,ar-en,40,10,25.0,0,0.0,script_mismatch=10; wrong_output_language=10; task_noncompletion=9
+gpt-5.5,baseline,es-en,40,10,25.0,0,0.0,task_noncompletion=10; wrong_output_language=10
+gpt-5.5,baseline,hi-en,40,2,5.0,2,5.0,task_noncompletion=1; wrong_output_language=1
+gpt-5.5,contract,ar-en,40,0,0.0,0,0.0,
+gpt-5.5,contract,es-en,40,2,5.0,0,0.0,wrong_output_language=2
+gpt-5.5,contract,hi-en,40,0,0.0,0,0.0,

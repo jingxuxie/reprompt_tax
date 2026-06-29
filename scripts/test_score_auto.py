@@ -137,6 +137,42 @@ CASES = [
         "expected_pass": True,
         "expected_failures": [],
     },
+    {
+        "name": "hindi_devanagari_target_pass",
+        "item": item(
+            expected_response_language="Hindi",
+            expected_script="Devanagari",
+            must_preserve_spans=["निष्कर्ष", "मसौदा"],
+            required_any_markers=["निष्कर्ष", "मसौदा"],
+        ),
+        "response": "कृपया मसौदा को स्वाभाविक रखें और निष्कर्ष को अधिक स्पष्ट बनाएं।",
+        "expected_pass": True,
+        "expected_failures": [],
+    },
+    {
+        "name": "hindi_devanagari_target_english_fail",
+        "item": item(
+            expected_response_language="Hindi",
+            expected_script="Devanagari",
+            must_preserve_spans=["निष्कर्ष", "मसौदा"],
+            required_any_markers=["निष्कर्ष", "मसौदा"],
+        ),
+        "response": "Here is a polished English version about the draft and conclusion.",
+        "expected_pass": False,
+        "expected_failures": ["wrong_output_language", "script_mismatch", "preservation_failure", "task_noncompletion"],
+    },
+    {
+        "name": "arabic_with_english_filenames_pass",
+        "item": item(
+            expected_response_language="Arabic",
+            expected_script="Arabic",
+            must_preserve_spans=["budget_plan.xlsx", "presentation_draft.pptx"],
+            required_any_markers=["budget_plan.xlsx", "presentation_draft.pptx"],
+        ),
+        "response": "راجعت ملف budget_plan.xlsx، لكن presentation_draft.pptx يحتاج إلى خاتمة أوضح قبل الاجتماع.",
+        "expected_pass": True,
+        "expected_failures": [],
+    },
 ]
 
 

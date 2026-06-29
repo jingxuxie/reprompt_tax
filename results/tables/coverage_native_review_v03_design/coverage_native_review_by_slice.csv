@@ -1,0 +1,7 @@
+coverage_slice,language_pair,instruction_language,content_language,n,rows_with_preservation_spans,total_preservation_spans,rows_with_required_markers,rows_with_forbidden_markers,rows_with_known_bad_outputs
+arabic_instruction_arabic_filenames,ar-ar,Arabic,Arabic with English file names,10,10,20,10,10,10
+english_instruction_arabic_content,en-ar,English,Arabic,10,10,20,10,10,10
+english_instruction_hindi_content,en-hi,English,Hindi,10,10,20,10,10,10
+english_instruction_spanish_content,en-es,English,Spanish,10,10,20,10,10,10
+hindi_english_instruction_hindi_devanagari,hi-hi,Hindi/English code-switched,Hindi,10,10,20,10,10,10
+spanish_instruction_arabic_quote,es-ar,Spanish,Arabic,10,10,20,10,10,10

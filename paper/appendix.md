@@ -17,6 +17,8 @@
 - Scorer regression tests: `scripts/test_score_auto.py`
 - Judge audit: `scripts/judge_outputs.py`
 - Judge agreement analysis: `scripts/analyze_judge_agreement.py`
+- Judge refresh analysis: `scripts/analyze_judge_refresh.py`
+- Judge refresh validator: `scripts/validate_judge_refresh.py`
 - Metrics: `scripts/compute_metrics.py`
 - Full v0.2 score merge: `scripts/build_full_v02_scores.py`
 - Benchmark-quality audit: `scripts/analyze_benchmark_quality.py`
@@ -238,6 +240,27 @@ conda run -n reprompt_tax python scripts/analyze_judge_agreement.py \
 
 Current result: 71/72 pass-fail agreement with the corrected automatic scorer.
 
+The paired `gpt-5.5` judge refresh reuses the same blinded 72-row sample and
+checks scorer agreement under a current judge model:
+
+```bash
+conda run -n reprompt_tax python scripts/judge_outputs.py \
+  --benchmark data/benchmark_stress_v0.2.jsonl \
+  --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl \
+  --out results/scores/openai_three_model_stress_v02_full120_judge_gpt55_audit72.jsonl \
+  --judge-model gpt-5.5 \
+  --turn 0 \
+  --sample-per-stratum 3 \
+  --seed 17 \
+  --max-api-calls 72
+
+conda run -n reprompt_tax python scripts/analyze_judge_refresh.py
+conda run -n reprompt_tax python scripts/validate_judge_refresh.py
+```
+
+Current refresh result: the `gpt-5.5` judge agrees with the automatic scorer on
+70/72 sampled pass/fail labels and with the `gpt-4.1` judge on 69/72 labels.
+
 ## E. Main Reproduction Commands
 
 Generate benchmark:
@@ -314,6 +337,10 @@ Make figures:
 ```bash
 conda run -n reprompt_tax python scripts/make_figures.py \
   --tables-dir results/tables/openai_three_model_stress_v02_full120 \
+  --extra-summary results/tables/openai_gpt54mini_stress_v02_full120/metrics_summary.csv \
+  --extra-summary results/tables/openai_gpt55_stress_v02_full120/metrics_summary.csv \
+  --extra-trajectories results/tables/openai_gpt54mini_stress_v02_full120/trajectory_metrics.csv \
+  --extra-trajectories results/tables/openai_gpt55_stress_v02_full120/trajectory_metrics.csv \
   --out-dir results/figures/openai_three_model_stress_v02_full120
 ```
 

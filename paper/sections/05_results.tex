@@ -15,17 +15,21 @@ GPT-4.1 mini & Baseline & 75.8 & 0.28 & 1.43 & 0.8 & 89.7 & 96.6 \\
 GPT-4.1 mini & Contract & 79.2 & 0.24 & 1.27 & 1.7 & 92.0 & 92.0 \\
 GPT-4.1 & Baseline & 76.7 & 0.28 & 1.43 & 2.5 & 89.3 & 89.3 \\
 GPT-4.1 & Contract & 93.3 & 0.15 & 1.13 & 4.2 & 37.5 & 37.5 \\
+GPT-5.4 mini & Baseline & 80.0 & 0.25 & 1.38 & 2.5 & 87.5 & 87.5 \\
+GPT-5.4 mini & Contract & 85.0 & 0.25 & 1.24 & 5.0 & 66.7 & 66.7 \\
+GPT-5.5 & Baseline & 81.7 & 0.23 & 1.28 & 1.7 & 86.4 & 90.9 \\
+GPT-5.5 & Contract & 98.3 & 0.02 & 1.02 & 0.0 & 100.0 & 100.0 \\
 \bottomrule
 \end{tabular}
-\caption{Stress-pilot results. FTGA, unresolved rate, Repair@1, and Repair@2 are percentages. RTT and token tax are lower-is-better; token tax is total tokens until success or exhaustion divided by first-attempt tokens.}
+\caption{Stress-pilot results, including the current-model refresh rows. FTGA, unresolved rate, Repair@1, and Repair@2 are percentages. RTT and token tax are lower-is-better; token tax is total tokens until success or exhaustion divided by first-attempt tokens.}
 \label{tab:main}
 \end{table}
 
-Table~\ref{tab:main} shows measurable baseline Re-prompt Tax for all three
-models. Baseline FTGA ranges from 67.5\% for \texttt{gpt-4.1-nano} to 76.7\%
-for \texttt{gpt-4.1}. The Global Interaction Contract improves FTGA for every
-model, with gains of +9.2 points for nano, +3.3 points for mini, and +16.7
-points for GPT-4.1. Mean RTT also falls for every model. The strongest model
+Table~\ref{tab:main} shows measurable baseline Re-prompt Tax for the
+GPT-4.1-family rows and the GPT-5.x refresh rows. The Global Interaction
+Contract improves FTGA for every model, with GPT-4.1-family gains of +9.2
+points for nano, +3.3 points for mini, and +16.7 points for GPT-4.1. Mean RTT
+also falls for the GPT-4.1-family rows. The strongest GPT-4.1-family model
 reaches 93.3\% FTGA under the contract, but the unresolved rate does not vanish;
 residual failures are concentrated in exact-preservation and script/register/
 locale cases.
@@ -33,7 +37,8 @@ locale cases.
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\linewidth]{figures/ftga_by_condition.png}
-\caption{First-turn global alignment by model and condition on the 120-item stress pilot.}
+\caption{First-turn global alignment by model and condition on the 120-item
+stress pilot, including the GPT-5.x current-model refresh rows.}
 \label{fig:ftga}
 \end{figure}
 
@@ -43,7 +48,22 @@ clarifying the weaker mini result. For GPT-4.1, the contract improves FTGA on
 falls by 0.133 and mean token tax by 0.300. For nano, FTGA improves on 12 items,
 worsens on 1, and ties on 107 ($p=0.0034$); mean RTT falls by 0.142 and token
 tax by 0.351. Mini's FTGA movement is smaller: 4 improved, 0 worsened, and 116
-tied ($p=0.125$), although token-tax reduction is consistent.
+tied ($p=0.125$), although token-tax reduction is consistent at 0.16.
+
+The current-model refresh strengthens the timeliness claim. On the same 120
+items, \texttt{gpt-5.4-mini} moves from 80.0\% to 85.0\% FTGA with lower token
+tax but a higher unresolved rate; its +5.0 point item-bootstrap interval crosses
+zero at [-0.8, 11.7]. The full \texttt{gpt-5.5} run is clearer: FTGA rises from
+81.7\% to 98.3\% (+16.7 points, [10.0, 24.2], 20 improved/0 worsened), mean RTT
+falls from 0.225 to 0.017, and unresolved trajectories fall to 0.0\%
+(Table~\ref{tab:main}). The contract still leaves two GPT-5.5 first-turn
+failures, both Spanish-English editing-preservation rows that repair in one
+turn; the lower-cost model has 11 fixes, five first-turn regressions, and six
+unresolved contract trajectories.
+A generation-progress probe shows the same pattern at item level: GPT-5.x-family
+baseline rows reduce the normalized failure-pair rate from 96/360 for
+GPT-4.1-family baselines to 46/240, and \texttt{gpt-5.5} with the contract
+passes 38 of the 40 items where at least one GPT-4.1-family baseline failed.
 
 \subsection{Failure families}
 
@@ -66,13 +86,13 @@ Script/register/locale & 70.0 & 71.1 & 27/90 & 26/90 \\
 
 The main burden comes from implicit editing preservation, not from generic
 multilingual output-language inference. Table~\ref{tab:families-results} shows
-that aggregate baseline FTGA is only 33.3\% for editing preservation, with
+that aggregate baseline FTGA is 33.3\% for editing preservation, with
 60/90 first-turn failures across models. In contrast, output-language inference
 is saturated at 100.0\% FTGA in this particular pilot. The contract improves
 editing-preservation FTGA to 70.0\%, reducing mean RTT for that family from
 0.667 to 0.300. The family-level effect is largest for \texttt{gpt-4.1}
-(+63.3 points on editing preservation), followed by nano (+33.3) and mini
-(+13.3).
+(+63.3 points on editing preservation), followed by mini (+13.3) and nano
+(+33.3); in model order, the deltas are +63.3, +13.3, and +33.3.
 
 The component breakdown explains why editing preservation is difficult. In
 baseline editing-preservation rows, the first-turn language check passes only
@@ -82,6 +102,9 @@ barely move in some other families, and script/register/locale preservation
 remains below saturation. This suggests that the contract helps models separate
 instruction language from content language, but it does not fully solve literal
 span preservation.
+For nano quote-preservation rows, the contract lowers mean RTT from 0.63 to
+0.37 and unresolved rate from 13.3\% to 3.3\%, but first-turn exact
+preservation remains a capability boundary.
 
 \subsection{Language slices and item consistency}
 
@@ -117,9 +140,17 @@ Token tax decreases for all three models, but absolute token burden increases
 because the contract prompt is longer. For GPT-4.1, mean total tokens rise from
 132.7 under baseline to 256.3 under the contract, even though mean extra tokens
 after the first turn decrease from 51.2 to 32.9 and token tax falls from
-1.43$\times$ to 1.13$\times$. This is why we interpret token tax as a normalized
-repair-burden metric rather than as a cost-saving claim. Future evaluations
-should report both normalized repair cost and absolute cost.
+1.43$\times$ to 1.13$\times$. We therefore interpret token tax as normalized
+repair burden rather than cost savings; the same caveat holds across all five
+full-run models, including GPT-5.5, where 36.8 fewer post-first-turn repair
+tokens accompany 114.5 more total tokens per item.
+
+A 24-item repair-realism diagnostic shows that RTT is also sensitive to the
+wording of the repair. On baseline editing-preservation failures, the saved
+standard repair and a terse user-like repair both recover 24/24 sampled cases,
+but a frustrated repair recovers 17/24 and an explicit source-language contract
+recovers only 5/24, often because models keep explanatory framing in Spanish or
+Arabic. We treat this as interaction-realism evidence, not as a user study.
 
 \subsection{Prompt controls and mechanism evidence}
 
@@ -132,7 +163,12 @@ best in a later ablation: 80.0\% FTGA, 0.27 mean RTT, and 1.28$\times$ token tax
 This is an important claim boundary. The three-model paper-facing intervention
 is the full Global Interaction Contract, but the best nano prompt tested is the
 narrower content-preservation scaffold. The result suggests that content
-language and literal-preservation rules drive much of the mitigation.
+language and literal-preservation rules drive much of the mitigation. On
+current models, the narrower prompt is a near tie rather than a clear winner:
+85.8\% FTGA versus 85.0\% for the full contract on \texttt{gpt-5.4-mini}, and
+99.2\% versus 98.3\% on \texttt{gpt-5.5}. The current-model gaps are only
+one net item, so we treat preservation scaffolding as mechanism evidence, not
+as a uniformly better prompt.
 
 \subsection{Scorer sensitivity and audit}
 
@@ -143,12 +179,20 @@ relaxing task alone would not change it. Under the contract, relaxing language
 would move FTGA from 83.1\% to 83.3\%, and relaxing preservation would move it
 to 88.3\%. Many failures violate multiple checks at once, especially editing
 failures that combine language, script, and task violations.
+The task-useful diagnostic separates task noncompletion from hidden repair
+burden: 31/96 baseline first-turn failures still pass the task component, and
+the stricter task-plus-preservation slice falls from 11 to 1 under the
+contract.
 
 The blinded judge audit agrees with the corrected automatic scorer on 71/72
 sampled pass/fail labels (98.6\%; Wilson 95\% CI 92.5--99.8). The single
 pass/fail disagreement is an editing-preservation response where the automatic
 scorer rejects Spanish framing around English rewrites while the judge accepts
-the answer. Component agreement is lower for preservation and register/locale,
-which reinforces our conservative claim: the LLM judge is useful as a scorer
-sanity check, but native/near-native validation remains necessary before making
+the answer. A paired \texttt{gpt-5.5} judge refresh on the same 72 rows agrees
+with the automatic scorer on 70/72 labels and with the original \texttt{gpt-4.1}
+judge on 69/72 labels. The stronger judge is stricter on the Spanish-framing
+case and flags two additional auto-pass rows for register or concision issues.
+Component agreement is lower for preservation and register/locale, which
+reinforces our conservative claim: LLM judges are useful as scorer sanity
+checks, but native/near-native validation remains necessary before making
 stronger cultural or register claims.

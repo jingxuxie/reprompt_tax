@@ -1,0 +1,6 @@
+model_generation,model,scope,n_items,baseline_ftga_pct,contract_ftga_pct,delta_ftga_pp,baseline_mean_rtt,contract_mean_rtt,rtt_reduction,baseline_token_tax,contract_token_tax,token_tax_reduction,baseline_unresolved_pct,contract_unresolved_pct,unresolved_reduction_pp,ftga_sign_p,token_tax_sign_p
+GPT-4.1 family,gpt-4.1-nano,full120,120,67.5,76.7,9.2,0.467,0.325,0.142,1.693,1.341,0.351,5.8,4.2,1.7,0.00341796875,7.457856554538012e-11
+GPT-4.1 family,gpt-4.1-mini,full120,120,75.8,79.2,3.3,0.275,0.242,0.033,1.432,1.272,0.159,0.8,1.7,-0.8,0.125,3.725290298461914e-09
+GPT-4.1 family,gpt-4.1,full120,120,76.7,93.3,16.7,0.283,0.15,0.133,1.434,1.134,0.3,2.5,4.2,-1.7,1.9073486328125e-06,3.032386302947998e-06
+GPT-5.x family,gpt-5.4-mini,full120,120,80.0,85.0,5.0,0.25,0.25,0.0,1.379,1.241,0.138,2.5,5.0,-2.5,0.210113525390625,0.002315700054168701
+GPT-5.x family,gpt-5.5,full120,120,81.7,98.3,16.7,0.225,0.017,0.208,1.278,1.016,0.262,1.7,0.0,1.7,1.9073486328125e-06,4.76837158203125e-07

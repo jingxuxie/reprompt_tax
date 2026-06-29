@@ -38,6 +38,14 @@ FAILURE_TYPES = {
     "other",
 }
 
+COMPONENT_FAILURE_TYPES = {
+    "human_language_pass": "wrong_output_language",
+    "human_script_pass": "script_mismatch",
+    "human_preservation_pass": "preservation_failure",
+    "human_task_pass": "task_noncompletion",
+    "human_register_locale_pass": "register_locale_mismatch",
+}
+
 PRIVATE_FIELDS = {
     "item_id",
     "model",
@@ -51,6 +59,16 @@ PRIVATE_FIELDS = {
     "auto_register_locale_pass",
     "auto_failure_types",
 }
+
+LANGUAGE_PAIRS = ("ar-en", "es-en", "hi-en")
+TASK_FAMILIES = (
+    "editing_preservation",
+    "output_language_inference",
+    "quote_preservation",
+    "script_register_locale",
+)
+CONDITIONS = ("baseline", "contract")
+DEFAULT_MODELS = ("gpt-4.1", "gpt-4.1-mini", "gpt-4.1-nano")
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -118,15 +136,27 @@ def validate_roster(roster_rows: list[dict[str, str]]) -> dict[str, dict[str, st
     return by_id
 
 
+def parse_expected_models(value: str) -> tuple[str, ...]:
+    models = tuple(model.strip() for model in value.split(",") if model.strip())
+    require(bool(models), "expected at least one model")
+    return models
+
+
+def expected_row_count(models: tuple[str, ...]) -> int:
+    return len(LANGUAGE_PAIRS) * len(TASK_FAMILIES) * len(CONDITIONS) * len(models)
+
+
 def validate_annotations(
     *,
     annotation_rows: list[dict[str, str]],
     key_rows: list[dict[str, str]],
     roster_rows: list[dict[str, str]] | None,
     allow_smoke: bool,
+    expected_models: tuple[str, ...] = DEFAULT_MODELS,
 ) -> dict[str, Any]:
-    require(len(annotation_rows) == 72, f"expected 72 completed annotation rows, found {len(annotation_rows)}")
-    require(len(key_rows) == 72, f"expected 72 answer-key rows, found {len(key_rows)}")
+    expected_rows = expected_row_count(expected_models)
+    require(len(annotation_rows) == expected_rows, f"expected {expected_rows} completed annotation rows, found {len(annotation_rows)}")
+    require(len(key_rows) == expected_rows, f"expected {expected_rows} answer-key rows, found {len(key_rows)}")
     require(annotation_rows, "completed annotation file is empty")
     require(not PRIVATE_FIELDS.intersection(annotation_rows[0].keys()), "completed annotation file leaks private answer-key fields")
 
@@ -167,6 +197,18 @@ def validate_annotations(
             require(not failure_types, f"{row_id} passes but lists human_failure_types")
         else:
             require(failure_types, f"{row_id} fails but has no human_failure_types")
+            failure_type_set = set(failure_types)
+            for component_field, failure_type in COMPONENT_FAILURE_TYPES.items():
+                if values[component_field]:
+                    require(
+                        failure_type not in failure_type_set,
+                        f"{row_id} lists {failure_type} but {component_field} is TRUE",
+                    )
+                else:
+                    require(
+                        failure_type in failure_type_set,
+                        f"{row_id} has {component_field}=FALSE but is missing {failure_type}",
+                    )
             if row.get("human_notes", "").strip() == "":
                 require("other" not in failure_types, f"{row_id} uses other without human_notes")
 
@@ -186,8 +228,14 @@ def validate_annotations(
             all_component_pairs.append((values[human_field], parse_bool(key[auto_field], row_id=row_id, field=auto_field)))
 
     strata = Counter((key["model"], key["condition"], key["task_family"], key["language_pair"]) for key in key_rows)
-    require(len(strata) == 72, f"expected 72 model/condition/family/language strata, found {len(strata)}")
-    require(all(count == 1 for count in strata.values()), f"answer key strata not balanced: {strata}")
+    expected_strata = {
+        (model, condition, family, language_pair): 1
+        for model in expected_models
+        for condition in CONDITIONS
+        for family in TASK_FAMILIES
+        for language_pair in LANGUAGE_PAIRS
+    }
+    require(dict(strata) == expected_strata, f"answer key strata not balanced for expected models {expected_models}: {strata}")
 
     pass_agree = sum(human == auto for human, auto in pass_pairs)
     component_agree = sum(human == auto for human, auto in all_component_pairs)
@@ -206,6 +254,7 @@ def main() -> None:
     parser.add_argument("--annotations", type=Path, required=True)
     parser.add_argument("--answer-key", type=Path, default=Path("data/human_audit/human_audit_answer_key_v0.2.csv"))
     parser.add_argument("--annotator-roster", type=Path, default=Path("data/human_audit/human_audit_annotator_roster_v0.2.csv"))
+    parser.add_argument("--expected-models", default=",".join(DEFAULT_MODELS))
     parser.add_argument("--allow-smoke", action="store_true", help="Allow smoke-only completed files for plumbing tests, not paper claims.")
     args = parser.parse_args()
 
@@ -214,6 +263,7 @@ def main() -> None:
         key_rows=read_csv(args.answer_key),
         roster_rows=None if args.allow_smoke else read_csv(args.annotator_roster),
         allow_smoke=args.allow_smoke,
+        expected_models=parse_expected_models(args.expected_models),
     )
     print(
         "completed human-audit validation passed: "

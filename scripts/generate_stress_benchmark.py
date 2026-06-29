@@ -51,7 +51,7 @@ IMPLICIT_EDITING = [
 GRAMMAR_STRESS = [
     {
         "source": "The data are not enough to support this claim.",
-        "markers": ["data are not sufficient", "data is not enough", "data are not enough"],
+        "markers": ["data are insufficient", "data are not sufficient", "data is not enough", "data are not enough"],
     },
     {
         "source": "Each of the students have submitted their form.",

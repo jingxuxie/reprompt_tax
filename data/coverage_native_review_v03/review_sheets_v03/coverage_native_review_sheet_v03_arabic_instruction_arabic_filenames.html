@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RePromptTax v0.3 Native Review: Arabic Instruction, Arabic Content With English File Names</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; color: #1f2933; background: #f7f9fb; }
+    header { padding: 18px 24px; background: #23424f; color: white; }
+    main { max-width: 1180px; margin: 0 auto; padding: 18px 20px 32px; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    label { font-weight: 600; display: block; margin-bottom: 4px; }
+    input, select, textarea { box-sizing: border-box; width: 100%; border: 1px solid #bcc7d2; border-radius: 4px; padding: 7px; font: inherit; background: white; }
+    textarea { min-height: 72px; resize: vertical; }
+    button { border: 0; border-radius: 4px; background: #0b6bcb; color: white; padding: 9px 12px; font-weight: 700; cursor: pointer; }
+    button:focus, input:focus, select:focus, textarea:focus { outline: 3px solid #9fd0ff; outline-offset: 1px; }
+    .meta { color: #e1eef5; font-size: 13px; }
+    .toolbar { display: grid; grid-template-columns: minmax(220px, 1fr) auto; gap: 14px; align-items: end; margin: 16px 0 18px; }
+    .row { background: white; border: 1px solid #d5dee8; border-radius: 6px; margin: 14px 0; padding: 16px; }
+    .row-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .pill { display: inline-block; border-radius: 999px; background: #e8f1fb; color: #123c5c; padding: 3px 9px; font-size: 12px; font-weight: 700; }
+    .text-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; }
+    .field-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+    .wide { grid-column: span 3; }
+    .prompt, .constraints { white-space: pre-wrap; background: #f9fbfd; border: 1px solid #e1e7ee; border-radius: 4px; padding: 10px; line-height: 1.45; }
+    @media (max-width: 780px) {
+      .toolbar, .text-grid, .field-grid { grid-template-columns: 1fr; }
+      .wide { grid-column: span 1; }
+      main { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RePromptTax v0.3 Native Review: Arabic Instruction, Arabic Content With English File Names</h1>
+    <div class="meta">10 launch rows. Export filename: coverage_native_review_v03_arabic_instruction_arabic_filenames_completed.csv</div>
+  </header>
+  <main>
+    <div class="toolbar">
+      <div>
+        <label for="reviewer_id">Reviewer ID</label>
+        <input id="reviewer_id" autocomplete="off" placeholder="same ID as roster">
+      </div>
+      <button id="export_button" type="button">Download CSV</button>
+    </div>
+    <section id="rows"></section>
+  </main>
+  <script id="review-data" type="application/json">[{"review_id": "rpt_v03_native_001", "item_id": "v03_ar_ar_EP_001", "coverage_slice": "arabic_instruction_arabic_filenames", "language_pair": "ar-ar", "instruction_language": "Arabic", "content_language": "Arabic with English file names", "task_family": "editing_preservation", "user_prompt": "يرجى تحسين هذه الرسالة بالعربية مع إبقاء أسماء الملفات بالإنجليزية كما هي: \"راجعت ملف budget_plan.xlsx، لكن ملخص presentation_draft.pptx يحتاج إلى تعديل قبل الاجتماع.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"budget_plan.xlsx\", \"presentation_draft.pptx\"]", "required_any_markers": "[\"budget_plan.xlsx\", \"presentation_draft.pptx\"]", "forbidden_markers": "[\"Here is\", \"Claro\", \"budget plan\", \"presentation draft\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Arabic instruction and Arabic target content with literal English file-name preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_002", "item_id": "v03_ar_ar_EP_002", "coverage_slice": "arabic_instruction_arabic_filenames", "language_pair": "ar-ar", "instruction_language": "Arabic", "content_language": "Arabic with English file names", "task_family": "editing_preservation", "user_prompt": "يرجى تحسين هذه الرسالة بالعربية مع إبقاء أسماء الملفات بالإنجليزية كما هي: \"حفظ الفريق ملاحظات workshop_notes.docx، وينتظر مراجعة chart_update.png قبل النشر.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"workshop_notes.docx\", \"chart_update.png\"]", "required_any_markers": "[\"workshop_notes.docx\", \"chart_update.png\"]", "forbidden_markers": "[\"Here is\", \"Claro\", \"budget plan\", \"presentation draft\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Arabic instruction and Arabic target content with literal English file-name preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_003", "item_id": "v03_ar_ar_EP_003", "coverage_slice": "arabic_instruction_arabic_filenames", "language_pair": "ar-ar", "instruction_language": "Arabic", "content_language": "Arabic with English file names", "task_family": "editing_preservation", "user_prompt": "يرجى تحسين هذه الرسالة بالعربية مع إبقاء أسماء الملفات بالإنجليزية كما هي: \"يحتوي folder_map.csv على أسماء الأقسام، لكن staffing_overview.pdf يحتاج إلى فقرة افتتاحية.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"folder_map.csv\", \"staffing_overview.pdf\"]", "required_any_markers": "[\"folder_map.csv\", \"staffing_overview.pdf\"]", "forbidden_markers": "[\"Here is\", \"Claro\", \"budget plan\", \"presentation draft\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Arabic instruction and Arabic target content with literal English file-name preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_004", "item_id": "v03_ar_ar_EP_004", "coverage_slice": "arabic_instruction_arabic_filenames", "language_pair": "ar-ar", "instruction_language": "Arabic", "content_language": "Arabic with English file names", "task_family": "editing_preservation", "user_prompt": "يرجى تحسين هذه الرسالة بالعربية مع إبقاء أسماء الملفات بالإنجليزية كما هي: \"أرسلت لي نسخة survey_results.xlsx، لكن response_summary.docx لا يشرح سبب التغيير.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"survey_results.xlsx\", \"response_summary.docx\"]", "required_any_markers": "[\"survey_results.xlsx\", \"response_summary.docx\"]", "forbidden_markers": "[\"Here is\", \"Claro\", \"budget plan\", \"presentation draft\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Arabic instruction and Arabic target content with literal English file-name preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_005", "item_id": "v03_ar_ar_EP_005", "coverage_slice": "arabic_instruction_arabic_filenames", "language_pair": "ar-ar", "instruction_language": "Arabic", "content_language": "Arabic with English file names", "task_family": "editing_preservation", "user_prompt": "يرجى تحسين هذه الرسالة بالعربية مع إبقاء أسماء الملفات بالإنجليزية كما هي: \"تطابق cost_table.csv مع العرض، لكن launch_brief.pptx يحتاج إلى ترتيب أوضح.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"cost_table.csv\", \"launch_brief.pptx\"]", "required_any_markers": "[\"cost_table.csv\", \"launch_brief.pptx\"]", "forbidden_markers": "[\"Here is\", \"Claro\", \"budget plan\", \"presentation draft\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Arabic instruction and Arabic target content with literal English file-name preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_006", "item_id": "v03_ar_ar_EP_006", "coverage_slice": "arabic_instruction_arabic_filenames", "language_pair": "ar-ar", "instruction_language": "Arabic", "content_language": "Arabic with English file names", "task_family": "editing_preservation", "user_prompt": "يرجى تحسين هذه الرسالة بالعربية مع إبقاء أسماء الملفات بالإنجليزية كما هي: \"سجلت الملاحظات في design_notes.docx، وبقيت صورة banner_mockup.png بحاجة إلى وصف قصير.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"design_notes.docx\", \"banner_mockup.png\"]", "required_any_markers": "[\"design_notes.docx\", \"banner_mockup.png\"]", "forbidden_markers": "[\"Here is\", \"Claro\", \"budget plan\", \"presentation draft\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Arabic instruction and Arabic target content with literal English file-name preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_007", "item_id": "v03_ar_ar_EP_007", "coverage_slice": "arabic_instruction_arabic_filenames", "language_pair": "ar-ar", "instruction_language": "Arabic", "content_language": "Arabic with English file names", "task_family": "editing_preservation", "user_prompt": "يرجى تحسين هذه الرسالة بالعربية مع إبقاء أسماء الملفات بالإنجليزية كما هي: \"راجعنا ملف agenda_final.docx، لكن checklist_grid.xlsx لا يذكر خطوة المتابعة.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"agenda_final.docx\", \"checklist_grid.xlsx\"]", "required_any_markers": "[\"agenda_final.docx\", \"checklist_grid.xlsx\"]", "forbidden_markers": "[\"Here is\", \"Claro\", \"budget plan\", \"presentation draft\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Arabic instruction and Arabic target content with literal English file-name preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_008", "item_id": "v03_ar_ar_EP_008", "coverage_slice": "arabic_instruction_arabic_filenames", "language_pair": "ar-ar", "instruction_language": "Arabic", "content_language": "Arabic with English file names", "task_family": "editing_preservation", "user_prompt": "يرجى تحسين هذه الرسالة بالعربية مع إبقاء أسماء الملفات بالإنجليزية كما هي: \"يشرح market_outline.pdf الفكرة العامة، لكن demo_script.docx يحتاج إلى خاتمة أبسط.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"market_outline.pdf\", \"demo_script.docx\"]", "required_any_markers": "[\"market_outline.pdf\", \"demo_script.docx\"]", "forbidden_markers": "[\"Here is\", \"Claro\", \"budget plan\", \"presentation draft\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Arabic instruction and Arabic target content with literal English file-name preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_009", "item_id": "v03_ar_ar_EP_009", "coverage_slice": "arabic_instruction_arabic_filenames", "language_pair": "ar-ar", "instruction_language": "Arabic", "content_language": "Arabic with English file names", "task_family": "editing_preservation", "user_prompt": "يرجى تحسين هذه الرسالة بالعربية مع إبقاء أسماء الملفات بالإنجليزية كما هي: \"تضمين صورة route_map.png مناسب، لكن report_draft.pdf يحتاج إلى عنوان أوضح.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"route_map.png\", \"report_draft.pdf\"]", "required_any_markers": "[\"route_map.png\", \"report_draft.pdf\"]", "forbidden_markers": "[\"Here is\", \"Claro\", \"budget plan\", \"presentation draft\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Arabic instruction and Arabic target content with literal English file-name preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_010", "item_id": "v03_ar_ar_EP_010", "coverage_slice": "arabic_instruction_arabic_filenames", "language_pair": "ar-ar", "instruction_language": "Arabic", "content_language": "Arabic with English file names", "task_family": "editing_preservation", "user_prompt": "يرجى تحسين هذه الرسالة بالعربية مع إبقاء أسماء الملفات بالإنجليزية كما هي: \"يوضح ملف training_plan.docx الأهداف، لكن quiz_items.csv يحتاج إلى أمثلة إضافية.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"training_plan.docx\", \"quiz_items.csv\"]", "required_any_markers": "[\"training_plan.docx\", \"quiz_items.csv\"]", "forbidden_markers": "[\"Here is\", \"Claro\", \"budget plan\", \"presentation draft\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Arabic instruction and Arabic target content with literal English file-name preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}]</script>
+  <script>
+    const rows = JSON.parse(document.getElementById('review-data').textContent);
+    const exportFields = ["review_id", "item_id", "coverage_slice", "language_pair", "instruction_language", "content_language", "task_family", "user_prompt", "expected_response_language", "expected_script", "must_preserve_spans", "required_any_markers", "forbidden_markers", "known_bad_outputs", "register_requirement", "locale_requirement", "notes_for_reviewers", "reviewer_id", "reviewer_prompt_clear", "reviewer_target_language_natural", "reviewer_script_expectation_valid", "reviewer_preservation_spans_valid", "reviewer_known_bad_outputs_valid", "reviewer_release_usable", "reviewer_issue_types", "reviewer_notes"];
+    const reviewFields = ["reviewer_id", "reviewer_prompt_clear", "reviewer_target_language_natural", "reviewer_script_expectation_valid", "reviewer_preservation_spans_valid", "reviewer_known_bad_outputs_valid", "reviewer_release_usable", "reviewer_issue_types", "reviewer_notes"];
+    const boolFields = reviewFields.filter((field) => field.startsWith('reviewer_') && !['reviewer_id', 'reviewer_issue_types', 'reviewer_notes'].includes(field));
+
+    function optionHtml() {
+      return '<option value=""></option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option>';
+    }
+
+    function escapeText(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    }
+
+    function fieldId(row, field) {
+      return `${row.review_id}__${field}`;
+    }
+
+    function renderRows() {
+      const container = document.getElementById('rows');
+      container.innerHTML = rows.map((row) => {
+        const constraints = [
+          `Expected response language: ${row.expected_response_language}`,
+          `Expected script: ${row.expected_script}`,
+          `Preserve exactly: ${row.must_preserve_spans || '[]'}`,
+          `Required markers: ${row.required_any_markers || '[]'}`,
+          `Forbidden markers: ${row.forbidden_markers || '[]'}`,
+          `Known bad outputs: ${row.known_bad_outputs || '[]'}`,
+          `Register: ${row.register_requirement || ''}`,
+          `Locale: ${row.locale_requirement || ''}`,
+          `Notes: ${row.notes_for_reviewers || ''}`,
+        ].join('\n');
+        const boolInputs = boolFields.map((field) => `
+          <div>
+            <label for="${fieldId(row, field)}">${field.replaceAll('_', ' ')}</label>
+            <select id="${fieldId(row, field)}" data-review-id="${row.review_id}" data-field="${field}">${optionHtml()}</select>
+          </div>
+        `).join('');
+        return `
+          <article class="row">
+            <div class="row-head">
+              <strong>${escapeText(row.review_id)}</strong>
+              <span>
+                <span class="pill">${escapeText(row.coverage_slice)}</span>
+                <span class="pill">${escapeText(row.language_pair)}</span>
+                <span class="pill">${escapeText(row.content_language)}</span>
+              </span>
+            </div>
+            <div class="text-grid">
+              <div>
+                <label>User prompt</label>
+                <div class="prompt">${escapeText(row.user_prompt)}</div>
+              </div>
+              <div>
+                <label>Review constraints</label>
+                <div class="constraints">${escapeText(constraints)}</div>
+              </div>
+            </div>
+            <div class="field-grid">
+              ${boolInputs}
+              <div class="wide">
+                <label for="${fieldId(row, 'reviewer_issue_types')}">reviewer issue types</label>
+                <input id="${fieldId(row, 'reviewer_issue_types')}" data-review-id="${row.review_id}" data-field="reviewer_issue_types" placeholder="comma-separated, blank if release usable">
+              </div>
+              <div class="wide">
+                <label for="${fieldId(row, 'reviewer_notes')}">reviewer notes</label>
+                <textarea id="${fieldId(row, 'reviewer_notes')}" data-review-id="${row.review_id}" data-field="reviewer_notes"></textarea>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function csvEscape(value) {
+      const text = String(value ?? '');
+      if (/[",\n\r]/.test(text)) {
+        return `"${text.replaceAll('"', '""')}"`;
+      }
+      return text;
+    }
+
+    function collectRows() {
+      const reviewerId = document.getElementById('reviewer_id').value.trim();
+      return rows.map((row) => {
+        const out = {};
+        for (const field of exportFields) {
+          out[field] = row[field] ?? '';
+        }
+        out.reviewer_id = reviewerId;
+        for (const field of reviewFields) {
+          if (field === 'reviewer_id') continue;
+          const element = document.getElementById(fieldId(row, field));
+          out[field] = element ? element.value : '';
+        }
+        return out;
+      });
+    }
+
+    function downloadCsv() {
+      const completed = collectRows();
+      const lines = [exportFields.join(',')];
+      for (const row of completed) {
+        lines.push(exportFields.map((field) => csvEscape(row[field])).join(','));
+      }
+      const blob = new Blob([lines.join('\n') + '\n'], {type: 'text/csv;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'coverage_native_review_v03_arabic_instruction_arabic_filenames_completed.csv';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    renderRows();
+    document.getElementById('export_button').addEventListener('click', downloadCsv);
+  </script>
+</body>
+</html>

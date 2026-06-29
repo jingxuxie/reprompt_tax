@@ -1,0 +1,7 @@
+model,condition,language_pair,n,ftga,mean_rtt,unresolved_rate,repair_success_at_1,repair_success_at_2,mean_token_tax,initially_failed_n,ftga_ci_low,ftga_ci_high,mean_rtt_ci_low,mean_rtt_ci_high
+gpt-5.5,baseline,ar-en,40,0.75,0.25,0,1.0,1.0,1.337682350669093,10,0.625,0.875,0.125,0.375
+gpt-5.5,baseline,es-en,40,0.75,0.275,0,0.9,1.0,1.3802076108248413,10,0.625,0.875,0.125,0.45
+gpt-5.5,baseline,hi-en,40,0.95,0.15,0.05,0.0,0.0,1.1173626373626373,2,0.875,1,0,0.375
+gpt-5.5,contract,ar-en,40,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.5,contract,es-en,40,0.95,0.05,0,1.0,1.0,1.0494755244755245,2,0.875,1,0,0.125
+gpt-5.5,contract,hi-en,40,1,0,0,,,1.0,0,1,1,0,0

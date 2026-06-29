@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RePromptTax v0.3 Native Review: Spanish Instruction, Arabic Quote</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; color: #1f2933; background: #f7f9fb; }
+    header { padding: 18px 24px; background: #23424f; color: white; }
+    main { max-width: 1180px; margin: 0 auto; padding: 18px 20px 32px; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    label { font-weight: 600; display: block; margin-bottom: 4px; }
+    input, select, textarea { box-sizing: border-box; width: 100%; border: 1px solid #bcc7d2; border-radius: 4px; padding: 7px; font: inherit; background: white; }
+    textarea { min-height: 72px; resize: vertical; }
+    button { border: 0; border-radius: 4px; background: #0b6bcb; color: white; padding: 9px 12px; font-weight: 700; cursor: pointer; }
+    button:focus, input:focus, select:focus, textarea:focus { outline: 3px solid #9fd0ff; outline-offset: 1px; }
+    .meta { color: #e1eef5; font-size: 13px; }
+    .toolbar { display: grid; grid-template-columns: minmax(220px, 1fr) auto; gap: 14px; align-items: end; margin: 16px 0 18px; }
+    .row { background: white; border: 1px solid #d5dee8; border-radius: 6px; margin: 14px 0; padding: 16px; }
+    .row-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .pill { display: inline-block; border-radius: 999px; background: #e8f1fb; color: #123c5c; padding: 3px 9px; font-size: 12px; font-weight: 700; }
+    .text-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; }
+    .field-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+    .wide { grid-column: span 3; }
+    .prompt, .constraints { white-space: pre-wrap; background: #f9fbfd; border: 1px solid #e1e7ee; border-radius: 4px; padding: 10px; line-height: 1.45; }
+    @media (max-width: 780px) {
+      .toolbar, .text-grid, .field-grid { grid-template-columns: 1fr; }
+      .wide { grid-column: span 1; }
+      main { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RePromptTax v0.3 Native Review: Spanish Instruction, Arabic Quote</h1>
+    <div class="meta">10 launch rows. Export filename: coverage_native_review_v03_spanish_instruction_arabic_quote_completed.csv</div>
+  </header>
+  <main>
+    <div class="toolbar">
+      <div>
+        <label for="reviewer_id">Reviewer ID</label>
+        <input id="reviewer_id" autocomplete="off" placeholder="same ID as roster">
+      </div>
+      <button id="export_button" type="button">Download CSV</button>
+    </div>
+    <section id="rows"></section>
+  </main>
+  <script id="review-data" type="application/json">[{"review_id": "rpt_v03_native_051", "item_id": "v03_es_ar_EP_001", "coverage_slice": "spanish_instruction_arabic_quote", "language_pair": "es-ar", "instruction_language": "Spanish", "content_language": "Arabic", "task_family": "editing_preservation", "user_prompt": "¿Puedes mejorar esta cita en árabe sin traducirla al español ni cambiar sus términos clave? \"أنهى الفريق المسودة، لكن الخاتمة تحتاج إلى توضيح قبل الإرسال.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"المسودة\", \"الخاتمة\"]", "required_any_markers": "[\"المسودة\", \"الخاتمة\"]", "forbidden_markers": "[\"Claro\", \"Aquí tienes\", \"El \", \"La \", \"Here is\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Spanish instruction with Arabic target content; targets non-English-to-non-English preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_052", "item_id": "v03_es_ar_EP_002", "coverage_slice": "spanish_instruction_arabic_quote", "language_pair": "es-ar", "instruction_language": "Spanish", "content_language": "Arabic", "task_family": "editing_preservation", "user_prompt": "¿Puedes mejorar esta cita en árabe sin traducirla al español ni cambiar sus términos clave? \"ستفتح المكتبة مبكرا يوم الاثنين لأن جلسة القراءة ستبدأ صباحا.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"المكتبة\", \"جلسة القراءة\"]", "required_any_markers": "[\"المكتبة\", \"جلسة القراءة\"]", "forbidden_markers": "[\"Claro\", \"Aquí tienes\", \"El \", \"La \", \"Here is\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Spanish instruction with Arabic target content; targets non-English-to-non-English preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_053", "item_id": "v03_es_ar_EP_003", "coverage_slice": "spanish_instruction_arabic_quote", "language_pair": "es-ar", "instruction_language": "Spanish", "content_language": "Arabic", "task_family": "editing_preservation", "user_prompt": "¿Puedes mejorar esta cita en árabe sin traducirla al español ni cambiar sus términos clave? \"وافق العميل على التصميم، لكنه طلب تعديلات في الغلاف.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"العميل\", \"الغلاف\"]", "required_any_markers": "[\"العميل\", \"الغلاف\"]", "forbidden_markers": "[\"Claro\", \"Aquí tienes\", \"El \", \"La \", \"Here is\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Spanish instruction with Arabic target content; targets non-English-to-non-English preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_054", "item_id": "v03_es_ar_EP_004", "coverage_slice": "spanish_instruction_arabic_quote", "language_pair": "es-ar", "instruction_language": "Spanish", "content_language": "Arabic", "task_family": "editing_preservation", "user_prompt": "¿Puedes mejorar esta cita en árabe sin traducirla al español ni cambiar sus términos clave? \"تقدم الصف في المشروع، لكن الملخص النهائي يحتاج إلى أمثلة.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"المشروع\", \"الملخص النهائي\"]", "required_any_markers": "[\"المشروع\", \"الملخص النهائي\"]", "forbidden_markers": "[\"Claro\", \"Aquí tienes\", \"El \", \"La \", \"Here is\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Spanish instruction with Arabic target content; targets non-English-to-non-English preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_055", "item_id": "v03_es_ar_EP_005", "coverage_slice": "spanish_instruction_arabic_quote", "language_pair": "es-ar", "instruction_language": "Spanish", "content_language": "Arabic", "task_family": "editing_preservation", "user_prompt": "¿Puedes mejorar esta cita en árabe sin traducirla al español ni cambiar sus términos clave? \"وصلت الحملة إلى عائلات جديدة وتلقت ملاحظات حول التقويم.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"الحملة\", \"التقويم\"]", "required_any_markers": "[\"الحملة\", \"التقويم\"]", "forbidden_markers": "[\"Claro\", \"Aquí tienes\", \"El \", \"La \", \"Here is\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Spanish instruction with Arabic target content; targets non-English-to-non-English preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_056", "item_id": "v03_es_ar_EP_006", "coverage_slice": "spanish_instruction_arabic_quote", "language_pair": "es-ar", "instruction_language": "Spanish", "content_language": "Arabic", "task_family": "editing_preservation", "user_prompt": "¿Puedes mejorar esta cita en árabe sin traducirla al español ni cambiar sus términos clave? \"أكد المكتب موعد الاجتماع، لكن الميزانية لم تعتمد بعد.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"الاجتماع\", \"الميزانية\"]", "required_any_markers": "[\"الاجتماع\", \"الميزانية\"]", "forbidden_markers": "[\"Claro\", \"Aquí tienes\", \"El \", \"La \", \"Here is\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Spanish instruction with Arabic target content; targets non-English-to-non-English preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_057", "item_id": "v03_es_ar_EP_007", "coverage_slice": "spanish_instruction_arabic_quote", "language_pair": "es-ar", "instruction_language": "Spanish", "content_language": "Arabic", "task_family": "editing_preservation", "user_prompt": "¿Puedes mejorar esta cita en árabe sin traducirla al español ni cambiar sus términos clave? \"شرح المعلم التمرين وطلب تسجيل التقدم اليومي.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"التمرين\", \"التقدم اليومي\"]", "required_any_markers": "[\"التمرين\", \"التقدم اليومي\"]", "forbidden_markers": "[\"Claro\", \"Aquí tienes\", \"El \", \"La \", \"Here is\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Spanish instruction with Arabic target content; targets non-English-to-non-English preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_058", "item_id": "v03_es_ar_EP_008", "coverage_slice": "spanish_instruction_arabic_quote", "language_pair": "es-ar", "instruction_language": "Spanish", "content_language": "Arabic", "task_family": "editing_preservation", "user_prompt": "¿Puedes mejorar esta cita en árabe sin traducirla al español ni cambiar sus términos clave? \"حدث المتجر المخزون وخصص مساحة للمنتجات المحلية.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"المخزون\", \"المنتجات المحلية\"]", "required_any_markers": "[\"المخزون\", \"المنتجات المحلية\"]", "forbidden_markers": "[\"Claro\", \"Aquí tienes\", \"El \", \"La \", \"Here is\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Spanish instruction with Arabic target content; targets non-English-to-non-English preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_059", "item_id": "v03_es_ar_EP_009", "coverage_slice": "spanish_instruction_arabic_quote", "language_pair": "es-ar", "instruction_language": "Spanish", "content_language": "Arabic", "task_family": "editing_preservation", "user_prompt": "¿Puedes mejorar esta cita en árabe sin traducirla al español ni cambiar sus términos clave? \"نشر المتحف البرنامج وأضاف جولة إرشادية في المساء.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"البرنامج\", \"جولة إرشادية\"]", "required_any_markers": "[\"البرنامج\", \"جولة إرشادية\"]", "forbidden_markers": "[\"Claro\", \"Aquí tienes\", \"El \", \"La \", \"Here is\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Spanish instruction with Arabic target content; targets non-English-to-non-English preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}, {"review_id": "rpt_v03_native_060", "item_id": "v03_es_ar_EP_010", "coverage_slice": "spanish_instruction_arabic_quote", "language_pair": "es-ar", "instruction_language": "Spanish", "content_language": "Arabic", "task_family": "editing_preservation", "user_prompt": "¿Puedes mejorar esta cita en árabe sin traducirla al español ni cambiar sus términos clave? \"أغلقت المؤسسة الاستبيان وستشارك النتائج في أغسطس.\"", "expected_response_language": "Arabic", "expected_script": "Arabic", "must_preserve_spans": "[\"الاستبيان\", \"النتائج\"]", "required_any_markers": "[\"الاستبيان\", \"النتائج\"]", "forbidden_markers": "[\"Claro\", \"Aquí tienes\", \"El \", \"La \", \"Here is\", \"प्रिय\", \"नमस्ते\"]", "known_bad_outputs": "[\"translation into the instruction language\", \"English paraphrase of the target-language content\", \"omission or translation of preserved target-language terms\"]", "register_requirement": "natural edited message in the target content language", "locale_requirement": "", "notes_for_reviewers": "Spanish instruction with Arabic target content; targets non-English-to-non-English preservation. Synthetic scaffold only; requires native validation before claims.", "reviewer_id": "", "reviewer_prompt_clear": "", "reviewer_target_language_natural": "", "reviewer_script_expectation_valid": "", "reviewer_preservation_spans_valid": "", "reviewer_known_bad_outputs_valid": "", "reviewer_release_usable": "", "reviewer_issue_types": "", "reviewer_notes": ""}]</script>
+  <script>
+    const rows = JSON.parse(document.getElementById('review-data').textContent);
+    const exportFields = ["review_id", "item_id", "coverage_slice", "language_pair", "instruction_language", "content_language", "task_family", "user_prompt", "expected_response_language", "expected_script", "must_preserve_spans", "required_any_markers", "forbidden_markers", "known_bad_outputs", "register_requirement", "locale_requirement", "notes_for_reviewers", "reviewer_id", "reviewer_prompt_clear", "reviewer_target_language_natural", "reviewer_script_expectation_valid", "reviewer_preservation_spans_valid", "reviewer_known_bad_outputs_valid", "reviewer_release_usable", "reviewer_issue_types", "reviewer_notes"];
+    const reviewFields = ["reviewer_id", "reviewer_prompt_clear", "reviewer_target_language_natural", "reviewer_script_expectation_valid", "reviewer_preservation_spans_valid", "reviewer_known_bad_outputs_valid", "reviewer_release_usable", "reviewer_issue_types", "reviewer_notes"];
+    const boolFields = reviewFields.filter((field) => field.startsWith('reviewer_') && !['reviewer_id', 'reviewer_issue_types', 'reviewer_notes'].includes(field));
+
+    function optionHtml() {
+      return '<option value=""></option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option>';
+    }
+
+    function escapeText(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    }
+
+    function fieldId(row, field) {
+      return `${row.review_id}__${field}`;
+    }
+
+    function renderRows() {
+      const container = document.getElementById('rows');
+      container.innerHTML = rows.map((row) => {
+        const constraints = [
+          `Expected response language: ${row.expected_response_language}`,
+          `Expected script: ${row.expected_script}`,
+          `Preserve exactly: ${row.must_preserve_spans || '[]'}`,
+          `Required markers: ${row.required_any_markers || '[]'}`,
+          `Forbidden markers: ${row.forbidden_markers || '[]'}`,
+          `Known bad outputs: ${row.known_bad_outputs || '[]'}`,
+          `Register: ${row.register_requirement || ''}`,
+          `Locale: ${row.locale_requirement || ''}`,
+          `Notes: ${row.notes_for_reviewers || ''}`,
+        ].join('\n');
+        const boolInputs = boolFields.map((field) => `
+          <div>
+            <label for="${fieldId(row, field)}">${field.replaceAll('_', ' ')}</label>
+            <select id="${fieldId(row, field)}" data-review-id="${row.review_id}" data-field="${field}">${optionHtml()}</select>
+          </div>
+        `).join('');
+        return `
+          <article class="row">
+            <div class="row-head">
+              <strong>${escapeText(row.review_id)}</strong>
+              <span>
+                <span class="pill">${escapeText(row.coverage_slice)}</span>
+                <span class="pill">${escapeText(row.language_pair)}</span>
+                <span class="pill">${escapeText(row.content_language)}</span>
+              </span>
+            </div>
+            <div class="text-grid">
+              <div>
+                <label>User prompt</label>
+                <div class="prompt">${escapeText(row.user_prompt)}</div>
+              </div>
+              <div>
+                <label>Review constraints</label>
+                <div class="constraints">${escapeText(constraints)}</div>
+              </div>
+            </div>
+            <div class="field-grid">
+              ${boolInputs}
+              <div class="wide">
+                <label for="${fieldId(row, 'reviewer_issue_types')}">reviewer issue types</label>
+                <input id="${fieldId(row, 'reviewer_issue_types')}" data-review-id="${row.review_id}" data-field="reviewer_issue_types" placeholder="comma-separated, blank if release usable">
+              </div>
+              <div class="wide">
+                <label for="${fieldId(row, 'reviewer_notes')}">reviewer notes</label>
+                <textarea id="${fieldId(row, 'reviewer_notes')}" data-review-id="${row.review_id}" data-field="reviewer_notes"></textarea>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function csvEscape(value) {
+      const text = String(value ?? '');
+      if (/[",\n\r]/.test(text)) {
+        return `"${text.replaceAll('"', '""')}"`;
+      }
+      return text;
+    }
+
+    function collectRows() {
+      const reviewerId = document.getElementById('reviewer_id').value.trim();
+      return rows.map((row) => {
+        const out = {};
+        for (const field of exportFields) {
+          out[field] = row[field] ?? '';
+        }
+        out.reviewer_id = reviewerId;
+        for (const field of reviewFields) {
+          if (field === 'reviewer_id') continue;
+          const element = document.getElementById(fieldId(row, field));
+          out[field] = element ? element.value : '';
+        }
+        return out;
+      });
+    }
+
+    function downloadCsv() {
+      const completed = collectRows();
+      const lines = [exportFields.join(',')];
+      for (const row of completed) {
+        lines.push(exportFields.map((field) => csvEscape(row[field])).join(','));
+      }
+      const blob = new Blob([lines.join('\n') + '\n'], {type: 'text/csv;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'coverage_native_review_v03_spanish_instruction_arabic_quote_completed.csv';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    renderRows();
+    document.getElementById('export_button').addEventListener('click', downloadCsv);
+  </script>
+</body>
+</html>

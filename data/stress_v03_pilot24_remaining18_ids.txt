@@ -1,0 +1,19 @@
+# Remaining v0.3 pilot24 items not covered by the saved smoke6 run.
+v03_en_es_EP_002
+v03_en_es_EP_003
+v03_en_es_EP_004
+v03_en_hi_EP_002
+v03_en_hi_EP_003
+v03_en_hi_EP_004
+v03_en_ar_EP_002
+v03_en_ar_EP_003
+v03_en_ar_EP_004
+v03_es_ar_EP_002
+v03_es_ar_EP_003
+v03_es_ar_EP_004
+v03_hi_hi_EP_002
+v03_hi_hi_EP_003
+v03_hi_hi_EP_004
+v03_ar_ar_EP_002
+v03_ar_ar_EP_003
+v03_ar_ar_EP_004

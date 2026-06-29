@@ -1,0 +1,13 @@
+coverage_slice,condition,n,ftga,mean_rtt,unresolved_rate,repair_success_at_2,mean_token_tax,initially_failed_n
+arabic_instruction_arabic_filenames,baseline,4,1.0,0.0,0.0,,1.0,0
+arabic_instruction_arabic_filenames,contract,4,1.0,0.0,0.0,,1.0,0
+english_instruction_arabic_content,baseline,4,0.75,0.75,0.25,0.0,1.902027027027027,1
+english_instruction_arabic_content,contract,4,0.75,0.75,0.25,0.0,1.6233624454148472,1
+english_instruction_hindi_content,baseline,4,0.75,0.75,0.25,0.0,1.8779761904761905,1
+english_instruction_hindi_content,contract,4,1.0,0.0,0.0,,1.0,0
+english_instruction_spanish_content,baseline,4,1.0,0.0,0.0,,1.0,0
+english_instruction_spanish_content,contract,4,1.0,0.0,0.0,,1.0,0
+hindi_english_instruction_hindi_devanagari,baseline,4,1.0,0.0,0.0,,1.0,0
+hindi_english_instruction_hindi_devanagari,contract,4,1.0,0.0,0.0,,1.0,0
+spanish_instruction_arabic_quote,baseline,4,0.0,1.0,0.0,1.0,2.6941556273378664,4
+spanish_instruction_arabic_quote,contract,4,1.0,0.0,0.0,,1.0,0

@@ -25,11 +25,29 @@ DEFAULT_MODEL_ARTIFACTS = [
         "prompt_ablation_content_preservation",
         Path("results/scores/openai_nano_stress_v02_full120_content_preservation_auto_scores.jsonl"),
     ),
+    (
+        "coverage_pilot_v03_gpt54mini",
+        Path("results/scores/openai_gpt54mini_stress_v03_pilot24_auto_scores.jsonl"),
+    ),
+    (
+        "coverage_smoke_v03_gpt55",
+        Path("results/scores/openai_gpt55_stress_v03_smoke6_auto_scores.jsonl"),
+    ),
 ]
 DEFAULT_JUDGE_ARTIFACTS = [
     (
         "judge_audit",
         Path("results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl"),
+    ),
+    (
+        "judge_refresh_gpt55",
+        Path("results/scores/openai_three_model_stress_v02_full120_judge_gpt55_audit72.jsonl"),
+    ),
+]
+DEFAULT_REPAIR_ARTIFACTS = [
+    (
+        "repair_realism_editing_baseline24",
+        Path("results/scores/openai_three_model_stress_v02_repair_realism_editing_baseline24.jsonl"),
     ),
 ]
 
@@ -127,12 +145,46 @@ def add_judge_rows(
     )
 
 
+def add_repair_rows(
+    *,
+    rows: list[dict[str, Any]],
+    artifact_label: str,
+    rel_path: Path,
+    artifact_rows: list[dict[str, Any]],
+    repair_group_rows: dict[tuple[str, str, str], list[dict[str, Any]]],
+) -> None:
+    api_rows = [row for row in rows if row.get("source") == "repair_variant_api"]
+    require(bool(api_rows), f"{rel_path} has no repair-variant API rows")
+    for row in api_rows:
+        for field in ("item_id", "model", "condition", "repair_variant", "input_tokens", "output_tokens", "created_at"):
+            require(field in row, f"{rel_path} row missing {field}")
+        repair_group_rows[(artifact_label, row["model"], row["repair_variant"])].append(row)
+
+    timestamps = [str(row["created_at"]) for row in api_rows]
+    start, end = iso_range(timestamps)
+    artifact_rows.append(
+        {
+            "artifact_label": artifact_label,
+            "artifact_kind": "repair_variant_responses",
+            "path": str(rel_path),
+            "api_response_rows": len(api_rows),
+            "first_turn_rows": 0,
+            "trajectories": len({(row["item_id"], row["model"], row["condition"], row["repair_variant"]) for row in api_rows}),
+            "input_tokens": sum(int(row["input_tokens"]) for row in api_rows),
+            "output_tokens": sum(int(row["output_tokens"]) for row in api_rows),
+            "total_tokens": sum(int(row["input_tokens"]) + int(row["output_tokens"]) for row in api_rows),
+            "created_at_start": start,
+            "created_at_end": end,
+        }
+    )
+
+
 def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     require(bool(rows), f"cannot write empty CSV {path}")
     path.parent.mkdir(parents=True, exist_ok=True)
     fieldnames = list(rows[0].keys())
     with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -179,13 +231,34 @@ def summarize_judge_groups(judge_group_rows: dict[tuple[str, str], list[dict[str
     return out
 
 
+def summarize_repair_groups(repair_group_rows: dict[tuple[str, str, str], list[dict[str, Any]]]) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    for (artifact_label, model, repair_variant), rows in sorted(repair_group_rows.items()):
+        start, end = iso_range([str(row["created_at"]) for row in rows])
+        out.append(
+            {
+                "artifact_label": artifact_label,
+                "model": model,
+                "repair_variant": repair_variant,
+                "api_response_rows": len(rows),
+                "input_tokens": sum(int(row["input_tokens"]) for row in rows),
+                "output_tokens": sum(int(row["output_tokens"]) for row in rows),
+                "total_tokens": sum(int(row["input_tokens"]) + int(row["output_tokens"]) for row in rows),
+                "created_at_start": start,
+                "created_at_end": end,
+            }
+        )
+    return out
+
+
 def summary_row(artifact_rows: list[dict[str, Any]]) -> dict[str, Any]:
     starts = [str(row["created_at_start"]) for row in artifact_rows]
     ends = [str(row["created_at_end"]) for row in artifact_rows]
     return {
-        "paper_facing_artifacts": len(artifact_rows),
+        "tracked_api_artifacts": len(artifact_rows),
         "api_response_rows": sum(int(row["api_response_rows"]) for row in artifact_rows),
         "model_response_rows": sum(int(row["api_response_rows"]) for row in artifact_rows if row["artifact_kind"] == "model_responses"),
+        "repair_variant_response_rows": sum(int(row["api_response_rows"]) for row in artifact_rows if row["artifact_kind"] == "repair_variant_responses"),
         "judge_response_rows": sum(int(row["api_response_rows"]) for row in artifact_rows if row["artifact_kind"] == "judge_audit"),
         "trajectories_or_judged_rows": sum(int(row["trajectories"]) for row in artifact_rows),
         "input_tokens": sum(int(row["input_tokens"]) for row in artifact_rows),
@@ -202,16 +275,18 @@ def write_markdown(
     artifact_rows: list[dict[str, Any]],
     model_rows: list[dict[str, Any]],
     judge_rows: list[dict[str, Any]],
+    repair_rows: list[dict[str, Any]],
 ) -> None:
     lines = [
         "# Experiment Ledger",
         "",
-        "Generated from saved paper-facing score and judge-audit artifacts.",
+        "Generated from saved score, smoke, and judge-audit artifacts.",
         "",
         "This ledger reports API response rows and saved token usage only. It does",
         "not estimate dollar cost because provider prices change over time. Historical",
         "diagnostic shards are excluded to avoid double-counting rows that were merged",
-        "into the paper-facing score files.",
+        "into aggregate score files. The v0.3 pilot and GPT-5.5 smoke are included for API accounting",
+        "but is not a paper-facing benchmark result.",
         "",
         "## Summary",
         "",
@@ -271,7 +346,24 @@ def write_markdown(
             f"{row['input_tokens']} | {row['output_tokens']} | {row['total_tokens']} |"
         )
 
+    lines.extend(
+        [
+            "",
+            "## Repair Variant Usage",
+            "",
+            "| Artifact | Model | Repair variant | API rows | Input tokens | Output tokens | Total tokens |",
+            "|---|---|---|---:|---:|---:|---:|",
+        ]
+    )
+    for row in repair_rows:
+        lines.append(
+            "| "
+            f"{row['artifact_label']} | {row['model']} | {row['repair_variant']} | "
+            f"{row['api_response_rows']} | {row['input_tokens']} | {row['output_tokens']} | {row['total_tokens']} |"
+        )
+
     model_response_rows = sum(int(row["api_response_rows"]) for row in artifact_rows if row["artifact_kind"] == "model_responses")
+    repair_response_rows = sum(int(row["api_response_rows"]) for row in artifact_rows if row["artifact_kind"] == "repair_variant_responses")
     judge_response_rows = sum(int(row["api_response_rows"]) for row in artifact_rows if row["artifact_kind"] == "judge_audit")
     main = next(row for row in artifact_rows if row["artifact_label"] == "main_evaluation")
     lines.extend(
@@ -279,9 +371,10 @@ def write_markdown(
             "",
             "## Interpretation",
             "",
-            f"The paper-facing package contains {model_response_rows:,} saved model-response API rows",
-            "for the main evaluation plus nano prompt-control and prompt-ablation diagnostics,",
-            f"and {judge_response_rows:,} saved judge-audit API rows. The main evaluation covers",
+            f"The tracked artifact package contains {model_response_rows:,} saved model-response API rows",
+            "for the main evaluation plus nano prompt-control, prompt-ablation, v0.3 pilot, and GPT-5.5 smoke diagnostics,",
+            f"{repair_response_rows:,} repair-variant API rows, and {judge_response_rows:,} saved",
+            "judge-audit API rows. The main evaluation covers",
             f"{main['first_turn_rows']} first-turn trajectories; additional rows are standardized",
             "repair turns emitted only when the first turn failed. Token counts are",
             "provider-reported usage stored with each saved response.",
@@ -299,6 +392,7 @@ def main() -> None:
     artifact_rows: list[dict[str, Any]] = []
     model_group_rows: dict[tuple[str, str, str], list[dict[str, Any]]] = defaultdict(list)
     judge_group_rows: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+    repair_group_rows: dict[tuple[str, str, str], list[dict[str, Any]]] = defaultdict(list)
 
     for label, path in DEFAULT_MODEL_ARTIFACTS:
         add_model_rows(
@@ -316,9 +410,18 @@ def main() -> None:
             artifact_rows=artifact_rows,
             judge_group_rows=judge_group_rows,
         )
+    for label, path in DEFAULT_REPAIR_ARTIFACTS:
+        add_repair_rows(
+            rows=load_jsonl(path),
+            artifact_label=label,
+            rel_path=path,
+            artifact_rows=artifact_rows,
+            repair_group_rows=repair_group_rows,
+        )
 
     model_rows = summarize_model_groups(model_group_rows)
     judge_rows = summarize_judge_groups(judge_group_rows)
+    repair_rows = summarize_repair_groups(repair_group_rows)
     summary = summary_row(artifact_rows)
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
@@ -326,7 +429,8 @@ def main() -> None:
     write_csv(args.out_dir / "api_usage_by_artifact.csv", artifact_rows)
     write_csv(args.out_dir / "api_usage_by_model_condition.csv", model_rows)
     write_csv(args.out_dir / "api_usage_by_judge.csv", judge_rows)
-    write_markdown(args.out_md, summary, artifact_rows, model_rows, judge_rows)
+    write_csv(args.out_dir / "api_usage_by_repair_variant.csv", repair_rows)
+    write_markdown(args.out_md, summary, artifact_rows, model_rows, judge_rows, repair_rows)
     print(f"wrote experiment ledger to {args.out_dir} and {args.out_md}")
 
 

@@ -12,7 +12,8 @@ rankings \citep{singh2024globalmmlu}. Cultural benchmarks such as CDEval and
 MCEval argue that model behavior should be evaluated through culturally specific
 and cross-cultural lenses \citep{wang2023cdeval,huang2025mceval}. Our work is
 smaller and narrower: it does not attempt broad cultural coverage, but instead
-measures the repair cost of violating multilingual interaction contracts.
+measures the interactional cost of recovery after violating multilingual
+interaction contracts.
 
 \paragraph{Instruction following and code-switching.}
 IFEval introduced verifiable instruction-following checks for LLMs
@@ -24,7 +25,9 @@ that models often infer the wrong response language \citep{oh2026ola}. CodeMixQA
 and related work further show that code-switched reasoning and generation remain
 challenging \citep{winata2026codemixqa}. Re-prompt Tax includes output-language
 alignment, but adds repair trajectories and a broader contract containing
-script, literal preservation, register, and locale constraints.
+script, preservation, register, and locale constraints, and standardized
+repairs are needed to compare those failures as trajectories rather than
+isolated first-turn answers.
 
 \paragraph{Multi-turn dialogue, real-world chat logs, and judges.}
 MT-Bench and Chatbot Arena evaluate conversational quality and preference using

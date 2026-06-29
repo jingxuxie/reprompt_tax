@@ -1,0 +1,13 @@
+reviewer_id,coverage_slice,language_pair,target_content_language,can_validate_instruction_language,can_validate_target_language,can_validate_script,qualification_notes,conflict_of_interest,notes
+replace_with_arabic_instruction_arabic_filenames_reviewer_1_id,arabic_instruction_arabic_filenames,ar-ar,Arabic with English file names,,,,,,
+replace_with_arabic_instruction_arabic_filenames_reviewer_2_id,arabic_instruction_arabic_filenames,ar-ar,Arabic with English file names,,,,,,
+replace_with_english_instruction_arabic_content_reviewer_1_id,english_instruction_arabic_content,en-ar,Arabic,,,,,,
+replace_with_english_instruction_arabic_content_reviewer_2_id,english_instruction_arabic_content,en-ar,Arabic,,,,,,
+replace_with_english_instruction_hindi_content_reviewer_1_id,english_instruction_hindi_content,en-hi,Hindi,,,,,,
+replace_with_english_instruction_hindi_content_reviewer_2_id,english_instruction_hindi_content,en-hi,Hindi,,,,,,
+replace_with_english_instruction_spanish_content_reviewer_1_id,english_instruction_spanish_content,en-es,Spanish,,,,,,
+replace_with_english_instruction_spanish_content_reviewer_2_id,english_instruction_spanish_content,en-es,Spanish,,,,,,
+replace_with_hindi_english_instruction_hindi_devanagari_reviewer_1_id,hindi_english_instruction_hindi_devanagari,hi-hi,Hindi,,,,,,
+replace_with_hindi_english_instruction_hindi_devanagari_reviewer_2_id,hindi_english_instruction_hindi_devanagari,hi-hi,Hindi,,,,,,
+replace_with_spanish_instruction_arabic_quote_reviewer_1_id,spanish_instruction_arabic_quote,es-ar,Arabic,,,,,,
+replace_with_spanish_instruction_arabic_quote_reviewer_2_id,spanish_instruction_arabic_quote,es-ar,Arabic,,,,,,

@@ -14,9 +14,113 @@ Source table:
 | gpt-4.1 | baseline | 76.7% | 0.28 | 1.43x | 2.5% | 89.3% | 89.3% |
 | gpt-4.1 | contract | 93.3% | 0.15 | 1.13x | 4.2% | 37.5% | 37.5% |
 
+## Current-Model Refresh
+
+Source artifacts:
+`paper/current_model_refresh_v02.md`,
+`results/tables/current_model_refresh_v02/`,
+`results/tables/openai_gpt54mini_stress_v02_full120/`, and
+`results/tables/openai_gpt55_stress_v02_full120/`.
+
+| Model | Condition | FTGA | Mean RTT | Token tax | Unresolved | Repair@1 | Repair@2 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| gpt-5.4-mini | baseline | 80.0% | 0.25 | 1.38x | 2.5% | 87.5% | 87.5% |
+| gpt-5.4-mini | contract | 85.0% | 0.25 | 1.24x | 5.0% | 66.7% | 66.7% |
+| gpt-5.5 | baseline | 81.7% | 0.23 | 1.28x | 1.7% | 86.4% | 90.9% |
+| gpt-5.5 | contract | 98.3% | 0.02 | 1.02x | 0.0% | 100.0% | 100.0% |
+
+The `gpt-5.5` full120 run is the clean current-model headline: FTGA rises from
+81.7% to 98.3%, mean RTT falls from 0.225 to 0.017, and unresolved
+trajectories fall to 0.0%. The `gpt-5.4-mini` result is more bounded: FTGA
+moves from 80.0% to 85.0%, but the FTGA sign test is not decisive and
+unresolved rate increases from 2.5% to 5.0%.
+
+Current-model uncertainty:
+`paper/current_model_uncertainty_v02.md`
+
+Bootstrap and exact paired sign-test checks sharpen that boundary. `gpt-5.5`
+FTGA improves by +16.7 pp with a [10.0, 24.2] pp item-bootstrap interval and
+20 improved versus 0 worsened paired items. `gpt-5.4-mini` FTGA improves by
++5.0 pp, but its [-0.8, 11.7] pp interval crosses zero; its token-tax interval
+stays positive at [0.010, 0.269]x.
+
+Current-model heterogeneity:
+`paper/current_model_heterogeneity_v02.md`
+
+The `gpt-5.5` effect is positive for all three language pairs: +25.0 pp on
+Arabic-English, +20.0 pp on Spanish-English, and +5.0 pp on Hindi-English.
+Leave-one-language checks remain positive, but task-family effects are
+editing-preservation concentrated: editing moves +60.0 pp and removing editing
+leaves only +2.2 pp. `gpt-5.4-mini` is not robust across strata: removing
+Arabic-English leaves -1.3 pp and removing editing leaves -4.5 pp.
+
+Residual-error analysis:
+`paper/current_model_error_analysis_v02.md`
+
+For `gpt-5.5`, the contract fixes 20 baseline first-turn failures, introduces
+zero first-turn regressions, and leaves two Spanish-English editing-preservation
+first-turn failures that both repair in one turn. For `gpt-5.4-mini`, the
+contract fixes 11 baseline failures but introduces five first-turn regressions
+and leaves six unresolved trajectories.
+
+Current-model case studies:
+`paper/current_model_case_studies_v02.md`
+
+Four saved-output case studies make the current-model boundary inspectable:
+`gpt-5.5` baseline wrapper tax fixed by the contract, a `gpt-5.5` contract
+residual that repairs in one turn, and two unresolved `gpt-5.4-mini` contract
+cases covering Hindi/Hinglish quote preservation and Arabic literal-data
+preservation.
+
+Current-model scorer sensitivity:
+`paper/current_model_scorer_sensitivity_v02.md`
+
+Component relaxation shows the current-model headline is not driven by a single
+fragile scorer rule. `gpt-5.5` contract moves from 98.3% to 100.0% FTGA only
+when language is relaxed; `gpt-5.4-mini` contract moves from 85.0% to 89.2%
+when preservation is relaxed, isolating the lower-cost model's literal-data
+boundary.
+
+Current-model regression risk:
+`paper/current_model_regression_risk_v02.md`
+
+The contract-regression diagnostic separates the flagship and lower-cost
+current-model claims. `gpt-5.5` has 20 fixes and 0 first-turn regressions.
+`gpt-5.4-mini` has 11 fixes, 5 first-turn regressions, and 4
+resolved-to-unresolved shifts; content-preservation avoids 3 of the 5
+`gpt-5.4-mini` regression cases.
+
+Generation-progress probe:
+`paper/generation_progress_probe_v02.md`
+
+GPT-5.x-family baseline rows lower the normalized failure-pair rate from
+96/360 GPT-4.1-family baseline model-item failures to 46/240 current-family
+baseline failures. With the contract, GPT-5.x-family failures fall to 20/240,
+and `gpt-5.5` passes 38 of the 40 items where at least one GPT-4.1-family
+baseline failed.
+
+Efficiency tradeoff:
+`paper/efficiency_tradeoff_v02.md`
+
+Across all five full-run models, the contract lowers normalized token tax but
+increases absolute total tokens. For `gpt-5.5`, that is +114.5 absolute tokens
+per item versus -36.8 repair tokens after first turn. Token tax is not dollar
+cost.
+
+Follow-up readiness audit:
+`paper/followup_plan_readiness_v02.md`
+
+The follow-up plan now maps to eight paper-facing complete items, two completed
+supporting diagnostics, three launch-ready annotation surfaces that still need
+qualified labels, one bounded v0.3 diagnostic surface, and one not-started
+collaborator-language-pair item. The remaining blockers are the original
+72-row human audit, the 48-row current-model human audit, and the 60-row v0.3
+native-review packet.
+
 ## Key Findings
 
-1. Baseline re-prompt tax appears across all three models.
+1. Baseline re-prompt tax appears across the GPT-4.1-family and current-model
+   refresh runs.
 2. The Global Interaction Contract improves FTGA for every model and reduces
    mean RTT and token tax.
 3. Implicit editing preservation is the dominant baseline failure mode.
@@ -31,6 +135,8 @@ Source table:
 8. Repair-dynamics analysis shows first-turn successes rise under the contract,
    while residual unresolved cases remain in quote-preservation and
    script/register/locale families.
+9. The current flagship `gpt-5.5` still has measurable first-turn burden under
+   baseline prompting, but the contract reduces it sharply.
 
 Family-level analysis:
 `paper/failure_mode_analysis_v02_full120.md`
@@ -88,9 +194,10 @@ marker hits under the release-hygiene regexes.
 Experiment ledger:
 `paper/experiment_ledger_v02.md`
 
-The paper-facing artifacts contain 1,290 saved API response rows: 1,218
-model-response rows and 72 judge-audit rows, totaling 228,831 saved
-provider-reported tokens. The ledger reports token usage only, not dollar cost.
+The tracked saved artifacts contain 1,504 API response rows: 1,288
+model-response rows, 72 repair-variant rows, and 144 judge-audit rows, totaling
+285,930 saved provider-reported tokens. The ledger reports token usage only,
+not dollar cost.
 
 ## Prompt Diagnostics
 
@@ -115,6 +222,11 @@ specificity win. The narrower content-preservation prompt is strongest in this
 single-model diagnostic, so the safe claim is that content-language and
 literal-preservation rules appear to drive much of the mitigation, not that the
 full Global Interaction Contract is the best possible prompt.
+
+Current-model mechanism diagnostics run the content-preservation prompt on full
+120-item `gpt-5.4-mini` and `gpt-5.5` runs. They show near ties against the full
+contract, not prompt dominance: 85.8% vs 85.0% FTGA on `gpt-5.4-mini`, and
+99.2% vs 98.3% on `gpt-5.5`.
 
 ## Validation
 
@@ -182,6 +294,13 @@ The 72-response blinded judge audit reports:
 Judge agreement supplement:
 `paper/judge_agreement_analysis_v02_full120.md`
 
+A paired `gpt-5.5` judge refresh on the same 72 rows agrees with the automatic
+scorer on 70/72 pass/fail labels and with the original `gpt-4.1` judge on
+69/72 labels. It is a scorer sanity check, not native-speaker validation.
+
+Judge-refresh supplement:
+`paper/judge_refresh_gpt55_v02_full120.md`
+
 ## Human Audit Readiness
 
 The blinded 72-row launch packet covers one first-turn response for every
@@ -194,6 +313,44 @@ required next step.
 
 Design audit:
 `paper/human_audit_design_audit_v02.md`
+
+The current-model refresh now has a separate 48-row launch packet under
+`data/current_model_human_audit/`. It covers one first-turn response for every
+`gpt-5.4-mini` / `gpt-5.5` model-condition-language-family stratum and is
+failure-enriched inside strata: 32 automatic passes and 16 automatic failures.
+The packet and static review sheets are blinded; completed native/near-native
+labels are still required before claiming human validation for current-model
+rows.
+
+Current-model audit design:
+`paper/current_model_human_audit_design_v02.md`
+
+The v0.3 coverage expansion also has a separate launch-ready native-review
+packet under `data/coverage_native_review_v03/`. It covers all 60 synthetic
+v0.3 rows across six 10-row slices and keeps review fields blank. The preferred
+completion path uses two independent reviewer rows per item, an
+inter-reviewer/adjudication analysis, and a finalized one-row-per-item label
+file. Static per-slice browser sheets are available under
+`data/coverage_native_review_v03/review_sheets_v03/` to reduce label-collection
+friction while preserving the same CSV schema. Completed reviewer labels and a
+qualified roster must pass
+`scripts/validate_completed_coverage_native_review_v03.py` before v0.3 can be
+treated as paper-facing benchmark evidence.
+
+v0.3 review design audit:
+`paper/coverage_native_review_design_v03.md`
+
+Human/native-review acceptance rules:
+`paper/human_audit_acceptance_rules_v02.md`
+
+Future completed labels must pass the completed-label validators and the
+pre-specified quantitative gates before claims widen. The two human-audit
+surfaces require at least 90% pass/fail agreement and 85% component agreement
+with qualified rosters; the v0.3 native-review surface requires all 60 rows to
+be release usable before v0.3 can become paper-facing benchmark evidence.
+The consolidated launch pack in `paper/label_collection_launch_pack_v02.md`
+tracks all three surfaces together: 180 reviewer-facing packet rows, roster
+templates, review-sheet indexes, finalization commands, and claim gates.
 
 ## Real-World Motivation Check
 
@@ -222,11 +379,12 @@ Detailed claim-to-artifact mapping:
 
 Safe claim:
 
-> On a 120-item stress pilot, three GPT-4.1-family API models exhibit measurable
-> re-prompt tax under baseline prompting, especially on implicit content-language
-> preservation. A simple Global Interaction Contract reduces but does not
-> uniformly eliminate the tax for cheaper models, with gains largest for the
-> strongest model.
+> On a 120-item synthetic stress pilot, GPT-4.1-family and GPT-5.x-family API
+> models exhibit measurable re-prompt tax under baseline prompting, especially
+> on implicit content-language preservation. A simple Global Interaction
+> Contract reduces first-turn and repair burden, with the cleanest current-model
+> result on `gpt-5.5`, while native-speaker validation remains required for
+> stronger cultural or register claims.
 
 Do not claim:
 
@@ -234,6 +392,8 @@ Do not claim:
 - that the result generalizes across providers,
 - that LLM-judge audit replaces native-speaker validation,
 - that the full Global Interaction Contract is the best prompt tested,
+- that the v0.3 coverage pilot is paper-facing benchmark evidence before
+  native review is completed,
 - that prompt mitigation fully solves the problem.
 
 ## Current Paper Artifact

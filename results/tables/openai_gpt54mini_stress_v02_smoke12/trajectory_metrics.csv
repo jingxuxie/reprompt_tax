@@ -1,0 +1,25 @@
+item_id,model,condition,language_pair,task_family,ftga,rtt,resolved,unresolved,initially_failed,repair_success_1,repair_success_2,token_tax,first_failure_types
+es_en_SA_001,gpt-5.4-mini,baseline,es-en,editing_preservation,0,1,1,0,1,1,1,2.9078014184397163,"['wrong_output_language', 'task_noncompletion']"
+es_en_SA_001,gpt-5.4-mini,contract,es-en,editing_preservation,0,1,1,0,1,1,1,2.163090128755365,"['wrong_output_language', 'task_noncompletion']"
+es_en_SB_001,gpt-5.4-mini,baseline,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SB_001,gpt-5.4-mini,contract,es-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_001,gpt-5.4-mini,baseline,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SC_001,gpt-5.4-mini,contract,es-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_001,gpt-5.4-mini,baseline,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+es_en_SD_001,gpt-5.4-mini,contract,es-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_001,gpt-5.4-mini,baseline,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SA_001,gpt-5.4-mini,contract,hi-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_001,gpt-5.4-mini,baseline,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SB_001,gpt-5.4-mini,contract,hi-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_001,gpt-5.4-mini,baseline,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SC_001,gpt-5.4-mini,contract,hi-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_001,gpt-5.4-mini,baseline,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+hi_en_SD_001,gpt-5.4-mini,contract,hi-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SA_001,gpt-5.4-mini,baseline,ar-en,editing_preservation,0,1,1,0,1,1,1,2.6666666666666665,"['wrong_output_language', 'script_mismatch']"
+ar_en_SA_001,gpt-5.4-mini,contract,ar-en,editing_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_001,gpt-5.4-mini,baseline,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SB_001,gpt-5.4-mini,contract,ar-en,output_language_inference,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_001,gpt-5.4-mini,baseline,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SC_001,gpt-5.4-mini,contract,ar-en,quote_preservation,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_001,gpt-5.4-mini,baseline,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]
+ar_en_SD_001,gpt-5.4-mini,contract,ar-en,script_register_locale,1,0,1,0,0,0,0,1.0,[]

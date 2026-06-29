@@ -1,0 +1,4 @@
+comparison,n_pairs,repair_success_improved,repair_success_worsened,repair_success_tied,repair_success_sign_p,delta_success_pp,mean_total_token_delta
+terse_keep_english_minus_standard_saved,24,0,0,24,1.0,0.0,7.5
+frustrated_dont_translate_minus_standard_saved,24,0,7,17,0.015625,-29.2,2.9
+explicit_contract_minus_standard_saved,24,0,19,5,3.814697265625e-06,-79.2,10.7

@@ -1,0 +1,49 @@
+audit_id,item_id,model,condition,turn,language_pair,task_family,auto_pass,auto_language_pass,auto_script_pass,auto_preservation_pass,auto_task_pass,auto_register_locale_pass,auto_failure_types
+rpt_audit_001,ar_en_SA_009,gpt-5.4-mini,baseline,0,ar-en,editing_preservation,False,False,False,True,True,True,"[""wrong_output_language"", ""script_mismatch""]"
+rpt_audit_002,ar_en_SA_003,gpt-5.4-mini,contract,0,ar-en,editing_preservation,False,False,False,True,False,True,"[""wrong_output_language"", ""script_mismatch"", ""task_noncompletion""]"
+rpt_audit_003,ar_en_SA_003,gpt-5.5,baseline,0,ar-en,editing_preservation,False,False,False,True,False,True,"[""wrong_output_language"", ""script_mismatch"", ""task_noncompletion""]"
+rpt_audit_004,ar_en_SA_007,gpt-5.5,contract,0,ar-en,editing_preservation,True,True,True,True,True,True,[]
+rpt_audit_005,ar_en_SB_010,gpt-5.4-mini,baseline,0,ar-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_006,ar_en_SB_004,gpt-5.4-mini,contract,0,ar-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_007,ar_en_SB_007,gpt-5.5,baseline,0,ar-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_008,ar_en_SB_003,gpt-5.5,contract,0,ar-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_009,ar_en_SC_002,gpt-5.4-mini,baseline,0,ar-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_010,ar_en_SC_008,gpt-5.4-mini,contract,0,ar-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_011,ar_en_SC_009,gpt-5.5,baseline,0,ar-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_012,ar_en_SC_010,gpt-5.5,contract,0,ar-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_013,ar_en_SD_008,gpt-5.4-mini,baseline,0,ar-en,script_register_locale,False,True,True,False,True,True,"[""preservation_failure""]"
+rpt_audit_014,ar_en_SD_008,gpt-5.4-mini,contract,0,ar-en,script_register_locale,False,True,True,False,True,True,"[""preservation_failure""]"
+rpt_audit_015,ar_en_SD_005,gpt-5.5,baseline,0,ar-en,script_register_locale,True,True,True,True,True,True,[]
+rpt_audit_016,ar_en_SD_010,gpt-5.5,contract,0,ar-en,script_register_locale,True,True,True,True,True,True,[]
+rpt_audit_017,es_en_SA_002,gpt-5.4-mini,baseline,0,es-en,editing_preservation,False,False,True,True,False,True,"[""wrong_output_language"", ""task_noncompletion""]"
+rpt_audit_018,es_en_SA_002,gpt-5.4-mini,contract,0,es-en,editing_preservation,False,False,True,True,False,True,"[""wrong_output_language"", ""task_noncompletion""]"
+rpt_audit_019,es_en_SA_004,gpt-5.5,baseline,0,es-en,editing_preservation,False,False,True,True,False,True,"[""wrong_output_language"", ""task_noncompletion""]"
+rpt_audit_020,es_en_SA_009,gpt-5.5,contract,0,es-en,editing_preservation,False,False,True,True,True,True,"[""wrong_output_language""]"
+rpt_audit_021,es_en_SB_010,gpt-5.4-mini,baseline,0,es-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_022,es_en_SB_006,gpt-5.4-mini,contract,0,es-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_023,es_en_SB_010,gpt-5.5,baseline,0,es-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_024,es_en_SB_005,gpt-5.5,contract,0,es-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_025,es_en_SC_009,gpt-5.4-mini,baseline,0,es-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_026,es_en_SC_006,gpt-5.4-mini,contract,0,es-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_027,es_en_SC_007,gpt-5.5,baseline,0,es-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_028,es_en_SC_008,gpt-5.5,contract,0,es-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_029,es_en_SD_008,gpt-5.4-mini,baseline,0,es-en,script_register_locale,False,True,True,False,True,True,"[""preservation_failure""]"
+rpt_audit_030,es_en_SD_008,gpt-5.4-mini,contract,0,es-en,script_register_locale,False,True,True,False,True,True,"[""preservation_failure""]"
+rpt_audit_031,es_en_SD_009,gpt-5.5,baseline,0,es-en,script_register_locale,True,True,True,True,True,True,[]
+rpt_audit_032,es_en_SD_002,gpt-5.5,contract,0,es-en,script_register_locale,True,True,True,True,True,True,[]
+rpt_audit_033,hi_en_SA_006,gpt-5.4-mini,baseline,0,hi-en,editing_preservation,True,True,True,True,True,True,[]
+rpt_audit_034,hi_en_SA_008,gpt-5.4-mini,contract,0,hi-en,editing_preservation,True,True,True,True,True,True,[]
+rpt_audit_035,hi_en_SA_007,gpt-5.5,baseline,0,hi-en,editing_preservation,True,True,True,True,True,True,[]
+rpt_audit_036,hi_en_SA_009,gpt-5.5,contract,0,hi-en,editing_preservation,True,True,True,True,True,True,[]
+rpt_audit_037,hi_en_SB_005,gpt-5.4-mini,baseline,0,hi-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_038,hi_en_SB_002,gpt-5.4-mini,contract,0,hi-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_039,hi_en_SB_001,gpt-5.5,baseline,0,hi-en,output_language_inference,False,True,True,True,False,True,"[""task_noncompletion""]"
+rpt_audit_040,hi_en_SB_005,gpt-5.5,contract,0,hi-en,output_language_inference,True,True,True,True,True,True,[]
+rpt_audit_041,hi_en_SC_006,gpt-5.4-mini,baseline,0,hi-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_042,hi_en_SC_008,gpt-5.4-mini,contract,0,hi-en,quote_preservation,False,False,True,True,True,True,"[""wrong_output_language""]"
+rpt_audit_043,hi_en_SC_005,gpt-5.5,baseline,0,hi-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_044,hi_en_SC_007,gpt-5.5,contract,0,hi-en,quote_preservation,True,True,True,True,True,True,[]
+rpt_audit_045,hi_en_SD_008,gpt-5.4-mini,baseline,0,hi-en,script_register_locale,False,True,True,False,True,True,"[""preservation_failure""]"
+rpt_audit_046,hi_en_SD_008,gpt-5.4-mini,contract,0,hi-en,script_register_locale,False,True,True,False,True,True,"[""preservation_failure""]"
+rpt_audit_047,hi_en_SD_005,gpt-5.5,baseline,0,hi-en,script_register_locale,False,False,True,True,True,True,"[""wrong_output_language""]"
+rpt_audit_048,hi_en_SD_006,gpt-5.5,contract,0,hi-en,script_register_locale,True,True,True,True,True,True,[]

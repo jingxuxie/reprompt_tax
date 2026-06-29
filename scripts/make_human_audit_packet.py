@@ -48,7 +48,7 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
 def write_csv(path: Path, rows: list[dict[str, Any]], fields: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fields)
+        writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -91,17 +91,43 @@ def write_manifest(
     path: Path,
     version: str,
     benchmark: Path,
-    scores: Path,
+    scores: list[Path],
     seed: int,
     row_count: int,
+    packet_rows: list[dict[str, Any]],
+    key_rows: list[dict[str, Any]],
+    prefer_failures: bool,
 ) -> None:
+    out_dir = path.parent
+    language_counts = {
+        language_pair: sum(row["language_pair"] == language_pair for row in packet_rows)
+        for language_pair in sorted({row["language_pair"] for row in packet_rows})
+    }
+    language_table = "\n".join(
+        f"| {language_pair} | `human_audit_packet_{version}_{language_pair}.csv` | {count} |"
+        for language_pair, count in language_counts.items()
+    )
+    score_lines = "\n".join(f"- `{score}`" for score in scores)
+    models = sorted({row["model"] for row in key_rows})
+    conditions = sorted({row["condition"] for row in key_rows})
+    task_families = sorted({row["task_family"] for row in key_rows})
+    language_pairs = sorted(language_counts)
+    rows_per_language_task = len(models) * len(conditions)
+    expected_models_arg = ",".join(models)
+    selection_rule = (
+        "one first-turn row per model/condition/language/family stratum, preferring automatic failures when a stratum contains at least one failure"
+        if prefer_failures
+        else "one seeded first-turn row per model/condition/language/family stratum"
+    )
     text = f"""# RePromptTax Human Audit Manifest {version}
 
 Generated for the current paper-facing full RePromptTax-Stress-v0.2 result.
 
 Source benchmark: `{benchmark}`
-Source scores: `{scores}`
+Source scores:
+{score_lines}
 Sampling seed: `{seed}`
+Selection rule: {selection_rule}.
 
 ## Launch Files
 
@@ -109,11 +135,12 @@ Send annotators only the language slice they can validate:
 
 | Language slice | File | Rows |
 |---|---|---:|
-| Arabic-English | `human_audit_packet_{version}_ar-en.csv` | 24 |
-| Spanish-English | `human_audit_packet_{version}_es-en.csv` | 24 |
-| Hindi-English | `human_audit_packet_{version}_hi-en.csv` | 24 |
+{language_table}
 
 The full blinded packet is `human_audit_packet_{version}.csv` with {row_count} rows.
+Reviewer-facing static HTML sheets are available under
+`review_sheets_{version}/`; they are generated from the blinded packet and
+support local CSV export without revealing the answer key.
 The annotator roster template is
 `human_audit_annotator_roster_template_{version}.csv`; copy it to
 `human_audit_annotator_roster_{version}.csv` and fill one qualified annotator
@@ -132,24 +159,38 @@ automatic labels.
 
 The full packet contains:
 
-- 3 language pairs,
-- 4 task families,
-- 3 models,
-- 2 prompt conditions,
+- {len(language_pairs)} language pairs,
+- {len(task_families)} task families,
+- {len(models)} models: {", ".join(f"`{model}`" for model in models)},
+- {len(conditions)} prompt conditions: {", ".join(f"`{condition}`" for condition in conditions)},
 - 1 first-turn output per language/model/condition/family stratum.
 
-Each language slice contains 6 rows per task family.
+Each language slice contains {rows_per_language_task} rows per task family.
 
 ## Required Validation Before Launch
 
 ```bash
-conda run -n reprompt_tax python scripts/validate_human_audit_packet.py
+conda run -n reprompt_tax python scripts/validate_human_audit_packet.py \\
+  --out-dir {out_dir} \\
+  --packet-version {version} \\
+  --expected-models {expected_models_arg}
 
 conda run -n reprompt_tax python scripts/analyze_human_audit_design.py \\
-  --packet data/human_audit/human_audit_packet_{version}.csv \\
-  --answer-key data/human_audit/human_audit_answer_key_{version}.csv \\
+  --packet {out_dir}/human_audit_packet_{version}.csv \\
+  --answer-key {out_dir}/human_audit_answer_key_{version}.csv \\
   --out-dir results/tables/human_audit_{version}_design \\
-  --out-md paper/human_audit_design_audit_{version.replace(".", "")}.md
+  --out-md paper/human_audit_design_audit_{version.replace(".", "")}.md \\
+  --expected-models {expected_models_arg}
+
+conda run -n reprompt_tax python scripts/make_human_audit_review_sheets.py \\
+  --packet {out_dir}/human_audit_packet_{version}.csv \\
+  --out-dir {out_dir}/review_sheets_{version} \\
+  --packet-version {version}
+
+conda run -n reprompt_tax python scripts/validate_human_audit_review_sheets.py \\
+  --packet {out_dir}/human_audit_packet_{version}.csv \\
+  --out-dir {out_dir}/review_sheets_{version} \\
+  --packet-version {version}
 ```
 
 This checks:
@@ -161,6 +202,7 @@ This checks:
 - JSON-list fields are parseable,
 - any smoke-only artifacts are explicitly marked,
 - the selected audit rows include both automatic passes and failures before annotation.
+- generated static review sheets cover all audit IDs without private fields.
 
 ## Completion Gate
 
@@ -168,13 +210,43 @@ After annotators fill the CSV fields, summarize labels with:
 
 ```bash
 conda run -n reprompt_tax python scripts/validate_completed_human_audit.py \\
-  --annotations data/human_audit/human_audit_packet_{version}_completed.csv \\
-  --answer-key data/human_audit/human_audit_answer_key_{version}.csv
+  --annotations {out_dir}/human_audit_packet_{version}_completed.csv \\
+  --answer-key {out_dir}/human_audit_answer_key_{version}.csv \\
+  --annotator-roster {out_dir}/human_audit_annotator_roster_{version}.csv \\
+  --expected-models {expected_models_arg}
 
 conda run -n reprompt_tax python scripts/summarize_human_audit.py \\
-  --annotations data/human_audit/human_audit_packet_{version}_completed.csv \\
-  --answer-key data/human_audit/human_audit_answer_key_{version}.csv \\
+  --annotations {out_dir}/human_audit_packet_{version}_completed.csv \\
+  --answer-key {out_dir}/human_audit_answer_key_{version}.csv \\
   --out-dir results/tables/human_audit_{version}
+```
+
+`summarize_human_audit.py` fails on incomplete files by default. Use
+`--allow-partial` only to debug partially returned batches, not for
+paper-facing validation claims.
+
+Optional stronger two-annotator workflow: concatenate independently completed
+annotation rows into a long-format file with duplicate `audit_id` values but
+unique `annotator_id` values per item, then compute inter-annotator agreement
+and generate a blinded adjudication packet for disagreements:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_human_audit_adjudication.py \\
+  --annotations {out_dir}/human_audit_packet_{version}_double_completed.csv \\
+  --answer-key {out_dir}/human_audit_answer_key_{version}.csv \\
+  --annotator-roster {out_dir}/human_audit_annotator_roster_{version}.csv \\
+  --expected-models {expected_models_arg} \\
+  --out-dir results/tables/human_audit_{version}_adjudication \\
+  --out-md paper/human_audit_adjudication_{version.replace(".", "")}.md
+
+# After filling results/tables/human_audit_{version}_adjudication/human_audit_adjudication_packet.csv:
+conda run -n reprompt_tax python scripts/finalize_human_audit_adjudication.py \\
+  --annotations {out_dir}/human_audit_packet_{version}_double_completed.csv \\
+  --answer-key {out_dir}/human_audit_answer_key_{version}.csv \\
+  --annotator-roster {out_dir}/human_audit_annotator_roster_{version}.csv \\
+  --adjudication results/tables/human_audit_{version}_adjudication/human_audit_adjudication_packet.csv \\
+  --expected-models {expected_models_arg} \\
+  --out {out_dir}/human_audit_packet_{version}_adjudicated_completed.csv
 ```
 
 Strong final paper claims should wait for completed human/native-speaker labels.
@@ -187,7 +259,9 @@ claims.
     path.write_text(text, encoding="utf-8")
 
 
-def write_launch_checklist(*, path: Path, version: str, row_count: int) -> None:
+def write_launch_checklist(*, path: Path, version: str, row_count: int, expected_models: list[str]) -> None:
+    out_dir = path.parent
+    expected_models_arg = ",".join(expected_models)
     text = f"""# RePromptTax Human Audit Launch Checklist {version}
 
 This checklist is for launching the native/near-native validation audit. It is
@@ -201,9 +275,15 @@ not a completed validation result.
   - Hindi-English: `human_audit_packet_{version}_hi-en.csv`
 - Send each annotator only their language slice and the public guide
   `docs/human_audit_guide.md`.
+- Optional: send the matching static HTML sheet from
+  `review_sheets_{version}/` instead of the raw CSV slice; it exports the same
+  completed CSV format locally in the annotator's browser.
 - Do not send `human_audit_answer_key_{version}.csv`.
 - Ask annotators to fill all annotation columns in their CSV slice and preserve
   the original row order and `audit_id` values.
+- Ask annotators to include the matching `human_failure_types` code for every
+  component field marked `FALSE`, and not to list a failure code for a
+  component marked `TRUE`.
 - Copy `human_audit_annotator_roster_template_{version}.csv` to
   `human_audit_annotator_roster_{version}.csv` and replace every placeholder
   row with the real annotator ID, language pair, qualifications, script
@@ -223,21 +303,65 @@ Each roster row used for claims must satisfy:
 
 The completed file should be named
 `human_audit_packet_{version}_completed.csv` and should contain all {row_count}
-audit rows. If annotators work from language slices, concatenate the completed
-slice rows under the original header without adding answer-key fields.
+audit rows. If annotators work from language slices or static HTML exports,
+merge the completed slice rows with:
+
+```bash
+conda run -n reprompt_tax python scripts/merge_review_exports.py \\
+  --mode human_audit \\
+  --launch-packet {out_dir}/human_audit_packet_{version}.csv \\
+  --out {out_dir}/human_audit_packet_{version}_completed.csv \\
+  --inputs \\
+  {out_dir}/human_audit_packet_{version}_ar-en_completed.csv \\
+  {out_dir}/human_audit_packet_{version}_es-en_completed.csv \\
+  {out_dir}/human_audit_packet_{version}_hi-en_completed.csv
+```
+
+For two independent labels per item, include every returned export after
+`--inputs` and add `--labels-per-item 2`, writing to
+`human_audit_packet_{version}_double_completed.csv`.
 
 ## Completion Commands
 
 ```bash
 conda run -n reprompt_tax python scripts/validate_completed_human_audit.py \\
-  --annotations data/human_audit/human_audit_packet_{version}_completed.csv \\
-  --answer-key data/human_audit/human_audit_answer_key_{version}.csv \\
-  --annotator-roster data/human_audit/human_audit_annotator_roster_{version}.csv
+  --annotations {out_dir}/human_audit_packet_{version}_completed.csv \\
+  --answer-key {out_dir}/human_audit_answer_key_{version}.csv \\
+  --annotator-roster {out_dir}/human_audit_annotator_roster_{version}.csv \\
+  --expected-models {expected_models_arg}
 
 conda run -n reprompt_tax python scripts/summarize_human_audit.py \\
-  --annotations data/human_audit/human_audit_packet_{version}_completed.csv \\
-  --answer-key data/human_audit/human_audit_answer_key_{version}.csv \\
+  --annotations {out_dir}/human_audit_packet_{version}_completed.csv \\
+  --answer-key {out_dir}/human_audit_answer_key_{version}.csv \\
   --out-dir results/tables/human_audit_{version}
+```
+
+`summarize_human_audit.py` fails on incomplete files by default. Use
+`--allow-partial` only to debug partially returned batches, not for
+paper-facing validation claims.
+
+Optional stronger two-annotator workflow: concatenate independently completed
+annotation rows into a long-format file with duplicate `audit_id` values but
+unique `annotator_id` values per item, then compute inter-annotator agreement
+and generate a blinded adjudication packet for disagreements:
+
+```bash
+conda run -n reprompt_tax python scripts/analyze_human_audit_adjudication.py \\
+  --annotations {out_dir}/human_audit_packet_{version}_double_completed.csv \\
+  --answer-key {out_dir}/human_audit_answer_key_{version}.csv \\
+  --annotator-roster {out_dir}/human_audit_annotator_roster_{version}.csv \\
+  --expected-models {expected_models_arg} \\
+  --out-dir results/tables/human_audit_{version}_adjudication \\
+  --out-md paper/human_audit_adjudication_{version.replace(".", "")}.md
+
+# After filling results/tables/human_audit_{version}_adjudication/human_audit_adjudication_packet.csv:
+conda run -n reprompt_tax python scripts/finalize_human_audit_adjudication.py \\
+  --annotations {out_dir}/human_audit_packet_{version}_double_completed.csv \\
+  --answer-key {out_dir}/human_audit_answer_key_{version}.csv \\
+  --annotator-roster {out_dir}/human_audit_annotator_roster_{version}.csv \\
+  --adjudication results/tables/human_audit_{version}_adjudication/human_audit_adjudication_packet.csv \\
+  --expected-models {expected_models_arg} \\
+  --out {out_dir}/human_audit_packet_{version}_adjudicated_completed.csv
 ```
 
 ## Claim Rule
@@ -250,7 +374,7 @@ the disagreement pattern as a limitation.
     path.write_text(text, encoding="utf-8")
 
 
-def select_balanced_first_turns(rows: list[dict[str, Any]], seed: int) -> list[dict[str, Any]]:
+def select_balanced_first_turns(rows: list[dict[str, Any]], seed: int, *, prefer_failures: bool = False) -> list[dict[str, Any]]:
     first_turns = [row for row in rows if int(row["turn"]) == 0]
     grouped: dict[tuple[str, str, str, str], list[dict[str, Any]]] = defaultdict(list)
     for row in first_turns:
@@ -260,10 +384,13 @@ def select_balanced_first_turns(rows: list[dict[str, Any]], seed: int) -> list[d
     rng = random.Random(seed)
     selected: list[dict[str, Any]] = []
     for key in sorted(grouped):
-        group = grouped[key]
+        group = sorted(grouped[key], key=lambda row: row["item_id"])
         if not group:
             continue
-        selected.append(rng.choice(sorted(group, key=lambda row: row["item_id"])))
+        candidates = [row for row in group if not bool(row["pass"])] if prefer_failures else group
+        if not candidates:
+            candidates = group
+        selected.append(rng.choice(candidates))
     return sorted(selected, key=lambda row: (row["language_pair"], row["task_family"], row["model"], row["condition"], row["item_id"]))
 
 
@@ -316,15 +443,18 @@ def build_packet_rows(selected: list[dict[str, Any]], items: dict[str, dict[str,
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--benchmark", type=Path, required=True)
-    parser.add_argument("--scores", type=Path, required=True)
+    parser.add_argument("--scores", type=Path, nargs="+", required=True)
     parser.add_argument("--out-dir", type=Path, default=Path("data/human_audit"))
     parser.add_argument("--packet-version", default="v0.2")
     parser.add_argument("--seed", type=int, default=23)
+    parser.add_argument("--prefer-failures", action="store_true", help="within each stratum, sample an automatic failure when available")
     args = parser.parse_args()
 
     items = {row["id"]: row for row in load_jsonl(args.benchmark)}
-    score_rows = load_jsonl(args.scores)
-    selected = select_balanced_first_turns(score_rows, args.seed)
+    score_rows: list[dict[str, Any]] = []
+    for score_path in args.scores:
+        score_rows.extend(load_jsonl(score_path))
+    selected = select_balanced_first_turns(score_rows, args.seed, prefer_failures=args.prefer_failures)
     packet_rows, key_rows = build_packet_rows(selected, items)
 
     packet_fields = [
@@ -375,11 +505,15 @@ def main() -> None:
         scores=args.scores,
         seed=args.seed,
         row_count=len(packet_rows),
+        packet_rows=packet_rows,
+        key_rows=key_rows,
+        prefer_failures=args.prefer_failures,
     )
     write_launch_checklist(
         path=args.out_dir / f"human_audit_launch_checklist_{version}.md",
         version=version,
         row_count=len(packet_rows),
+        expected_models=sorted({row["model"] for row in key_rows}),
     )
 
     print(f"wrote {len(packet_rows)} audit rows to {args.out_dir}")

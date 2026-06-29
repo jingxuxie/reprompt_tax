@@ -1,0 +1,9 @@
+model,condition,task_family,n,ftga,mean_rtt,unresolved_rate,repair_success_at_1,repair_success_at_2,mean_token_tax,initially_failed_n,ftga_ci_low,ftga_ci_high,mean_rtt_ci_low,mean_rtt_ci_high
+gpt-5.5,baseline,editing_preservation,3,0.3333333333333333,0.6666666666666666,0,1.0,1.0,1.9174821089528262,2,0,1,0,1
+gpt-5.5,baseline,output_language_inference,3,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.5,baseline,quote_preservation,3,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.5,baseline,script_register_locale,3,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.5,contract,editing_preservation,3,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.5,contract,output_language_inference,3,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.5,contract,quote_preservation,3,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.5,contract,script_register_locale,3,1,0,0,,,1.0,0,1,1,0,0

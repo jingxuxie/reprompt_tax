@@ -1,0 +1,7 @@
+# One representative item per v0.3 coverage-expansion slice.
+v03_en_es_EP_001
+v03_en_hi_EP_001
+v03_en_ar_EP_001
+v03_es_ar_EP_001
+v03_hi_hi_EP_001
+v03_ar_ar_EP_001

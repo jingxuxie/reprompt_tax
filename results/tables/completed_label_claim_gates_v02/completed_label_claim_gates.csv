@@ -1,0 +1,4 @@
+surface,review_type,status,claim_decision,rows,reviewers,pass_agreements,min_pass_agreements,component_agreements,min_component_agreements,release_usable_rows,min_release_usable_rows,required_action
+human_audit_v02_gpt41_family,human_audit,needs_labels,no_claim,,,,65,,306,,,missing completed inputs: data/human_audit/human_audit_packet_v0.2_completed.csv; data/human_audit/human_audit_annotator_roster_v0.2.csv
+human_audit_v02_current_gpt5,human_audit,needs_labels,no_claim,,,,44,,204,,,missing completed inputs: data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_completed.csv; data/current_model_human_audit/human_audit_annotator_roster_v0.2_current_gpt5.csv
+coverage_native_review_v03,coverage_native_review,needs_labels,no_claim,,,,,,,,60,missing completed inputs: data/coverage_native_review_v03/coverage_native_review_packet_v03_completed.csv; data/coverage_native_review_v03/coverage_native_review_roster_v03.csv

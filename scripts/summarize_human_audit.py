@@ -26,13 +26,18 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(f))
 
 
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise AssertionError(message)
+
+
 def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if not rows:
         path.write_text("", encoding="utf-8")
         return
     with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -64,14 +69,29 @@ def cohen_kappa(pairs: list[tuple[bool, bool]]) -> float | str:
 
 
 def merge_annotations(packet_rows: list[dict[str, str]], key_rows: list[dict[str, str]]) -> list[dict[str, Any]]:
+    require(packet_rows, "annotation file is empty")
+    require(key_rows, "answer-key file is empty")
+    annotation_ids = [row["audit_id"] for row in packet_rows]
+    key_ids = [row["audit_id"] for row in key_rows]
+    require(len(annotation_ids) == len(set(annotation_ids)), "duplicate audit_id values in annotations")
+    require(len(key_ids) == len(set(key_ids)), "duplicate audit_id values in answer key")
+    require(set(annotation_ids) == set(key_ids), "annotations and answer key audit IDs differ")
+
     key_by_id = {row["audit_id"]: row for row in key_rows}
     merged: list[dict[str, Any]] = []
     for row in packet_rows:
-        if row["audit_id"] not in key_by_id:
-            raise KeyError(f"missing audit_id in key: {row['audit_id']}")
         key = key_by_id[row["audit_id"]]
         merged.append({**key, **row})
     return merged
+
+
+def ensure_completed(rows: list[dict[str, Any]]) -> None:
+    required_fields = [human_field for _, human_field, _ in COMPONENTS]
+    for row in rows:
+        row_id = row["audit_id"]
+        for field in required_fields:
+            require(parse_bool(row.get(field)) is not None, f"{row_id} has incomplete {field}")
+    require(rows, "no completed human-audit rows to summarize")
 
 
 def completed_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -142,10 +162,20 @@ def main() -> None:
     parser.add_argument("--annotations", type=Path, required=True)
     parser.add_argument("--answer-key", type=Path, required=True)
     parser.add_argument("--out-dir", type=Path, required=True)
+    parser.add_argument(
+        "--allow-partial",
+        action="store_true",
+        help="summarize completed rows only; for debugging, not paper-facing completed audit claims",
+    )
     args = parser.parse_args()
 
     rows = merge_annotations(read_csv(args.annotations), read_csv(args.answer_key))
-    done = completed_rows(rows)
+    if args.allow_partial:
+        done = completed_rows(rows)
+    else:
+        ensure_completed(rows)
+        done = rows
+    require(done, "no completed human-audit rows to summarize")
     args.out_dir.mkdir(parents=True, exist_ok=True)
     write_csv(args.out_dir / "human_audit_summary.csv", summarize(done, []))
     write_csv(args.out_dir / "human_audit_by_language.csv", summarize(done, ["language_pair"]))

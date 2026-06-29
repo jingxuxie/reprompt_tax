@@ -1,0 +1,5 @@
+content_language,n,rows_with_preservation_spans,total_preservation_spans,rows_with_required_markers,rows_with_forbidden_markers,rows_with_known_bad_outputs
+Arabic,20,20,40,20,20,20
+Arabic with English file names,10,10,20,10,10,10
+Hindi,20,20,40,20,20,20
+Spanish,10,10,20,10,10,10

@@ -51,8 +51,7 @@ human/native-speaker validation.
 ## Interpretation
 
 Under baseline prompting, 31/96 first-turn failures are task-useful contract failures
-(32.3% of failures). Under the Global
-Interaction Contract this count falls to 20/61 failures.
+(32.3% of failures). Under the Global Interaction Contract this count falls to 20/61 failures.
 
 The stricter task+preservation useful subset falls from 11
 to 1. This is the cleanest automatic
@@ -60,8 +59,7 @@ slice for the paper's hidden-tax claim: the response has performed the task
 and preserved required spans, but still violates language or script framing.
 
 Most baseline task-useful failures are concentrated in
-script/register/locale (21) and
-editing-preservation (10) rows. After
+Script/register/locale (21), and Editing preservation (10) rows. After
 the contract, residual task-useful failures are concentrated in
-script/register/locale (20) rows,
+Script/register/locale (20) rows,
 which keeps the mitigation claim bounded.

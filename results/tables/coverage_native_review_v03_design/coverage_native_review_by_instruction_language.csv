@@ -1,0 +1,5 @@
+instruction_language,n,rows_with_preservation_spans,total_preservation_spans,rows_with_required_markers,rows_with_forbidden_markers,rows_with_known_bad_outputs
+Arabic,10,10,20,10,10,10
+English,30,30,60,30,30,30
+Hindi/English code-switched,10,10,20,10,10,10
+Spanish,10,10,20,10,10,10

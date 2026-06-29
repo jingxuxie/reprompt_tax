@@ -1,0 +1,5 @@
+generation,condition,model_count,item_count,model_item_pairs,first_turn_failures,failure_pair_pct,any_fail_items,all_fail_items,mean_failures_per_item,unresolved_pairs
+GPT-4.1 family,baseline,3,120,360,96,26.7,40,27,0.8,11
+GPT-4.1 family,contract,3,120,360,61,16.9,35,8,0.508,12
+GPT-5.x family,baseline,2,120,240,46,19.2,26,20,0.383,5
+GPT-5.x family,contract,2,120,240,20,8.3,18,2,0.167,6

@@ -1,0 +1,13 @@
+model,condition,language_pair,n,ftga,mean_rtt,unresolved_rate,repair_success_at_1,repair_success_at_2,mean_token_tax,initially_failed_n,ftga_ci_low,ftga_ci_high,mean_rtt_ci_low,mean_rtt_ci_high
+gpt-5.4-mini,baseline,ar-ar,1,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.4-mini,baseline,en-ar,1,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.4-mini,baseline,en-es,1,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.4-mini,baseline,en-hi,1,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.4-mini,baseline,es-ar,1,0,1,0,1.0,1.0,2.716535433070866,1,0,0,1,1
+gpt-5.4-mini,baseline,hi-hi,1,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.4-mini,contract,ar-ar,1,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.4-mini,contract,en-ar,1,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.4-mini,contract,en-es,1,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.4-mini,contract,en-hi,1,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.4-mini,contract,es-ar,1,1,0,0,,,1.0,0,1,1,0,0
+gpt-5.4-mini,contract,hi-hi,1,1,0,0,,,1.0,0,1,1,0,0

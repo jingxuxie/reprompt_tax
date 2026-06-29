@@ -54,13 +54,15 @@ Our contributions are:
     implicit editing preservation, output-language inference, quote
     preservation, and script/register/locale constraints.
     \item We evaluate three GPT-4.1-family API models \citep{openai2025gpt41}
-    under baseline and Global Interaction Contract prompts, and show that a
-    lightweight prompt mitigation reduces interaction burden while leaving
-    residual exact-preservation failures.
+    and full 120-item current-model refreshes for \texttt{gpt-5.4-mini} and
+    \texttt{gpt-5.5}; under \texttt{gpt-5.5}, the contract improves first-turn
+    global alignment from 81.7\% to 98.3\% while leaving inspectable residual
+    failures.
     \item We provide diagnostics beyond the headline table: language slices,
     family-level failure modes, paired sign-test sensitivity, token-burden
-    analysis, prompt-control and prompt-ablation diagnostics, item-consistency
-    analysis, and a stratified blinded LLM-judge audit.
+    analysis, prompt-mechanism and repair-realism diagnostics, item-consistency
+    analysis, paired judge refreshes, and launch-ready human/native review
+    protocols with conservative claim gates.
 \end{itemize}
 
 We intentionally keep the claim boundary narrow. The pilot is synthetic and

@@ -48,7 +48,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         path.write_text("", encoding="utf-8")
         return
     with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -156,6 +156,7 @@ def design_summary(packet_rows: list[dict[str, str]], key_rows: list[dict[str, s
 
 def write_markdown(
     path: Path,
+    title: str,
     summary: dict[str, Any],
     by_language: list[dict[str, Any]],
     by_family: list[dict[str, Any]],
@@ -163,7 +164,7 @@ def write_markdown(
     by_failure_type: list[dict[str, Any]],
 ) -> None:
     lines = [
-        "# Human Audit Design Audit",
+        f"# {title}",
         "",
         "Generated from the blinded launch packet and private answer key. This is",
         "a design-readiness audit only; it is not completed human validation.",
@@ -242,7 +243,8 @@ def write_markdown(
             "## Interpretation",
             "",
             "The packet covers one first-turn response for every model, condition,",
-            "language-pair, and task-family stratum: 72 strata total. The annotator",
+            "language-pair, and task-family stratum: "
+            f"{summary['model_condition_language_family_strata']} strata total. The annotator",
             "packet contains no private model, condition, item-id, or automatic-label",
             "fields, and all annotation fields, including `annotator_id`, are blank.",
             "The launch package includes an annotator roster template so completed",
@@ -264,15 +266,20 @@ def main() -> None:
     parser.add_argument("--answer-key", type=Path, default=Path("data/human_audit/human_audit_answer_key_v0.2.csv"))
     parser.add_argument("--out-dir", type=Path, default=Path("results/tables/human_audit_v0.2_design"))
     parser.add_argument("--out-md", type=Path, default=Path("paper/human_audit_design_audit_v02.md"))
+    parser.add_argument("--expected-models", default="gpt-4.1,gpt-4.1-mini,gpt-4.1-nano")
+    parser.add_argument("--title", default="Human Audit Design Audit")
     args = parser.parse_args()
+    expected_models = tuple(model.strip() for model in args.expected_models.split(",") if model.strip())
+    require(bool(expected_models), "expected at least one model")
+    expected_rows = 3 * 4 * 2 * len(expected_models)
 
     packet_rows = read_csv(args.packet)
     key_rows = read_csv(args.answer_key)
     rows = merged_rows(packet_rows, key_rows)
     summary = design_summary(packet_rows, key_rows, rows)
-    require(summary["packet_rows"] == 72, f"expected 72 packet rows, found {summary['packet_rows']}")
-    require(summary["answer_key_rows"] == 72, f"expected 72 answer-key rows, found {summary['answer_key_rows']}")
-    require(summary["model_condition_language_family_strata"] == 72, "expected one row per model/condition/language/family stratum")
+    require(summary["packet_rows"] == expected_rows, f"expected {expected_rows} packet rows, found {summary['packet_rows']}")
+    require(summary["answer_key_rows"] == expected_rows, f"expected {expected_rows} answer-key rows, found {summary['answer_key_rows']}")
+    require(summary["model_condition_language_family_strata"] == expected_rows, "expected one row per model/condition/language/family stratum")
     require(summary["first_turn_only"] is True, "human audit should cover first-turn rows only")
     require(summary["packet_private_fields_present"] is False, "packet leaks private fields")
     require(summary["annotation_fields_blank"] is True, "packet annotation fields are not blank")
@@ -289,7 +296,7 @@ def main() -> None:
     write_csv(args.out_dir / "human_audit_design_by_language_family.csv", by_language_family)
     write_csv(args.out_dir / "human_audit_design_by_model_condition.csv", by_model_condition)
     write_csv(args.out_dir / "human_audit_design_by_auto_failure_type.csv", by_failure_type)
-    write_markdown(args.out_md, summary, by_language, by_family, by_model_condition, by_failure_type)
+    write_markdown(args.out_md, args.title, summary, by_language, by_family, by_model_condition, by_failure_type)
     print(f"wrote human-audit design analysis to {args.out_dir} and {args.out_md}")
 
 

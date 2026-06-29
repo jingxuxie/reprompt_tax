@@ -3,11 +3,12 @@
 \paragraph{Models.}
 We evaluate \texttt{gpt-4.1-nano}, \texttt{gpt-4.1-mini}, and
 \texttt{gpt-4.1}, all accessed through the API with temperature 0 and a maximum
-of 256 output tokens. The paper-facing experiments were run on June 28, 2026.
-Because OpenAI's current model documentation lists GPT-5.5 as the flagship model
-and GPT-5.4 mini/nano as lower-cost variants \citep{openai2026models}, our
-model coverage should be read as a GPT-4.1-family pilot rather than a claim
-about the newest available model family.
+of 256 output tokens. The original paper-facing experiments were run on June
+28, 2026. Because OpenAI's current model documentation lists GPT-5.5 as the
+flagship model and GPT-5.4 mini/nano as lower-cost variants
+\citep{openai2026models}, we add a current-model refresh on full 120-item
+\texttt{gpt-5.4-mini} and \texttt{gpt-5.5} runs using the same benchmark,
+conditions, scoring rules, and repair budget.
 
 \paragraph{Prompting conditions.}
 Each model is run under two system-prompt conditions. The baseline prompt is

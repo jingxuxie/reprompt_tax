@@ -187,6 +187,9 @@ def language_pass(response: str, item: dict[str, Any]) -> bool:
     if expected == "arabic":
         return counts["arabic"] >= 4
 
+    if expected == "hindi":
+        return counts["devanagari"] >= 4 and counts["arabic"] == 0
+
     if expected == "hindi/hinglish":
         if counts["arabic"] or counts["devanagari"]:
             return False

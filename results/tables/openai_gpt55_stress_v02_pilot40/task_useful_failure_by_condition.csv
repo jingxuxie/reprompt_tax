@@ -1,0 +1,3 @@
+condition,n,ftga_pass_n,ftga_pass_pct,first_turn_failure_n,first_turn_failure_pct,task_useful_contract_failure_n,task_useful_contract_failure_pct,task_useful_share_of_failures_pct,task_and_preservation_useful_failure_n,task_and_preservation_useful_failure_pct,language_or_script_framing_failure_n,language_or_script_framing_failure_pct,task_noncompletion_failure_n,task_noncompletion_failure_pct
+baseline,40,32,80.0,8,20.0,0,0.0,0.0,0,0.0,0,0.0,8,20.0
+contract,40,40,100.0,0,0.0,0,0.0,0.0,0,0.0,0,0.0,0,0.0

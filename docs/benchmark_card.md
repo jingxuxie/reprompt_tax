@@ -2,35 +2,47 @@
 
 ## Name
 
-RePromptTax-Stress-v0.2
+RePromptTax-Stress-v0.2 is the paper-facing benchmark. The repository also
+contains historical v0.1 files and a v0.3 synthetic coverage scaffold, but v0.3
+is not paper-facing benchmark evidence until native review is completed.
 
 ## Purpose
 
-Measure hidden interaction costs for multilingual and code-switched LLM users:
-extra turns, tokens, and unresolved repair trajectories caused by failures in
-language, script, quote/literal preservation, register, locale, or task
-interpretation.
+RePromptTax measures hidden interaction costs for multilingual and
+code-switched LLM users: extra turns, token overhead, and unresolved repair
+trajectories caused by failures in language choice, script, literal
+preservation, register, locale, or task interpretation.
 
-## Scope
+The benchmark is a stress pilot and progress probe. It is not a prevalence
+estimate for real user populations.
 
-- Size: 120 stress items.
-- Language pairs: Spanish-English, Hindi-English, Arabic-English.
-- Task families:
-  - `editing_preservation`
-  - `output_language_inference`
-  - `quote_preservation`
-  - `script_register_locale`
-- Design: 3 language pairs x 4 task families x 10 items.
+## Paper-Facing Scope
 
-The standard pilot `data/benchmark_v0.1.jsonl` has 120 easier items and is kept
-for comparison. The paper-facing result uses `data/benchmark_stress_v0.2.jsonl`.
-The original `data/benchmark_stress_v0.1.jsonl` has 60 stress items and is kept
-for historical diagnostics. The v0.2 benchmark preserves the v0.1 item IDs for
-the first five cases in each cell and adds five new cases per cell.
+- Dataset: `data/benchmark_stress_v0.2.jsonl`
+- Size: 120 synthetic stress items
+- Language pairs: Spanish-English, Hindi-English, Arabic-English
+- Task families: `editing_preservation`, `output_language_inference`,
+  `quote_preservation`, and `script_register_locale`
+- Cell design: 3 language pairs x 4 task families x 10 items
+- Repair budget: two standardized repair prompts per failed first turn
+
+Historical files:
+
+- `data/benchmark_v0.1.jsonl`: easier standard pilot retained for comparison
+- `data/benchmark_stress_v0.1.jsonl`: 60-row stress precursor retained for
+  diagnostics
+
+Supplemental scaffold:
+
+- `data/benchmark_stress_v0.3_expansion.jsonl`: 60 synthetic rows covering
+  non-English target-content editing and cross-language preservation slices
+- v0.3 has launch-ready native-review packets and small model smokes, but it is
+  not paper-facing benchmark evidence before native validation and a
+  pre-specified larger run are complete
 
 ## Schema
 
-Each JSONL row includes:
+Each v0.2 JSONL row includes:
 
 - `id`
 - `language_pair`
@@ -54,54 +66,85 @@ Each JSONL row includes:
 ## Item Creation
 
 Items are synthetic and template-driven. They do not contain raw public chat
-logs, real addresses, real private user text, or sensitive personal data.
+logs, private user text, real addresses, or sensitive personal data.
 
-Stress items focus on failure modes observed in the initial pilot:
+Stress items focus on:
 
-- implicit preservation of English content during Spanish/Arabic/Hinglish
-  editing instructions,
-- preservation of semantically transparent quoted headings,
-- literal preservation of dates, filenames, names, and amounts,
-- script and casual messaging constraints.
+- implicit preservation of English content during Spanish, Arabic, or Hinglish
+  editing instructions
+- preservation of semantically transparent quoted headings
+- literal preservation of dates, filenames, names, and amounts
+- script, register, locale, and casual-message constraints
 
-A separate aggregate-only WildChat scan is included as a motivation check for
-the taxonomy. It does not release raw public conversation text and is not used
-as benchmark data.
+An aggregate-only WildChat repair-cue scan motivates the taxonomy. It writes
+hashed metadata and aggregate counts only; it does not release raw conversation
+text and should not be treated as prevalence evidence.
 
 ## Intended Use
 
-- Compare first-turn global alignment across models.
-- Measure re-prompt turn tax under a fixed repair protocol.
-- Diagnose failure types by task family and language pair.
-- Evaluate lightweight prompt-level mitigations.
+- Compare first-turn global alignment across model families
+- Measure re-prompt turn tax under a fixed repair protocol
+- Diagnose failure types by task family and language pair
+- Evaluate lightweight prompt-level mitigations
+- Track progress from GPT-4.1-family runs to GPT-5.x current-model refresh rows
 
 ## Out-of-Scope Use
 
-- Do not treat this benchmark as representative of all Spanish, Hindi, Arabic,
-  English, or code-switched users.
-- Do not use it as a native-speaker quality benchmark without additional human
+- Do not treat this benchmark as representative of all multilingual,
+  code-switched, Spanish, Hindi, Arabic, or English-speaking users.
+- Do not use it to estimate prevalence of re-prompt tax in real deployments.
+- Do not use it as a native-speaker quality benchmark without completed
+  native/near-native validation.
+- Do not treat automatic scores or LLM-judge audits as native-speaker
   validation.
-- Do not use the synthetic prompts to infer population-level behavior.
+- Do not use v0.3 model smokes or the 24-item v0.3 pilot as paper-facing
+  benchmark evidence before native review is completed.
+- Do not claim the mitigation fully solves multilingual interaction failures or
+  that it generalizes across providers.
 
 ## Validation Status
 
-- Automatic scoring checks exact span preservation, script, and rule-based
-  language/task markers.
-- A deterministic benchmark-quality audit checks balance, duplicate prompts,
-  scoring-marker coverage, preservation-span coverage, prompt lengths, and
-  privacy-like markers. The v0.2 audit reports 120 unique prompts, zero
-  normalized duplicate prompts, and zero privacy-marker hits under the audit
-  regexes.
-- A blinded `gpt-4.1` judge audit covers 72 first-turn stress responses:
-  3 samples per model/condition/task-family stratum.
-- Corrected auto scorer and judge agree on 71/72 sampled pass/fail labels
-  (98.6%); the one disagreement is reported as a limitation.
-- Native-speaker validation remains a required next step before strong final
-  claims.
+Benchmark hygiene:
+
+- `paper/benchmark_quality_audit_v02.md` reports 120 unique prompts, zero
+  normalized duplicate prompts, complete required-marker and known-bad-output
+  coverage, and zero privacy-marker hits under the release regexes.
+- `scripts/validate_paper_claims.py` checks benchmark balance, core metric
+  values, claim boundaries, and manifest freshness.
+
+Model-result evidence:
+
+- The paper-facing table includes three GPT-4.1-family full runs and a
+  GPT-5.x current-model refresh on `gpt-5.4-mini` and `gpt-5.5`.
+- `gpt-5.5`: FTGA rises from 81.7% to 98.3% under the Global Interaction
+  Contract, mean RTT falls from 0.225 to 0.017, and unresolved trajectories
+  fall to 0.0%.
+- `gpt-5.4-mini`: FTGA rises from 80.0% to 85.0%, but the FTGA uncertainty
+  interval crosses zero and unresolved rate increases from 2.5% to 5.0%.
+
+Scorer checks:
+
+- The release includes two blinded LLM-judge audits over the same 72-row sample.
+- A blinded GPT-4.1 judge audit agrees with the automatic scorer on 71/72
+  sampled first-turn pass/fail labels.
+- A paired GPT-5.5 judge refresh agrees with the automatic scorer on 70/72
+  sampled labels and with the GPT-4.1 judge on 69/72 labels.
+- These are scorer sanity checks, not native/near-native validation.
+
+Human/native validation status:
+
+- Native/near-native validation has not been completed.
+- The release has three launch-ready annotation surfaces: the original 72-row v0.2
+  human/native audit, a 48-row current-model GPT-5.x human/native audit, and a
+  60-row v0.3 coverage native-review packet.
+- Together these surfaces contain 180 reviewer-facing rows, 18 roster-template
+  slots, and 12 static browser review sheets.
+- Stronger claims require completed labels, qualified rosters, and the
+  pre-specified gates in `paper/human_audit_acceptance_rules_v02.md`.
 
 ## Reproduction
 
-Generate and validate the paper-facing stress benchmark:
+Regenerate the v0.2 stress benchmark and quality audit:
 
 ```bash
 conda run -n reprompt_tax python scripts/generate_stress_benchmark_v02.py
@@ -114,8 +157,15 @@ conda run -n reprompt_tax python scripts/analyze_benchmark_quality.py \
   --out-md paper/benchmark_quality_audit_v02.md
 ```
 
-Validate paper-facing claims:
+Run the full local submission gate without API calls:
 
 ```bash
-conda run -n reprompt_tax python scripts/validate_paper_claims.py
+conda run -n reprompt_tax python scripts/run_submission_checks.py
+```
+
+Validate release-facing documentation and artifact hashes:
+
+```bash
+conda run -n reprompt_tax python scripts/validate_release_docs.py
+conda run -n reprompt_tax python scripts/make_artifact_manifest.py --check
 ```

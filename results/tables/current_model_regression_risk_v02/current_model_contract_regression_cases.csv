@@ -1,0 +1,6 @@
+model,item_id,language_pair,task_family,baseline_rtt,contract_rtt,contract_unresolved,contract_failure_types,content_preservation_ftga,content_preservation_rtt,content_preservation_unresolved,content_preservation_failure_types
+gpt-5.4-mini,ar_en_SD_006,ar-en,script_register_locale,0,3,1,['preservation_failure'],0,3,1,['preservation_failure']
+gpt-5.4-mini,ar_en_SD_007,ar-en,script_register_locale,0,1,0,"['preservation_failure', 'task_noncompletion']",1,0,0,[]
+gpt-5.4-mini,es_en_SD_010,es-en,script_register_locale,0,1,0,['preservation_failure'],0,1,0,['preservation_failure']
+gpt-5.4-mini,hi_en_SC_003,hi-en,quote_preservation,0,3,1,['wrong_output_language'],1,0,0,[]
+gpt-5.4-mini,hi_en_SC_008,hi-en,quote_preservation,0,3,1,['wrong_output_language'],1,0,0,[]

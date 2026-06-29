@@ -18,7 +18,7 @@ CLAIM_SURFACES = [
 PROHIBITED_PATTERNS = [
     r"\brepresentative of all\b",
     r"\bprevalence of re-prompt tax\b",
-    r"\bfully solves?\b",
+    r"(?<!not )\bfully solves?\b",
     r"\bgeneralizes across providers\b",
     r"\bnative-speaker validation has been completed\b",
     r"\bhuman validation is complete\b",
@@ -59,6 +59,26 @@ REQUIRED_PHRASES = {
         "plumbing smoke test only",
         "must not be described as human validation",
     ],
+    Path("paper/coverage_smoke_gpt54mini_v03.md"): [
+        "six-item smoke",
+        "not paper-facing model result evidence",
+        "requires native validation before claims",
+    ],
+    Path("paper/coverage_pilot_gpt54mini_v03.md"): [
+        "24-item synthetic v0.3 pilot",
+        "not as a headline benchmark result",
+        "native validation is complete",
+    ],
+    Path("paper/coverage_smoke_gpt55_v03.md"): [
+        "six-item smoke",
+        "not paper-facing model result evidence",
+        "requires native validation before claims",
+    ],
+    Path("paper/coverage_native_review_design_v03.md"): [
+        "60 synthetic v0.3 rows",
+        "launch-ready but not completed native validation",
+        "Do not claim native validation has been completed",
+    ],
     Path("docs/result_card.md"): [
         "Do not claim:",
         "that this benchmark is representative of all multilingual users",
@@ -76,9 +96,25 @@ def require(condition: bool, message: str) -> None:
         raise AssertionError(message)
 
 
+def read_surface(path: Path) -> str:
+    text = (ROOT / path).read_text(encoding="utf-8")
+    if path != Path("paper/main.tex"):
+        return text
+
+    included = [text]
+    for match in re.finditer(r"\\input\{([^}]+)\}", text):
+        rel = match.group(1)
+        input_path = (ROOT / path).parent / rel
+        if input_path.suffix == "":
+            input_path = input_path.with_suffix(".tex")
+        require(input_path.exists(), f"missing included TeX file {input_path}")
+        included.append(input_path.read_text(encoding="utf-8"))
+    return "\n".join(included)
+
+
 def lint_prohibited_claims() -> None:
     for path in CLAIM_SURFACES:
-        text = (ROOT / path).read_text(encoding="utf-8")
+        text = read_surface(path)
         for pattern in PROHIBITED_PATTERNS:
             match = re.search(pattern, text, flags=re.IGNORECASE)
             if match is not None:
@@ -89,7 +125,7 @@ def lint_required_phrases() -> None:
     for path, phrases in REQUIRED_PHRASES.items():
         full_path = ROOT / path
         require(full_path.exists(), f"missing claim-boundary file {path}")
-        text = full_path.read_text(encoding="utf-8")
+        text = read_surface(path)
         normalized = " ".join(text.split())
         for phrase in phrases:
             require(phrase in normalized, f"{path} missing required claim-boundary phrase: {phrase}")

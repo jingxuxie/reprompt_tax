@@ -1,0 +1,2 @@
+item_id,coverage_slice,condition,failure_types,response_snippet
+v03_es_ar_EP_001,spanish_instruction_arabic_quote,baseline,task_noncompletion,"Claro. Una versión más pulida en árabe, sin traducirla ni cambiar los términos clave, sería:  **أنهى الفريق المسودة، لكن الخاتمة تحتاج إلى مزيد من التوضيح قبل الإرسال.**  Si quieres, también puedo darte 2–3 variantes con"

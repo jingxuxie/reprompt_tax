@@ -1,0 +1,3 @@
+model,condition,task_family,n,ftga,mean_rtt,unresolved_rate,repair_success_at_1,repair_success_at_2,mean_token_tax,initially_failed_n,ftga_ci_low,ftga_ci_high,mean_rtt_ci_low,mean_rtt_ci_high
+gpt-5.4-mini,baseline,editing_preservation,24,0.75,0.4166666666666667,0.08333333333333333,0.6666666666666666,0.6666666666666666,1.5790264741401807,6,0.5833333333333334,0.9166666666666666,0.125,0.75
+gpt-5.4-mini,contract,editing_preservation,24,0.9583333333333334,0.125,0.041666666666666664,0.0,0.0,1.1038937409024745,1,0.875,1,0,0.375

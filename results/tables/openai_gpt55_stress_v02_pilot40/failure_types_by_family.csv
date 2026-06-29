@@ -1,0 +1,4 @@
+model,condition,task_family,failure_type,count,share_of_initial_failures
+gpt-5.5,baseline,editing_preservation,script_mismatch,4,0.5
+gpt-5.5,baseline,editing_preservation,task_noncompletion,8,1.0
+gpt-5.5,baseline,editing_preservation,wrong_output_language,8,1.0

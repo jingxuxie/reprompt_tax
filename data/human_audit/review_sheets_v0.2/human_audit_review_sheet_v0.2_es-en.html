@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RePromptTax v0.2 Spanish-English Audit</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; color: #1f2933; background: #f7f9fb; }
+    header { padding: 18px 24px; background: #113a5c; color: white; }
+    main { max-width: 1180px; margin: 0 auto; padding: 18px 20px 32px; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    h2 { font-size: 17px; margin: 28px 0 10px; }
+    label { font-weight: 600; display: block; margin-bottom: 4px; }
+    input, select, textarea { box-sizing: border-box; width: 100%; border: 1px solid #bcc7d2; border-radius: 4px; padding: 7px; font: inherit; background: white; }
+    textarea { min-height: 70px; resize: vertical; }
+    button { border: 0; border-radius: 4px; background: #0b6bcb; color: white; padding: 9px 12px; font-weight: 700; cursor: pointer; }
+    button:focus, input:focus, select:focus, textarea:focus { outline: 3px solid #9fd0ff; outline-offset: 1px; }
+    .meta { color: #d7e6f5; font-size: 13px; }
+    .toolbar { display: grid; grid-template-columns: minmax(220px, 1fr) auto; gap: 14px; align-items: end; margin: 16px 0 18px; }
+    .row { background: white; border: 1px solid #d5dee8; border-radius: 6px; margin: 14px 0; padding: 16px; }
+    .row-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .pill { display: inline-block; border-radius: 999px; background: #e8f1fb; color: #123c5c; padding: 3px 9px; font-size: 12px; font-weight: 700; }
+    .text-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .field-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+    .wide { grid-column: span 3; }
+    .prompt, .response, .constraints { white-space: pre-wrap; background: #f9fbfd; border: 1px solid #e1e7ee; border-radius: 4px; padding: 10px; line-height: 1.45; }
+    .constraints { margin-top: 10px; }
+    @media (max-width: 780px) {
+      .toolbar, .text-grid, .field-grid { grid-template-columns: 1fr; }
+      .wide { grid-column: span 1; }
+      main { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RePromptTax v0.2 Spanish-English Audit</h1>
+    <div class="meta">24 blinded rows. Export filename: human_audit_packet_v0.2_es-en_completed.csv</div>
+  </header>
+  <main>
+    <div class="toolbar">
+      <div>
+        <label for="annotator_id">Annotator ID</label>
+        <input id="annotator_id" autocomplete="off" placeholder="same ID as roster">
+      </div>
+      <button id="export_button" type="button">Download CSV</button>
+    </div>
+    <section id="rows"></section>
+  </main>
+  <script id="audit-data" type="application/json">[{"audit_id": "rpt_audit_025", "language_pair": "es-en", "task_family": "editing_preservation", "user_prompt": "Me ayudas a mejorar este texto para que suene natural? \"Hello, I need to change my appointment because my train was delayed.\"", "assistant_response": "¡Por supuesto! Aquí tienes algunas opciones para que suene más natural:\n\n1. Hi, I need to reschedule my appointment because my train was delayed.\n2. Hello, I’d like to change my appointment as my train was delayed.\n3. Hi, I need to move my appointment because my train was delayed.\n4. Hello, I need to change my appointment due to a train delay.\n\nCualquiera de estas opciones suena natural y educada. ¿Te gustaría que lo adapte a un contexto más formal o informal?", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "polite appointment message", "locale_requirement": "", "known_bad_outputs": "[\"translation into instruction language\", \"explanation without rewriting\"]", "notes_for_annotators": "Instruction language differs from content language; output should preserve content language.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_026", "language_pair": "es-en", "task_family": "editing_preservation", "user_prompt": "Me ayudas a mejorar este texto para que suene natural? \"Hi team, I finished the notes but I am not sure if the conclusion is clear.\"", "assistant_response": "Hi team, I’ve finished the notes, but I’m not sure if the conclusion is clear.", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "clear workplace message", "locale_requirement": "", "known_bad_outputs": "[\"translation into instruction language\", \"explanation without rewriting\"]", "notes_for_annotators": "Instruction language differs from content language; output should preserve content language.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_027", "language_pair": "es-en", "task_family": "editing_preservation", "user_prompt": "Me ayudas a mejorar este texto para que suene natural? \"I reviewed the report, and the second chart seems confusing for new readers.\"", "assistant_response": "Claro, aquí tienes una versión más natural y fluida del texto:\n\n\"I reviewed the report, and the second chart might be confusing for new readers.\"\n\nSi quieres que suene un poco más informal o amigable, también podrías decir:\n\n\"I went over the report, and the second chart could be confusing for people who are new to it.\"\n\n¿Quieres que lo adapte a un tono más formal o casual?", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "clear editing feedback", "locale_requirement": "", "known_bad_outputs": "[\"translation into instruction language\", \"explanation without rewriting\"]", "notes_for_annotators": "Instruction language differs from content language; output should preserve content language.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_028", "language_pair": "es-en", "task_family": "editing_preservation", "user_prompt": "Me ayudas a mejorar este texto para que suene natural? \"Please tell the tenant we fixed the heating issue and will check again tomorrow.\"", "assistant_response": "Claro, aquí tienes una versión más natural del texto:\n\n\"Please inform the tenant that we have fixed the heating issue and will check it again tomorrow.\"", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "clear maintenance update", "locale_requirement": "", "known_bad_outputs": "[\"translation into instruction language\", \"explanation without rewriting\"]", "notes_for_annotators": "Instruction language differs from content language; output should preserve content language.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_029", "language_pair": "es-en", "task_family": "editing_preservation", "user_prompt": "Me ayudas a mejorar este texto para que suene natural? \"Thanks for your help. I will review the invoice and send the missing details tonight.\"", "assistant_response": "Claro, aquí tienes una versión más natural del texto:\n\n\"Thanks for your help. I'll review the invoice and send the missing details tonight.\"\n\n¿Quieres que sea aún más formal o informal?", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "professional reply", "locale_requirement": "", "known_bad_outputs": "[\"translation into instruction language\", \"explanation without rewriting\"]", "notes_for_annotators": "Instruction language differs from content language; output should preserve content language.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_030", "language_pair": "es-en", "task_family": "editing_preservation", "user_prompt": "Me ayudas a mejorar este texto para que suene natural? \"The first paragraph is too long and the final sentence sounds a bit rude.\"", "assistant_response": "Claro, aquí tienes una versión más natural y suave del texto:\n\n\"The first paragraph is a bit too long, and the last sentence comes across as a little harsh.\"", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "editing feedback", "locale_requirement": "", "known_bad_outputs": "[\"translation into instruction language\", \"explanation without rewriting\"]", "notes_for_annotators": "Instruction language differs from content language; output should preserve content language.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_031", "language_pair": "es-en", "task_family": "output_language_inference", "user_prompt": "Corrige solo la frase en inglés. No expliques nada: \"Please let me know if there is any informations missing.\"", "assistant_response": "Please let me know if there is any information missing.", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "corrected sentence only", "locale_requirement": "", "known_bad_outputs": "[\"translation\", \"explanation without corrected English sentence\"]", "notes_for_annotators": "Equivalent grammatical corrections are acceptable.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_032", "language_pair": "es-en", "task_family": "output_language_inference", "user_prompt": "Corrige solo la frase en inglés. No expliques nada: \"Please discuss about the schedule before Monday.\"", "assistant_response": "Please discuss the schedule before Monday.", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "corrected sentence only", "locale_requirement": "", "known_bad_outputs": "[\"translation\", \"explanation without corrected English sentence\"]", "notes_for_annotators": "Equivalent grammatical corrections are acceptable.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_033", "language_pair": "es-en", "task_family": "output_language_inference", "user_prompt": "Corrige solo la frase en inglés. No expliques nada: \"The data are not enough to support this claim.\"", "assistant_response": "The data is not enough to support this claim.", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "corrected sentence only", "locale_requirement": "", "known_bad_outputs": "[\"translation\", \"explanation without corrected English sentence\"]", "notes_for_annotators": "Equivalent grammatical corrections are acceptable.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_034", "language_pair": "es-en", "task_family": "output_language_inference", "user_prompt": "Corrige solo la frase en inglés. No expliques nada: \"This option is more better for small teams.\"", "assistant_response": "This option is better for small teams.", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "corrected sentence only", "locale_requirement": "", "known_bad_outputs": "[\"translation\", \"explanation without corrected English sentence\"]", "notes_for_annotators": "Equivalent grammatical corrections are acceptable.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_035", "language_pair": "es-en", "task_family": "output_language_inference", "user_prompt": "Corrige solo la frase en inglés. No expliques nada: \"I am used to work late on Fridays.\"", "assistant_response": "I am used to working late on Fridays.", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "corrected sentence only", "locale_requirement": "", "known_bad_outputs": "[\"translation\", \"explanation without corrected English sentence\"]", "notes_for_annotators": "Equivalent grammatical corrections are acceptable.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_036", "language_pair": "es-en", "task_family": "output_language_inference", "user_prompt": "Corrige solo la frase en inglés. No expliques nada: \"This option is more better for small teams.\"", "assistant_response": "This option is better for small teams.", "expected_response_language": "English", "expected_script": "Latin", "must_preserve_spans": "[]", "register_requirement": "corrected sentence only", "locale_requirement": "", "known_bad_outputs": "[\"translation\", \"explanation without corrected English sentence\"]", "notes_for_annotators": "Equivalent grammatical corrections are acceptable.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_037", "language_pair": "es-en", "task_family": "quote_preservation", "user_prompt": "Resume esto en español, pero deja los títulos entre comillas exactamente en inglés: The document lists \"Account Settings\" before \"Password Reset\".", "assistant_response": "El documento menciona \"Account Settings\" antes de \"Password Reset\".", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"Account Settings\", \"Password Reset\"]", "register_requirement": "neutral concise summary", "locale_requirement": "", "known_bad_outputs": "[\"translated quoted heading\", \"dropped quoted heading\"]", "notes_for_annotators": "The quoted headings are semantically translatable but must remain exact.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_038", "language_pair": "es-en", "task_family": "quote_preservation", "user_prompt": "Resume esto en español, pero deja los títulos entre comillas exactamente en inglés: The document lists \"Budget Review\" before \"Community Questions\".", "assistant_response": "El documento menciona \"Budget Review\" antes de \"Community Questions\".", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"Budget Review\", \"Community Questions\"]", "register_requirement": "neutral concise summary", "locale_requirement": "", "known_bad_outputs": "[\"translated quoted heading\", \"dropped quoted heading\"]", "notes_for_annotators": "The quoted headings are semantically translatable but must remain exact.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_039", "language_pair": "es-en", "task_family": "quote_preservation", "user_prompt": "Resume esto en español, pero deja los títulos entre comillas exactamente en inglés: The document lists \"Safety Guidelines\" before \"Emergency Contact\".", "assistant_response": "El documento enumera las \"Safety Guidelines\" antes de \"Emergency Contact\".", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"Safety Guidelines\", \"Emergency Contact\"]", "register_requirement": "neutral concise summary", "locale_requirement": "", "known_bad_outputs": "[\"translated quoted heading\", \"dropped quoted heading\"]", "notes_for_annotators": "The quoted headings are semantically translatable but must remain exact.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_040", "language_pair": "es-en", "task_family": "quote_preservation", "user_prompt": "Resume esto en español, pero deja los títulos entre comillas exactamente en inglés: The document lists \"Safety Guidelines\" before \"Emergency Contact\".", "assistant_response": "El documento enumera las \"Safety Guidelines\" antes de los \"Emergency Contact\".", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"Safety Guidelines\", \"Emergency Contact\"]", "register_requirement": "neutral concise summary", "locale_requirement": "", "known_bad_outputs": "[\"translated quoted heading\", \"dropped quoted heading\"]", "notes_for_annotators": "The quoted headings are semantically translatable but must remain exact.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_041", "language_pair": "es-en", "task_family": "quote_preservation", "user_prompt": "Resume esto en español, pero deja los títulos entre comillas exactamente en inglés: The document lists \"Budget Review\" before \"Community Questions\".", "assistant_response": "El documento presenta primero la sección de \"Budget Review\" y luego la de \"Community Questions\".", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"Budget Review\", \"Community Questions\"]", "register_requirement": "neutral concise summary", "locale_requirement": "", "known_bad_outputs": "[\"translated quoted heading\", \"dropped quoted heading\"]", "notes_for_annotators": "The quoted headings are semantically translatable but must remain exact.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_042", "language_pair": "es-en", "task_family": "quote_preservation", "user_prompt": "Resume esto en español, pero deja los títulos entre comillas exactamente en inglés: The document lists \"Office Hours\" before \"Makeup Exam\".", "assistant_response": "El documento enumera \"Office Hours\" antes de \"Makeup Exam\".", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"Office Hours\", \"Makeup Exam\"]", "register_requirement": "neutral concise summary", "locale_requirement": "", "known_bad_outputs": "[\"translated quoted heading\", \"dropped quoted heading\"]", "notes_for_annotators": "The quoted headings are semantically translatable but must remain exact.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_043", "language_pair": "es-en", "task_family": "script_register_locale", "user_prompt": "Escribe una respuesta breve en español. Conserva exactamente estos datos si aparecen en el contexto. Context: Ask if the shop can keep the order under the name Mira Rao exactly.", "assistant_response": "¿Pueden guardar el pedido a nombre de Mira Rao exactamente?", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"Mira Rao\"]", "register_requirement": "short polite casual message", "locale_requirement": "preserve literal dates, codes, names, filenames, and amounts exactly", "known_bad_outputs": "[\"wrong script\", \"changes literal data\", \"English-only response\"]", "notes_for_annotators": "Literal data must be unchanged even if the surrounding language changes.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_044", "language_pair": "es-en", "task_family": "script_register_locale", "user_prompt": "Escribe una respuesta breve en español. Conserva exactamente estos datos si aparecen en el contexto. Context: Tell a friend I paid ₹500 and will send the receipt tomorrow.", "assistant_response": "Hola, ya pagué ₹500 y mañana te envío el recibo.", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"₹500\"]", "register_requirement": "short polite casual message", "locale_requirement": "preserve literal dates, codes, names, filenames, and amounts exactly", "known_bad_outputs": "[\"wrong script\", \"changes literal data\", \"English-only response\"]", "notes_for_annotators": "Literal data must be unchanged even if the surrounding language changes.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_045", "language_pair": "es-en", "task_family": "script_register_locale", "user_prompt": "Escribe una respuesta breve en español. Conserva exactamente estos datos si aparecen en el contexto. Context: Ask if the clinic can move my visit to 10:30 AM without changing the appointment number INV-2048.", "assistant_response": "¿Podrían cambiar mi cita al 10:30 AM sin modificar el número de cita INV-2048? Gracias.", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"10:30 AM\", \"INV-2048\"]", "register_requirement": "short polite casual message", "locale_requirement": "preserve literal dates, codes, names, filenames, and amounts exactly", "known_bad_outputs": "[\"wrong script\", \"changes literal data\", \"English-only response\"]", "notes_for_annotators": "Literal data must be unchanged even if the surrounding language changes.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_046", "language_pair": "es-en", "task_family": "script_register_locale", "user_prompt": "Escribe una respuesta breve en español. Conserva exactamente estos datos si aparecen en el contexto. Context: Tell HR I can start on June 12 and the employee ID QR-77 should stay the same.", "assistant_response": "Pueden informar a Recursos Humanos que puedo comenzar el 12 de junio y que el ID de empleado QR-77 debe mantenerse igual.", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"June 12\", \"QR-77\"]", "register_requirement": "short polite casual message", "locale_requirement": "preserve literal dates, codes, names, filenames, and amounts exactly", "known_bad_outputs": "[\"wrong script\", \"changes literal data\", \"English-only response\"]", "notes_for_annotators": "Literal data must be unchanged even if the surrounding language changes.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_047", "language_pair": "es-en", "task_family": "script_register_locale", "user_prompt": "Escribe una respuesta breve en español. Conserva exactamente estos datos si aparecen en el contexto. Context: Tell the delivery driver to leave the box at Apt 5B and call when they arrive.", "assistant_response": "Por favor, deje la caja en el Apt 5B y llame cuando llegue.", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"Apt 5B\"]", "register_requirement": "short polite casual message", "locale_requirement": "preserve literal dates, codes, names, filenames, and amounts exactly", "known_bad_outputs": "[\"wrong script\", \"changes literal data\", \"English-only response\"]", "notes_for_annotators": "Literal data must be unchanged even if the surrounding language changes.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}, {"audit_id": "rpt_audit_048", "language_pair": "es-en", "task_family": "script_register_locale", "user_prompt": "Escribe una respuesta breve en español. Conserva exactamente estos datos si aparecen en el contexto. Context: Tell my classmate that the file name draft_v2.pdf should stay unchanged.", "assistant_response": "El nombre del archivo draft_v2.pdf debe mantenerse sin cambios.", "expected_response_language": "Spanish", "expected_script": "Latin", "must_preserve_spans": "[\"draft_v2.pdf\"]", "register_requirement": "short polite casual message", "locale_requirement": "preserve literal dates, codes, names, filenames, and amounts exactly", "known_bad_outputs": "[\"wrong script\", \"changes literal data\", \"English-only response\"]", "notes_for_annotators": "Literal data must be unchanged even if the surrounding language changes.", "annotator_id": "", "human_pass": "", "human_language_pass": "", "human_script_pass": "", "human_preservation_pass": "", "human_task_pass": "", "human_register_locale_pass": "", "human_failure_types": "", "human_notes": ""}]</script>
+  <script>
+    const rows = JSON.parse(document.getElementById('audit-data').textContent);
+    const exportFields = ["audit_id", "language_pair", "task_family", "user_prompt", "assistant_response", "expected_response_language", "expected_script", "must_preserve_spans", "register_requirement", "locale_requirement", "known_bad_outputs", "notes_for_annotators", "annotator_id", "human_pass", "human_language_pass", "human_script_pass", "human_preservation_pass", "human_task_pass", "human_register_locale_pass", "human_failure_types", "human_notes"];
+    const annotationFields = ["annotator_id", "human_pass", "human_language_pass", "human_script_pass", "human_preservation_pass", "human_task_pass", "human_register_locale_pass", "human_failure_types", "human_notes"];
+    const boolFields = annotationFields.filter((field) => field.startsWith('human_') && field.endsWith('_pass'));
+
+    function optionHtml() {
+      return '<option value=""></option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option>';
+    }
+
+    function escapeText(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+    }
+
+    function fieldId(row, field) {
+      return `${row.audit_id}__${field}`;
+    }
+
+    function renderRows() {
+      const container = document.getElementById('rows');
+      container.innerHTML = rows.map((row) => {
+        const constraints = [
+          `Expected language: ${row.expected_response_language}`,
+          `Expected script: ${row.expected_script}`,
+          `Preserve exactly: ${row.must_preserve_spans || '[]'}`,
+          `Known bad outputs: ${row.known_bad_outputs || '[]'}`,
+          `Register: ${row.register_requirement || ''}`,
+          `Locale: ${row.locale_requirement || ''}`,
+          `Notes: ${row.notes_for_annotators || ''}`,
+        ].join('\n');
+        const boolInputs = boolFields.map((field) => `
+          <div>
+            <label for="${fieldId(row, field)}">${field.replaceAll('_', ' ')}</label>
+            <select id="${fieldId(row, field)}" data-audit-id="${row.audit_id}" data-field="${field}">${optionHtml()}</select>
+          </div>
+        `).join('');
+        return `
+          <article class="row">
+            <div class="row-head">
+              <strong>${escapeText(row.audit_id)}</strong>
+              <span>
+                <span class="pill">${escapeText(row.language_pair)}</span>
+                <span class="pill">${escapeText(row.task_family)}</span>
+              </span>
+            </div>
+            <div class="text-grid">
+              <div>
+                <label>User prompt</label>
+                <div class="prompt">${escapeText(row.user_prompt)}</div>
+              </div>
+              <div>
+                <label>Assistant response</label>
+                <div class="response">${escapeText(row.assistant_response)}</div>
+              </div>
+            </div>
+            <div class="constraints">${escapeText(constraints)}</div>
+            <div class="field-grid">
+              ${boolInputs}
+              <div class="wide">
+                <label for="${fieldId(row, 'human_failure_types')}">human failure types</label>
+                <input id="${fieldId(row, 'human_failure_types')}" data-audit-id="${row.audit_id}" data-field="human_failure_types" placeholder="comma-separated, blank if pass">
+              </div>
+              <div class="wide">
+                <label for="${fieldId(row, 'human_notes')}">human notes</label>
+                <textarea id="${fieldId(row, 'human_notes')}" data-audit-id="${row.audit_id}" data-field="human_notes"></textarea>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function csvEscape(value) {
+      const text = String(value ?? '');
+      if (/[",\n\r]/.test(text)) {
+        return `"${text.replaceAll('"', '""')}"`;
+      }
+      return text;
+    }
+
+    function collectRows() {
+      const annotatorId = document.getElementById('annotator_id').value.trim();
+      return rows.map((row) => {
+        const out = {};
+        for (const field of exportFields) {
+          out[field] = row[field] ?? '';
+        }
+        out.annotator_id = annotatorId;
+        for (const field of annotationFields) {
+          if (field === 'annotator_id') continue;
+          const element = document.getElementById(fieldId(row, field));
+          out[field] = element ? element.value : '';
+        }
+        return out;
+      });
+    }
+
+    function downloadCsv() {
+      const completed = collectRows();
+      const lines = [exportFields.join(',')];
+      for (const row of completed) {
+        lines.push(exportFields.map((field) => csvEscape(row[field])).join(','));
+      }
+      const blob = new Blob([lines.join('\n') + '\n'], {type: 'text/csv;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'human_audit_packet_v0.2_es-en_completed.csv';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    renderRows();
+    document.getElementById('export_button').addEventListener('click', downloadCsv);
+  </script>
+</body>
+</html>

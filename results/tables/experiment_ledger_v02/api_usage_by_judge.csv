@@ -1,2 +1,3 @@
 artifact_label,judge_model,api_response_rows,input_tokens,output_tokens,total_tokens,created_at_start,created_at_end
 judge_audit,gpt-4.1,72,20607,5339,25946,2026-06-28T03:58:53.153879+00:00,2026-06-28T03:59:58.189049+00:00
+judge_refresh_gpt55,gpt-5.5,72,20535,10512,31047,2026-06-29T01:27:26.045610+00:00,2026-06-29T01:33:25.038310+00:00

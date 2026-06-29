@@ -1,0 +1,17 @@
+generation,condition,task_family,model_item_pairs,first_turn_failures,failure_pair_pct,any_fail_items,all_fail_items,unresolved_pairs
+GPT-4.1 family,baseline,editing_preservation,90,60,66.7,20,20,0
+GPT-4.1 family,baseline,output_language_inference,90,0,0.0,0,0,0
+GPT-4.1 family,baseline,quote_preservation,90,9,10.0,9,0,4
+GPT-4.1 family,baseline,script_register_locale,90,27,30.0,11,7,7
+GPT-4.1 family,contract,editing_preservation,90,27,30.0,16,1,0
+GPT-4.1 family,contract,output_language_inference,90,0,0.0,0,0,0
+GPT-4.1 family,contract,quote_preservation,90,8,8.9,8,0,1
+GPT-4.1 family,contract,script_register_locale,90,26,28.9,11,7,11
+GPT-5.x family,baseline,editing_preservation,60,40,66.7,20,20,0
+GPT-5.x family,baseline,output_language_inference,60,1,1.7,1,0,1
+GPT-5.x family,baseline,quote_preservation,60,0,0.0,0,0,0
+GPT-5.x family,baseline,script_register_locale,60,5,8.3,5,0,4
+GPT-5.x family,contract,editing_preservation,60,12,20.0,10,2,0
+GPT-5.x family,contract,output_language_inference,60,0,0.0,0,0,0
+GPT-5.x family,contract,quote_preservation,60,2,3.3,2,0,2
+GPT-5.x family,contract,script_register_locale,60,6,10.0,6,0,4
