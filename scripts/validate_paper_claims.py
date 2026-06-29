@@ -2154,6 +2154,7 @@ def check_claim_checklist(path: Path) -> None:
         "scripts/test_label_intake_dry_run.py",
         "paper/current_model_label_sprint_v02.md",
         "scripts/validate_current_model_label_sprint.py",
+        "scripts/test_current_model_label_sprint_dry_run.py",
         "scripts/validate_label_collection_priority.py",
         "scripts/validate_all_model_paired_significance.py",
         "scripts/validate_all_model_uncertainty.py",
@@ -2578,6 +2579,7 @@ def main() -> None:
     check_auxiliary_validator(root, "scripts/validate_reviewer_qualification_requirements.py", "reviewer qualification requirements validation passed")
     check_auxiliary_validator(root, "scripts/validate_label_collection_priority.py", "label-collection priority validation passed")
     check_auxiliary_validator(root, "scripts/validate_current_model_label_sprint.py", "current-model label sprint validation passed")
+    check_auxiliary_validator(root, "scripts/test_current_model_label_sprint_dry_run.py", "current-model label sprint dry-run tests passed")
     check_auxiliary_validator(root, "scripts/test_human_audit_adjudication.py", "human-audit adjudication regression tests passed")
     check_auxiliary_validator(
         root,

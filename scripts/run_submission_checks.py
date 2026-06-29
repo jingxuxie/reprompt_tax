@@ -762,6 +762,7 @@ def main() -> None:
     run_step("validate label-collection priority", python_step("scripts/validate_label_collection_priority.py"))
     run_step("analyze current-model label sprint", python_step("scripts/analyze_current_model_label_sprint.py"))
     run_step("validate current-model label sprint", python_step("scripts/validate_current_model_label_sprint.py"))
+    run_step("current-model label sprint dry-run tests", python_step("scripts/test_current_model_label_sprint_dry_run.py"))
     run_step("analyze submission decision audit", python_step("scripts/analyze_submission_decision_v02.py"))
     run_step("validate submission decision audit", python_step("scripts/validate_submission_decision_v02.py"))
     run_step("analyze submission anonymity audit", python_step("scripts/analyze_submission_anonymity_v02.py"))
