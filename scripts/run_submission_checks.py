@@ -754,6 +754,8 @@ def main() -> None:
     run_step("validate label-collection operator handoff", python_step("scripts/validate_label_collection_operator_handoff.py"))
     run_step("analyze label-collection priority", python_step("scripts/analyze_label_collection_priority.py"))
     run_step("validate label-collection priority", python_step("scripts/validate_label_collection_priority.py"))
+    run_step("analyze submission decision audit", python_step("scripts/analyze_submission_decision_v02.py"))
+    run_step("validate submission decision audit", python_step("scripts/validate_submission_decision_v02.py"))
     run_step(
         "validate expanded stress benchmark",
         python_step(
@@ -782,6 +784,7 @@ def main() -> None:
     run_step("validate contract-benefit decomposition", python_step("scripts/validate_contract_benefit_decomposition.py"))
     run_step("validate prompt-family scorecard", python_step("scripts/validate_prompt_family_scorecard.py"))
     run_step("validate reviewer concern audit", python_step("scripts/validate_reviewer_concern_audit_v02.py"))
+    run_step("validate submission decision audit", python_step("scripts/validate_submission_decision_v02.py"))
     run_step("refresh artifact manifest", python_step("scripts/make_artifact_manifest.py"))
     run_step("validate paper claims", python_step("scripts/validate_paper_claims.py"))
     run_step("check artifact manifest", python_step("scripts/make_artifact_manifest.py", "--check"))
