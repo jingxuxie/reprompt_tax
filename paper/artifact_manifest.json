@@ -367,6 +367,12 @@
       "sha256": "e501295d973e7b31a37490b6a5dba739be490bb49fe225c2c200399839cc3a56"
     },
     {
+      "bytes": 2415,
+      "lines": 33,
+      "path": "paper/all_model_uncertainty_v02.md",
+      "sha256": "9489579d838d501b2647f0971aa7dbb1983b8321f8b661980ae420dc93dad99c"
+    },
+    {
       "bytes": 22584,
       "lines": 541,
       "path": "paper/appendix.md",
@@ -379,10 +385,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 39265,
-      "lines": 229,
+      "bytes": 39737,
+      "lines": 230,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "e6b7145ff31d1b2d9106c0e27ddfc8e9c8a96dfa6fb69602b5cb1bb8d2295926"
+      "sha256": "fd0254d3427f58cbdab35d436a002517982cb624a580037c9fd600966875ec6c"
     },
     {
       "bytes": 1125,
@@ -619,10 +625,10 @@
       "sha256": "12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a"
     },
     {
-      "bytes": 240605,
+      "bytes": 240685,
       "lines": "",
       "path": "paper/main.pdf",
-      "sha256": "d0cc75a976414500487adbce7d0d9cd5fd4345ae42d46396c945f6b07f36facc"
+      "sha256": "71e11a211ac70308d6adf46b366502c26e1414d542e371de565035407820f619"
     },
     {
       "bytes": 1082,
@@ -739,10 +745,10 @@
       "sha256": "50e4e7d0a96cea15ada689386529b2444869209d79b9aa9c8a5c0c883ad9c678"
     },
     {
-      "bytes": 8230,
-      "lines": 152,
+      "bytes": 8313,
+      "lines": 153,
       "path": "paper/sections/05_results.tex",
-      "sha256": "8d8798eb4806fd30ff6e690366bcbafa0594b4ea32fcad9af2962acc0ff0e94d"
+      "sha256": "f8b0676cf2d1a2377258893b3a9c0a5b00e7d8055ebd745bd7552d5fb870c5fd"
     },
     {
       "bytes": 1789,
@@ -1169,6 +1175,12 @@
       "lines": 21,
       "path": "results/tables/all_model_paired_significance_v02/all_model_paired_significance.csv",
       "sha256": "b73c62bcde513009c771415dad9822b4a9571c96ac73be106a2ae40677e53a56"
+    },
+    {
+      "bytes": 1047,
+      "lines": 11,
+      "path": "results/tables/all_model_uncertainty_v02/all_model_cluster_bootstrap.csv",
+      "sha256": "a9722308c3a0760953e0b165351157708213e14f42d7e566d8aadcadfce3b692"
     },
     {
       "bytes": 434,
@@ -2587,6 +2599,12 @@
       "sha256": "0a7a4a32060e2e2150b76818146f34c95fb8b2453f44661dde1755119050e3c7"
     },
     {
+      "bytes": 10950,
+      "lines": 242,
+      "path": "scripts/analyze_all_model_uncertainty.py",
+      "sha256": "f34b599e9b8ad36fa552bb9aa367e7635367925ca5cc0ae04743fb9b84765ba9"
+    },
+    {
       "bytes": 12546,
       "lines": 287,
       "path": "scripts/analyze_benchmark_quality.py",
@@ -2911,10 +2929,10 @@
       "sha256": "b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d"
     },
     {
-      "bytes": 69265,
-      "lines": 810,
+      "bytes": 69647,
+      "lines": 816,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "252fcb5a8b55d9c8fffb48ae83bb40df996030404395c8efb8f6333799fbf5b6"
+      "sha256": "3a4e887fd6cb76c270cf98bdc884af49aaef6c8895208e5d1416bfbafbadba58"
     },
     {
       "bytes": 16653,
@@ -2977,10 +2995,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 32592,
-      "lines": 763,
+      "bytes": 32935,
+      "lines": 766,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "5415ec57509f800209a9f622a3fb45730856b0e6f1ae05c61fbcf20215bfd878"
+      "sha256": "0fc4f0cba382d5429b7cffef702f17f86a5e41fa700027d01608aacea30323c7"
     },
     {
       "bytes": 8236,
@@ -3059,6 +3077,12 @@
       "lines": 139,
       "path": "scripts/validate_all_model_paired_significance.py",
       "sha256": "1c44312a8b87bde4c636b768803e3e716b87f34ffe98d666ae412459519894f3"
+    },
+    {
+      "bytes": 4510,
+      "lines": 124,
+      "path": "scripts/validate_all_model_uncertainty.py",
+      "sha256": "0186d2d2b1f8aeda98496806379e83a49215be04f22a4ddfc55d165cc8c3f4d0"
     },
     {
       "bytes": 9869,
@@ -3241,10 +3265,10 @@
       "sha256": "a488b744eb896cfe6d449002851d286202b98a53754649dd84f443a30b235ced"
     },
     {
-      "bytes": 138006,
-      "lines": 2613,
+      "bytes": 138193,
+      "lines": 2615,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "5e0c4804cd70ff8a1977a5c79192207698f4e4be884261ae76b98f16e4075bb8"
+      "sha256": "6c72bf52f2855270dc36eab2389a10b192b5fb718b97960d09afdcc7ad5390b9"
     },
     {
       "bytes": 6982,
@@ -3381,6 +3405,8 @@
     "conda run -n reprompt_tax python scripts/validate_current_prompt_mechanism.py",
     "conda run -n reprompt_tax python scripts/analyze_all_model_paired_significance.py",
     "conda run -n reprompt_tax python scripts/validate_all_model_paired_significance.py",
+    "conda run -n reprompt_tax python scripts/analyze_all_model_uncertainty.py",
+    "conda run -n reprompt_tax python scripts/validate_all_model_uncertainty.py",
     "conda run -n reprompt_tax python scripts/analyze_contract_benefit_decomposition.py",
     "conda run -n reprompt_tax python scripts/validate_contract_benefit_decomposition.py",
     "conda run -n reprompt_tax python scripts/analyze_judge_agreement.py --audit results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir results/tables/openai_three_model_stress_v02_full120_judge_audit72 --out-md paper/judge_agreement_analysis_v02_full120.md",
