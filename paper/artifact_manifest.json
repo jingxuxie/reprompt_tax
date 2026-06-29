@@ -1,10 +1,10 @@
 {
   "artifacts": [
     {
-      "bytes": 30434,
-      "lines": 727,
+      "bytes": 30520,
+      "lines": 728,
       "path": "README.md",
-      "sha256": "5157c1b2e75d074bf1f17db0efab22574a16306cf571b24effdc988a0d335d30"
+      "sha256": "49ac0147373677fe18e0dfc8594d10f52fc3e83981e3641a34ae9bb03caeb5b7"
     },
     {
       "bytes": 23745,
@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 45260,
-      "lines": 240,
+      "bytes": 45736,
+      "lines": 241,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "662eac1abcb2d75897d97ef0e49ba0c7ce514f0a057af049cbc3748295f5451c"
+      "sha256": "af6886059ffcfe7694bbaf8e4254f4c20bf2f217646c06f50b08dd865479d155"
     },
     {
       "bytes": 1125,
@@ -827,6 +827,12 @@
       "lines": 68,
       "path": "paper/sentinel_suite_v02.md",
       "sha256": "549c4192ac3437df8e4b167933e70bcb5c4a6b2e595c342322d75109f43da769"
+    },
+    {
+      "bytes": 1657,
+      "lines": 36,
+      "path": "paper/submission_anonymity_v02.md",
+      "sha256": "14090422e4f5df8725fa113c502e0e2be01f22c736e9f6dcbf7d18bb6f5eb1ad"
     },
     {
       "bytes": 4265,
@@ -2815,6 +2821,18 @@
       "sha256": "d5c95343a3a2a60ffc64ce4051e04aa6022120990d551505858818d3488c2ecf"
     },
     {
+      "bytes": 714,
+      "lines": 6,
+      "path": "results/tables/submission_anonymity_v02/submission_anonymity_checks.csv",
+      "sha256": "c939e2e934126968dd63cb2c5c00f255a758f5fd163012cb35d57e11a892aeaa"
+    },
+    {
+      "bytes": 51,
+      "lines": 2,
+      "path": "results/tables/submission_anonymity_v02/submission_anonymity_findings.csv",
+      "sha256": "b76c381fb52680cbef789f301a1304a527dd7319d016dcae08087968ec5fab36"
+    },
+    {
       "bytes": 3183,
       "lines": 6,
       "path": "results/tables/submission_decision_v02/submission_decision.csv",
@@ -3121,6 +3139,12 @@
       "sha256": "25dd2739617b9abab0b8c10268fedf734bb2c15b6058fc514c3452c18dd1f201"
     },
     {
+      "bytes": 9754,
+      "lines": 272,
+      "path": "scripts/analyze_submission_anonymity_v02.py",
+      "sha256": "005ea03d51c67db43db4acd5ee4e9415bdd517f5e9267c0749c31fea32ceabab"
+    },
+    {
       "bytes": 14746,
       "lines": 306,
       "path": "scripts/analyze_submission_decision_v02.py",
@@ -3235,10 +3259,10 @@
       "sha256": "2e174a3e97414a84d9cad555556f35ae2be3cde72c6cadb655ad8e15bcff3487"
     },
     {
-      "bytes": 75326,
-      "lines": 897,
+      "bytes": 75799,
+      "lines": 904,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "0628ede4408e76d04d19652025011d948662d633ade047a05e2529cbd108b4ca"
+      "sha256": "6a3a063d59758c726cc0c91d51e73301d37c35d481b03210f5a01cf90ed6c129"
     },
     {
       "bytes": 16653,
@@ -3289,10 +3313,10 @@
       "sha256": "1e1a6a3105a73e40c2363d3924d0e38d0442818065353aa63846015aa2dedd34"
     },
     {
-      "bytes": 12175,
-      "lines": 330,
+      "bytes": 12414,
+      "lines": 336,
       "path": "scripts/run_models.py",
-      "sha256": "46205fe276e0f5d967b42f791cdc952a6b519b6b20350bc78d2636423d327124"
+      "sha256": "ff371a5339518700df7467ce611aeb754d321a39b4d1471821c301f04e001e63"
     },
     {
       "bytes": 9442,
@@ -3301,10 +3325,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 36152,
-      "lines": 795,
+      "bytes": 36489,
+      "lines": 798,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "d9b83d561b3df459e837f0bb655e3990c226c2bc8c092c219c89c4c835285b3b"
+      "sha256": "ecddf3e35e73df2a8c64a9a67f518f2e6bef602d538006c06afa6a67b80906ac"
     },
     {
       "bytes": 8236,
@@ -3589,10 +3613,10 @@
       "sha256": "73d6af099754c6cf9d6e52bc8c7f8fdc37404b84cbe9e84e4f4500ae5442ad9e"
     },
     {
-      "bytes": 141494,
-      "lines": 2653,
+      "bytes": 141800,
+      "lines": 2657,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "aae3c1d0f0ba2ad807c4fabcfadbd66329d5c3dec4703b0dd1df7cd2a3568c4c"
+      "sha256": "e13a3a84935a8a2cb2fcb8b3eb4658fe58645b65bb896feea25724d778c45147"
     },
     {
       "bytes": 5629,
@@ -3653,6 +3677,12 @@
       "lines": 88,
       "path": "scripts/validate_stress_benchmark.py",
       "sha256": "d5edb4e9d83a9f40c9b57d175abe689a9f2b419a19ebbb430344def190cfa2f7"
+    },
+    {
+      "bytes": 3634,
+      "lines": 90,
+      "path": "scripts/validate_submission_anonymity_v02.py",
+      "sha256": "d0613e76ff88807e918174f209e39cae488c30eedab61bfbf696e68d46f3cb0c"
     },
     {
       "bytes": 6027,
@@ -3761,6 +3791,8 @@
     "conda run -n reprompt_tax python scripts/validate_followup_plan_readiness.py",
     "conda run -n reprompt_tax python scripts/analyze_reviewer_concern_audit_v02.py",
     "conda run -n reprompt_tax python scripts/validate_reviewer_concern_audit_v02.py",
+    "conda run -n reprompt_tax python scripts/analyze_submission_anonymity_v02.py",
+    "conda run -n reprompt_tax python scripts/validate_submission_anonymity_v02.py",
     "conda run -n reprompt_tax python scripts/analyze_submission_decision_v02.py",
     "conda run -n reprompt_tax python scripts/validate_submission_decision_v02.py",
     "conda run -n reprompt_tax python scripts/analyze_human_audit_acceptance_rules.py",

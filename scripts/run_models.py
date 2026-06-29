@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -25,7 +26,7 @@ PROMPT_PATHS = {
     "generic_helpfulness": Path("prompts/generic_helpfulness_system.txt"),
 }
 
-DEFAULT_KEY_FILE = Path("/home/eston/colm_workshop/apikey.txt")
+DEFAULT_KEY_FILE = Path("apikey.txt")
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -123,7 +124,12 @@ def call_openai(client: Any, model: str, messages: list[dict[str, str]], max_out
     return text, usage_dict_from_response(resp, prompt_text, text)
 
 
-def read_api_key(path: Path) -> str:
+def read_api_key(path: Path | None) -> str:
+    env_key = os.environ.get("OPENAI_API_KEY", "").strip()
+    if env_key:
+        return env_key
+    if path is None or not path.exists():
+        raise ValueError("Set OPENAI_API_KEY or pass --api-key-file pointing to an ignored local key file")
     key = path.read_text(encoding="utf-8").strip()
     if not key:
         raise ValueError(f"API key file is empty: {path}")

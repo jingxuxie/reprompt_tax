@@ -501,8 +501,9 @@ conda run -n reprompt_tax python scripts/validate_repair_realism.py
 ```
 
 For real API runs, install the OpenAI SDK in the `reprompt_tax` environment and
-use a small limit first. The runner reads the API key from
-`/home/eston/colm_workshop/apikey.txt` by default and does not print it.
+use a small limit first. The runner reads `OPENAI_API_KEY` first, or a local
+ignored `apikey.txt` file by default. You can also pass `--api-key-file` to
+point at another ignored local key file. The key is not printed.
 
 Build the current COLM-style paper draft:
 
