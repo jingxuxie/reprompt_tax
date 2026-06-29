@@ -1,0 +1,4 @@
+language_pair,n_pairs,both_pass,both_fail,fixes,regressions,net_first_turn_gain,fix_share_of_all_fixes_pct,net_share_of_total_net_gain_pct
+ar-en,200,123,32,43,2,41,64.2,67.2
+es-en,200,140,39,20,1,19,29.9,31.1
+hi-en,200,189,4,4,3,1,6.0,1.6

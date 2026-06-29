@@ -373,10 +373,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 38149,
-      "lines": 227,
+      "bytes": 38733,
+      "lines": 228,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "6252265385a33899c32397d622a5469cfcb809a07e08b9377013dc91b8cff986"
+      "sha256": "945e317768c5e1bfc04296d5391cda836904828e2b2003beb060c102789a3302"
     },
     {
       "bytes": 1125,
@@ -389,6 +389,12 @@
       "lines": 70,
       "path": "paper/component_breakdown_v02_full120.md",
       "sha256": "55cefed242fc5279ab83995d48ce07768490ba1f47f07d9ea54d94eb719107cc"
+    },
+    {
+      "bytes": 2686,
+      "lines": 68,
+      "path": "paper/contract_benefit_decomposition_v02.md",
+      "sha256": "095f255499a9e1d2d6885fb6b65622e16beea677ac2db502586c0db0335ccb33"
     },
     {
       "bytes": 1963,
@@ -607,10 +613,10 @@
       "sha256": "12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a"
     },
     {
-      "bytes": 240230,
+      "bytes": 240343,
       "lines": "",
       "path": "paper/main.pdf",
-      "sha256": "dce37e5dd847fa426008754c5eca3e9223823d6e27b5d7d88b5a3d0d417d16f3"
+      "sha256": "9d4f2e266b88996e852189dcb17a72b0655667be68a2b8f9db9810a22a19c64c"
     },
     {
       "bytes": 1082,
@@ -727,10 +733,10 @@
       "sha256": "50e4e7d0a96cea15ada689386529b2444869209d79b9aa9c8a5c0c883ad9c678"
     },
     {
-      "bytes": 7930,
-      "lines": 148,
+      "bytes": 8053,
+      "lines": 150,
       "path": "paper/sections/05_results.tex",
-      "sha256": "602c3bdaeb0675152bed0f379bc9c5a3deea453000f89cf122934e92218c74ed"
+      "sha256": "8a9247df4fbe2a1346391a86cd64ba85054dfd15792035e984f16e68edcadcd3"
     },
     {
       "bytes": 1789,
@@ -1181,6 +1187,36 @@
       "lines": 4,
       "path": "results/tables/completed_label_claim_gates_v02/completed_label_claim_gates.csv",
       "sha256": "3f6b961b5bc9c0f848e2307bd50f73a017cb30c2828421e1e37ff7a4ec854068"
+    },
+    {
+      "bytes": 330,
+      "lines": 5,
+      "path": "results/tables/contract_benefit_decomposition_v02/contract_benefit_by_family.csv",
+      "sha256": "696c1c217db5fd923740141dd9219ef0f7dfd427e1a523f7fb3cfb5052b49668"
+    },
+    {
+      "bytes": 224,
+      "lines": 3,
+      "path": "results/tables/contract_benefit_decomposition_v02/contract_benefit_by_generation.csv",
+      "sha256": "8c914b97c83b74a6d64a532119cb1cef65d3e043a46c1a61bf1b20c0aaa3e0fd"
+    },
+    {
+      "bytes": 637,
+      "lines": 9,
+      "path": "results/tables/contract_benefit_decomposition_v02/contract_benefit_by_generation_family.csv",
+      "sha256": "9bc3d6208a344774682b1c348e13068396e013d3ab72ee143aae4212e56c011b"
+    },
+    {
+      "bytes": 239,
+      "lines": 4,
+      "path": "results/tables/contract_benefit_decomposition_v02/contract_benefit_by_language.csv",
+      "sha256": "f8f96adf872550f4b36d879eaba5ce26673b519a24f4d07e1875be29d5c814eb"
+    },
+    {
+      "bytes": 85,
+      "lines": 2,
+      "path": "results/tables/contract_benefit_decomposition_v02/contract_benefit_overall.csv",
+      "sha256": "8f63953269dbb456c83b46de9a324e247a2796c9aeef4ab35f0fd6067711a62d"
     },
     {
       "bytes": 376,
@@ -2551,6 +2587,12 @@
       "sha256": "fd8d5cd9a66ec153873202cfaa56c15dc656d8a6b3475f732ed147701dd153b0"
     },
     {
+      "bytes": 11230,
+      "lines": 296,
+      "path": "scripts/analyze_contract_benefit_decomposition.py",
+      "sha256": "e8a1b8b1ad9ce4004bd13399475b0544c4fc4c5f0adb6462f149521dc836af77"
+    },
+    {
       "bytes": 10917,
       "lines": 269,
       "path": "scripts/analyze_coverage_expansion_v03.py",
@@ -2851,10 +2893,10 @@
       "sha256": "b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d"
     },
     {
-      "bytes": 68031,
-      "lines": 794,
+      "bytes": 68833,
+      "lines": 804,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "3ee4d9c5ec3d059a7f62ed1f5a00a19695e98d7ae29f17923d1b5028b1093fe6"
+      "sha256": "d1f3b2098b33288cdfa65bbffa92d56a4fc1e1b2453f31d4691b41671fccaa4d"
     },
     {
       "bytes": 16653,
@@ -2917,10 +2959,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 31864,
-      "lines": 757,
+      "bytes": 32231,
+      "lines": 760,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "b5a70ef8c14cfb9d8269e7707ac1b74919eec722cfa83541100d75e702512c0f"
+      "sha256": "58d71066aeba4f7b5f1303b57cd9d17c6423f84906adb12f6e2113a3e0e3bf6b"
     },
     {
       "bytes": 8236,
@@ -3011,6 +3053,12 @@
       "lines": 71,
       "path": "scripts/validate_completed_label_claim_gates.py",
       "sha256": "df69271fc94a7e1f799571506be9a2d5c6d57c3cb3f375bcea2585f926753fae"
+    },
+    {
+      "bytes": 4409,
+      "lines": 109,
+      "path": "scripts/validate_contract_benefit_decomposition.py",
+      "sha256": "826523488abac30b70860a308f1529ac79bf9f969ed4e394ed01015e55e0151f"
     },
     {
       "bytes": 8552,
@@ -3169,10 +3217,10 @@
       "sha256": "a488b744eb896cfe6d449002851d286202b98a53754649dd84f443a30b235ced"
     },
     {
-      "bytes": 137601,
-      "lines": 2609,
+      "bytes": 137805,
+      "lines": 2611,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "8f921135473849df83ce56cd25fa381cec2114ea76c22c09f5a2bfd4520f41d1"
+      "sha256": "ed4d0f716a784d55d84d054a3b2c44f3639b78eaae7e0e8ab862a4bcad81d074"
     },
     {
       "bytes": 6982,
@@ -3307,6 +3355,8 @@
     "conda run -n reprompt_tax python scripts/validate_label_collection_dispatch.py",
     "conda run -n reprompt_tax python scripts/analyze_current_prompt_mechanism.py",
     "conda run -n reprompt_tax python scripts/validate_current_prompt_mechanism.py",
+    "conda run -n reprompt_tax python scripts/analyze_contract_benefit_decomposition.py",
+    "conda run -n reprompt_tax python scripts/validate_contract_benefit_decomposition.py",
     "conda run -n reprompt_tax python scripts/analyze_judge_agreement.py --audit results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir results/tables/openai_three_model_stress_v02_full120_judge_audit72 --out-md paper/judge_agreement_analysis_v02_full120.md",
     "conda run -n reprompt_tax python scripts/analyze_judge_refresh.py",
     "conda run -n reprompt_tax python scripts/validate_judge_refresh.py",

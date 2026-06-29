@@ -1,0 +1,9 @@
+generation,task_family,n_pairs,both_pass,both_fail,fixes,regressions,net_first_turn_gain,fix_share_of_all_fixes_pct,net_share_of_total_net_gain_pct
+GPT-4.1 family,editing_preservation,90,30,27,33,0,33,49.3,54.1
+GPT-4.1 family,output_language_inference,90,90,0,0,0,0,0.0,0.0
+GPT-4.1 family,quote_preservation,90,81,8,1,0,1,1.5,1.6
+GPT-4.1 family,script_register_locale,90,62,25,2,1,1,3.0,1.6
+GPT-5.x family,editing_preservation,60,20,12,28,0,28,41.8,45.9
+GPT-5.x family,output_language_inference,60,59,0,1,0,1,1.5,1.6
+GPT-5.x family,quote_preservation,60,58,0,0,2,-2,0.0,-3.3
+GPT-5.x family,script_register_locale,60,52,3,2,3,-1,3.0,-1.6
