@@ -457,6 +457,8 @@ def main() -> None:
     run_step("validate label-collection launch pack", python_step("scripts/validate_label_collection_launch_pack.py"))
     run_step("analyze follow-up plan readiness", python_step("scripts/analyze_followup_plan_readiness.py"))
     run_step("validate follow-up plan readiness", python_step("scripts/validate_followup_plan_readiness.py"))
+    run_step("analyze reviewer concern audit", python_step("scripts/analyze_reviewer_concern_audit_v02.py"))
+    run_step("validate reviewer concern audit", python_step("scripts/validate_reviewer_concern_audit_v02.py"))
     run_step("analyze prompt-control diagnostic", python_step("scripts/analyze_prompt_control.py"))
     run_step("analyze prompt-ablation diagnostic", python_step("scripts/analyze_prompt_ablation.py"))
     run_step(
@@ -777,6 +779,7 @@ def main() -> None:
     run_step("validate sentinel suite", python_step("scripts/validate_sentinel_suite_v02.py"))
     run_step("validate contract-benefit decomposition", python_step("scripts/validate_contract_benefit_decomposition.py"))
     run_step("validate prompt-family scorecard", python_step("scripts/validate_prompt_family_scorecard.py"))
+    run_step("validate reviewer concern audit", python_step("scripts/validate_reviewer_concern_audit_v02.py"))
     run_step("refresh artifact manifest", python_step("scripts/make_artifact_manifest.py"))
     run_step("validate paper claims", python_step("scripts/validate_paper_claims.py"))
     run_step("check artifact manifest", python_step("scripts/make_artifact_manifest.py", "--check"))

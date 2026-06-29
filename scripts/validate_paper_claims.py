@@ -2149,6 +2149,9 @@ def check_claim_checklist(path: Path) -> None:
         "scripts/validate_balanced_subsample_robustness.py",
         "scripts/validate_contract_benefit_decomposition.py",
         "scripts/validate_prompt_family_scorecard.py",
+        "paper/reviewer_concern_audit_v02.md",
+        "scripts/validate_reviewer_concern_audit_v02.py",
+        "completed qualified labels are absent",
     ]
     for phrase in required_phrases:
         require(phrase in normalized, f"claim-evidence checklist missing required phrase: {phrase}")
@@ -2575,6 +2578,7 @@ def main() -> None:
     check_auxiliary_validator(root, "scripts/validate_generation_progress_probe.py", "generation-progress probe validation passed")
     check_auxiliary_validator(root, "scripts/validate_efficiency_tradeoff.py", "efficiency tradeoff validation passed")
     check_auxiliary_validator(root, "scripts/validate_followup_plan_readiness.py", "follow-up plan readiness validation passed")
+    check_auxiliary_validator(root, "scripts/validate_reviewer_concern_audit_v02.py", "reviewer concern audit validation passed")
     check_auxiliary_validator(root, "scripts/validate_human_audit_acceptance_rules.py", "human/native-review acceptance rules validation passed")
     check_auxiliary_validator(root, "scripts/validate_human_audit_threshold_rationale.py", "human/native-review threshold-rationale validation passed")
     check_auxiliary_validator(root, "scripts/validate_all_model_paired_significance.py", "all-model paired-significance validation passed")
