@@ -2141,6 +2141,7 @@ def check_claim_checklist(path: Path) -> None:
         "scripts/validate_human_audit_packet.py",
         "scripts/validate_followup_probe.py",
         "scripts/validate_label_collection_launch_pack.py",
+        "scripts/validate_label_collection_dispatch.py",
     ]
     for phrase in required_phrases:
         require(phrase in normalized, f"claim-evidence checklist missing required phrase: {phrase}")
@@ -2528,6 +2529,7 @@ def main() -> None:
     check_related_work_positioning(root / "paper/related_work_positioning_v02.md")
     check_auxiliary_validator(root, "scripts/validate_human_audit_review_sheets.py", "human-audit review-sheet validation passed")
     check_auxiliary_validator(root, "scripts/validate_label_collection_launch_pack.py", "label-collection launch-pack validation passed")
+    check_auxiliary_validator(root, "scripts/validate_label_collection_dispatch.py", "label-collection dispatch validation passed")
     check_auxiliary_validator(root, "scripts/test_human_audit_adjudication.py", "human-audit adjudication regression tests passed")
     check_auxiliary_validator(
         root,

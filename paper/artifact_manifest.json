@@ -373,10 +373,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 37076,
-      "lines": 225,
+      "bytes": 37644,
+      "lines": 226,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "874ecea8b59d7b4ae74d12d1cbfe7c967a85a9f20045e272301eb684cf836d42"
+      "sha256": "2a9cf566a7fc5a8482240c3d5a795eb2ebce653b5264c0e1c67d33175447f48d"
     },
     {
       "bytes": 1125,
@@ -581,6 +581,12 @@
       "lines": 38,
       "path": "paper/judge_refresh_gpt55_v02_full120.md",
       "sha256": "bbf319f6e1a682e260976f6559ca28102410596521d444b6e09d3d8c620f0a07"
+    },
+    {
+      "bytes": 5390,
+      "lines": 46,
+      "path": "paper/label_collection_dispatch_v02.md",
+      "sha256": "5fe6cb8a863f932e638319073e1fd73183478c17c957b6a90c14b132ff0dcc55"
     },
     {
       "bytes": 9095,
@@ -1547,6 +1553,18 @@
       "lines": 2,
       "path": "results/tables/human_audit_v0.2_design/human_audit_design_summary.csv",
       "sha256": "a330b1ec0eea2ee67b6406c4c9ddb741f9ea073f56c56adb839234cd410b4619"
+    },
+    {
+      "bytes": 7220,
+      "lines": 13,
+      "path": "results/tables/label_collection_dispatch_v02/label_collection_dispatch_manifest.csv",
+      "sha256": "9a7ed585be4bec6f93d56a007464b27b8f69e06eb7754b530b5271684cf0bdbb"
+    },
+    {
+      "bytes": 1154,
+      "lines": 4,
+      "path": "results/tables/label_collection_dispatch_v02/label_collection_dispatch_summary.csv",
+      "sha256": "0a2f6b953e4b3f80668cf0cef79542d2db7c1301730ed22c648959f9995fc388"
     },
     {
       "bytes": 6362,
@@ -2665,6 +2683,12 @@
       "sha256": "970d8855da46d3d3f656dd3b27dca593e9f588d0782ddb7552800304f049c532"
     },
     {
+      "bytes": 10693,
+      "lines": 246,
+      "path": "scripts/analyze_label_collection_dispatch.py",
+      "sha256": "4ba0ee4cfa8a5f4d45646f04e2f181d5bdf0b8637d665a46dacb6e857f5d30a4"
+    },
+    {
       "bytes": 19191,
       "lines": 324,
       "path": "scripts/analyze_label_collection_launch_pack.py",
@@ -2809,10 +2833,10 @@
       "sha256": "b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d"
     },
     {
-      "bytes": 67082,
-      "lines": 781,
+      "bytes": 67585,
+      "lines": 788,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "cd84677ff8a3914ee4f84610cc50423a4530bc929e6d23a00a6c8d7f0820f32a"
+      "sha256": "0dd1e9173007127f962a6b8955b99558589ecf6cf35f0d7f83b300c78badd6fc"
     },
     {
       "bytes": 16653,
@@ -2875,10 +2899,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 31100,
-      "lines": 751,
+      "bytes": 31467,
+      "lines": 754,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "cb7c5ac72698d27abc9996f984dac9facb08409b993b51b48a8ff0408ae135bd"
+      "sha256": "5e9182ee4c5ed9a3ba9c484d9f51b748551cb31f67924d35e7fb77b5a6fa9c3e"
     },
     {
       "bytes": 8236,
@@ -3109,16 +3133,22 @@
       "sha256": "4a6d3a09919404aff8f78191683266b21b2b82e32e48ceda37f5a8b2f6215d43"
     },
     {
+      "bytes": 5975,
+      "lines": 119,
+      "path": "scripts/validate_label_collection_dispatch.py",
+      "sha256": "f39f7e33d373a9def4fca51ba134ada228df217622b5a45b1270370dd5148864"
+    },
+    {
       "bytes": 5365,
       "lines": 116,
       "path": "scripts/validate_label_collection_launch_pack.py",
       "sha256": "a488b744eb896cfe6d449002851d286202b98a53754649dd84f443a30b235ced"
     },
     {
-      "bytes": 137197,
-      "lines": 2605,
+      "bytes": 137386,
+      "lines": 2607,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "b7b02b1c607d44f7115e4cb895b1b93f2719dc973e1a01fc6e27bb5253d3dd16"
+      "sha256": "84eff2586c92a41d702b99f07305fe461d3a089930d0ecb4a75768c18f99ffab"
     },
     {
       "bytes": 6982,
@@ -3247,6 +3277,8 @@
     "conda run -n reprompt_tax python scripts/validate_label_collection_launch_pack.py",
     "conda run -n reprompt_tax python scripts/build_label_collection_bundles.py",
     "conda run -n reprompt_tax python scripts/validate_label_collection_bundles.py",
+    "conda run -n reprompt_tax python scripts/analyze_label_collection_dispatch.py",
+    "conda run -n reprompt_tax python scripts/validate_label_collection_dispatch.py",
     "conda run -n reprompt_tax python scripts/analyze_current_prompt_mechanism.py",
     "conda run -n reprompt_tax python scripts/validate_current_prompt_mechanism.py",
     "conda run -n reprompt_tax python scripts/analyze_judge_agreement.py --audit results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir results/tables/openai_three_model_stress_v02_full120_judge_audit72 --out-md paper/judge_agreement_analysis_v02_full120.md",

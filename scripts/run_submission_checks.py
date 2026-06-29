@@ -728,6 +728,8 @@ def main() -> None:
     run_step("validate current-model human audit launch packet", python_step("scripts/validate_current_model_human_audit_packet.py"))
     run_step("build label-collection reviewer bundles", python_step("scripts/build_label_collection_bundles.py"))
     run_step("validate label-collection reviewer bundles", python_step("scripts/validate_label_collection_bundles.py"))
+    run_step("analyze label-collection dispatch readiness", python_step("scripts/analyze_label_collection_dispatch.py"))
+    run_step("validate label-collection dispatch readiness", python_step("scripts/validate_label_collection_dispatch.py"))
     run_step(
         "validate expanded stress benchmark",
         python_step(
@@ -741,6 +743,7 @@ def main() -> None:
     run_step("analyze discovery cues", python_step("scripts/analyze_discovery_cues.py"))
     run_step("analyze benchmark quality", python_step("scripts/analyze_benchmark_quality.py"))
     run_step("validate label-collection launch pack", python_step("scripts/validate_label_collection_launch_pack.py"))
+    run_step("validate label-collection dispatch readiness", python_step("scripts/validate_label_collection_dispatch.py"))
     run_step("refresh artifact manifest", python_step("scripts/make_artifact_manifest.py"))
     run_step("validate paper claims", python_step("scripts/validate_paper_claims.py"))
     run_step("check artifact manifest", python_step("scripts/make_artifact_manifest.py", "--check"))
