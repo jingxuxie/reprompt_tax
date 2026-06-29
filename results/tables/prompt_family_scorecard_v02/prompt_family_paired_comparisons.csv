@@ -1,0 +1,10 @@
+model,comparison,n_pairs,delta_ftga_pp,ftga_improved,ftga_worsened,ftga_tied,ftga_sign_test_p,rtt_reduction,token_tax_reduction,unresolved_reduction_pp
+gpt-4.1-nano,content_preservation_minus_baseline,120,12.5,16,1,103,0.000274658203125,0.2,0.414,2.5
+gpt-4.1-nano,contract_minus_baseline,120,9.2,12,1,107,0.00341796875,0.142,0.351,1.7
+gpt-4.1-nano,content_preservation_minus_contract,120,3.3,7,3,110,0.34375,-0.058,-0.063,-0.8
+gpt-5.4-mini,contract_minus_baseline,120,5.0,11,5,104,0.210113525391,0.0,0.138,-2.5
+gpt-5.4-mini,content_preservation_minus_baseline,120,5.8,11,4,105,0.118469238281,0.008,0.128,-2.5
+gpt-5.4-mini,content_preservation_minus_contract,120,0.8,5,4,111,1,0.008,-0.01,0.0
+gpt-5.5,contract_minus_baseline,120,16.7,20,0,100,1.90734863281e-06,0.208,0.262,1.7
+gpt-5.5,content_preservation_minus_baseline,120,17.5,22,1,97,5.72204589844e-06,0.217,0.267,1.7
+gpt-5.5,content_preservation_minus_contract,120,0.8,2,1,117,1,0.008,0.005,0.0

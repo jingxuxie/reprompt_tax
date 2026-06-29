@@ -2146,6 +2146,7 @@ def check_claim_checklist(path: Path) -> None:
         "scripts/validate_all_model_paired_significance.py",
         "scripts/validate_all_model_uncertainty.py",
         "scripts/validate_contract_benefit_decomposition.py",
+        "scripts/validate_prompt_family_scorecard.py",
     ]
     for phrase in required_phrases:
         require(phrase in normalized, f"claim-evidence checklist missing required phrase: {phrase}")
@@ -2560,6 +2561,7 @@ def main() -> None:
     check_auxiliary_validator(root, "scripts/validate_all_model_paired_significance.py", "all-model paired-significance validation passed")
     check_auxiliary_validator(root, "scripts/validate_all_model_uncertainty.py", "all-model clustered-uncertainty validation passed")
     check_auxiliary_validator(root, "scripts/validate_contract_benefit_decomposition.py", "contract-benefit decomposition validation passed")
+    check_auxiliary_validator(root, "scripts/validate_prompt_family_scorecard.py", "prompt-family scorecard validation passed")
     check_auxiliary_validator(
         root,
         "scripts/validate_coverage_smoke_v03.py",

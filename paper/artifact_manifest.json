@@ -385,10 +385,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 39737,
-      "lines": 230,
+      "bytes": 40219,
+      "lines": 231,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "fd0254d3427f58cbdab35d436a002517982cb624a580037c9fd600966875ec6c"
+      "sha256": "7952a85dea62e6d6e4f29d5eeb84837cd93442974b7a831f5e884742c2bb2757"
     },
     {
       "bytes": 1125,
@@ -625,10 +625,10 @@
       "sha256": "12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a"
     },
     {
-      "bytes": 240685,
+      "bytes": 240925,
       "lines": "",
       "path": "paper/main.pdf",
-      "sha256": "71e11a211ac70308d6adf46b366502c26e1414d542e371de565035407820f619"
+      "sha256": "4912ab1ffecf458075683af3f2fa3d892a9a77b87ec942b056432a3c7a8e1ee0"
     },
     {
       "bytes": 1082,
@@ -671,6 +671,12 @@
       "lines": 33,
       "path": "paper/prompt_control_analysis.md",
       "sha256": "268f517a0050c6eb65d8dcd1bf0f2d5274fc3f1c1fcd15d0e98fe94d811bff6d"
+    },
+    {
+      "bytes": 3895,
+      "lines": 54,
+      "path": "paper/prompt_family_scorecard_v02.md",
+      "sha256": "340d86af4c6e7774737fbb511aed5417853e5779695668a485fd6e4d14d53333"
     },
     {
       "bytes": 3977,
@@ -745,10 +751,10 @@
       "sha256": "50e4e7d0a96cea15ada689386529b2444869209d79b9aa9c8a5c0c883ad9c678"
     },
     {
-      "bytes": 8313,
-      "lines": 153,
+      "bytes": 8575,
+      "lines": 156,
       "path": "paper/sections/05_results.tex",
-      "sha256": "f8b0676cf2d1a2377258893b3a9c0a5b00e7d8055ebd745bd7552d5fb870c5fd"
+      "sha256": "9d04b2e927ae1916b5e12bbb950606c14f6b1d751a78291f626d417bac37c25f"
     },
     {
       "bytes": 1789,
@@ -2593,6 +2599,30 @@
       "sha256": "f45d67d13be6161214380faa9f846361b0597065804e8cca6640e79a7f240f34"
     },
     {
+      "bytes": 2883,
+      "lines": 41,
+      "path": "results/tables/prompt_family_scorecard_v02/prompt_family_by_family.csv",
+      "sha256": "b850137c4bb3d299e07c53c681a2c3753a06ce9ec479ddb4ac46a64fa35e2143"
+    },
+    {
+      "bytes": 731,
+      "lines": 4,
+      "path": "results/tables/prompt_family_scorecard_v02/prompt_family_model_scorecard.csv",
+      "sha256": "bd8ed67091197227155900b02dd83a0a362c75385a752df92d3fcaeac26498d6"
+    },
+    {
+      "bytes": 949,
+      "lines": 10,
+      "path": "results/tables/prompt_family_scorecard_v02/prompt_family_paired_comparisons.csv",
+      "sha256": "94216987779707bca618f40515ad2c5d0c68f3e941bb7453061118f2d85a4215"
+    },
+    {
+      "bytes": 994,
+      "lines": 11,
+      "path": "results/tables/prompt_family_scorecard_v02/prompt_family_summary.csv",
+      "sha256": "013dda14681ad23ed1f86628bc8215a0411b5e8bad01a412c3199a9b828f5b98"
+    },
+    {
       "bytes": 12308,
       "lines": 292,
       "path": "scripts/analyze_all_model_paired_significance.py",
@@ -2809,6 +2839,12 @@
       "sha256": "6e901ad027174411c5efe9d8c2e193457992650b653d5b0567fe7d68e24368ba"
     },
     {
+      "bytes": 13993,
+      "lines": 315,
+      "path": "scripts/analyze_prompt_family_scorecard.py",
+      "sha256": "9b310f4954bb68e55e18f128f0d498d27d33750b26b6fe15f9ec940cde3a5c1e"
+    },
+    {
       "bytes": 11361,
       "lines": 247,
       "path": "scripts/analyze_repair_dynamics.py",
@@ -2929,10 +2965,10 @@
       "sha256": "b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d"
     },
     {
-      "bytes": 69647,
-      "lines": 816,
+      "bytes": 70284,
+      "lines": 825,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "3a4e887fd6cb76c270cf98bdc884af49aaef6c8895208e5d1416bfbafbadba58"
+      "sha256": "049819e9a3c2f4681a254bddbe6c6d1675d95fde242406b87e923e232e1da8bb"
     },
     {
       "bytes": 16653,
@@ -2995,10 +3031,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 32935,
-      "lines": 766,
+      "bytes": 33260,
+      "lines": 769,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "0fc4f0cba382d5429b7cffef702f17f86a5e41fa700027d01608aacea30323c7"
+      "sha256": "d4edae4c5c90bb26ca8dfd3069283a8d1020edf8beba30bf6f1448f9e1257707"
     },
     {
       "bytes": 8236,
@@ -3265,10 +3301,16 @@
       "sha256": "a488b744eb896cfe6d449002851d286202b98a53754649dd84f443a30b235ced"
     },
     {
-      "bytes": 138193,
-      "lines": 2615,
+      "bytes": 138376,
+      "lines": 2617,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "6c72bf52f2855270dc36eab2389a10b192b5fb718b97960d09afdcc7ad5390b9"
+      "sha256": "11858b75f631af70554922a87cd8f29900e850824f98a5c051110247cf7335f5"
+    },
+    {
+      "bytes": 5629,
+      "lines": 134,
+      "path": "scripts/validate_prompt_family_scorecard.py",
+      "sha256": "31f27419b50671eeb1888b9689e228fcfcdf5b976d2854db57269d7062b74467"
     },
     {
       "bytes": 6982,
@@ -3403,6 +3445,8 @@
     "conda run -n reprompt_tax python scripts/validate_label_collection_dispatch.py",
     "conda run -n reprompt_tax python scripts/analyze_current_prompt_mechanism.py",
     "conda run -n reprompt_tax python scripts/validate_current_prompt_mechanism.py",
+    "conda run -n reprompt_tax python scripts/analyze_prompt_family_scorecard.py",
+    "conda run -n reprompt_tax python scripts/validate_prompt_family_scorecard.py",
     "conda run -n reprompt_tax python scripts/analyze_all_model_paired_significance.py",
     "conda run -n reprompt_tax python scripts/validate_all_model_paired_significance.py",
     "conda run -n reprompt_tax python scripts/analyze_all_model_uncertainty.py",

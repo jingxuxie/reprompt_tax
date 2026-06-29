@@ -1,0 +1,4 @@
+model,tested_conditions,best_ftga_condition,best_ftga_pct,baseline_ftga_pct,contract_ftga_pct,content_preservation_ftga_pct,content_minus_contract_delta_pp,content_minus_contract_improved,content_minus_contract_worsened,content_minus_contract_tied,generic_helpfulness_ftga_pct,claim_boundary
+gpt-4.1-nano,baseline;content_preservation;contract;generic_helpfulness,content_preservation,80.0,67.5,76.7,80.0,3.3,7,3,110,75.0,single_model_generic_control_only
+gpt-5.4-mini,baseline;content_preservation;contract,content_preservation,85.8,80.0,85.0,85.8,0.8,5,4,111,,generic_not_tested_current_models
+gpt-5.5,baseline;content_preservation;contract,content_preservation,99.2,81.7,98.3,99.2,0.8,2,1,117,,generic_not_tested_current_models

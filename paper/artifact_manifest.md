@@ -106,6 +106,8 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 - `conda run -n reprompt_tax python scripts/validate_label_collection_dispatch.py`
 - `conda run -n reprompt_tax python scripts/analyze_current_prompt_mechanism.py`
 - `conda run -n reprompt_tax python scripts/validate_current_prompt_mechanism.py`
+- `conda run -n reprompt_tax python scripts/analyze_prompt_family_scorecard.py`
+- `conda run -n reprompt_tax python scripts/validate_prompt_family_scorecard.py`
 - `conda run -n reprompt_tax python scripts/analyze_all_model_paired_significance.py`
 - `conda run -n reprompt_tax python scripts/validate_all_model_paired_significance.py`
 - `conda run -n reprompt_tax python scripts/analyze_all_model_uncertainty.py`
@@ -214,7 +216,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/all_model_uncertainty_v02.md` | 2415 | 33 | `9489579d838d501b2647f0971aa7dbb1983b8321f8b661980ae420dc93dad99c` |
 | `paper/appendix.md` | 22584 | 541 | `a249d39b476e2b04cfb1f2e76785c1410c8deaf7fd712d58bd0f04c4bf0b4fff` |
 | `paper/benchmark_quality_audit_v02.md` | 2165 | 64 | `4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc` |
-| `paper/claim_evidence_checklist.md` | 39737 | 230 | `fd0254d3427f58cbdab35d436a002517982cb624a580037c9fd600966875ec6c` |
+| `paper/claim_evidence_checklist.md` | 40219 | 231 | `7952a85dea62e6d6e4f29d5eeb84837cd93442974b7a831f5e884742c2bb2757` |
 | `paper/completed_label_claim_gates_v02.md` | 1125 | 15 | `00a418f89d02ff3db69b9076952826011e7895c51f51929a597881e246bbadcc` |
 | `paper/component_breakdown_v02_full120.md` | 3508 | 70 | `55cefed242fc5279ab83995d48ce07768490ba1f47f07d9ea54d94eb719107cc` |
 | `paper/contract_benefit_decomposition_v02.md` | 2686 | 68 | `095f255499a9e1d2d6885fb6b65622e16beea677ac2db502586c0db0335ccb33` |
@@ -254,7 +256,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/label_collection_dispatch_v02.md` | 5390 | 46 | `5fe6cb8a863f932e638319073e1fd73183478c17c957b6a90c14b132ff0dcc55` |
 | `paper/label_collection_launch_pack_v02.md` | 9095 | 78 | `7ee715c7fb4f5a17816d31b148a0871c5c485deacc60c743c54839b2e604ac18` |
 | `paper/language_slice_analysis_v02_full120.md` | 3925 | 72 | `12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a` |
-| `paper/main.pdf` | 240685 |  | `71e11a211ac70308d6adf46b366502c26e1414d542e371de565035407820f619` |
+| `paper/main.pdf` | 240925 |  | `4912ab1ffecf458075683af3f2fa3d892a9a77b87ec942b056432a3c7a8e1ee0` |
 | `paper/main.tex` | 1082 | 44 | `1a09b462988020ead361be338a7d3ec29e9c104e27c384cafe408080dcdf9474` |
 | `paper/paired_significance_gpt54mini_v02_full120.md` | 755 | 13 | `d29116e1c39e4a56e08e84fd86b022ce220b4b35c696c57689fc019154d8b3cc` |
 | `paper/paired_significance_gpt55_v02_full120.md` | 729 | 13 | `e6bdb635f4b8bca1cdf5ceb707c6a852a2cdd581e6f344df3d476b28af4a212a` |
@@ -262,6 +264,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/paired_significance_v02_full120.md` | 1467 | 21 | `6093644e2ef6ac3486c690d4c22079e2985910a1792d389b9ad6274c1458e295` |
 | `paper/prompt_ablation_analysis.md` | 6347 | 74 | `6ab68c79d3f7f459a7d765d0473ae2d9b55ffabc9dc4ef2df05150f205b727a8` |
 | `paper/prompt_control_analysis.md` | 1614 | 33 | `268f517a0050c6eb65d8dcd1bf0f2d5274fc3f1c1fcd15d0e98fe94d811bff6d` |
+| `paper/prompt_family_scorecard_v02.md` | 3895 | 54 | `340d86af4c6e7774737fbb511aed5417853e5779695668a485fd6e4d14d53333` |
 | `paper/qualitative_examples.md` | 3977 | 142 | `1a417d225c1f47354a4648d094daca7618f0ab78ae54b16824e309a544b0746e` |
 | `paper/refs.bib` | 8892 | 233 | `c8951f43a0f2b3dd4a3f80e0cb907d701fe9e3266d849cdb664bd004cdd56faf` |
 | `paper/related_work_positioning_v02.md` | 3886 | 53 | `5510dedcb29bb2f20bd293415dd364b8647bbe77c6692367cf65ab324c6a114e` |
@@ -274,7 +277,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/sections/02_interaction_contracts_and_metrics.tex` | 2373 | 49 | `dc87229ec6879056dffda6407050692c575fd5e7649b0ea4113eea8ebc9a3641` |
 | `paper/sections/03_benchmark_construction.tex` | 2660 | 41 | `38059ae3db8bd1b3a312083d4f251ef327837631a987cebbe3166cf7c5e45a62` |
 | `paper/sections/04_experimental_protocol.tex` | 2475 | 43 | `50e4e7d0a96cea15ada689386529b2444869209d79b9aa9c8a5c0c883ad9c678` |
-| `paper/sections/05_results.tex` | 8313 | 153 | `f8b0676cf2d1a2377258893b3a9c0a5b00e7d8055ebd745bd7552d5fb870c5fd` |
+| `paper/sections/05_results.tex` | 8575 | 156 | `9d04b2e927ae1916b5e12bbb950606c14f6b1d751a78291f626d417bac37c25f` |
 | `paper/sections/06_discussion.tex` | 1789 | 28 | `9dddcc91764c33c13b3424767360903da6c95504262e29e71fa202e86b43c733` |
 | `paper/sections/07_related_work.tex` | 3567 | 57 | `2f59ebb5af789aefc1d83701f9150e1262b144e66ebc5dc83a60c36a430ad5b0` |
 | `paper/sections/08_limitations_and_ethics.tex` | 1939 | 32 | `6fec65aa722f6ef74bca12132aa15329e0d645df079972bb8a5df33b4bba303f` |
@@ -582,6 +585,10 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `results/tables/openai_three_model_stress_v02_repair_realism_editing_baseline24/repair_realism_disagreements.csv` | 9417 | 27 | `2cb471a6f0dd449f0af56b55377fdf0a71ce2a7d8f947a9cb98da1d917357410` |
 | `results/tables/openai_three_model_stress_v02_repair_realism_editing_baseline24/repair_realism_paired_effects.csv` | 366 | 4 | `61b1540071a9ab9a296b01a790d6d01b02a3ccfcb7aeb14d0297cc16a0798797` |
 | `results/tables/openai_three_model_stress_v02_repair_realism_editing_baseline24/repair_realism_summary.csv` | 577 | 5 | `f45d67d13be6161214380faa9f846361b0597065804e8cca6640e79a7f240f34` |
+| `results/tables/prompt_family_scorecard_v02/prompt_family_by_family.csv` | 2883 | 41 | `b850137c4bb3d299e07c53c681a2c3753a06ce9ec479ddb4ac46a64fa35e2143` |
+| `results/tables/prompt_family_scorecard_v02/prompt_family_model_scorecard.csv` | 731 | 4 | `bd8ed67091197227155900b02dd83a0a362c75385a752df92d3fcaeac26498d6` |
+| `results/tables/prompt_family_scorecard_v02/prompt_family_paired_comparisons.csv` | 949 | 10 | `94216987779707bca618f40515ad2c5d0c68f3e941bb7453061118f2d85a4215` |
+| `results/tables/prompt_family_scorecard_v02/prompt_family_summary.csv` | 994 | 11 | `013dda14681ad23ed1f86628bc8215a0411b5e8bad01a412c3199a9b828f5b98` |
 | `scripts/analyze_all_model_paired_significance.py` | 12308 | 292 | `0a7a4a32060e2e2150b76818146f34c95fb8b2453f44661dde1755119050e3c7` |
 | `scripts/analyze_all_model_uncertainty.py` | 10950 | 242 | `f34b599e9b8ad36fa552bb9aa367e7635367925ca5cc0ae04743fb9b84765ba9` |
 | `scripts/analyze_benchmark_quality.py` | 12546 | 287 | `caf4fb572eb57d7a96fede7b03750c35eb1d8802ef7d20bdfc763924ec6d2524` |
@@ -618,6 +625,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/analyze_language_slices.py` | 11656 | 262 | `cc1449c42578c389809574c14ba0c2db8ee8ff4b974de4d270b24971f838408c` |
 | `scripts/analyze_prompt_ablation.py` | 20681 | 515 | `1e277f0aa80ce8cd21ca9f3339248925fb95e4517f8e99c085330b172888e8dd` |
 | `scripts/analyze_prompt_control.py` | 9823 | 248 | `6e901ad027174411c5efe9d8c2e193457992650b653d5b0567fe7d68e24368ba` |
+| `scripts/analyze_prompt_family_scorecard.py` | 13993 | 315 | `9b310f4954bb68e55e18f128f0d498d27d33750b26b6fe15f9ec940cde3a5c1e` |
 | `scripts/analyze_repair_dynamics.py` | 11361 | 247 | `f83ce31b4f9405a359a3aa5094a1f84961d42a468a3343b200a7cc0174ab3310` |
 | `scripts/analyze_repair_realism.py` | 14419 | 341 | `1dcaa53df56572b4728ba35fedf3c9d4a1bdc5f26fdc36e615f08dedcfa3ef66` |
 | `scripts/analyze_scorer_ablation.py` | 12302 | 314 | `72a401b925a05507b625bbdcce224216c08af642a2aa012841c8d9858697d95f` |
@@ -638,7 +646,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/generate_stress_benchmark_v02.py` | 10953 | 262 | `ee407c0bbc5567895b155a59e5dce7722a2e320703a64995ff5fdf51238b4ff1` |
 | `scripts/judge_outputs.py` | 10150 | 274 | `bc090a1735c5ce24f9941949b042956c03c5f287255ff1f7f83d099854e4dffb` |
 | `scripts/lint_claim_boundaries.py` | 4838 | 141 | `b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d` |
-| `scripts/make_artifact_manifest.py` | 69647 | 816 | `3a4e887fd6cb76c270cf98bdc884af49aaef6c8895208e5d1416bfbafbadba58` |
+| `scripts/make_artifact_manifest.py` | 70284 | 825 | `049819e9a3c2f4681a254bddbe6c6d1675d95fde242406b87e923e232e1da8bb` |
 | `scripts/make_coverage_native_review_packet_v03.py` | 16653 | 365 | `fd0d380e50e12da17a71d3989393c6ad485b5e68ef530b95960fe242bbf45d2e` |
 | `scripts/make_coverage_native_review_sheets_v03.py` | 13720 | 307 | `9158944b71d8e932ccdc4c95e6308a967a686dac22bf84a5ad6bbc1f3a5fdc94` |
 | `scripts/make_figures.py` | 6172 | 180 | `16bdd9f91481beb5eb2b28719e1cde1af0399d64782856e782feb83d302e5191` |
@@ -649,7 +657,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/paired_significance.py` | 5385 | 147 | `1e1a6a3105a73e40c2363d3924d0e38d0442818065353aa63846015aa2dedd34` |
 | `scripts/run_models.py` | 12175 | 330 | `46205fe276e0f5d967b42f791cdc952a6b519b6b20350bc78d2636423d327124` |
 | `scripts/run_repair_prompt_variants.py` | 9442 | 235 | `ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e` |
-| `scripts/run_submission_checks.py` | 32935 | 766 | `0fc4f0cba382d5429b7cffef702f17f86a5e41fa700027d01608aacea30323c7` |
+| `scripts/run_submission_checks.py` | 33260 | 769 | `d4edae4c5c90bb26ca8dfd3069283a8d1020edf8beba30bf6f1448f9e1257707` |
 | `scripts/score_auto.py` | 8236 | 302 | `401194f2530033217cc33e7617539a46bee792b93a4af525512f43f055c82b5e` |
 | `scripts/summarize_coverage_native_review_v03.py` | 6214 | 155 | `5b5a1bafa0d89a3bdc782362adf98fa736a570e9a5e282593e79b831d090f4df` |
 | `scripts/summarize_experiment_ledger.py` | 18150 | 438 | `b8c110d4c92c3bc489febb115f39a76e491f6f2b11de859c490c584ff8671c31` |
@@ -694,7 +702,8 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/validate_label_collection_bundles.py` | 3922 | 112 | `4a6d3a09919404aff8f78191683266b21b2b82e32e48ceda37f5a8b2f6215d43` |
 | `scripts/validate_label_collection_dispatch.py` | 5975 | 119 | `f39f7e33d373a9def4fca51ba134ada228df217622b5a45b1270370dd5148864` |
 | `scripts/validate_label_collection_launch_pack.py` | 5365 | 116 | `a488b744eb896cfe6d449002851d286202b98a53754649dd84f443a30b235ced` |
-| `scripts/validate_paper_claims.py` | 138193 | 2615 | `6c72bf52f2855270dc36eab2389a10b192b5fb718b97960d09afdcc7ad5390b9` |
+| `scripts/validate_paper_claims.py` | 138376 | 2617 | `11858b75f631af70554922a87cd8f29900e850824f98a5c051110247cf7335f5` |
+| `scripts/validate_prompt_family_scorecard.py` | 5629 | 134 | `31f27419b50671eeb1888b9689e228fcfcdf5b976d2854db57269d7062b74467` |
 | `scripts/validate_qualitative_examples.py` | 6982 | 202 | `b483926397b7df75c18a626d0af28332e7c5c22e34ae9b8dc1f61ff28be78d62` |
 | `scripts/validate_release_docs.py` | 4041 | 112 | `c8e0d2f10acfc9d70b8948135f3fe0e8b44a0879cecb7ac1a51ef4a5bbd14690` |
 | `scripts/validate_repair_realism.py` | 5832 | 165 | `0ccdaffe830d77407b097e16b53608a81b0d98bac5aa050b265744c31d75e0f5` |

@@ -129,8 +129,11 @@ content-preservation prompt reaches 80.0\% FTGA, 0.27 mean RTT, and
 contract, but content-language and literal-preservation rules appear to drive
 much of the mitigation. On current models, the narrower prompt is a near tie:
 85.8\% versus 85.0\% FTGA on \texttt{gpt-5.4-mini}, and 99.2\% versus 98.3\% on
-\texttt{gpt-5.5}. We treat preservation scaffolding as mechanism evidence, not
-as a uniformly better prompt.
+\texttt{gpt-5.5}. The prompt-family scorecard puts the same pattern in one
+table: content preservation is highest-FTGA in all three tested models, but the
+current-model margins over the full contract are only +0.8 points and
+generic-helpfulness was not run on the current models. We treat preservation
+scaffolding as mechanism evidence, not as a uniformly better prompt.
 
 \subsection{Scorer sensitivity and audit}
 
