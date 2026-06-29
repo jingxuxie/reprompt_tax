@@ -1,0 +1,7 @@
+cue_category,cue_hits,unique_conversations,benchmark_surface,benchmark_item_count,scorer_or_metric_surface,direct_scorer_component,traceability_note
+generic_repair,93,81,all_v0.2_task_families,120,rtt;repair_at_1;repair_at_2;unresolved_rate,0,Generic repair cues motivate the multi-turn repair-tax metrics rather than a single deterministic failure component.
+preservation_failure,25,18,quote_preservation;script_register_locale,60,preservation_failure;task_noncompletion,1,Literal-span preservation rows directly exercise exact preservation and related task-completion checks.
+register_locale_mismatch,16,13,script_register_locale,30,register_locale_mismatch,1,Script/register/locale rows directly exercise register and locale constraints where deterministic checks are possible.
+script_mismatch,4,2,script_register_locale,30,script_mismatch;wrong_output_language,1,"Script/register/locale rows directly exercise Latin, Arabic, and Devanagari script expectations."
+unwanted_translation,13,13,editing_preservation;quote_preservation,60,wrong_output_language;preservation_failure;task_noncompletion,1,Editing and quote-preservation rows stress cases where translating transparent content is a failure.
+wrong_output_language,68,48,editing_preservation;output_language_inference,60,wrong_output_language;script_mismatch,1,Editing-preservation and output-language-inference rows directly exercise expected output-language decisions.

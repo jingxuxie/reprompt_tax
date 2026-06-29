@@ -539,3 +539,9 @@ Category counts:
 This scan is used only as a motivation check. It is not a representative
 prevalence estimate, because the cue list is incomplete and the sample is a
 bounded streamed slice.
+
+The follow-up taxonomy traceability audit maps all six aggregate cue categories
+to benchmark, scorer, or repair-metric surfaces. Five categories map to
+deterministic scorer components; generic repair maps to the multi-turn
+repair-tax metrics rather than a scorer component. This is taxonomy
+traceability, not real-world prevalence evidence.

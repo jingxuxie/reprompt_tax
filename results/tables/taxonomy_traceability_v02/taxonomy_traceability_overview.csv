@@ -1,0 +1,2 @@
+dataset,conversations_scanned,multiturn_conversations,conversations_with_repair_cues,cue_hits_total,raw_text_written,cue_categories,mapped_categories,categories_with_direct_scorer_component,categories_mapped_to_repair_metrics,benchmark_items,benchmark_families,not_prevalence_estimate
+allenai/WildChat,20000,10681,172,219,False,6,6,5,1,120,4,1

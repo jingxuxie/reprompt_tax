@@ -7,10 +7,10 @@
       "sha256": "5157c1b2e75d074bf1f17db0efab22574a16306cf571b24effdc988a0d335d30"
     },
     {
-      "bytes": 22715,
-      "lines": 479,
+      "bytes": 22936,
+      "lines": 482,
       "path": "additional_experiments_plan .md",
-      "sha256": "8f57e9941225450099caa3d3943a34df067a898897c7e19d123c9e960e7ba17c"
+      "sha256": "edc1282099489c2c5c028efec1eef2a1847a28fd31ceb29ed857530577552025"
     },
     {
       "bytes": 72197,
@@ -343,16 +343,16 @@
       "sha256": "3c82600bd8db67ba38864412dcb94cfee1a204d94a68f3eb2b87abe101e8b724"
     },
     {
-      "bytes": 7509,
-      "lines": 185,
+      "bytes": 7657,
+      "lines": 187,
       "path": "docs/benchmark_card.md",
-      "sha256": "7bd7cc3ce64534126d31811e3a1b008af5b4d0286e80029d60c7084ccffd1674"
+      "sha256": "0b325c4c031373d5891b3ae08276ea2f032a81beb096a5ffaf20c4eccf70d908"
     },
     {
-      "bytes": 9278,
-      "lines": 258,
+      "bytes": 9563,
+      "lines": 267,
       "path": "docs/evaluation_card.md",
-      "sha256": "3e664daad9b76ea95e6c46b31c308e2e5e434d0a09b8a2e197b3633a2f8a259c"
+      "sha256": "a530c09b89c4b53c4b54c5be75ddf83896ae87314e00cc5ed8765570fe4d10a1"
     },
     {
       "bytes": 13449,
@@ -361,10 +361,10 @@
       "sha256": "f3537e907ade875514c28aa0c9dd0b8ffc2c82f72cddc58f603fcc8f0d257ba3"
     },
     {
-      "bytes": 19756,
-      "lines": 443,
+      "bytes": 20109,
+      "lines": 451,
       "path": "docs/result_card.md",
-      "sha256": "e50208786dd25409b8ee6e906da94f8bf3b97aa64a6c52497d1550e1466af71e"
+      "sha256": "a04587305dc7ca39ded1bf3d88d256edb197e1e3451ba995bcd50a864f233421"
     },
     {
       "bytes": 3774,
@@ -379,10 +379,10 @@
       "sha256": "9489579d838d501b2647f0971aa7dbb1983b8321f8b661980ae420dc93dad99c"
     },
     {
-      "bytes": 22584,
-      "lines": 541,
+      "bytes": 22926,
+      "lines": 547,
       "path": "paper/appendix.md",
-      "sha256": "a249d39b476e2b04cfb1f2e76785c1410c8deaf7fd712d58bd0f04c4bf0b4fff"
+      "sha256": "d14fb6b4875db1998645d5f42bb15ca3c4e7aa58529ca1e102f098a5b8cb0d65"
     },
     {
       "bytes": 5985,
@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 43020,
-      "lines": 236,
+      "bytes": 43586,
+      "lines": 237,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "f51934fe53523af9953929e55300d9e0fa3cd1ce2f1393f3486661251bc81338"
+      "sha256": "11c60d5c106480b3d36f91586c044bab1c533f33e5c37173a3db44c97a049c1c"
     },
     {
       "bytes": 1125,
@@ -643,10 +643,10 @@
       "sha256": "12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a"
     },
     {
-      "bytes": 241406,
+      "bytes": 241615,
       "lines": "",
       "path": "paper/main.pdf",
-      "sha256": "643351e4d56a001c964004c004e52220b682505342f6556e1b150bd9e77788ae"
+      "sha256": "727b1256873d6997cd48b52755f19ed4bfcae5156cdebe9247b96c1ec7b2b8b6"
     },
     {
       "bytes": 1082,
@@ -727,10 +727,10 @@
       "sha256": "abf3e0f1093555d1902dae28c95af0a18386b90800bd5aa325e437064c613073"
     },
     {
-      "bytes": 27734,
-      "lines": 494,
+      "bytes": 27958,
+      "lines": 497,
       "path": "paper/results_snapshot.md",
-      "sha256": "1997319a71b2a41a2acf5da70511578850266a5fa08901a45d0650f03f90dad8"
+      "sha256": "4dc8ded04b9a2ce30311311bf99729040f8e35b5b6da887c578a774f4a610cc1"
     },
     {
       "bytes": 3167,
@@ -769,10 +769,10 @@
       "sha256": "dc87229ec6879056dffda6407050692c575fd5e7649b0ea4113eea8ebc9a3641"
     },
     {
-      "bytes": 2660,
-      "lines": 41,
+      "bytes": 2856,
+      "lines": 44,
       "path": "paper/sections/03_benchmark_construction.tex",
-      "sha256": "38059ae3db8bd1b3a312083d4f251ef327837631a987cebbe3166cf7c5e45a62"
+      "sha256": "f6289ebc33a08340ddfa775fd052b91e6dc857ab34e3dd1d05cf850fca3003b1"
     },
     {
       "bytes": 2475,
@@ -839,6 +839,12 @@
       "lines": 65,
       "path": "paper/task_useful_failure_analysis_v02_full120.md",
       "sha256": "a9a001db707bafb0b7ba5a6c20b360234508a37000943b76b6628fa7e05a82b6"
+    },
+    {
+      "bytes": 2367,
+      "lines": 50,
+      "path": "paper/taxonomy_traceability_v02.md",
+      "sha256": "b8dd532a6abd3e3b0e651cadeab6c5b79de6c93df5fb722b6923083a73fd8509"
     },
     {
       "bytes": 1595,
@@ -2761,6 +2767,18 @@
       "sha256": "d5c95343a3a2a60ffc64ce4051e04aa6022120990d551505858818d3488c2ecf"
     },
     {
+      "bytes": 1429,
+      "lines": 7,
+      "path": "results/tables/taxonomy_traceability_v02/taxonomy_traceability_by_category.csv",
+      "sha256": "ac99c2256ba8978e88e5d0eede82a5a983109d89f5b3b524a635e6990c3c0906"
+    },
+    {
+      "bytes": 344,
+      "lines": 2,
+      "path": "results/tables/taxonomy_traceability_v02/taxonomy_traceability_overview.csv",
+      "sha256": "870f1d370955631d2807a2d8a7800c626edb0a42eeca0d8ccc53a9a1f05b502d"
+    },
+    {
       "bytes": 12308,
       "lines": 292,
       "path": "scripts/analyze_all_model_paired_significance.py",
@@ -3037,6 +3055,12 @@
       "sha256": "f1da1a1ba93a43955aaeb825c71ba197de9e96df447d5074f6d4568dd6798aaf"
     },
     {
+      "bytes": 10846,
+      "lines": 242,
+      "path": "scripts/analyze_taxonomy_traceability_v02.py",
+      "sha256": "f747184a34f07d42fe1a64dc654a058422dfc10adb0129633fb3f6fc44a4823a"
+    },
+    {
       "bytes": 9310,
       "lines": 216,
       "path": "scripts/analyze_token_burden.py",
@@ -3133,10 +3157,10 @@
       "sha256": "b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d"
     },
     {
-      "bytes": 73265,
-      "lines": 868,
+      "bytes": 73752,
+      "lines": 875,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "9b819487bff4eb2c86bbea5b891abe3c81c1f835880c630e742334da97cc21e0"
+      "sha256": "d8e496fc81e7ec242537510f35263c09c7b66a6b08f2036dcc594e39ebf967b0"
     },
     {
       "bytes": 16653,
@@ -3199,10 +3223,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 34909,
-      "lines": 784,
+      "bytes": 35234,
+      "lines": 787,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "95db0b2cf79a5149d5e339c056da2209af682f0ea41aefc4efbf470ac105bcb2"
+      "sha256": "cdf9b5140b83a710a87a8bbffbb988fb10b2f92790bbadbfda676425a217a83d"
     },
     {
       "bytes": 8236,
@@ -3481,10 +3505,10 @@
       "sha256": "adb71e37fdcfa7ca98df0e1241f6384eddb7bd928a1724a749954a0642da986d"
     },
     {
-      "bytes": 139130,
-      "lines": 2624,
+      "bytes": 139258,
+      "lines": 2625,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "e26c409f80c5cabcfbeca5f66413d5bfcf8a2883ed9f1bdd848996bbc6e82c55"
+      "sha256": "3de0575c62549dd076eb69f26ad932b9b06b892caf1d4300b1c289f67736199d"
     },
     {
       "bytes": 5629,
@@ -3499,10 +3523,10 @@
       "sha256": "b483926397b7df75c18a626d0af28332e7c5c22e34ae9b8dc1f61ff28be78d62"
     },
     {
-      "bytes": 5544,
-      "lines": 136,
+      "bytes": 5757,
+      "lines": 140,
       "path": "scripts/validate_release_docs.py",
-      "sha256": "e351ee3270d3cdfd33b993fb9cc7b1b200bcf5961f99547ee6338af6d013eba8"
+      "sha256": "6a489ebda2242cee1ab83ce90855cc573db1e5e243f56e0d5f2d4f7c2b5e9c89"
     },
     {
       "bytes": 5832,
@@ -3511,10 +3535,10 @@
       "sha256": "0ccdaffe830d77407b097e16b53608a81b0d98bac5aa050b265744c31d75e0f5"
     },
     {
-      "bytes": 6806,
-      "lines": 143,
+      "bytes": 7050,
+      "lines": 148,
       "path": "scripts/validate_result_card.py",
-      "sha256": "bfb0303ea71f91d19dc212a841a01d703234bd27d29ec35061e183b0288e96f6"
+      "sha256": "a945a25d4f86ab311e99cd7108438414845a9eb0dbfb81d0f138b10a2a30b52a"
     },
     {
       "bytes": 5123,
@@ -3539,6 +3563,12 @@
       "lines": 88,
       "path": "scripts/validate_stress_benchmark.py",
       "sha256": "d5edb4e9d83a9f40c9b57d175abe689a9f2b419a19ebbb430344def190cfa2f7"
+    },
+    {
+      "bytes": 5357,
+      "lines": 144,
+      "path": "scripts/validate_taxonomy_traceability_v02.py",
+      "sha256": "58ad7807ca61bc6719158f5e4c8ea09b1052c44416a47c0f3e14a694f3afb9a6"
     }
   ],
   "notes": [
@@ -3693,6 +3723,8 @@
     "conda run -n reprompt_tax python scripts/validate_stress_benchmark.py --benchmark data/benchmark_stress_v0.2.jsonl --expected-per-cell 10",
     "conda run -n reprompt_tax python scripts/discover_repair_cues.py --dataset allenai/WildChat --split train --max-conversations 20000 --out-dir results/discovery/wildchat_20k_repair_cues",
     "conda run -n reprompt_tax python scripts/analyze_discovery_cues.py --summary results/discovery/wildchat_20k_repair_cues/summary.json --metadata results/discovery/wildchat_20k_repair_cues/hit_metadata_hashed.csv --out-dir results/discovery/wildchat_20k_repair_cues --out-md paper/discovery_cue_analysis.md",
+    "conda run -n reprompt_tax python scripts/analyze_taxonomy_traceability_v02.py",
+    "conda run -n reprompt_tax python scripts/validate_taxonomy_traceability_v02.py",
     "rg -n \"Warning|undefined|Overfull|Underfull|Error\" paper/main.log"
   ],
   "schema_version": "reprompt-tax-artifact-manifest-v1"

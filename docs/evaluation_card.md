@@ -126,6 +126,15 @@ one for each v0.2 item. The scorer accepts 120/120 templates and passes 120/120
 component checks. This checks over-rejection by deterministic rules, not
 native/near-native semantic validity.
 
+Taxonomy traceability:
+
+- `paper/taxonomy_traceability_v02.md`
+- `results/tables/taxonomy_traceability_v02/`
+
+The traceability audit links all six aggregate WildChat repair-cue categories
+to benchmark, scorer, or metric surfaces. It is taxonomy motivation, not a
+prevalence estimate.
+
 ## Main Evaluation Evidence
 
 Current-model refresh:

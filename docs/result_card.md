@@ -412,6 +412,14 @@ hits, 31 conversations with repeated cue hits, and no raw text written. The
 largest unique-conversation categories are generic repair (81 conversations)
 and wrong output language (48 conversations).
 
+Taxonomy traceability:
+`paper/taxonomy_traceability_v02.md`
+
+The traceability audit maps all six aggregate WildChat cue categories to
+benchmark, scorer, or metric surfaces. Five categories map to deterministic
+scorer components; generic repair maps to the multi-turn repair-tax metrics.
+This is taxonomy motivation, not real-world prevalence evidence.
+
 ## Claim Boundary
 
 Detailed claim-to-artifact mapping:

@@ -79,6 +79,8 @@ Stress items focus on:
 An aggregate-only WildChat repair-cue scan motivates the taxonomy. It writes
 hashed metadata and aggregate counts only; it does not release raw conversation
 text and should not be treated as prevalence evidence.
+A taxonomy traceability audit maps all six aggregate cue categories to
+benchmark, scorer, or repair-metric surfaces while preserving that boundary.
 
 ## Intended Use
 

@@ -491,4 +491,7 @@ indices, cue patterns, and language metadata. A local analysis of the hashed
 metadata finds 31 conversations with repeated cue hits, with a maximum of 5 cue
 hits in one conversation. The largest unique-conversation categories are generic
 repair (81) and wrong output language (48). This is used only as a motivation
-check, not a representative prevalence estimate.
+check, not a representative prevalence estimate. The taxonomy traceability
+audit maps all six aggregate cue categories to benchmark, scorer, or
+repair-metric surfaces; five categories map to deterministic scorer components,
+while generic repair maps to repair-tax metrics.

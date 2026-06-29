@@ -16,6 +16,9 @@ diagnostics; language/family slices; token analysis; a 72-row blinded
 rows. The automatic scorer is now covered in both directions by no-API
 deterministic audits: 390/390 known-bad probes fail with their expected signals,
 and 120/120 constrained positive-control templates pass all scorer components.
+The aggregate WildChat motivation scan now also has a taxonomy traceability
+audit: all six cue categories map to benchmark, scorer, or repair-metric
+surfaces, with five categories tied to deterministic scorer components.
 
 **Main remaining gap:** completed qualified human/native labels are still
 missing. The current paper can conservatively submit with the GPT-5.5
