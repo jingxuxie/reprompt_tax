@@ -2564,6 +2564,7 @@ def main() -> None:
     check_auxiliary_validator(root, "scripts/validate_all_model_paired_significance.py", "all-model paired-significance validation passed")
     check_auxiliary_validator(root, "scripts/validate_all_model_uncertainty.py", "all-model clustered-uncertainty validation passed")
     check_auxiliary_validator(root, "scripts/validate_balanced_subsample_robustness.py", "balanced-subsample robustness validation passed")
+    check_auxiliary_validator(root, "scripts/validate_sentinel_suite_v02.py", "sentinel-suite validation passed")
     check_auxiliary_validator(root, "scripts/validate_contract_benefit_decomposition.py", "contract-benefit decomposition validation passed")
     check_auxiliary_validator(root, "scripts/validate_prompt_family_scorecard.py", "prompt-family scorecard validation passed")
     check_auxiliary_validator(

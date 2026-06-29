@@ -1,0 +1,121 @@
+item_id,language_pair,task_family,stress_tag,selection_score,baseline_fail_pairs,contract_fail_pairs,contract_fix_pairs,contract_regression_pairs,both_fail_pairs,unresolved_flags,current_contract_fail_pairs,gpt55_contract_residual,gpt54_contract_regression,failure_type_signature,selection_rationale,stratum_rank
+ar_en_SA_001,ar-en,editing_preservation,implicit_content_language,25,5,0,5,0,0,0,0,0,0,script_mismatch:5;task_noncompletion:4;wrong_output_language:5,5 contract fixes,2
+ar_en_SA_002,ar-en,editing_preservation,implicit_content_language,25,5,0,5,0,0,0,0,0,0,script_mismatch:5;task_noncompletion:4;wrong_output_language:5,5 contract fixes,3
+ar_en_SA_003,ar-en,editing_preservation,implicit_content_language,32,5,1,4,0,1,0,1,0,0,script_mismatch:6;task_noncompletion:5;wrong_output_language:6,1 GPT-5.x contract fail pairs; 4 contract fixes,1
+ar_en_SA_004,ar-en,editing_preservation,implicit_content_language,23,5,2,3,0,2,0,0,0,0,script_mismatch:7;task_noncompletion:6;wrong_output_language:7,3 contract fixes,10
+ar_en_SA_005,ar-en,editing_preservation,implicit_content_language,24,5,1,4,0,1,0,0,0,0,script_mismatch:6;task_noncompletion:5;wrong_output_language:6,4 contract fixes,5
+ar_en_SA_006,ar-en,editing_preservation,implicit_content_language,24,5,1,4,0,1,0,0,0,0,script_mismatch:6;task_noncompletion:5;wrong_output_language:6,4 contract fixes,6
+ar_en_SA_007,ar-en,editing_preservation,implicit_content_language,25,5,0,5,0,0,0,0,0,0,script_mismatch:5;task_noncompletion:4;wrong_output_language:5,5 contract fixes,4
+ar_en_SA_008,ar-en,editing_preservation,implicit_content_language,24,5,1,4,0,1,0,0,0,0,script_mismatch:6;task_noncompletion:5;wrong_output_language:6,4 contract fixes,7
+ar_en_SA_009,ar-en,editing_preservation,implicit_content_language,24,5,1,4,0,1,0,0,0,0,script_mismatch:6;task_noncompletion:4;wrong_output_language:6,4 contract fixes,8
+ar_en_SA_010,ar-en,editing_preservation,implicit_content_language,24,5,1,4,0,1,0,0,0,0,script_mismatch:6;task_noncompletion:5;wrong_output_language:6,4 contract fixes,9
+ar_en_SB_001,ar-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,1
+ar_en_SB_002,ar-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,2
+ar_en_SB_003,ar-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,3
+ar_en_SB_004,ar-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,4
+ar_en_SB_005,ar-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,5
+ar_en_SB_006,ar-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,6
+ar_en_SB_007,ar-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,7
+ar_en_SB_008,ar-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,8
+ar_en_SB_009,ar-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,9
+ar_en_SB_010,ar-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,10
+ar_en_SC_001,ar-en,quote_preservation,translatable_quoted_heading,6,1,1,0,0,1,1,0,0,0,preservation_failure:2;task_noncompletion:2,1 unresolved trajectory flags,1
+ar_en_SC_002,ar-en,quote_preservation,translatable_quoted_heading,6,1,1,0,0,1,1,0,0,0,preservation_failure:2;task_noncompletion:2,1 unresolved trajectory flags,2
+ar_en_SC_003,ar-en,quote_preservation,translatable_quoted_heading,6,1,1,0,0,1,1,0,0,0,preservation_failure:2;task_noncompletion:2,1 unresolved trajectory flags,3
+ar_en_SC_004,ar-en,quote_preservation,translatable_quoted_heading,6,1,1,0,0,1,1,0,0,0,preservation_failure:2;task_noncompletion:2,1 unresolved trajectory flags,4
+ar_en_SC_005,ar-en,quote_preservation,translatable_quoted_heading,6,1,1,0,0,1,1,0,0,0,preservation_failure:2;task_noncompletion:2,1 unresolved trajectory flags,5
+ar_en_SC_006,ar-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,10
+ar_en_SC_007,ar-en,quote_preservation,translatable_quoted_heading,5,1,0,1,0,0,0,0,0,0,preservation_failure:1;task_noncompletion:1,1 contract fixes,6
+ar_en_SC_008,ar-en,quote_preservation,translatable_quoted_heading,4,1,1,0,0,1,0,0,0,0,preservation_failure:2;task_noncompletion:2,1 baseline fail pairs,7
+ar_en_SC_009,ar-en,quote_preservation,translatable_quoted_heading,4,1,1,0,0,1,0,0,0,0,preservation_failure:2;task_noncompletion:2,1 baseline fail pairs,8
+ar_en_SC_010,ar-en,quote_preservation,translatable_quoted_heading,4,1,1,0,0,1,0,0,0,0,preservation_failure:2;task_noncompletion:2,1 baseline fail pairs,9
+ar_en_SD_001,ar-en,script_register_locale,literal_locale_span,8,2,2,0,0,2,0,0,0,0,preservation_failure:4;task_noncompletion:4,2 baseline fail pairs,5
+ar_en_SD_002,ar-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,7
+ar_en_SD_003,ar-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,8
+ar_en_SD_004,ar-en,script_register_locale,literal_locale_span,4,1,1,0,0,1,0,0,0,0,preservation_failure:2;task_noncompletion:2,1 baseline fail pairs,6
+ar_en_SD_005,ar-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,9
+ar_en_SD_006,ar-en,script_register_locale,literal_locale_span,37,3,4,0,1,3,4,1,0,1,preservation_failure:7,1 GPT-5.x contract fail pairs; 1 contract regressions; 4 unresolved trajectory flags,1
+ar_en_SD_007,ar-en,script_register_locale,literal_locale_span,29,3,4,0,1,3,0,1,0,1,preservation_failure:7;task_noncompletion:7,1 GPT-5.x contract fail pairs; 1 contract regressions,3
+ar_en_SD_008,ar-en,script_register_locale,literal_locale_span,36,4,4,0,0,4,6,1,0,0,preservation_failure:8,1 GPT-5.x contract fail pairs; 6 unresolved trajectory flags,2
+ar_en_SD_009,ar-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,10
+ar_en_SD_010,ar-en,script_register_locale,literal_locale_span,14,3,3,0,0,3,1,0,0,0,preservation_failure:6,1 unresolved trajectory flags,4
+es_en_SA_001,es-en,editing_preservation,implicit_content_language,31,5,2,3,0,2,0,1,0,0,task_noncompletion:6;wrong_output_language:7,1 GPT-5.x contract fail pairs; 3 contract fixes,3
+es_en_SA_002,es-en,editing_preservation,implicit_content_language,30,5,3,2,0,3,0,1,0,0,task_noncompletion:7;wrong_output_language:8,1 GPT-5.x contract fail pairs; 2 contract fixes,4
+es_en_SA_003,es-en,editing_preservation,implicit_content_language,30,5,3,2,0,3,0,1,0,0,task_noncompletion:7;wrong_output_language:8,1 GPT-5.x contract fail pairs; 2 contract fixes,5
+es_en_SA_004,es-en,editing_preservation,implicit_content_language,47,5,4,1,0,4,0,2,1,0,task_noncompletion:7;wrong_output_language:9,gpt-5.5 contract residual; 2 GPT-5.x contract fail pairs; 1 contract fixes,1
+es_en_SA_005,es-en,editing_preservation,implicit_content_language,23,5,2,3,0,2,0,0,0,0,task_noncompletion:6;wrong_output_language:7,3 contract fixes,10
+es_en_SA_006,es-en,editing_preservation,implicit_content_language,30,5,3,2,0,3,0,1,0,0,task_noncompletion:7;wrong_output_language:8,1 GPT-5.x contract fail pairs; 2 contract fixes,6
+es_en_SA_007,es-en,editing_preservation,implicit_content_language,30,5,3,2,0,3,0,1,0,0,task_noncompletion:6;wrong_output_language:8,1 GPT-5.x contract fail pairs; 2 contract fixes,7
+es_en_SA_008,es-en,editing_preservation,implicit_content_language,30,5,3,2,0,3,0,1,0,0,task_noncompletion:6;wrong_output_language:8,1 GPT-5.x contract fail pairs; 2 contract fixes,8
+es_en_SA_009,es-en,editing_preservation,implicit_content_language,47,5,4,1,0,4,0,2,1,0,task_noncompletion:7;wrong_output_language:9,gpt-5.5 contract residual; 2 GPT-5.x contract fail pairs; 1 contract fixes,2
+es_en_SA_010,es-en,editing_preservation,implicit_content_language,29,5,4,1,0,4,0,1,0,0,task_noncompletion:8;wrong_output_language:9,1 GPT-5.x contract fail pairs; 1 contract fixes,9
+es_en_SB_001,es-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,1
+es_en_SB_002,es-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,2
+es_en_SB_003,es-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,3
+es_en_SB_004,es-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,4
+es_en_SB_005,es-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,5
+es_en_SB_006,es-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,6
+es_en_SB_007,es-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,7
+es_en_SB_008,es-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,8
+es_en_SB_009,es-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,9
+es_en_SB_010,es-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,10
+es_en_SC_001,es-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,1
+es_en_SC_002,es-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,2
+es_en_SC_003,es-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,3
+es_en_SC_004,es-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,4
+es_en_SC_005,es-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,5
+es_en_SC_006,es-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,6
+es_en_SC_007,es-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,7
+es_en_SC_008,es-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,8
+es_en_SC_009,es-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,9
+es_en_SC_010,es-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,10
+es_en_SD_001,es-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,4
+es_en_SD_002,es-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,5
+es_en_SD_003,es-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,6
+es_en_SD_004,es-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,7
+es_en_SD_005,es-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,8
+es_en_SD_006,es-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,9
+es_en_SD_007,es-en,script_register_locale,literal_locale_span,9,2,1,1,0,1,0,0,0,0,preservation_failure:3,1 contract fixes,3
+es_en_SD_008,es-en,script_register_locale,literal_locale_span,38,4,4,0,0,4,7,1,0,0,preservation_failure:8,1 GPT-5.x contract fail pairs; 7 unresolved trajectory flags,1
+es_en_SD_009,es-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,10
+es_en_SD_010,es-en,script_register_locale,literal_locale_span,29,3,4,0,1,3,0,1,0,1,preservation_failure:7,1 GPT-5.x contract fail pairs; 1 contract regressions,2
+hi_en_SA_001,hi-en,editing_preservation,implicit_content_language,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,1
+hi_en_SA_002,hi-en,editing_preservation,implicit_content_language,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,2
+hi_en_SA_003,hi-en,editing_preservation,implicit_content_language,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,3
+hi_en_SA_004,hi-en,editing_preservation,implicit_content_language,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,4
+hi_en_SA_005,hi-en,editing_preservation,implicit_content_language,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,5
+hi_en_SA_006,hi-en,editing_preservation,implicit_content_language,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,6
+hi_en_SA_007,hi-en,editing_preservation,implicit_content_language,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,7
+hi_en_SA_008,hi-en,editing_preservation,implicit_content_language,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,8
+hi_en_SA_009,hi-en,editing_preservation,implicit_content_language,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,9
+hi_en_SA_010,hi-en,editing_preservation,implicit_content_language,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,10
+hi_en_SB_001,hi-en,output_language_inference,correction_only,7,1,0,1,0,0,1,0,0,0,task_noncompletion:1,1 contract fixes; 1 unresolved trajectory flags,1
+hi_en_SB_002,hi-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,2
+hi_en_SB_003,hi-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,3
+hi_en_SB_004,hi-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,4
+hi_en_SB_005,hi-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,5
+hi_en_SB_006,hi-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,6
+hi_en_SB_007,hi-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,7
+hi_en_SB_008,hi-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,8
+hi_en_SB_009,hi-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,9
+hi_en_SB_010,hi-en,output_language_inference,correction_only,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,10
+hi_en_SC_001,hi-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,3
+hi_en_SC_002,hi-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,4
+hi_en_SC_003,hi-en,quote_preservation,translatable_quoted_heading,19,0,1,0,1,0,1,1,0,1,wrong_output_language:1,1 GPT-5.x contract fail pairs; 1 contract regressions; 1 unresolved trajectory flags,1
+hi_en_SC_004,hi-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,5
+hi_en_SC_005,hi-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,6
+hi_en_SC_006,hi-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,7
+hi_en_SC_007,hi-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,8
+hi_en_SC_008,hi-en,quote_preservation,translatable_quoted_heading,19,0,1,0,1,0,1,1,0,1,wrong_output_language:1,1 GPT-5.x contract fail pairs; 1 contract regressions; 1 unresolved trajectory flags,2
+hi_en_SC_009,hi-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,9
+hi_en_SC_010,hi-en,quote_preservation,translatable_quoted_heading,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,10
+hi_en_SD_001,hi-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,4
+hi_en_SD_002,hi-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,5
+hi_en_SD_003,hi-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,6
+hi_en_SD_004,hi-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,7
+hi_en_SD_005,hi-en,script_register_locale,literal_locale_span,12,2,0,2,0,0,1,0,0,0,wrong_output_language:2,2 contract fixes; 1 unresolved trajectory flags,3
+hi_en_SD_006,hi-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,8
+hi_en_SD_007,hi-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,9
+hi_en_SD_008,hi-en,script_register_locale,literal_locale_span,36,4,4,0,0,4,6,1,0,0,preservation_failure:8,1 GPT-5.x contract fail pairs; 6 unresolved trajectory flags,1
+hi_en_SD_009,hi-en,script_register_locale,literal_locale_span,16,1,1,1,1,0,1,0,0,0,wrong_output_language:2,1 contract regressions; 1 contract fixes; 1 unresolved trajectory flags,2
+hi_en_SD_010,hi-en,script_register_locale,literal_locale_span,0,0,0,0,0,0,0,0,0,0,,balanced cell representative,10

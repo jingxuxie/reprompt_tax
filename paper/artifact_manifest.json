@@ -319,6 +319,12 @@
       "sha256": "1518dd71b3a07eae29f58f1c784b075523881b0e54e18427833edbf58d3d92f8"
     },
     {
+      "bytes": 312,
+      "lines": 24,
+      "path": "data/stress_v02_sentinel24_ids.txt",
+      "sha256": "543b307dec4d51dd3715210cfb42e88d00b750eb530574ed549d0a52f88ded7c"
+    },
+    {
       "bytes": 471,
       "lines": 25,
       "path": "data/stress_v03_pilot24_ids.txt",
@@ -337,16 +343,16 @@
       "sha256": "3c82600bd8db67ba38864412dcb94cfee1a204d94a68f3eb2b87abe101e8b724"
     },
     {
-      "bytes": 6843,
-      "lines": 176,
+      "bytes": 7216,
+      "lines": 181,
       "path": "docs/benchmark_card.md",
-      "sha256": "0e779ca4845f31319584f5d17ffbdd2aa02af8f03285b0f654048efbbd5462b3"
+      "sha256": "9958d35f91dbd1ececdf242ede0113fc5e7e48cfe90e37de3b920efc56ea232d"
     },
     {
-      "bytes": 8089,
-      "lines": 230,
+      "bytes": 8426,
+      "lines": 237,
       "path": "docs/evaluation_card.md",
-      "sha256": "5f206e8bed66c4a8eae59f2c05cf4e6535fb30dc8d31a6d21769e055764b994c"
+      "sha256": "45fac4eca93c72ad226ab7249b8ef1c972b01fa33faa54ac07beda11df0d93f8"
     },
     {
       "bytes": 13449,
@@ -355,10 +361,10 @@
       "sha256": "f3537e907ade875514c28aa0c9dd0b8ffc2c82f72cddc58f603fcc8f0d257ba3"
     },
     {
-      "bytes": 18479,
-      "lines": 417,
+      "bytes": 18865,
+      "lines": 424,
       "path": "docs/result_card.md",
-      "sha256": "2bee600bca2993e17e74d285e00f14c226c5b467f054548df6bc57bd3e4645c1"
+      "sha256": "ffdae1e7a7c278b16d74310d6f806c41a6e0abc01b1605e9f17b4eca7c6831f5"
     },
     {
       "bytes": 3774,
@@ -391,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 41296,
-      "lines": 233,
+      "bytes": 41913,
+      "lines": 234,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "b1caeaa846af2cc7bb9c29c202ac1d6ce51d1589fe1c7f8dc899dc870ee71e41"
+      "sha256": "8bae805b6234cae49aa9a3d8abcb8f73313e0ef63d0ab4df4b16a8ca21d28f80"
     },
     {
       "bytes": 1125,
@@ -791,6 +797,12 @@
       "lines": 16,
       "path": "paper/sections/09_conclusion.tex",
       "sha256": "4ddf2e265b15a319284fe4c67a46e69c95876bababd6cb191e98713fef2f2cbd"
+    },
+    {
+      "bytes": 4878,
+      "lines": 68,
+      "path": "paper/sentinel_suite_v02.md",
+      "sha256": "549c4192ac3437df8e4b167933e70bcb5c4a6b2e595c342322d75109f43da769"
     },
     {
       "bytes": 2857,
@@ -2659,6 +2671,24 @@
       "sha256": "013dda14681ad23ed1f86628bc8215a0411b5e8bad01a412c3199a9b828f5b98"
     },
     {
+      "bytes": 631,
+      "lines": 10,
+      "path": "results/tables/sentinel_suite_v02/sentinel_coverage_summary.csv",
+      "sha256": "ca539dfe6263999ee93a3fbecb46f551fe46445b67f5b1fdd58f3d0b28f8bcc9"
+    },
+    {
+      "bytes": 16554,
+      "lines": 121,
+      "path": "results/tables/sentinel_suite_v02/sentinel_item_scores.csv",
+      "sha256": "7652d9c1fcce894864cbef7350ba38fed830f79ad9d351f02cf0c0edf876666e"
+    },
+    {
+      "bytes": 4393,
+      "lines": 25,
+      "path": "results/tables/sentinel_suite_v02/sentinel_selected_items.csv",
+      "sha256": "d5c95343a3a2a60ffc64ce4051e04aa6022120990d551505858818d3488c2ecf"
+    },
+    {
       "bytes": 12308,
       "lines": 292,
       "path": "scripts/analyze_all_model_paired_significance.py",
@@ -2911,6 +2941,12 @@
       "sha256": "72a401b925a05507b625bbdcce224216c08af642a2aa012841c8d9858697d95f"
     },
     {
+      "bytes": 16748,
+      "lines": 372,
+      "path": "scripts/analyze_sentinel_suite_v02.py",
+      "sha256": "25dd2739617b9abab0b8c10268fedf734bb2c15b6058fc514c3452c18dd1f201"
+    },
+    {
       "bytes": 15520,
       "lines": 391,
       "path": "scripts/analyze_task_useful_failures.py",
@@ -3013,10 +3049,10 @@
       "sha256": "b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d"
     },
     {
-      "bytes": 71304,
-      "lines": 839,
+      "bytes": 71835,
+      "lines": 848,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "8f277ce89b1b403da291649995b55e450b0500c9ebec2f456ab556d63a765eed"
+      "sha256": "9916a48830b01bda2a103d0c22d69ad0d6519feb082f3a3e4e7cde67c964a49d"
     },
     {
       "bytes": 16653,
@@ -3079,10 +3115,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 33958,
-      "lines": 775,
+      "bytes": 34241,
+      "lines": 778,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "9bd93c0685de19a1edf895f41e90817c1882af55868ea7ffcd4c3975f46acbf7"
+      "sha256": "d184d135640f0b02ee80c8d388d73388bc78c6a918f87c6e9ae5037e39fe1297"
     },
     {
       "bytes": 8236,
@@ -3361,10 +3397,10 @@
       "sha256": "adb71e37fdcfa7ca98df0e1241f6384eddb7bd928a1724a749954a0642da986d"
     },
     {
-      "bytes": 138766,
-      "lines": 2621,
+      "bytes": 138880,
+      "lines": 2622,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "487e6baa7b798a9ef9d3ec4e816198efb152281a896948d832bee51e703cff0c"
+      "sha256": "486c7e8e0712542ca4796d0d6fe97bc02ac5f486ec3fd73d3b789c7ae333478a"
     },
     {
       "bytes": 5629,
@@ -3379,10 +3415,10 @@
       "sha256": "b483926397b7df75c18a626d0af28332e7c5c22e34ae9b8dc1f61ff28be78d62"
     },
     {
-      "bytes": 4725,
-      "lines": 121,
+      "bytes": 5110,
+      "lines": 128,
       "path": "scripts/validate_release_docs.py",
-      "sha256": "74389aace78a5b68d173da1a83a38142a84353164a13d629e1926352491cd702"
+      "sha256": "823763fd0326018d18110755b0ef4202dedee68d27aaa00007aa1bba1d4c5b2f"
     },
     {
       "bytes": 5832,
@@ -3391,10 +3427,16 @@
       "sha256": "0ccdaffe830d77407b097e16b53608a81b0d98bac5aa050b265744c31d75e0f5"
     },
     {
-      "bytes": 5927,
-      "lines": 123,
+      "bytes": 6269,
+      "lines": 130,
       "path": "scripts/validate_result_card.py",
-      "sha256": "821d840fb1bb6ddfaf04e68451f3b10eb381502b0fe627e43565b85a3276a35a"
+      "sha256": "408e26a031b6d4d91221e58a7187b124d667fa5c11e48beecc7306df36709f42"
+    },
+    {
+      "bytes": 5248,
+      "lines": 130,
+      "path": "scripts/validate_sentinel_suite_v02.py",
+      "sha256": "e8665a247eb619233f08e8a662add008e35bf5a714735afc3831ca02bef565e1"
     },
     {
       "bytes": 3087,
@@ -3515,6 +3557,8 @@
     "conda run -n reprompt_tax python scripts/validate_all_model_uncertainty.py",
     "conda run -n reprompt_tax python scripts/analyze_balanced_subsample_robustness.py",
     "conda run -n reprompt_tax python scripts/validate_balanced_subsample_robustness.py",
+    "conda run -n reprompt_tax python scripts/analyze_sentinel_suite_v02.py",
+    "conda run -n reprompt_tax python scripts/validate_sentinel_suite_v02.py",
     "conda run -n reprompt_tax python scripts/analyze_contract_benefit_decomposition.py",
     "conda run -n reprompt_tax python scripts/validate_contract_benefit_decomposition.py",
     "conda run -n reprompt_tax python scripts/analyze_judge_agreement.py --audit results/scores/openai_three_model_stress_v02_full120_judge_audit72.jsonl --scores results/scores/openai_three_model_stress_v02_full120_auto_scores.jsonl --out-dir results/tables/openai_three_model_stress_v02_full120_judge_audit72 --out-md paper/judge_agreement_analysis_v02_full120.md",

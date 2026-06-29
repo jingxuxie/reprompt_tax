@@ -87,6 +87,8 @@ text and should not be treated as prevalence evidence.
 - Diagnose failure types by task family and language pair
 - Evaluate lightweight prompt-level mitigations
 - Track progress from GPT-4.1-family runs to GPT-5.x current-model refresh rows
+- Run compact future smoke checks with `data/stress_v02_sentinel24_ids.txt`,
+  then confirm any paper-facing claim on the full 120-item benchmark
 
 ## Out-of-Scope Use
 
@@ -126,6 +128,9 @@ Model-result evidence:
 - Balanced 48-item stratified pilots recover the all-model and `gpt-5.5`
   positive directions in 100.0% of saved-trajectory simulations. Smaller-effect
   models remain less stable, so full claims stay anchored to the 120-item runs.
+- The 24-item sentinel suite covers all 12 language-family cells and captures
+  all GPT-5.5 contract residual items plus 95.0% of GPT-5.x contract failure
+  pairs; it is for future fast checks, not headline benchmark evidence.
 
 Scorer checks:
 

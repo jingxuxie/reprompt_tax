@@ -140,6 +140,8 @@ All-model robustness and pilot design:
 - `paper/all_model_paired_significance_v02.md`
 - `paper/all_model_uncertainty_v02.md`
 - `paper/balanced_subsample_robustness_v02.md`
+- `paper/sentinel_suite_v02.md`
+- `data/stress_v02_sentinel24_ids.txt`
 
 Across all five full 120-item runs, the contract has a +10.2 point aggregate
 FTGA effect over 600 paired model-item rows, with 67 fixes and 6 regressions.
@@ -148,6 +150,11 @@ The prompt-cluster bootstrap interval is +5.8 to +15.0 points. Balanced
 directions in 100.0% of saved-trajectory simulations, while `gpt-5.4-mini`
 and `gpt-4.1-mini` remain less stable at 92.2% and 93.5%. This supports fast
 pilot iteration, not replacing the full 120-item result.
+
+The 24-item sentinel suite is a denser future smoke-test subset: it covers all
+12 language-family cells, captures 19/20 GPT-5.x contract failure pairs and
+both GPT-5.5 contract residual items, but still requires full-benchmark
+confirmation for paper-facing claims.
 
 Repair realism:
 

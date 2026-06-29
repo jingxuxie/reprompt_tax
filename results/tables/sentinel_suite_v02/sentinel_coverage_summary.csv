@@ -1,0 +1,10 @@
+metric,label,full_n,sentinel_n,coverage_pct
+baseline_fail_pairs,Baseline first-turn failure pairs,142,78,54.9
+contract_fix_pairs,Contract fix pairs,67,26,38.8
+contract_regression_pairs,Contract regression pairs,6,4,66.7
+contract_fail_pairs,Contract first-turn failure pairs,81,56,69.1
+unresolved_flags,Unresolved trajectory flags,34,26,76.5
+current_contract_fail_pairs,GPT-5.x contract failure pairs,20,19,95.0
+gpt55_contract_residual,GPT-5.5 contract residual items,2,2,100.0
+gpt54_contract_regression,GPT-5.4-mini contract-regression items,5,4,80.0
+covered_cells,Language-family cells with at least one selected item,12,12,100.0

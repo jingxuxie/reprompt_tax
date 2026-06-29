@@ -102,7 +102,8 @@ baseline failed.
 All-model robustness and balanced pilot design:
 `paper/all_model_paired_significance_v02.md`,
 `paper/all_model_uncertainty_v02.md`,
-`paper/balanced_subsample_robustness_v02.md`
+`paper/balanced_subsample_robustness_v02.md`,
+`paper/sentinel_suite_v02.md`
 
 Across the five full 120-item runs, the contract has a +10.2 pp aggregate FTGA
 effect over 600 paired model-item rows, with 67 fixes and 6 regressions. The
@@ -112,6 +113,12 @@ stratified pilots recover the all-model and `gpt-5.5` positive directions in
 effects in 100.0% of simulations. Smaller-effect models stay bounded:
 `gpt-5.4-mini` recovers the positive direction in 92.2% of 48-item simulations
 and `gpt-4.1-mini` in 93.5%.
+
+For future smoke runs, `data/stress_v02_sentinel24_ids.txt` provides a compact
+24-item subset selected from saved full-run diagnostics. It covers all 12
+language-family cells, captures 19/20 GPT-5.x contract failure pairs, captures
+both GPT-5.5 contract residual items, and remains explicitly non-headline until
+confirmed on the full 120-item benchmark.
 
 Efficiency tradeoff:
 `paper/efficiency_tradeoff_v02.md`
