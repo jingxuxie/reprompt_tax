@@ -99,6 +99,20 @@ baseline failures. With the contract, GPT-5.x-family failures fall to 20/240,
 and `gpt-5.5` passes 38 of the 40 items where at least one GPT-4.1-family
 baseline failed.
 
+All-model robustness and balanced pilot design:
+`paper/all_model_paired_significance_v02.md`,
+`paper/all_model_uncertainty_v02.md`,
+`paper/balanced_subsample_robustness_v02.md`
+
+Across the five full 120-item runs, the contract has a +10.2 pp aggregate FTGA
+effect over 600 paired model-item rows, with 67 fixes and 6 regressions. The
+prompt-cluster bootstrap interval is +5.8 to +15.0 pp. Balanced 48-item
+stratified pilots recover the all-model and `gpt-5.5` positive directions in
+100.0% of saved-trajectory simulations and land within 5 pp of both full-run
+effects in 100.0% of simulations. Smaller-effect models stay bounded:
+`gpt-5.4-mini` recovers the positive direction in 92.2% of 48-item simulations
+and `gpt-4.1-mini` in 93.5%.
+
 Efficiency tradeoff:
 `paper/efficiency_tradeoff_v02.md`
 

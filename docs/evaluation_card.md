@@ -135,6 +135,20 @@ models: 85.8% vs 85.0% FTGA on `gpt-5.4-mini`, and 99.2% vs 98.3% on
 `gpt-5.5`. This supports a preservation-mechanism interpretation but does not
 establish prompt dominance.
 
+All-model robustness and pilot design:
+
+- `paper/all_model_paired_significance_v02.md`
+- `paper/all_model_uncertainty_v02.md`
+- `paper/balanced_subsample_robustness_v02.md`
+
+Across all five full 120-item runs, the contract has a +10.2 point aggregate
+FTGA effect over 600 paired model-item rows, with 67 fixes and 6 regressions.
+The prompt-cluster bootstrap interval is +5.8 to +15.0 points. Balanced
+48-item stratified pilots recover the all-model and `gpt-5.5` positive
+directions in 100.0% of saved-trajectory simulations, while `gpt-5.4-mini`
+and `gpt-4.1-mini` remain less stable at 92.2% and 93.5%. This supports fast
+pilot iteration, not replacing the full 120-item result.
+
 Repair realism:
 
 - `paper/repair_realism_editing_baseline24.md`

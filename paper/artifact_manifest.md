@@ -212,10 +212,10 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `data/stress_v03_pilot24_ids.txt` | 471 | 25 | `7641fe4a5b40af2000f9f4f7be277ea5fe43b291e54aa0875c2d0641c9dad561` |
 | `data/stress_v03_pilot24_remaining18_ids.txt` | 374 | 19 | `25117ca1f000fae8f5161c31cde6a265fd291ecde068caaf42dcac9081e5c950` |
 | `data/stress_v03_smoke6_ids.txt` | 163 | 7 | `3c82600bd8db67ba38864412dcb94cfee1a204d94a68f3eb2b87abe101e8b724` |
-| `docs/benchmark_card.md` | 6454 | 171 | `0f958cf8920e3add5ae10d5a542cb1ad065e655135d3e9fd5462d4d9f92a0199` |
-| `docs/evaluation_card.md` | 7407 | 216 | `16521afa372794832dafea1e550eba71976ed8f83f369befe7324507d4243e9b` |
+| `docs/benchmark_card.md` | 6843 | 176 | `0e779ca4845f31319584f5d17ffbdd2aa02af8f03285b0f654048efbbd5462b3` |
+| `docs/evaluation_card.md` | 8089 | 230 | `5f206e8bed66c4a8eae59f2c05cf4e6535fb30dc8d31a6d21769e055764b994c` |
 | `docs/human_audit_guide.md` | 13449 | 265 | `f3537e907ade875514c28aa0c9dd0b8ffc2c82f72cddc58f603fcc8f0d257ba3` |
-| `docs/result_card.md` | 17740 | 403 | `523c577d0afb780b5b0b1e8cd438c12ad32f5ca09346164e311d389805453f10` |
+| `docs/result_card.md` | 18479 | 417 | `2bee600bca2993e17e74d285e00f14c226c5b467f054548df6bc57bd3e4645c1` |
 | `paper/all_model_paired_significance_v02.md` | 3774 | 63 | `e501295d973e7b31a37490b6a5dba739be490bb49fe225c2c200399839cc3a56` |
 | `paper/all_model_uncertainty_v02.md` | 2415 | 33 | `9489579d838d501b2647f0971aa7dbb1983b8321f8b661980ae420dc93dad99c` |
 | `paper/appendix.md` | 22584 | 541 | `a249d39b476e2b04cfb1f2e76785c1410c8deaf7fd712d58bd0f04c4bf0b4fff` |
@@ -719,7 +719,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/validate_paper_claims.py` | 138766 | 2621 | `487e6baa7b798a9ef9d3ec4e816198efb152281a896948d832bee51e703cff0c` |
 | `scripts/validate_prompt_family_scorecard.py` | 5629 | 134 | `31f27419b50671eeb1888b9689e228fcfcdf5b976d2854db57269d7062b74467` |
 | `scripts/validate_qualitative_examples.py` | 6982 | 202 | `b483926397b7df75c18a626d0af28332e7c5c22e34ae9b8dc1f61ff28be78d62` |
-| `scripts/validate_release_docs.py` | 4041 | 112 | `c8e0d2f10acfc9d70b8948135f3fe0e8b44a0879cecb7ac1a51ef4a5bbd14690` |
+| `scripts/validate_release_docs.py` | 4725 | 121 | `74389aace78a5b68d173da1a83a38142a84353164a13d629e1926352491cd702` |
 | `scripts/validate_repair_realism.py` | 5832 | 165 | `0ccdaffe830d77407b097e16b53608a81b0d98bac5aa050b265744c31d75e0f5` |
-| `scripts/validate_result_card.py` | 5223 | 112 | `391be4ea5a1ccb703772ff41216e3548b75add185837a33ffd9cd0ccd652115d` |
+| `scripts/validate_result_card.py` | 5927 | 123 | `821d840fb1bb6ddfaf04e68451f3b10eb381502b0fe627e43565b85a3276a35a` |
 | `scripts/validate_stress_benchmark.py` | 3087 | 88 | `d5edb4e9d83a9f40c9b57d175abe689a9f2b419a19ebbb430344def190cfa2f7` |

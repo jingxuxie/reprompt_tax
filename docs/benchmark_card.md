@@ -121,6 +121,11 @@ Model-result evidence:
   fall to 0.0%.
 - `gpt-5.4-mini`: FTGA rises from 80.0% to 85.0%, but the FTGA uncertainty
   interval crosses zero and unresolved rate increases from 2.5% to 5.0%.
+- All-five-model sensitivity checks report a +10.2 point aggregate FTGA effect
+  over 600 paired model-item rows, with 67 contract fixes and 6 regressions.
+- Balanced 48-item stratified pilots recover the all-model and `gpt-5.5`
+  positive directions in 100.0% of saved-trajectory simulations. Smaller-effect
+  models remain less stable, so full claims stay anchored to the 120-item runs.
 
 Scorer checks:
 
