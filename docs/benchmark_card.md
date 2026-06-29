@@ -153,7 +153,7 @@ Human/native validation status:
 - The release has three launch-ready annotation surfaces: the original 72-row v0.2
   human/native audit, a 48-row current-model GPT-5.x human/native audit, and a
   60-row v0.3 coverage native-review packet.
-- Together these surfaces contain 180 reviewer-facing rows, 18 roster-template
+- Together these surfaces contain 180 reviewer-facing rows, 24 roster-template
   slots, and 12 static browser review sheets.
 - Stronger claims require completed labels, qualified rosters, and the
   pre-specified gates in `paper/human_audit_acceptance_rules_v02.md`.

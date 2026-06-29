@@ -217,7 +217,7 @@ Prepared surfaces:
 - v0.3 coverage native review: 60 reviewer-facing rows
 
 The consolidated launch pack in `paper/label_collection_launch_pack_v02.md`
-tracks 180 reviewer-facing rows, 18 roster-template slots, 12 static browser
+tracks 180 reviewer-facing rows, 24 roster-template slots, 12 static browser
 review sheets, finalization commands, adjudication commands, and claim gates.
 Future completed labels must pass `paper/human_audit_acceptance_rules_v02.md`
 before any claim is widened.

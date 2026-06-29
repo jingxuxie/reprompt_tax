@@ -8,7 +8,7 @@ human/native validation.
 
 - Surfaces ready for label collection: 3
 - Reviewer-facing packet rows: 180
-- Roster template slots: 18
+- Roster template slots: 24
 - Sendable reviewer bundles: `results/label_collection_bundles_v02`
 - Claim boundary: do not claim completed human/native validation until
   finalized labels pass the relevant completed-label validator and summary gate.
@@ -17,8 +17,8 @@ human/native validation.
 
 | Surface | Status | Rows | Roster slots | Sheets | Final validator |
 |---|---|---:|---:|---:|---|
-| Original v0.2 human/native audit | launch_ready_needs_labels | 72 | 3 | 3 | `scripts/validate_completed_human_audit.py` |
-| Current-model GPT-5.x human/native audit | launch_ready_needs_labels | 48 | 3 | 3 | `scripts/validate_completed_human_audit.py` |
+| Original v0.2 human/native audit | launch_ready_needs_labels | 72 | 6 | 3 | `scripts/validate_completed_human_audit.py` |
+| Current-model GPT-5.x human/native audit | launch_ready_needs_labels | 48 | 6 | 3 | `scripts/validate_completed_human_audit.py` |
 | v0.3 coverage native review | launch_ready_needs_labels | 60 | 12 | 6 | `scripts/validate_completed_coverage_native_review_v03.py` |
 
 ## Completion Rules

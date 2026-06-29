@@ -12,6 +12,7 @@ from typing import Any
 
 
 LANGUAGE_PAIRS = ("ar-en", "es-en", "hi-en")
+ROSTER_REVIEWERS_PER_LANGUAGE = 2
 TASK_FAMILIES = (
     "editing_preservation",
     "output_language_inference",
@@ -163,8 +164,15 @@ def validate_roster_template(out_dir: Path, packet_version: str) -> None:
     path = out_dir / f"human_audit_annotator_roster_template_{packet_version}.csv"
     require(path.exists(), f"missing annotator roster template {path}")
     rows = read_csv(path)
-    require(len(rows) == 3, f"expected 3 annotator roster template rows, found {len(rows)}")
-    require({row["language_pair"] for row in rows} == set(LANGUAGE_PAIRS), "roster template must include one row per language pair")
+    expected_rows = len(LANGUAGE_PAIRS) * ROSTER_REVIEWERS_PER_LANGUAGE
+    require(len(rows) == expected_rows, f"expected {expected_rows} annotator roster template rows, found {len(rows)}")
+    counts = Counter(row["language_pair"] for row in rows)
+    require(
+        counts == Counter({language_pair: ROSTER_REVIEWERS_PER_LANGUAGE for language_pair in LANGUAGE_PAIRS}),
+        f"roster template must include {ROSTER_REVIEWERS_PER_LANGUAGE} rows per language pair: {counts}",
+    )
+    annotator_ids = [row["annotator_id"] for row in rows]
+    require(len(annotator_ids) == len(set(annotator_ids)), "roster template annotator IDs must be unique")
     for row in rows:
         require(row["annotator_id"].startswith("replace_with_"), f"roster template annotator_id should be a placeholder for {row['language_pair']}")
         for field in ("native_or_near_native", "can_validate_script", "qualification_notes", "conflict_of_interest"):

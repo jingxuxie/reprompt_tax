@@ -34,6 +34,9 @@ ROSTER_FIELDS = [
     "notes",
 ]
 
+LANGUAGE_PAIRS = ("ar-en", "es-en", "hi-en")
+ROSTER_REVIEWERS_PER_LANGUAGE = 2
+
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
@@ -54,35 +57,21 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fields: list[str]) -> None
 
 
 def write_roster_template(path: Path) -> None:
-    rows = [
-        {
-            "annotator_id": "replace_with_ar_en_annotator_id",
-            "language_pair": "ar-en",
-            "native_or_near_native": "",
-            "can_validate_script": "",
-            "qualification_notes": "",
-            "conflict_of_interest": "",
-            "notes": "",
-        },
-        {
-            "annotator_id": "replace_with_es_en_annotator_id",
-            "language_pair": "es-en",
-            "native_or_near_native": "",
-            "can_validate_script": "",
-            "qualification_notes": "",
-            "conflict_of_interest": "",
-            "notes": "",
-        },
-        {
-            "annotator_id": "replace_with_hi_en_annotator_id",
-            "language_pair": "hi-en",
-            "native_or_near_native": "",
-            "can_validate_script": "",
-            "qualification_notes": "",
-            "conflict_of_interest": "",
-            "notes": "",
-        },
-    ]
+    rows = []
+    for language_pair in LANGUAGE_PAIRS:
+        language_slug = language_pair.replace("-", "_")
+        for reviewer_index in range(1, ROSTER_REVIEWERS_PER_LANGUAGE + 1):
+            rows.append(
+                {
+                    "annotator_id": f"replace_with_{language_slug}_annotator_{reviewer_index}_id",
+                    "language_pair": language_pair,
+                    "native_or_near_native": "",
+                    "can_validate_script": "",
+                    "qualification_notes": "",
+                    "conflict_of_interest": "",
+                    "notes": "",
+                }
+            )
     write_csv(path, rows, ROSTER_FIELDS)
 
 
@@ -143,8 +132,9 @@ Reviewer-facing static HTML sheets are available under
 support local CSV export without revealing the answer key.
 The annotator roster template is
 `human_audit_annotator_roster_template_{version}.csv`; copy it to
-`human_audit_annotator_roster_{version}.csv` and fill one qualified annotator
-row per language slice before claiming human/native-speaker validation.
+`human_audit_annotator_roster_{version}.csv` and fill the qualified annotator
+rows used for collection. The template includes two slots per language slice so
+the preferred double-label workflow can assign independent reviewers.
 
 ## Private Files
 
@@ -269,10 +259,13 @@ not a completed validation result.
 
 ## Minimum Launch
 
-- Recruit one qualified annotator for each language slice:
+- Minimum path: recruit one qualified annotator for each language slice:
   - Arabic-English: `human_audit_packet_{version}_ar-en.csv`
   - Spanish-English: `human_audit_packet_{version}_es-en.csv`
   - Hindi-English: `human_audit_packet_{version}_hi-en.csv`
+- Preferred path: recruit two independent qualified annotators for each
+  language slice, using the reviewer1/reviewer2 return-file names in the
+  consolidated launch pack.
 - Send each annotator only their language slice and the public guide
   `docs/human_audit_guide.md`.
 - Optional: send the matching static HTML sheet from
@@ -286,8 +279,8 @@ not a completed validation result.
   component marked `TRUE`.
 - Copy `human_audit_annotator_roster_template_{version}.csv` to
   `human_audit_annotator_roster_{version}.csv` and replace every placeholder
-  row with the real annotator ID, language pair, qualifications, script
-  competence, and conflict-of-interest status.
+  row used for collection with the real annotator ID, language pair,
+  qualifications, script competence, and conflict-of-interest status.
 
 ## Qualification Check
 

@@ -1764,11 +1764,14 @@ def check_human_packet(packet_path: Path, key_path: Path) -> None:
     roster_template_path = out_dir / "human_audit_annotator_roster_template_v0.2.csv"
     require(roster_template_path.exists(), f"missing human audit annotator roster template {roster_template_path}")
     roster_rows = load_csv_rows(roster_template_path)
-    require(len(roster_rows) == 3, f"expected 3 annotator roster template rows, found {len(roster_rows)}")
+    require(len(roster_rows) == 6, f"expected 6 annotator roster template rows, found {len(roster_rows)}")
     require(
-        {row["language_pair"] for row in roster_rows} == {"ar-en", "es-en", "hi-en"},
-        "human audit annotator roster template must cover all language pairs",
+        Counter(row["language_pair"] for row in roster_rows) == Counter({"ar-en": 2, "es-en": 2, "hi-en": 2}),
+        "human audit annotator roster template must cover two slots per language pair",
     )
+    roster_ids = [row["annotator_id"] for row in roster_rows]
+    require(len(roster_ids) == len(set(roster_ids)), "human audit annotator roster template IDs must be unique")
+    require(all(annotator_id.startswith("replace_with_") for annotator_id in roster_ids), "human audit annotator roster template should use placeholder IDs")
 
 
 def check_human_audit_design(

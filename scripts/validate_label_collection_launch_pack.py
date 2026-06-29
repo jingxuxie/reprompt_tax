@@ -10,8 +10,8 @@ from pathlib import Path
 
 
 EXPECTED_SURFACES = {
-    "human_audit_v02": {"rows": "72", "slots": "3", "sheets": "3"},
-    "current_model_human_audit_v02": {"rows": "48", "slots": "3", "sheets": "3"},
+    "human_audit_v02": {"rows": "72", "slots": "6", "sheets": "3"},
+    "current_model_human_audit_v02": {"rows": "48", "slots": "6", "sheets": "3"},
     "coverage_native_review_v03": {"rows": "60", "slots": "12", "sheets": "6"},
 }
 
@@ -132,7 +132,7 @@ def check_markdown(path: Path) -> None:
         "Label Collection Launch Pack",
         "Surfaces ready for label collection: 3",
         "Reviewer-facing packet rows: 180",
-        "Roster template slots: 18",
+        "Roster template slots: 24",
         "Sendable reviewer bundles",
         "not completed human/native validation",
         "do not claim completed human/native validation",

@@ -5,10 +5,13 @@ not a completed validation result.
 
 ## Minimum Launch
 
-- Recruit one qualified annotator for each language slice:
+- Minimum path: recruit one qualified annotator for each language slice:
   - Arabic-English: `human_audit_packet_v0.2_current_gpt5_ar-en.csv`
   - Spanish-English: `human_audit_packet_v0.2_current_gpt5_es-en.csv`
   - Hindi-English: `human_audit_packet_v0.2_current_gpt5_hi-en.csv`
+- Preferred path: recruit two independent qualified annotators for each
+  language slice, using the reviewer1/reviewer2 return-file names in the
+  consolidated launch pack.
 - Send each annotator only their language slice and the public guide
   `docs/human_audit_guide.md`.
 - Optional: send the matching static HTML sheet from
@@ -22,8 +25,8 @@ not a completed validation result.
   component marked `TRUE`.
 - Copy `human_audit_annotator_roster_template_v0.2_current_gpt5.csv` to
   `human_audit_annotator_roster_v0.2_current_gpt5.csv` and replace every placeholder
-  row with the real annotator ID, language pair, qualifications, script
-  competence, and conflict-of-interest status.
+  row used for collection with the real annotator ID, language pair,
+  qualifications, script competence, and conflict-of-interest status.
 
 ## Qualification Check
 

@@ -55,7 +55,7 @@ def main() -> None:
             "Native/near-native validation has not been completed",
             "three launch-ready annotation surfaces",
             "180 reviewer-facing rows",
-            "18 roster-template slots",
+            "24 roster-template slots",
             "12 static browser review sheets",
             "Do not use it to estimate prevalence",
             "scripts/run_submission_checks.py",

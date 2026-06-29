@@ -25,8 +25,9 @@ Reviewer-facing static HTML sheets are available under
 support local CSV export without revealing the answer key.
 The annotator roster template is
 `human_audit_annotator_roster_template_v0.2_current_gpt5.csv`; copy it to
-`human_audit_annotator_roster_v0.2_current_gpt5.csv` and fill one qualified annotator
-row per language slice before claiming human/native-speaker validation.
+`human_audit_annotator_roster_v0.2_current_gpt5.csv` and fill the qualified annotator
+rows used for collection. The template includes two slots per language slice so
+the preferred double-label workflow can assign independent reviewers.
 
 ## Private Files
 

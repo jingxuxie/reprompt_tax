@@ -27,7 +27,9 @@ Annotators should receive only the packet CSV, not the answer key. Before
 claiming native/near-native validation, copy the roster template to
 `data/human_audit/human_audit_annotator_roster_v0.2.csv` and fill one row per
 annotator with language competence, script competence, qualification notes, and
-conflict-of-interest status.
+conflict-of-interest status. The v0.2 human-audit roster template includes two
+placeholder slots per language pair so the preferred double-label workflow can
+assign independent reviewers.
 
 The optional static HTML sheets are generated from the same blinded packet. If
 used, send each annotator only the sheet matching their language pair and ask
