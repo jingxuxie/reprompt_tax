@@ -176,9 +176,10 @@ all benchmark items are synthetic and designed for privacy-safe evaluation.
 This is a pilot benchmark, not a representative sample of global multilingual
 use. It covers only three language pairs and uses synthetic prompts. Automatic
 checks are useful for exact spans and scripts, but language, register, and
-locale judgments should be audited by native speakers before submission. The
-benchmark should not be interpreted as characterizing all Spanish, Hindi,
-Arabic, or code-switched users.
+locale judgments should be audited by native speakers before any stronger
+native-validation or cultural-appropriateness claim. The benchmark should not
+be interpreted as characterizing all Spanish, Hindi, Arabic, or code-switched
+users.
 
 The intended impact is to make global usability failures measurable: a model
 that looks cheaper or more accurate on the first turn may impose hidden repair

@@ -40,7 +40,7 @@ REQUIRED_PHRASES = {
         "This is a pilot benchmark, not a representative sample",
         "does not replace native-speaker validation",
         "do not claim that the full contract is the best prompt tested",
-        "should be audited by native speakers before submission",
+        "should be audited by native speakers before any stronger native-validation or cultural-appropriateness claim",
     ],
     Path("paper/results_snapshot.md"): [
         "Human or native-speaker audit is still needed",

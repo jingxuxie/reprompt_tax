@@ -2189,6 +2189,7 @@ def check_extended_abstract(path: Path) -> None:
         "Deterministic scorer stress tests fail 390/390 known-bad probes",
         "accept 120/120 constrained positive-control templates",
         "native-speaker validation remains launch-ready but incomplete",
+        "should be audited by native speakers before any stronger native-validation or cultural-appropriateness claim",
         "GPT-4.1-family error atlas lists 157 first-turn failures",
         "under the contract, `gpt-5.5` leaves two first-turn failures and zero unresolved trajectories",
         "`gpt-5.4-mini` leaves 18 first-turn failures and six unresolved trajectories",
@@ -2198,6 +2199,7 @@ def check_extended_abstract(path: Path) -> None:
     stale_phrases = [
         "A 10% stratified blinded LLM-judge audit",
         "The generated error atlas lists 157 first-turn failures overall",
+        "locale judgments should be audited by native speakers before submission",
     ]
     for phrase in stale_phrases:
         require(phrase not in text and phrase not in normalized, f"extended abstract still contains stale phrase: {phrase}")

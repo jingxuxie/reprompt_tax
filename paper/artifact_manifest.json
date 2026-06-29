@@ -541,10 +541,10 @@
       "sha256": "07c9ece77151ea005a33df4943f4ffd51f4c07e79c7f5618a6685568cb78485b"
     },
     {
-      "bytes": 11451,
-      "lines": 201,
+      "bytes": 11505,
+      "lines": 202,
       "path": "paper/extended_abstract_draft.md",
-      "sha256": "4f4057b0cca666a2b137871fcdd12db98b80f0d8ea92adbaced8d1e0522aed8b"
+      "sha256": "3cdab7a50ceab8626155321c3a1208ca13e70f2435514ab7613d26f6a900eac3"
     },
     {
       "bytes": 2474,
@@ -3229,10 +3229,10 @@
       "sha256": "bc090a1735c5ce24f9941949b042956c03c5f287255ff1f7f83d099854e4dffb"
     },
     {
-      "bytes": 4838,
+      "bytes": 4892,
       "lines": 141,
       "path": "scripts/lint_claim_boundaries.py",
-      "sha256": "b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d"
+      "sha256": "2e174a3e97414a84d9cad555556f35ae2be3cde72c6cadb655ad8e15bcff3487"
     },
     {
       "bytes": 75326,
@@ -3589,10 +3589,10 @@
       "sha256": "73d6af099754c6cf9d6e52bc8c7f8fdc37404b84cbe9e84e4f4500ae5442ad9e"
     },
     {
-      "bytes": 141291,
-      "lines": 2651,
+      "bytes": 141494,
+      "lines": 2653,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "af89d630b8c3ce472645143e8160640de36fb412c0794fe0f68a07a11b7ae2bf"
+      "sha256": "aae3c1d0f0ba2ad807c4fabcfadbd66329d5c3dec4703b0dd1df7cd2a3568c4c"
     },
     {
       "bytes": 5629,
