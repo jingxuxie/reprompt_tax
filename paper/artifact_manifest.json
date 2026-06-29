@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 46422,
-      "lines": 243,
+      "bytes": 47000,
+      "lines": 244,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "d29380021ab291b82db9898345cea62f64b8145d74d177ef401ed69c5eb67393"
+      "sha256": "05acf82adc65f55ab453c871c0417731f98642b5d093e8ec7fd77dc745f71b72"
     },
     {
       "bytes": 1125,
@@ -751,6 +751,12 @@
       "sha256": "4f2c01859dc27b9431dcbe833091bcd978d4851279c6fefb66339e5a2cb6e2a9"
     },
     {
+      "bytes": 6750,
+      "lines": 51,
+      "path": "paper/reviewer_qualification_requirements_v02.md",
+      "sha256": "0dd6688b910bd38e8958fec07cca38bab1aa208d0a141967974daa330a709d6a"
+    },
+    {
       "bytes": 3167,
       "lines": 57,
       "path": "paper/scorer_ablation_sensitivity_v02_full120.md",
@@ -838,7 +844,7 @@
       "bytes": 1657,
       "lines": 36,
       "path": "paper/submission_anonymity_v02.md",
-      "sha256": "5512a6108e35fe495391e938b768fcddf0e77f505c93e1c3938e2d5bbd1d23ff"
+      "sha256": "29380cdd0d6001fac486c68ed4a0c732189921d7611c53401ffd6a2c26fb991d"
     },
     {
       "bytes": 4265,
@@ -2761,6 +2767,18 @@
       "sha256": "7709254ec6bb4ad17d042ff1a1f420671c0ff5967bb816e1b3f338d9a748f0f8"
     },
     {
+      "bytes": 11889,
+      "lines": 25,
+      "path": "results/tables/reviewer_qualification_requirements_v02/reviewer_qualification_requirements.csv",
+      "sha256": "13f6c87627b64af41e84ce421f6ae4e592600c05f344bc53bbe09e777755ef4b"
+    },
+    {
+      "bytes": 1041,
+      "lines": 4,
+      "path": "results/tables/reviewer_qualification_requirements_v02/reviewer_qualification_summary.csv",
+      "sha256": "efca5f1ae2fcd2f33b1a4d11d2980400f6510f5fb02626d4f61005bfa20e6ccf"
+    },
+    {
       "bytes": 666,
       "lines": 5,
       "path": "results/tables/scorer_challenge_v02/scorer_challenge_by_family.csv",
@@ -2842,7 +2860,7 @@
       "bytes": 714,
       "lines": 6,
       "path": "results/tables/submission_anonymity_v02/submission_anonymity_checks.csv",
-      "sha256": "5297f231b863e98029823b6f825acf60b4b161ad8fd31d90be6d4e5f90840039"
+      "sha256": "4b6d57a6dcc6925b13344bd2c4eb3fbca28bb9c03fee0dc4bc715f349ec74de4"
     },
     {
       "bytes": 51,
@@ -3139,6 +3157,12 @@
       "sha256": "477f148203530a9a3b7ca391f9f05a07e0e6abf69372c0360ab4e9859fff7712"
     },
     {
+      "bytes": 11549,
+      "lines": 232,
+      "path": "scripts/analyze_reviewer_qualification_requirements.py",
+      "sha256": "9358635061ffdd42d2c823ac5691763af4ee03fbbb6420bfc248b1be01b1bf54"
+    },
+    {
       "bytes": 12302,
       "lines": 314,
       "path": "scripts/analyze_scorer_ablation.py",
@@ -3283,10 +3307,10 @@
       "sha256": "2e174a3e97414a84d9cad555556f35ae2be3cde72c6cadb655ad8e15bcff3487"
     },
     {
-      "bytes": 76383,
-      "lines": 913,
+      "bytes": 76954,
+      "lines": 920,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "2fad24789fcd62ae6486b507d8454138c5989f888386f239fa4376571676c3c0"
+      "sha256": "5b3e4bb0bdde9131309c1280f8172c5ff6414cb046f5c44e5df17f330b84001c"
     },
     {
       "bytes": 16653,
@@ -3349,10 +3373,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 36905,
-      "lines": 802,
+      "bytes": 37302,
+      "lines": 805,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "05a361660f3706e713e2b4688b73b7049db5fee7d83edf54fcbd1a2f996a5439"
+      "sha256": "ae4d70d76c1885ef2681f45458cf168f7895c2920fdfde67e39950b1367efa79"
     },
     {
       "bytes": 8236,
@@ -3649,10 +3673,10 @@
       "sha256": "38f0820fa776ed6b260892e7897fdc1e3de7806b0ea3e190626ac81a57e6a837"
     },
     {
-      "bytes": 142173,
-      "lines": 2662,
+      "bytes": 142452,
+      "lines": 2665,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "75986eb6c192cf2bf52cd2786114efe5db795a742eba222d545614a1d5ce4ba3"
+      "sha256": "42b21cd40100c4dfa66b94bc125c87bc00c2b50bbb76685bf7532e18e2c05b8a"
     },
     {
       "bytes": 5629,
@@ -3689,6 +3713,12 @@
       "lines": 116,
       "path": "scripts/validate_reviewer_concern_audit_v02.py",
       "sha256": "117f547109af005064b483dff263820bf02ce223c140855f126e792aa81b7ead"
+    },
+    {
+      "bytes": 8502,
+      "lines": 154,
+      "path": "scripts/validate_reviewer_qualification_requirements.py",
+      "sha256": "9ada1a0ca400dd81655bfb6fa50aaf0c0d8b7f2e3a8edb4217f84539e8bc66bd"
     },
     {
       "bytes": 5123,
@@ -3847,6 +3877,8 @@
     "conda run -n reprompt_tax python scripts/validate_label_collection_operator_handoff.py",
     "conda run -n reprompt_tax python scripts/analyze_label_return_preflight.py",
     "conda run -n reprompt_tax python scripts/validate_label_return_preflight.py",
+    "conda run -n reprompt_tax python scripts/analyze_reviewer_qualification_requirements.py",
+    "conda run -n reprompt_tax python scripts/validate_reviewer_qualification_requirements.py",
     "conda run -n reprompt_tax python scripts/analyze_label_collection_priority.py",
     "conda run -n reprompt_tax python scripts/validate_label_collection_priority.py",
     "conda run -n reprompt_tax python scripts/analyze_current_prompt_mechanism.py",

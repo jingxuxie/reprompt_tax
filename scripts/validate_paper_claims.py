@@ -2149,6 +2149,8 @@ def check_claim_checklist(path: Path) -> None:
         "scripts/validate_label_collection_operator_handoff.py",
         "paper/label_return_preflight_v02.md",
         "scripts/validate_label_return_preflight.py",
+        "paper/reviewer_qualification_requirements_v02.md",
+        "scripts/validate_reviewer_qualification_requirements.py",
         "scripts/validate_label_collection_priority.py",
         "scripts/validate_all_model_paired_significance.py",
         "scripts/validate_all_model_uncertainty.py",
@@ -2570,6 +2572,7 @@ def main() -> None:
     check_auxiliary_validator(root, "scripts/validate_label_collection_dispatch.py", "label-collection dispatch validation passed")
     check_auxiliary_validator(root, "scripts/validate_label_collection_operator_handoff.py", "label-collection operator handoff validation passed")
     check_auxiliary_validator(root, "scripts/validate_label_return_preflight.py", "label-return preflight validation passed")
+    check_auxiliary_validator(root, "scripts/validate_reviewer_qualification_requirements.py", "reviewer qualification requirements validation passed")
     check_auxiliary_validator(root, "scripts/validate_label_collection_priority.py", "label-collection priority validation passed")
     check_auxiliary_validator(root, "scripts/test_human_audit_adjudication.py", "human-audit adjudication regression tests passed")
     check_auxiliary_validator(
