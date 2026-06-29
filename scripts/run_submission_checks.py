@@ -740,6 +740,8 @@ def main() -> None:
     run_step("validate label-collection reviewer bundles", python_step("scripts/validate_label_collection_bundles.py"))
     run_step("analyze label-collection dispatch readiness", python_step("scripts/analyze_label_collection_dispatch.py"))
     run_step("validate label-collection dispatch readiness", python_step("scripts/validate_label_collection_dispatch.py"))
+    run_step("analyze label-collection priority", python_step("scripts/analyze_label_collection_priority.py"))
+    run_step("validate label-collection priority", python_step("scripts/validate_label_collection_priority.py"))
     run_step(
         "validate expanded stress benchmark",
         python_step(
@@ -754,6 +756,7 @@ def main() -> None:
     run_step("analyze benchmark quality", python_step("scripts/analyze_benchmark_quality.py"))
     run_step("validate label-collection launch pack", python_step("scripts/validate_label_collection_launch_pack.py"))
     run_step("validate label-collection dispatch readiness", python_step("scripts/validate_label_collection_dispatch.py"))
+    run_step("validate label-collection priority", python_step("scripts/validate_label_collection_priority.py"))
     run_step("validate human/native-review threshold rationale", python_step("scripts/validate_human_audit_threshold_rationale.py"))
     run_step("validate all-model paired significance", python_step("scripts/validate_all_model_paired_significance.py"))
     run_step("validate all-model clustered uncertainty", python_step("scripts/validate_all_model_uncertainty.py"))

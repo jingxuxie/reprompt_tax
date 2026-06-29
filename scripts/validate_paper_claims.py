@@ -2143,6 +2143,7 @@ def check_claim_checklist(path: Path) -> None:
         "scripts/validate_followup_probe.py",
         "scripts/validate_label_collection_launch_pack.py",
         "scripts/validate_label_collection_dispatch.py",
+        "scripts/validate_label_collection_priority.py",
         "scripts/validate_all_model_paired_significance.py",
         "scripts/validate_all_model_uncertainty.py",
         "scripts/validate_contract_benefit_decomposition.py",
@@ -2535,6 +2536,7 @@ def main() -> None:
     check_auxiliary_validator(root, "scripts/validate_human_audit_review_sheets.py", "human-audit review-sheet validation passed")
     check_auxiliary_validator(root, "scripts/validate_label_collection_launch_pack.py", "label-collection launch-pack validation passed")
     check_auxiliary_validator(root, "scripts/validate_label_collection_dispatch.py", "label-collection dispatch validation passed")
+    check_auxiliary_validator(root, "scripts/validate_label_collection_priority.py", "label-collection priority validation passed")
     check_auxiliary_validator(root, "scripts/test_human_audit_adjudication.py", "human-audit adjudication regression tests passed")
     check_auxiliary_validator(
         root,

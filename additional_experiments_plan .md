@@ -449,7 +449,8 @@ Before submission, make sure the paper includes:
 
 1. Prioritize the 48-row current-model GPT-5.x human/native audit and the
    72-row original v0.2 audit; use `paper/label_collection_launch_pack_v02.md`
-   as the operational checklist.
+   as the operational checklist and `paper/label_collection_priority_v02.md`
+   as the pre-specified collection order.
 2. Send reviewers only the relevant blinded CSV slice or static HTML sheet, not
    the answer key.
 3. Fill the matching roster file from its template and run the completed-label
