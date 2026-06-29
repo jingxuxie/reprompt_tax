@@ -2157,6 +2157,7 @@ def check_claim_checklist(path: Path) -> None:
         "scripts/validate_reviewer_concern_audit_v02.py",
         "paper/submission_anonymity_v02.md",
         "scripts/validate_submission_anonymity_v02.py",
+        "scripts/test_api_key_loading.py",
         "zero local path, repository-owner, or API-secret text matches",
         "paper/submission_decision_v02.md",
         "scripts/validate_submission_decision_v02.py",
@@ -2593,6 +2594,7 @@ def main() -> None:
     check_auxiliary_validator(root, "scripts/validate_followup_plan_readiness.py", "follow-up plan readiness validation passed")
     check_auxiliary_validator(root, "scripts/validate_reviewer_concern_audit_v02.py", "reviewer concern audit validation passed")
     check_auxiliary_validator(root, "scripts/validate_submission_anonymity_v02.py", "submission anonymity audit validation passed")
+    check_auxiliary_validator(root, "scripts/test_api_key_loading.py", "api-key loading tests passed")
     check_auxiliary_validator(root, "scripts/validate_submission_decision_v02.py", "submission decision audit validation passed")
     check_auxiliary_validator(root, "scripts/validate_human_audit_acceptance_rules.py", "human/native-review acceptance rules validation passed")
     check_auxiliary_validator(root, "scripts/validate_human_audit_threshold_rationale.py", "human/native-review threshold-rationale validation passed")

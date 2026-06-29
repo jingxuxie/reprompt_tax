@@ -641,6 +641,7 @@ def main() -> None:
             cwd=ROOT / "paper",
     )
     run_step("score regression tests", python_step("scripts/test_score_auto.py"))
+    run_step("api-key loading regression tests", python_step("scripts/test_api_key_loading.py"))
     run_step("human-audit completion regression tests", python_step("scripts/test_human_audit_completion.py"))
     run_step("human-audit adjudication regression tests", python_step("scripts/test_human_audit_adjudication.py"))
     run_step("coverage native-review completion regression tests", python_step("scripts/test_coverage_native_review_completion.py"))

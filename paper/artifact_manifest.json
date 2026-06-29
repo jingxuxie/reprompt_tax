@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 45736,
-      "lines": 241,
+      "bytes": 45939,
+      "lines": 242,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "af6886059ffcfe7694bbaf8e4254f4c20bf2f217646c06f50b08dd865479d155"
+      "sha256": "120e813ad04834e64cedd892977f89997a068930dc1e2e9c5cdd662c9be88bf1"
     },
     {
       "bytes": 1125,
@@ -832,7 +832,7 @@
       "bytes": 1657,
       "lines": 36,
       "path": "paper/submission_anonymity_v02.md",
-      "sha256": "14090422e4f5df8725fa113c502e0e2be01f22c736e9f6dcbf7d18bb6f5eb1ad"
+      "sha256": "b6a89b48f7c9c9955075ab489ea167939eef4a837fdfb1149efb8548a350a793"
     },
     {
       "bytes": 4265,
@@ -2824,7 +2824,7 @@
       "bytes": 714,
       "lines": 6,
       "path": "results/tables/submission_anonymity_v02/submission_anonymity_checks.csv",
-      "sha256": "c939e2e934126968dd63cb2c5c00f255a758f5fd163012cb35d57e11a892aeaa"
+      "sha256": "efd65a7788305359ba3637c04a2f35e76d97e6e00824105bc4cce094aba38dfe"
     },
     {
       "bytes": 51,
@@ -3259,10 +3259,10 @@
       "sha256": "2e174a3e97414a84d9cad555556f35ae2be3cde72c6cadb655ad8e15bcff3487"
     },
     {
-      "bytes": 75799,
-      "lines": 904,
+      "bytes": 75910,
+      "lines": 906,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "6a3a063d59758c726cc0c91d51e73301d37c35d481b03210f5a01cf90ed6c129"
+      "sha256": "6d97ed768ea399730bd741f1b484b47f365a5b9dfe084977228a3bd4774de80b"
     },
     {
       "bytes": 16653,
@@ -3325,10 +3325,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 36489,
-      "lines": 798,
+      "bytes": 36586,
+      "lines": 799,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "ecddf3e35e73df2a8c64a9a67f518f2e6bef602d538006c06afa6a67b80906ac"
+      "sha256": "96c9c258ae91df6374703123e36d082ba4db9b44aac39cb8756a3573309911c9"
     },
     {
       "bytes": 8236,
@@ -3359,6 +3359,12 @@
       "lines": 108,
       "path": "scripts/summarize_judge_audit.py",
       "sha256": "800e085640b0fcbfa23e300233f03e06dd7c727d5d569fcddb70cb91b18422ec"
+    },
+    {
+      "bytes": 3581,
+      "lines": 105,
+      "path": "scripts/test_api_key_loading.py",
+      "sha256": "fbb00375892d0916c38d03075001819bf6318d75fe922df5179a7395d3464eb5"
     },
     {
       "bytes": 3685,
@@ -3613,10 +3619,10 @@
       "sha256": "73d6af099754c6cf9d6e52bc8c7f8fdc37404b84cbe9e84e4f4500ae5442ad9e"
     },
     {
-      "bytes": 141800,
-      "lines": 2657,
+      "bytes": 141946,
+      "lines": 2659,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "e13a3a84935a8a2cb2fcb8b3eb4658fe58645b65bb896feea25724d778c45147"
+      "sha256": "5d7dd8327968afa84373d3ed7aacef0c59e6275e708295fbcb157e13ffaddd83"
     },
     {
       "bytes": 5629,
@@ -3841,6 +3847,7 @@
     "conda run -n reprompt_tax python scripts/validate_human_audit_review_sheets.py --packet data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5.csv --out-dir data/current_model_human_audit/review_sheets_v0.2_current_gpt5 --packet-version v0.2_current_gpt5",
     "conda run -n reprompt_tax python scripts/analyze_human_audit_design.py --packet data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5.csv --answer-key data/current_model_human_audit/human_audit_answer_key_v0.2_current_gpt5.csv --out-dir results/tables/current_model_human_audit_v02_design --out-md paper/current_model_human_audit_design_v02.md --expected-models gpt-5.4-mini,gpt-5.5 --title 'Current-Model Human Audit Design Audit'",
     "conda run -n reprompt_tax python scripts/validate_current_model_human_audit_packet.py",
+    "conda run -n reprompt_tax python scripts/test_api_key_loading.py",
     "conda run -n reprompt_tax python scripts/test_coverage_native_review_completion.py",
     "conda run -n reprompt_tax python scripts/test_coverage_native_review_adjudication.py",
     "conda run -n reprompt_tax python scripts/test_human_audit_adjudication.py",
