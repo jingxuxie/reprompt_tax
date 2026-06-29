@@ -13,7 +13,9 @@ full 120-item `gpt-5.4-mini` and `gpt-5.5` current-model refreshes;
 content-preservation mechanism diagnostics on current models; repair-realism
 diagnostics; language/family slices; token analysis; a 72-row blinded
 `gpt-4.1` judge audit; and a paired `gpt-5.5` judge refresh on the same 72
-rows.
+rows. The automatic scorer is now covered in both directions by no-API
+deterministic audits: 390/390 known-bad probes fail with their expected signals,
+and 120/120 constrained positive-control templates pass all scorer components.
 
 **Main remaining gap:** completed qualified human/native labels are still
 missing. The current paper can conservatively submit with the GPT-5.5
@@ -435,6 +437,7 @@ Before submission, make sure the paper includes:
 - [x] Language-slice table or paragraph with clear non-population caveat.
 - [x] Token-burden paragraph distinguishing normalized token tax from absolute cost.
 - [x] Clearly marked launch-ready audit packets and acceptance gates.
+- [x] Bidirectional deterministic scorer audit: known-bad probes fail and constrained positive-control templates pass.
 - [ ] Completed human/native audit result, if the paper will claim native/near-native validation.
 - [x] Prompt-control/ablation paragraph clarifying that the full contract is not necessarily the best prompt.
 - [x] Related work section covering multilingual benchmarks, code-switching/output-language alignment, instruction following, multi-turn evaluation, LLM-as-judge, and tokenization/cost inequality.

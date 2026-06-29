@@ -1,0 +1,5 @@
+task_family,n_controls,auto_pass_n,auto_pass_pct,all_components_pass_n,all_components_pass_pct,auto_failed_n,top_failure_types
+editing_preservation,30,30,100.0,30,100.0,0,
+output_language_inference,30,30,100.0,30,100.0,0,
+quote_preservation,30,30,100.0,30,100.0,0,
+script_register_locale,30,30,100.0,30,100.0,0,

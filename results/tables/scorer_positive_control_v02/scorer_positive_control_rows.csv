@@ -1,0 +1,121 @@
+item_id,language_pair,task_family,expected_response_language,expected_script,control_type,auto_pass,auto_failed,language_pass,script_pass,preservation_pass,task_pass,register_locale_pass,all_components_pass,failure_types,response_chars,response_preview
+ar_en_SA_001,ar-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,42,Polished version: team; notes; conclusion.
+ar_en_SA_002,ar-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,46,Polished version: appointment; train; delayed.
+ar_en_SA_003,ar-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,52,Polished version: invoice; missing details; tonight.
+ar_en_SA_004,ar-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,37,Polished version: call; today; email.
+ar_en_SA_005,ar-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,44,Polished version: paragraph; sentence; rude.
+ar_en_SA_006,ar-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,41,Polished version: report; chart; readers.
+ar_en_SA_007,ar-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,45,Polished version: client; payment; next week.
+ar_en_SA_008,ar-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,48,Polished version: survey; direct; uncomfortable.
+ar_en_SA_009,ar-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,52,Polished version: manager; one more day; slide deck.
+ar_en_SA_010,ar-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,44,Polished version: tenant; heating; tomorrow.
+ar_en_SB_001,ar-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,22,data are insufficient.
+ar_en_SB_002,ar-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,35,each of the students has submitted.
+ar_en_SB_003,ar-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,47,I would appreciate it if you could reply today.
+ar_en_SB_004,ar-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,30,clearer than the last version.
+ar_en_SB_005,ar-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,24,any information missing.
+ar_en_SB_006,ar-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,34,neither of the answers is correct.
+ar_en_SB_007,ar-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,33,the team has finished its review.
+ar_en_SB_008,ar-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,35,discuss the schedule before Monday.
+ar_en_SB_009,ar-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,21,used to working late.
+ar_en_SB_010,ar-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,23,better for small teams.
+ar_en_SC_001,ar-en,quote_preservation,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,46,ملخص قصير واضح: Return Policy; Refund Request.
+ar_en_SC_002,ar-en,quote_preservation,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,51,ملخص قصير واضح: Budget Review; Community Questions.
+ar_en_SC_003,ar-en,quote_preservation,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,53,ملخص قصير واضح: Safety Guidelines; Emergency Contact.
+ar_en_SC_004,ar-en,quote_preservation,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,44,ملخص قصير واضح: Privacy Notice; Data Export.
+ar_en_SC_005,ar-en,quote_preservation,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,48,ملخص قصير واضح: Course Requirements; Final Exam.
+ar_en_SC_006,ar-en,quote_preservation,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,42,ملخص قصير واضح: Office Hours; Makeup Exam.
+ar_en_SC_007,ar-en,quote_preservation,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,43,ملخص قصير واضح: Payment Deadline; Late Fee.
+ar_en_SC_008,ar-en,quote_preservation,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,50,ملخص قصير واضح: Visitor Guidelines; Check-In Desk.
+ar_en_SC_009,ar-en,quote_preservation,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,49,ملخص قصير واضح: Account Settings; Password Reset.
+ar_en_SC_010,ar-en,quote_preservation,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,49,ملخص قصير واضح: Health Benefits; Enrollment Form.
+ar_en_SD_001,ar-en,script_register_locale,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,24,رسالة قصيرة واضحة: ₹500.
+ar_en_SD_002,ar-en,script_register_locale,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,30,رسالة قصيرة واضحة: 05/07/2026.
+ar_en_SD_003,ar-en,script_register_locale,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,26,رسالة قصيرة واضحة: ABC-17.
+ar_en_SD_004,ar-en,script_register_locale,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,28,رسالة قصيرة واضحة: Mira Rao.
+ar_en_SD_005,ar-en,script_register_locale,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,32,رسالة قصيرة واضحة: draft_v2.pdf.
+ar_en_SD_006,ar-en,script_register_locale,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,38,رسالة قصيرة واضحة: 10:30 AM; INV-2048.
+ar_en_SD_007,ar-en,script_register_locale,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,26,رسالة قصيرة واضحة: Apt 5B.
+ar_en_SD_008,ar-en,script_register_locale,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,34,رسالة قصيرة واضحة: June 12; QR-77.
+ar_en_SD_009,ar-en,script_register_locale,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,31,رسالة قصيرة واضحة: Travel_Fund.
+ar_en_SD_010,ar-en,script_register_locale,Arabic,Arabic,deterministic_positive_control,1,0,1,1,1,1,1,1,,34,رسالة قصيرة واضحة: 2-4 PM; BK-903.
+es_en_SA_001,es-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,42,Polished version: team; notes; conclusion.
+es_en_SA_002,es-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,46,Polished version: appointment; train; delayed.
+es_en_SA_003,es-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,52,Polished version: invoice; missing details; tonight.
+es_en_SA_004,es-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,37,Polished version: call; today; email.
+es_en_SA_005,es-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,44,Polished version: paragraph; sentence; rude.
+es_en_SA_006,es-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,41,Polished version: report; chart; readers.
+es_en_SA_007,es-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,45,Polished version: client; payment; next week.
+es_en_SA_008,es-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,48,Polished version: survey; direct; uncomfortable.
+es_en_SA_009,es-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,52,Polished version: manager; one more day; slide deck.
+es_en_SA_010,es-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,44,Polished version: tenant; heating; tomorrow.
+es_en_SB_001,es-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,22,data are insufficient.
+es_en_SB_002,es-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,35,each of the students has submitted.
+es_en_SB_003,es-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,47,I would appreciate it if you could reply today.
+es_en_SB_004,es-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,30,clearer than the last version.
+es_en_SB_005,es-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,24,any information missing.
+es_en_SB_006,es-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,34,neither of the answers is correct.
+es_en_SB_007,es-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,33,the team has finished its review.
+es_en_SB_008,es-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,35,discuss the schedule before Monday.
+es_en_SB_009,es-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,21,used to working late.
+es_en_SB_010,es-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,23,better for small teams.
+es_en_SC_001,es-en,quote_preservation,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,54,"Gracias, resumen breve: Return Policy; Refund Request."
+es_en_SC_002,es-en,quote_preservation,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,59,"Gracias, resumen breve: Budget Review; Community Questions."
+es_en_SC_003,es-en,quote_preservation,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,61,"Gracias, resumen breve: Safety Guidelines; Emergency Contact."
+es_en_SC_004,es-en,quote_preservation,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,52,"Gracias, resumen breve: Privacy Notice; Data Export."
+es_en_SC_005,es-en,quote_preservation,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,56,"Gracias, resumen breve: Course Requirements; Final Exam."
+es_en_SC_006,es-en,quote_preservation,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,50,"Gracias, resumen breve: Office Hours; Makeup Exam."
+es_en_SC_007,es-en,quote_preservation,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,51,"Gracias, resumen breve: Payment Deadline; Late Fee."
+es_en_SC_008,es-en,quote_preservation,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,58,"Gracias, resumen breve: Visitor Guidelines; Check-In Desk."
+es_en_SC_009,es-en,quote_preservation,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,57,"Gracias, resumen breve: Account Settings; Password Reset."
+es_en_SC_010,es-en,quote_preservation,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,57,"Gracias, resumen breve: Health Benefits; Enrollment Form."
+es_en_SD_001,es-en,script_register_locale,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,52,"Gracias, mensaje corto: pagué; recibo; mañana; ₹500."
+es_en_SD_002,es-en,script_register_locale,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,51,"Gracias, mensaje corto: reunión; 05/07/2026; fecha."
+es_en_SD_003,es-en,script_register_locale,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,48,"Gracias, mensaje corto: ABC-17; llego; almuerzo."
+es_en_SD_004,es-en,script_register_locale,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,49,"Gracias, mensaje corto: Mira Rao; pedido; nombre."
+es_en_SD_005,es-en,script_register_locale,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,55,"Gracias, mensaje corto: draft_v2.pdf; archivo; cambiar."
+es_en_SD_006,es-en,script_register_locale,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,52,"Gracias, mensaje corto: clínica; 10:30 AM; INV-2048."
+es_en_SD_007,es-en,script_register_locale,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,44,"Gracias, mensaje corto: Apt 5B; caja; llame."
+es_en_SD_008,es-en,script_register_locale,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,48,"Gracias, mensaje corto: June 12; QR-77; empezar."
+es_en_SD_009,es-en,script_register_locale,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,57,"Gracias, mensaje corto: Travel_Fund; cuenta; exactamente."
+es_en_SD_010,es-en,script_register_locale,Spanish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,47,"Gracias, mensaje corto: 2-4 PM; BK-903; pedido."
+hi_en_SA_001,hi-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,42,Polished version: team; notes; conclusion.
+hi_en_SA_002,hi-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,46,Polished version: appointment; train; delayed.
+hi_en_SA_003,hi-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,52,Polished version: invoice; missing details; tonight.
+hi_en_SA_004,hi-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,37,Polished version: call; today; email.
+hi_en_SA_005,hi-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,44,Polished version: paragraph; sentence; rude.
+hi_en_SA_006,hi-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,41,Polished version: report; chart; readers.
+hi_en_SA_007,hi-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,45,Polished version: client; payment; next week.
+hi_en_SA_008,hi-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,48,Polished version: survey; direct; uncomfortable.
+hi_en_SA_009,hi-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,52,Polished version: manager; one more day; slide deck.
+hi_en_SA_010,hi-en,editing_preservation,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,44,Polished version: tenant; heating; tomorrow.
+hi_en_SB_001,hi-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,22,data are insufficient.
+hi_en_SB_002,hi-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,35,each of the students has submitted.
+hi_en_SB_003,hi-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,47,I would appreciate it if you could reply today.
+hi_en_SB_004,hi-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,30,clearer than the last version.
+hi_en_SB_005,hi-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,24,any information missing.
+hi_en_SB_006,hi-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,34,neither of the answers is correct.
+hi_en_SB_007,hi-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,33,the team has finished its review.
+hi_en_SB_008,hi-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,35,discuss the schedule before Monday.
+hi_en_SB_009,hi-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,21,used to working late.
+hi_en_SB_010,hi-en,output_language_inference,English,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,23,better for small teams.
+hi_en_SC_001,hi-en,quote_preservation,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,59,yeh short summary clear hai: Return Policy; Refund Request.
+hi_en_SC_002,hi-en,quote_preservation,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,64,yeh short summary clear hai: Budget Review; Community Questions.
+hi_en_SC_003,hi-en,quote_preservation,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,66,yeh short summary clear hai: Safety Guidelines; Emergency Contact.
+hi_en_SC_004,hi-en,quote_preservation,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,57,yeh short summary clear hai: Privacy Notice; Data Export.
+hi_en_SC_005,hi-en,quote_preservation,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,61,yeh short summary clear hai: Course Requirements; Final Exam.
+hi_en_SC_006,hi-en,quote_preservation,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,55,yeh short summary clear hai: Office Hours; Makeup Exam.
+hi_en_SC_007,hi-en,quote_preservation,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,56,yeh short summary clear hai: Payment Deadline; Late Fee.
+hi_en_SC_008,hi-en,quote_preservation,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,63,yeh short summary clear hai: Visitor Guidelines; Check-In Desk.
+hi_en_SC_009,hi-en,quote_preservation,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,62,yeh short summary clear hai: Account Settings; Password Reset.
+hi_en_SC_010,hi-en,quote_preservation,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,62,yeh short summary clear hai: Health Benefits; Enrollment Form.
+hi_en_SD_001,hi-en,script_register_locale,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,48,yeh short message clear hai: ₹500; receipt; kal.
+hi_en_SD_002,hi-en,script_register_locale,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,55,yeh short message clear hai: meeting; 05/07/2026; date.
+hi_en_SD_003,hi-en,script_register_locale,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,52,yeh short message clear hai: ABC-17; lunch; pahunch.
+hi_en_SD_004,hi-en,script_register_locale,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,51,yeh short message clear hai: Mira Rao; order; naam.
+hi_en_SD_005,hi-en,script_register_locale,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,56,yeh short message clear hai: draft_v2.pdf; file; change.
+hi_en_SD_006,hi-en,script_register_locale,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,56,yeh short message clear hai: clinic; 10:30 AM; INV-2048.
+hi_en_SD_007,hi-en,script_register_locale,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,47,yeh short message clear hai: Apt 5B; box; call.
+hi_en_SD_008,hi-en,script_register_locale,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,51,yeh short message clear hai: June 12; QR-77; start.
+hi_en_SD_009,hi-en,script_register_locale,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,56,yeh short message clear hai: Travel_Fund; account; same.
+hi_en_SD_010,hi-en,script_register_locale,Hindi/Hinglish,Latin,deterministic_positive_control,1,0,1,1,1,1,1,1,,51,yeh short message clear hai: 2-4 PM; BK-903; order.

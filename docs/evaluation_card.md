@@ -116,6 +116,16 @@ preservation-drop, and over-formal-register probes. The scorer fails 390/390
 probes and detects 390/390 expected deterministic failure signals. This checks
 rule plumbing, not native/near-native semantic validity.
 
+Scorer positive-control audit:
+
+- `paper/scorer_positive_control_v02.md`
+- `results/tables/scorer_positive_control_v02/`
+
+The synthetic positive-control audit generates 120 constrained pass templates,
+one for each v0.2 item. The scorer accepts 120/120 templates and passes 120/120
+component checks. This checks over-rejection by deterministic rules, not
+native/near-native semantic validity.
+
 ## Main Evaluation Evidence
 
 Current-model refresh:

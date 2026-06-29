@@ -136,6 +136,8 @@ Scorer checks:
 
 - A synthetic scorer challenge audit over 390 known-bad probes fails all probes
   and detects every expected deterministic failure signal.
+- A synthetic scorer positive-control audit over 120 constrained pass templates
+  accepts every template and passes every deterministic scorer component.
 - The release includes two blinded LLM-judge audits over the same 72-row sample.
 - A blinded GPT-4.1 judge audit agrees with the automatic scorer on 71/72
   sampled first-turn pass/fail labels.

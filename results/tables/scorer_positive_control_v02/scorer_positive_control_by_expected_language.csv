@@ -1,0 +1,5 @@
+expected_response_language,n_controls,auto_pass_n,auto_pass_pct,all_components_pass_n,all_components_pass_pct,auto_failed_n,top_failure_types
+Arabic,20,20,100.0,20,100.0,0,
+English,60,60,100.0,60,100.0,0,
+Hindi/Hinglish,20,20,100.0,20,100.0,0,
+Spanish,20,20,100.0,20,100.0,0,

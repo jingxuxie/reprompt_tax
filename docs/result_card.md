@@ -91,6 +91,15 @@ over-formal-register probes. The scorer fails 390/390 probes and detects
 390/390 expected deterministic failure signals. This strengthens scorer
 plumbing evidence while preserving the native/human validation boundary.
 
+Scorer positive-control audit:
+`paper/scorer_positive_control_v02.md`
+
+A complementary positive-control audit generates 120 constrained pass templates,
+one for each v0.2 item, and feeds them through `scripts/score_auto.py`. The scorer
+accepts 120/120 templates and passes 120/120 component checks. This tests
+over-rejection by deterministic rules while preserving the native/human
+validation boundary.
+
 Current-model regression risk:
 `paper/current_model_regression_risk_v02.md`
 

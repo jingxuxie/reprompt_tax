@@ -1,0 +1,4 @@
+language_pair,n_controls,auto_pass_n,auto_pass_pct,all_components_pass_n,all_components_pass_pct,auto_failed_n,top_failure_types
+ar-en,40,40,100.0,40,100.0,0,
+es-en,40,40,100.0,40,100.0,0,
+hi-en,40,40,100.0,40,100.0,0,

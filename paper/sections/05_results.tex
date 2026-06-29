@@ -149,8 +149,9 @@ shows hidden repair burden: 31/96 baseline first-turn failures still pass the
 task component, and the stricter task-plus-preservation slice falls from 11 to
 1 under the contract. A synthetic scorer-challenge audit over 390 known-bad
 benchmark-wide probes fails all probes and detects every expected failure
-signal, while remaining a deterministic stress test rather than human/native
-validation.
+signal; a positive-control audit accepts all 120 constrained pass templates,
+testing scorer over-rejection rather than semantic or native-speaker validity.
+Both remain deterministic stress tests rather than human/native validation.
 
 The blinded judge audit agrees with the corrected automatic scorer on 71/72
 sampled pass/fail labels (98.6\%; Wilson 95\% CI 92.5--99.8). A paired
