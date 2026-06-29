@@ -37,24 +37,28 @@ is operational support, not completed human/native validation.
 | 1 | current_model_human_audit_v02 | 1 | `merge_single_label_exports` |
 | 1 | current_model_human_audit_v02 | 2 | `validate_finalized_labels` |
 | 1 | current_model_human_audit_v02 | 3 | `summarize_finalized_labels` |
-| 1 | current_model_human_audit_v02 | 4 | `analyze_double_labels` |
-| 1 | current_model_human_audit_v02 | 5 | `finalize_adjudicated_labels` |
+| 1 | current_model_human_audit_v02 | 4 | `merge_double_label_exports` |
+| 1 | current_model_human_audit_v02 | 5 | `analyze_double_labels` |
+| 1 | current_model_human_audit_v02 | 6 | `finalize_adjudicated_labels` |
 | 2 | human_audit_v02 | 1 | `merge_single_label_exports` |
 | 2 | human_audit_v02 | 2 | `validate_finalized_labels` |
 | 2 | human_audit_v02 | 3 | `summarize_finalized_labels` |
-| 2 | human_audit_v02 | 4 | `analyze_double_labels` |
-| 2 | human_audit_v02 | 5 | `finalize_adjudicated_labels` |
+| 2 | human_audit_v02 | 4 | `merge_double_label_exports` |
+| 2 | human_audit_v02 | 5 | `analyze_double_labels` |
+| 2 | human_audit_v02 | 6 | `finalize_adjudicated_labels` |
 | 3 | coverage_native_review_v03 | 1 | `merge_single_label_exports` |
 | 3 | coverage_native_review_v03 | 2 | `validate_finalized_labels` |
 | 3 | coverage_native_review_v03 | 3 | `summarize_finalized_labels` |
-| 3 | coverage_native_review_v03 | 4 | `analyze_double_labels` |
-| 3 | coverage_native_review_v03 | 5 | `finalize_adjudicated_labels` |
+| 3 | coverage_native_review_v03 | 4 | `merge_double_label_exports` |
+| 3 | coverage_native_review_v03 | 5 | `analyze_double_labels` |
+| 3 | coverage_native_review_v03 | 6 | `finalize_adjudicated_labels` |
 
 Run the single-label merge, finalized-label validator, and summary only
 after every expected slice export and qualified roster for the surface
 has been returned. For the stronger two-reviewer workflow, use the
-`analyze_double_labels` and `finalize_adjudicated_labels` commands
-before any paper claim is widened.
+`merge_double_label_exports`, `analyze_double_labels`, and
+`finalize_adjudicated_labels` commands before any paper claim is
+widened.
 
 ## Claim Gate Status
 

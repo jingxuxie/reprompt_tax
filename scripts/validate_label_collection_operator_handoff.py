@@ -20,6 +20,7 @@ EXPECTED_COMMAND_ROLES = {
     "merge_single_label_exports",
     "validate_finalized_labels",
     "summarize_finalized_labels",
+    "merge_double_label_exports",
     "analyze_double_labels",
     "finalize_adjudicated_labels",
 }
@@ -91,13 +92,25 @@ def check_return_intake(path: Path) -> None:
         surface_rows = [row for row in rows if row["surface_id"] == surface_id]
         require(surface_rows, f"missing return-intake rows for {surface_id}")
         require({row["workflow_role"] for row in surface_rows} == EXPECTED_COMMAND_ROLES, f"{surface_id} command role mismatch")
-        require([row["step_order"] for row in sorted(surface_rows, key=lambda row: int(row["step_order"]))] == ["1", "2", "3", "4", "5"], f"{surface_id} step order mismatch")
+        require(
+            [row["step_order"] for row in sorted(surface_rows, key=lambda row: int(row["step_order"]))] == ["1", "2", "3", "4", "5", "6"],
+            f"{surface_id} step order mismatch",
+        )
         for row in surface_rows:
             require(row["dispatch_priority"] == spec["priority"], f"{surface_id} priority mismatch")
             require(row["claim_gate_status_before_labels"] == "needs_labels", f"{surface_id} should need labels before returns")
             require(row["claim_decision_before_labels"] == "no_claim", f"{surface_id} should remain no_claim before returns")
-            require("missing completed inputs" in row["required_before_running"], f"{surface_id} missing completed-input blocker")
+            if row["workflow_role"] in {"merge_single_label_exports", "validate_finalized_labels", "summarize_finalized_labels"}:
+                require("missing completed inputs" in row["required_before_running"], f"{surface_id} missing completed-input blocker")
             require(row["command"].startswith("conda run -n reprompt_tax python scripts/"), f"{surface_id} command must be reproducible")
+            if row["workflow_role"] == "merge_double_label_exports":
+                require("--labels-per-item 2" in row["command"], f"{surface_id} double-label merge missing labels-per-item")
+                require("_double_completed.csv" in row["command"], f"{surface_id} double-label merge missing double-completed output")
+                require("reviewer1/reviewer2 completed slice exports" in row["required_before_running"], f"{surface_id} double-label merge missing reviewer-return prerequisite")
+            if row["workflow_role"] == "analyze_double_labels":
+                require("merge_double_label_exports" in row["required_before_running"], f"{surface_id} analyze-double row missing double-merge prerequisite")
+            if row["workflow_role"] == "finalize_adjudicated_labels":
+                require("filled adjudication packet" in row["required_before_running"], f"{surface_id} finalize row missing adjudication prerequisite")
 
 
 def check_report(path: Path) -> None:
@@ -112,6 +125,7 @@ def check_report(path: Path) -> None:
         "First priority: current-model human/native audit",
         "OpenAI API calls: 0",
         "no human/native-validation claim is unlocked",
+        "merge_double_label_exports",
         "current_model_human_audit_v02",
         "human_audit_v02",
         "coverage_native_review_v03",

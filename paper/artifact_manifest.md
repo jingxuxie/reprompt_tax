@@ -169,7 +169,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | Path | Bytes | Lines | SHA-256 |
 |---|---:|---:|---|
 | `README.md` | 30434 | 727 | `5157c1b2e75d074bf1f17db0efab22574a16306cf571b24effdc988a0d335d30` |
-| `additional_experiments_plan .md` | 23344 | 488 | `533d1f62750e793abbacbb781d80bbddee396922663974d19b8860365fc1a400` |
+| `additional_experiments_plan .md` | 23378 | 489 | `644355409ea7851af6043e9f12f42935fa01c9dd8ce621f1220723af5f7a4eb1` |
 | `data/benchmark_stress_v0.1.jsonl` | 72197 | 60 | `921b241f56ce8fd2d4ebff9d66b66081376d3fb0e98b94d40a450cbf785e745d` |
 | `data/benchmark_stress_v0.2.jsonl` | 144232 | 120 | `b8389dae43cb474efa1473d7c957b1ce12176f2a951f1f1d16163c72a81bbb92` |
 | `data/benchmark_stress_v0.3_expansion.jsonl` | 102407 | 60 | `1b8010f8dc87defdaeca1a8c59b33dd9292131b27e3cfcc0aab92bc0b700245e` |
@@ -234,7 +234,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/appendix.md` | 22926 | 547 | `d14fb6b4875db1998645d5f42bb15ca3c4e7aa58529ca1e102f098a5b8cb0d65` |
 | `paper/balanced_subsample_robustness_v02.md` | 5985 | 76 | `eede0a4da797d73f15d85845c79d53b4844647e132bc4c5ce73b2c1b58cc7a0c` |
 | `paper/benchmark_quality_audit_v02.md` | 2165 | 64 | `4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc` |
-| `paper/claim_evidence_checklist.md` | 44605 | 239 | `e2d64b1966f9901de2a72609fa9f64c1a53a0746b3891bc0079cc87283c1b752` |
+| `paper/claim_evidence_checklist.md` | 44643 | 239 | `11509ca81264f3a922c27ea98674346a3f0bd12d5df26f3e3beffae4b14fa0d6` |
 | `paper/completed_label_claim_gates_v02.md` | 1125 | 15 | `00a418f89d02ff3db69b9076952826011e7895c51f51929a597881e246bbadcc` |
 | `paper/component_breakdown_v02_full120.md` | 3508 | 70 | `55cefed242fc5279ab83995d48ce07768490ba1f47f07d9ea54d94eb719107cc` |
 | `paper/contract_benefit_decomposition_v02.md` | 2686 | 68 | `095f255499a9e1d2d6885fb6b65622e16beea677ac2db502586c0db0335ccb33` |
@@ -272,8 +272,8 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/judge_agreement_analysis_v02_full120.md` | 2524 | 52 | `4fee9895693920669176c8545f14eca2f5d8ab82c4e3e5307cbe3220fccd215d` |
 | `paper/judge_refresh_gpt55_v02_full120.md` | 2238 | 38 | `bbf319f6e1a682e260976f6559ca28102410596521d444b6e09d3d8c620f0a07` |
 | `paper/label_collection_dispatch_v02.md` | 5390 | 46 | `5fe6cb8a863f932e638319073e1fd73183478c17c957b6a90c14b132ff0dcc55` |
-| `paper/label_collection_launch_pack_v02.md` | 10844 | 78 | `9019d40d413f2db95d0a9aa724e6cda04ce61b644961e6691d9f5f10593e1239` |
-| `paper/label_collection_operator_handoff_v02.md` | 5830 | 65 | `a72ce5edac335511f256a08a44176f04dab586ee0800c8cb704afa5a35bd0896` |
+| `paper/label_collection_launch_pack_v02.md` | 14361 | 82 | `84a7024a4352be26f457d37daef6758979b51fbd16cc14cb80608587ef9bdad8` |
+| `paper/label_collection_operator_handoff_v02.md` | 6063 | 69 | `a2c2df3dcc59ed945a7d2bfd14e96246a95420fbc86b5ac9198556dfd284784b` |
 | `paper/label_collection_priority_v02.md` | 4236 | 61 | `531fde37a4cf86adc1afce2b4cbdee4b0b2ac14c33b878a5f9a9294dff87f948` |
 | `paper/language_slice_analysis_v02_full120.md` | 3925 | 72 | `12d4da2d0ff01b5215c9bd51a8b052c2d5ad8bde46d6d786ef34b53ffe1aa79a` |
 | `paper/main.pdf` | 241615 |  | `727b1256873d6997cd48b52755f19ed4bfcae5156cdebe9247b96c1ec7b2b8b6` |
@@ -453,11 +453,11 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `results/tables/human_audit_v0.2_design/human_audit_design_summary.csv` | 275 | 2 | `a330b1ec0eea2ee67b6406c4c9ddb741f9ea073f56c56adb839234cd410b4619` |
 | `results/tables/label_collection_dispatch_v02/label_collection_dispatch_manifest.csv` | 7220 | 13 | `9a7ed585be4bec6f93d56a007464b27b8f69e06eb7754b530b5271684cf0bdbb` |
 | `results/tables/label_collection_dispatch_v02/label_collection_dispatch_summary.csv` | 1154 | 4 | `0a2f6b953e4b3f80668cf0cef79542d2db7c1301730ed22c648959f9995fc388` |
-| `results/tables/label_collection_launch_pack_v02/label_collection_commands.csv` | 8115 | 16 | `8254d9a4b574d0a4de81e74c8795efbaec20e9243619f25910e60e5b6e1e8c1a` |
+| `results/tables/label_collection_launch_pack_v02/label_collection_commands.csv` | 11554 | 19 | `bbb9460eb0107962ac6acd037dd58b9b3568c450882e402269d5cdadab009d50` |
 | `results/tables/label_collection_launch_pack_v02/label_collection_files.csv` | 2058 | 19 | `e607561268e6d1b8f9386620742d0c2db311ebb4dad4357c9b6b0ca781e234ea` |
 | `results/tables/label_collection_launch_pack_v02/label_collection_surfaces.csv` | 3356 | 4 | `f8a1063139347ef4ff0128317f2c2097e7e2cefdae8bdb02ce0bff065e247980` |
 | `results/tables/label_collection_operator_handoff_v02/operator_dispatch_assignments.csv` | 12297 | 13 | `55ca9bd986a29cdd508aa73c188b182362803bb220912c8163460ece84feb03c` |
-| `results/tables/label_collection_operator_handoff_v02/operator_return_intake.csv` | 11629 | 16 | `d5851819fd40de84f0769a7e0a6a001167361e83d3e8dcf543f30cf9f4ecc891` |
+| `results/tables/label_collection_operator_handoff_v02/operator_return_intake.csv` | 15792 | 19 | `d9f227a09a37c514f30a83469dcc4b9759d7bc78b546ec43031d1ceac514fa02` |
 | `results/tables/label_collection_priority_v02/label_collection_priority.csv` | 1834 | 4 | `1e67e30cda9e69d69a49e3529ef7619f5e1d0b7075ec0ecb479397ee58364edb` |
 | `results/tables/label_collection_priority_v02/label_collection_priority_by_slice.csv` | 3349 | 13 | `81627b2cdd0d8850d4b5281cd1cf2260c92148b7da508047b1ba767e9c5cbf09` |
 | `results/tables/openai_gpt54mini_stress_v02_full120/failure_types_by_family.csv` | 859 | 12 | `bd9f5859aa571ec77fa4f668ecbd2f99368a15ef9ac090c9cd3c848c61fa2111` |
@@ -670,8 +670,8 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/analyze_judge_agreement.py` | 15295 | 348 | `d3d7d4aa3003bc7a5d4050a326ee5ad4713af734517ccce4f8f37acde18a6674` |
 | `scripts/analyze_judge_refresh.py` | 16180 | 351 | `970d8855da46d3d3f656dd3b27dca593e9f588d0782ddb7552800304f049c532` |
 | `scripts/analyze_label_collection_dispatch.py` | 10693 | 246 | `4ba0ee4cfa8a5f4d45646f04e2f181d5bdf0b8637d665a46dacb6e857f5d30a4` |
-| `scripts/analyze_label_collection_launch_pack.py` | 22226 | 330 | `0a5660d6df8dc176e2f576d201de775014e68e9359018f101aefdb45ab2a9e36` |
-| `scripts/analyze_label_collection_operator_handoff.py` | 9568 | 231 | `58967f12b00d1d762a525e876f242b1531e4e93d3c26ccbbe1ed7e94d8cdafe1` |
+| `scripts/analyze_label_collection_launch_pack.py` | 25761 | 339 | `c5427ebb5d5ccf49938890d49d1a3445b198fe95ebe5a225dc78d373912cc967` |
+| `scripts/analyze_label_collection_operator_handoff.py` | 11066 | 269 | `4e42c463d112ad41deb44dae4b9a35cf3747934ae68197442ccfe8333b7af658` |
 | `scripts/analyze_label_collection_priority.py` | 12627 | 265 | `e26c438ff0fcd946c84243dec0e185adebf7b5ada4cbd061621594cd21b36ceb` |
 | `scripts/analyze_language_slices.py` | 11656 | 262 | `cc1449c42578c389809574c14ba0c2db8ee8ff4b974de4d270b24971f838408c` |
 | `scripts/analyze_prompt_ablation.py` | 20681 | 515 | `1e277f0aa80ce8cd21ca9f3339248925fb95e4517f8e99c085330b172888e8dd` |
@@ -758,8 +758,8 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/validate_judge_refresh.py` | 6241 | 173 | `04718b3339405c80b138ec9daa7a137991b543618b08da1a9829b160da9e5942` |
 | `scripts/validate_label_collection_bundles.py` | 3922 | 112 | `4a6d3a09919404aff8f78191683266b21b2b82e32e48ceda37f5a8b2f6215d43` |
 | `scripts/validate_label_collection_dispatch.py` | 5975 | 119 | `f39f7e33d373a9def4fca51ba134ada228df217622b5a45b1270370dd5148864` |
-| `scripts/validate_label_collection_launch_pack.py` | 8354 | 160 | `516dfa597aaae2001bea00ada05060e65b42ac83c9fe1a91f8f9a47085c61641` |
-| `scripts/validate_label_collection_operator_handoff.py` | 6600 | 138 | `903ebf6722aceaea228b5112a2a8bc462d12f48270eb584bd0a5cf86d4882d8b` |
+| `scripts/validate_label_collection_launch_pack.py` | 9004 | 167 | `6b5e75c75546a8b5d5ad17557a2bd25ab024bff7133ef7d8574502c1244f30e3` |
+| `scripts/validate_label_collection_operator_handoff.py` | 7797 | 152 | `307294097c581e9cce4554780c7bf95602d3dcad7d54fe30b8ab7cbe365094bc` |
 | `scripts/validate_label_collection_priority.py` | 6163 | 131 | `adb71e37fdcfa7ca98df0e1241f6384eddb7bd928a1724a749954a0642da986d` |
 | `scripts/validate_paper_claims.py` | 140636 | 2644 | `a77e904b92a6fbc13e9621a91006620cce771c2655564000aea49aa0ab0f2fd5` |
 | `scripts/validate_prompt_family_scorecard.py` | 5629 | 134 | `31f27419b50671eeb1888b9689e228fcfcdf5b976d2854db57269d7062b74467` |

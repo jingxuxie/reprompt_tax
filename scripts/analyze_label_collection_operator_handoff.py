@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import shlex
 import textwrap
 from pathlib import Path
 from typing import Any
@@ -38,6 +39,7 @@ EXPECTED_COMMAND_ROLES = (
     "merge_single_label_exports",
     "validate_finalized_labels",
     "summarize_finalized_labels",
+    "merge_double_label_exports",
     "analyze_double_labels",
     "finalize_adjudicated_labels",
 )
@@ -115,6 +117,36 @@ def command_by_surface_role(command_rows: list[dict[str, str]]) -> dict[tuple[st
     return out
 
 
+def command_arg(command: str, flag: str) -> str:
+    parts = shlex.split(command)
+    if flag not in parts:
+        return ""
+    index = parts.index(flag)
+    if index + 1 >= len(parts):
+        return ""
+    return parts[index + 1]
+
+
+def required_before_running(
+    *,
+    role: str,
+    surface_id: str,
+    summary: dict[str, str],
+    commands: dict[tuple[str, str], str],
+) -> str:
+    if role == "merge_double_label_exports":
+        out_path = command_arg(commands[(surface_id, role)], "--out")
+        return f"all reviewer1/reviewer2 completed slice exports named in this command plus the qualified roster; writes {out_path}"
+    if role == "analyze_double_labels":
+        double_path = command_arg(commands[(surface_id, "merge_double_label_exports")], "--out")
+        return f"{double_path} from merge_double_label_exports plus qualified roster"
+    if role == "finalize_adjudicated_labels":
+        double_path = command_arg(commands[(surface_id, "merge_double_label_exports")], "--out")
+        adjudication_packet = command_arg(commands[(surface_id, role)], "--adjudication")
+        return f"{double_path} plus filled adjudication packet {adjudication_packet}"
+    return summary["claim_required_action"]
+
+
 def build_return_rows(summary_rows: list[dict[str, str]], command_rows: list[dict[str, str]]) -> list[dict[str, Any]]:
     commands = command_by_surface_role(command_rows)
     out: list[dict[str, Any]] = []
@@ -132,7 +164,12 @@ def build_return_rows(summary_rows: list[dict[str, str]], command_rows: list[dic
                     "step_order": order,
                     "workflow_role": role,
                     "command": commands[key],
-                    "required_before_running": summary["claim_required_action"],
+                    "required_before_running": required_before_running(
+                        role=role,
+                        surface_id=surface_id,
+                        summary=summary,
+                        commands=commands,
+                    ),
                     "claim_gate_status_before_labels": summary["claim_gate_status"],
                     "claim_decision_before_labels": summary["claim_decision"],
                 }
@@ -191,8 +228,9 @@ def write_markdown(
             "Run the single-label merge, finalized-label validator, and summary only",
             "after every expected slice export and qualified roster for the surface",
             "has been returned. For the stronger two-reviewer workflow, use the",
-            "`analyze_double_labels` and `finalize_adjudicated_labels` commands",
-            "before any paper claim is widened.",
+            "`merge_double_label_exports`, `analyze_double_labels`, and",
+            "`finalize_adjudicated_labels` commands before any paper claim is",
+            "widened.",
             "",
             "## Claim Gate Status",
             "",

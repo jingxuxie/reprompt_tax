@@ -7,10 +7,10 @@
       "sha256": "5157c1b2e75d074bf1f17db0efab22574a16306cf571b24effdc988a0d335d30"
     },
     {
-      "bytes": 23344,
-      "lines": 488,
+      "bytes": 23378,
+      "lines": 489,
       "path": "additional_experiments_plan .md",
-      "sha256": "533d1f62750e793abbacbb781d80bbddee396922663974d19b8860365fc1a400"
+      "sha256": "644355409ea7851af6043e9f12f42935fa01c9dd8ce621f1220723af5f7a4eb1"
     },
     {
       "bytes": 72197,
@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 44605,
+      "bytes": 44643,
       "lines": 239,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "e2d64b1966f9901de2a72609fa9f64c1a53a0746b3891bc0079cc87283c1b752"
+      "sha256": "11509ca81264f3a922c27ea98674346a3f0bd12d5df26f3e3beffae4b14fa0d6"
     },
     {
       "bytes": 1125,
@@ -625,16 +625,16 @@
       "sha256": "5fe6cb8a863f932e638319073e1fd73183478c17c957b6a90c14b132ff0dcc55"
     },
     {
-      "bytes": 10844,
-      "lines": 78,
+      "bytes": 14361,
+      "lines": 82,
       "path": "paper/label_collection_launch_pack_v02.md",
-      "sha256": "9019d40d413f2db95d0a9aa724e6cda04ce61b644961e6691d9f5f10593e1239"
+      "sha256": "84a7024a4352be26f457d37daef6758979b51fbd16cc14cb80608587ef9bdad8"
     },
     {
-      "bytes": 5830,
-      "lines": 65,
+      "bytes": 6063,
+      "lines": 69,
       "path": "paper/label_collection_operator_handoff_v02.md",
-      "sha256": "a72ce5edac335511f256a08a44176f04dab586ee0800c8cb704afa5a35bd0896"
+      "sha256": "a2c2df3dcc59ed945a7d2bfd14e96246a95420fbc86b5ac9198556dfd284784b"
     },
     {
       "bytes": 4236,
@@ -1711,10 +1711,10 @@
       "sha256": "0a2f6b953e4b3f80668cf0cef79542d2db7c1301730ed22c648959f9995fc388"
     },
     {
-      "bytes": 8115,
-      "lines": 16,
+      "bytes": 11554,
+      "lines": 19,
       "path": "results/tables/label_collection_launch_pack_v02/label_collection_commands.csv",
-      "sha256": "8254d9a4b574d0a4de81e74c8795efbaec20e9243619f25910e60e5b6e1e8c1a"
+      "sha256": "bbb9460eb0107962ac6acd037dd58b9b3568c450882e402269d5cdadab009d50"
     },
     {
       "bytes": 2058,
@@ -1735,10 +1735,10 @@
       "sha256": "55ca9bd986a29cdd508aa73c188b182362803bb220912c8163460ece84feb03c"
     },
     {
-      "bytes": 11629,
-      "lines": 16,
+      "bytes": 15792,
+      "lines": 19,
       "path": "results/tables/label_collection_operator_handoff_v02/operator_return_intake.csv",
-      "sha256": "d5851819fd40de84f0769a7e0a6a001167361e83d3e8dcf543f30cf9f4ecc891"
+      "sha256": "d9f227a09a37c514f30a83469dcc4b9759d7bc78b546ec43031d1ceac514fa02"
     },
     {
       "bytes": 1834,
@@ -3013,16 +3013,16 @@
       "sha256": "4ba0ee4cfa8a5f4d45646f04e2f181d5bdf0b8637d665a46dacb6e857f5d30a4"
     },
     {
-      "bytes": 22226,
-      "lines": 330,
+      "bytes": 25761,
+      "lines": 339,
       "path": "scripts/analyze_label_collection_launch_pack.py",
-      "sha256": "0a5660d6df8dc176e2f576d201de775014e68e9359018f101aefdb45ab2a9e36"
+      "sha256": "c5427ebb5d5ccf49938890d49d1a3445b198fe95ebe5a225dc78d373912cc967"
     },
     {
-      "bytes": 9568,
-      "lines": 231,
+      "bytes": 11066,
+      "lines": 269,
       "path": "scripts/analyze_label_collection_operator_handoff.py",
-      "sha256": "58967f12b00d1d762a525e876f242b1531e4e93d3c26ccbbe1ed7e94d8cdafe1"
+      "sha256": "4e42c463d112ad41deb44dae4b9a35cf3747934ae68197442ccfe8333b7af658"
     },
     {
       "bytes": 12627,
@@ -3541,16 +3541,16 @@
       "sha256": "f39f7e33d373a9def4fca51ba134ada228df217622b5a45b1270370dd5148864"
     },
     {
-      "bytes": 8354,
-      "lines": 160,
+      "bytes": 9004,
+      "lines": 167,
       "path": "scripts/validate_label_collection_launch_pack.py",
-      "sha256": "516dfa597aaae2001bea00ada05060e65b42ac83c9fe1a91f8f9a47085c61641"
+      "sha256": "6b5e75c75546a8b5d5ad17557a2bd25ab024bff7133ef7d8574502c1244f30e3"
     },
     {
-      "bytes": 6600,
-      "lines": 138,
+      "bytes": 7797,
+      "lines": 152,
       "path": "scripts/validate_label_collection_operator_handoff.py",
-      "sha256": "903ebf6722aceaea228b5112a2a8bc462d12f48270eb584bd0a5cf86d4882d8b"
+      "sha256": "307294097c581e9cce4554780c7bf95602d3dcad7d54fe30b8ab7cbe365094bc"
     },
     {
       "bytes": 6163,

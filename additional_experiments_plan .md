@@ -165,10 +165,11 @@ This is the strongest quality upgrade after the model refresh.
 **Status:** launch-ready but not completed. The repo contains reviewer-facing
 CSV packets, static review sheets, roster templates, acceptance thresholds, and
 completion/adjudication validators. The launch pack now documents
-surface-specific commands for both one-reviewer finalization and the preferred
-two-reviewer-plus-adjudication workflow. It does not contain qualified
-completed labels, so the paper should keep human/native validation as a planned
-or launch-ready protocol until labels are collected.
+surface-specific commands for one-reviewer finalization and the preferred
+two-reviewer-plus-adjudication workflow, including the double-label merge step.
+It does not contain qualified completed labels, so the paper should keep
+human/native validation as a planned or launch-ready protocol until labels are
+collected.
 
 **Question:** does the automatic scorer match qualified human judgments for language, script, preservation, and task success?
 

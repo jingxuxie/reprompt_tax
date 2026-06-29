@@ -58,7 +58,7 @@ def check_files(path: Path) -> None:
 def check_commands(path: Path) -> None:
     rows = read_csv(path)
     counts = Counter(row["surface_id"] for row in rows)
-    require(counts == Counter({surface_id: 5 for surface_id in EXPECTED_SURFACES}), f"unexpected command counts: {counts}")
+    require(counts == Counter({surface_id: 6 for surface_id in EXPECTED_SURFACES}), f"unexpected command counts: {counts}")
     roles_by_surface: dict[str, set[str]] = {surface_id: set() for surface_id in EXPECTED_SURFACES}
     commands_by_surface_role: dict[tuple[str, str], str] = {}
     for row in rows:
@@ -67,6 +67,7 @@ def check_commands(path: Path) -> None:
         commands_by_surface_role[(row["surface_id"], row["command_role"])] = row["command"]
     expected_roles = {
         "merge_single_label_exports",
+        "merge_double_label_exports",
         "validate_finalized_labels",
         "summarize_finalized_labels",
         "analyze_double_labels",
@@ -74,6 +75,11 @@ def check_commands(path: Path) -> None:
     }
     for surface_id, roles in roles_by_surface.items():
         require(roles == expected_roles, f"{surface_id} command roles mismatch: {roles}")
+        merge_double = commands_by_surface_role[(surface_id, "merge_double_label_exports")]
+        require("--labels-per-item 2" in merge_double, f"{surface_id} double-label merge missing labels-per-item")
+        require("_double_completed.csv" in merge_double, f"{surface_id} double-label merge missing double-completed output")
+        require("_reviewer1_completed.csv" in merge_double, f"{surface_id} double-label merge missing reviewer1 inputs")
+        require("_reviewer2_completed.csv" in merge_double, f"{surface_id} double-label merge missing reviewer2 inputs")
 
     required_fragments = {
         ("human_audit_v02", "analyze_double_labels"): [
@@ -133,6 +139,7 @@ def check_markdown(path: Path) -> None:
         "build_label_collection_bundles.py",
         "validate_label_collection_bundles.py",
         "Merge returned slice exports with `scripts/merge_review_exports.py`",
+        "merge_double_label_exports",
         "analyze_completed_label_claim_gates.py",
         "validate_completed_label_claim_gates.py",
         "two-reviewer adjudication finalization",
