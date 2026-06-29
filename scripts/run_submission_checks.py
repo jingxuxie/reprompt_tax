@@ -647,6 +647,7 @@ def main() -> None:
     run_step("coverage native-review completion regression tests", python_step("scripts/test_coverage_native_review_completion.py"))
     run_step("coverage native-review adjudication regression tests", python_step("scripts/test_coverage_native_review_adjudication.py"))
     run_step("review-export merge regression tests", python_step("scripts/test_merge_review_exports.py"))
+    run_step("label-intake dry-run tests", python_step("scripts/test_label_intake_dry_run.py"))
     run_step("completed-label claim-gate regression tests", python_step("scripts/test_completed_label_claim_gates.py"))
     run_step("coverage native-review sheet validation", python_step("scripts/validate_coverage_native_review_sheets_v03.py"))
     run_step("claim-boundary lint", python_step("scripts/lint_claim_boundaries.py"))
