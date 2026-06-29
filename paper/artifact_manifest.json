@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 48865,
+      "bytes": 48895,
       "lines": 248,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "e9588b3920d6ffd4625775e97ba3a24c7de42ba6a25d69633333b30d8986fa6c"
+      "sha256": "5c53a6d97be6290a024c18ed0549711389c45ae959924a1917e32a1fa9cd73e7"
     },
     {
       "bytes": 1125,
@@ -475,10 +475,10 @@
       "sha256": "d2748d022b41de82a75a1f3c77d5e34a826290d0dba2b93e2b5741fbb33f7b3b"
     },
     {
-      "bytes": 8834,
-      "lines": 82,
+      "bytes": 9763,
+      "lines": 96,
       "path": "paper/current_model_label_sprint_v02.md",
-      "sha256": "7f5dcb372dda8618e07b9dea1b60fb6d2ab88822012c169d2a2db2ad0fbabb26"
+      "sha256": "7d5c0e97e00c6268e8115a304ba39ae13e539387a74e59ea55d9c42266f88410"
     },
     {
       "bytes": 2484,
@@ -850,7 +850,7 @@
       "bytes": 1657,
       "lines": 36,
       "path": "paper/submission_anonymity_v02.md",
-      "sha256": "36b70ad23abb4986e38e925c67fc92ea7fca92fd3a4d740803f0626532e74766"
+      "sha256": "85a5532050b0dc31c51d02b886e9dfca4c731139d97dfcfd31fb135776152c4d"
     },
     {
       "bytes": 4265,
@@ -1511,6 +1511,12 @@
       "lines": 7,
       "path": "results/tables/current_model_label_sprint_v02/current_model_label_sprint_slots.csv",
       "sha256": "7a90cce7489ef9060451494030964f9be938c1b90ff02ae3de1089b330792d2f"
+    },
+    {
+      "bytes": 3319,
+      "lines": 7,
+      "path": "results/tables/current_model_label_sprint_v02/current_model_label_sprint_status.csv",
+      "sha256": "7d24e35da39c8fc9c12c4cbd7e12f7437028b16bbae36fb5e69a21fd494c549c"
     },
     {
       "bytes": 139,
@@ -2890,7 +2896,7 @@
       "bytes": 714,
       "lines": 6,
       "path": "results/tables/submission_anonymity_v02/submission_anonymity_checks.csv",
-      "sha256": "f65dc77ee5201e402eb58292f6fafa3e31c6ef8313a67e77d0402f44ca4cdd73"
+      "sha256": "c4281cd0fa9f34300fc3429b6a9d8299e500101e350e45a891af50ac6a402d37"
     },
     {
       "bytes": 51,
@@ -3013,10 +3019,10 @@
       "sha256": "13344720677c0dc7ef80c14be19daa42c126a805e9424bbe41d9fa68130a4a7e"
     },
     {
-      "bytes": 16124,
-      "lines": 377,
+      "bytes": 20372,
+      "lines": 470,
       "path": "scripts/analyze_current_model_label_sprint.py",
-      "sha256": "eb655a62647397e0fea860512f6b87a524d884e47a757226ff5b2d34d4fd6baf"
+      "sha256": "1842ba91c0f838e69d2c573dc18300c6e0a3efc97183c0300cc8891f3fbc81a0"
     },
     {
       "bytes": 10081,
@@ -3343,10 +3349,10 @@
       "sha256": "2e174a3e97414a84d9cad555556f35ae2be3cde72c6cadb655ad8e15bcff3487"
     },
     {
-      "bytes": 78070,
-      "lines": 935,
+      "bytes": 78161,
+      "lines": 936,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "20f489ec701e557a1e143ee83e7546ff93a7a54150a8a6f1513a3bc7bbad2126"
+      "sha256": "986e11226c36528e74921e05097df0d9c01f5694b34e497ac6217136c7e1ead6"
     },
     {
       "bytes": 16653,
@@ -3607,10 +3613,10 @@
       "sha256": "0c1b17b057eb756321cf88d951207f13211b57e1d963d533e518bdaf517fe556"
     },
     {
-      "bytes": 10249,
-      "lines": 197,
+      "bytes": 12721,
+      "lines": 232,
       "path": "scripts/validate_current_model_label_sprint.py",
-      "sha256": "65396434bddec9c5586f3f567d831a2f73ca4416651aa31d88a95e9e8e929c0c"
+      "sha256": "f3e083c3681ba255623a17585ff6a09438498dc304c043bbe9ce93871097b42e"
     },
     {
       "bytes": 5517,

@@ -11,6 +11,9 @@ completed human/native validation.
 - Unique audit rows: 48
 - Preferred reviewer slots: 6
 - Preferred row judgments: 96
+- Returned reviewer CSVs present: 0/6
+- Shape-ready reviewer CSVs: 0/6
+- Qualified roster present: False
 - Language pairs: ar-en, es-en, hi-en
 - Fallback minimum path: one qualified reviewer per language pair.
 - Stronger path: two independent reviewers per language pair, then
@@ -29,6 +32,17 @@ completed human/native validation.
 | es-en | 2 | 16 | `results/label_collection_bundles_v02/current_model_human_audit_v02/es-en.zip` | `data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_es-en_reviewer2_completed.csv` |
 | hi-en | 1 | 16 | `results/label_collection_bundles_v02/current_model_human_audit_v02/hi-en.zip` | `data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_hi-en_reviewer1_completed.csv` |
 | hi-en | 2 | 16 | `results/label_collection_bundles_v02/current_model_human_audit_v02/hi-en.zip` | `data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5_hi-en_reviewer2_completed.csv` |
+
+## Status Board
+
+| Language pair | Reviewer | Return present | Shape ready | Roster present | Ready for merge | Next action |
+|---|---:|---|---|---|---|---|
+| ar-en | 1 | False | False | False | False | collect completed reviewer CSV; fill qualified reviewer roster |
+| ar-en | 2 | False | False | False | False | collect completed reviewer CSV; fill qualified reviewer roster |
+| es-en | 1 | False | False | False | False | collect completed reviewer CSV; fill qualified reviewer roster |
+| es-en | 2 | False | False | False | False | collect completed reviewer CSV; fill qualified reviewer roster |
+| hi-en | 1 | False | False | False | False | collect completed reviewer CSV; fill qualified reviewer roster |
+| hi-en | 2 | False | False | False | False | collect completed reviewer CSV; fill qualified reviewer roster |
 
 ## Screener
 

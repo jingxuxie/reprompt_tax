@@ -133,6 +133,36 @@ def check_messages(path: Path) -> None:
     require(len(return_paths) == 6, "duplicate message return paths")
 
 
+def check_status(path: Path, slots_path: Path) -> None:
+    rows = read_csv(path)
+    slots = read_csv(slots_path)
+    require(len(rows) == 6, f"expected 6 sprint status rows, found {len(rows)}")
+    slot_paths = {row["expected_return_path"] for row in slots}
+    status_paths = {row["expected_return_path"] for row in rows}
+    require(status_paths == slot_paths, "status expected-return paths must match reviewer slots")
+    require({row["language_pair"] for row in rows} == EXPECTED_LANGUAGES, "status language mismatch")
+    per_language = Counter(row["language_pair"] for row in rows)
+    require(all(count == 2 for count in per_language.values()), f"expected two status rows per language: {per_language}")
+    for row in rows:
+        require(row["surface_id"] == "current_model_human_audit_v02", "status must only cover current-model audit")
+        require(row["rows_to_label"] == "16", f"{row['language_pair']} should have 16 rows per reviewer")
+        require(row["return_present"] == "False", f"{row['expected_return_path']} should be absent in the current no-label state")
+        require(row["observed_rows"] == "", f"{row['expected_return_path']} should not report observed rows")
+        require(row["shape_ready"] == "False", f"{row['expected_return_path']} should not be shape-ready")
+        require(row["roster_present"] == "False", "current-model roster should be absent in the current no-label state")
+        require(row["ready_for_merge"] == "False", f"{row['expected_return_path']} should not be ready to merge")
+        require(
+            row["blocker"] == "missing returned CSV; missing qualified roster",
+            f"{row['expected_return_path']} blocker mismatch",
+        )
+        require("collect completed reviewer CSV" in row["next_action"], f"{row['expected_return_path']} next action should request return")
+        require("fill qualified reviewer roster" in row["next_action"], f"{row['expected_return_path']} next action should request roster")
+        require(
+            row["claim_boundary"] == "no_current_model_human_validation_claim_until_completed_labels_and_roster_pass_gates",
+            "status claim boundary mismatch",
+        )
+
+
 def check_return_plan(path: Path) -> None:
     rows = read_csv(path)
     require([row["step_id"] for row in rows] == EXPECTED_STEPS, "return-plan step sequence mismatch")
@@ -167,8 +197,12 @@ def check_report(path: Path) -> None:
         "Unique audit rows: 48",
         "Preferred reviewer slots: 6",
         "Preferred row judgments: 96",
+        "Returned reviewer CSVs present: 0/6",
+        "Shape-ready reviewer CSVs: 0/6",
+        "Qualified roster present: False",
         "Fallback minimum path: one qualified reviewer per language pair",
         "two independent reviewers per language pair",
+        "Status Board",
         "OpenAI API calls: 0",
         "do not claim current-model human/native validation",
         "merge_double_labels",
@@ -186,6 +220,7 @@ def main() -> None:
     args = parser.parse_args()
 
     check_slots(args.out_dir / "current_model_label_sprint_slots.csv")
+    check_status(args.out_dir / "current_model_label_sprint_status.csv", args.out_dir / "current_model_label_sprint_slots.csv")
     check_screener(args.out_dir / "current_model_label_sprint_screener.csv")
     check_messages(args.out_dir / "current_model_label_sprint_messages.csv")
     check_return_plan(args.out_dir / "current_model_label_sprint_return_plan.csv")

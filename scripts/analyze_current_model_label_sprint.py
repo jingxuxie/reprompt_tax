@@ -47,6 +47,14 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(f))
 
 
+def read_csv_header_and_count(path: Path) -> tuple[list[str], int]:
+    with path.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        fieldnames = list(reader.fieldnames or [])
+        rows = list(reader)
+    return fieldnames, len(rows)
+
+
 def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     require(rows, f"refusing to write empty sprint table {path}")
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -197,6 +205,68 @@ def build_messages(slots: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return rows
 
 
+def next_status_action(*, return_present: bool, shape_ready: bool, roster_present: bool) -> str:
+    actions: list[str] = []
+    if not return_present:
+        actions.append("collect completed reviewer CSV")
+    elif not shape_ready:
+        actions.append("fix returned CSV header or row count")
+    if not roster_present:
+        actions.append("fill qualified reviewer roster")
+    return "; ".join(actions) if actions else "ready for double-label merge"
+
+
+def build_status(slots: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    expected_header, _ = read_csv_header_and_count(Path("data/current_model_human_audit/human_audit_packet_v0.2_current_gpt5.csv"))
+    require(expected_header, "current-model launch packet has no header")
+    rows = []
+    for slot in slots:
+        return_path = Path(slot["expected_return_path"])
+        roster_path = Path(slot["completed_roster"])
+        roster_present = roster_path.exists()
+        if return_path.exists():
+            observed_header, observed_rows = read_csv_header_and_count(return_path)
+            header_ok = observed_header == expected_header
+            rows_ok = observed_rows == int(slot["rows_to_label"])
+            shape_ready = header_ok and rows_ok
+            observed_rows_text: int | str = observed_rows
+        else:
+            shape_ready = False
+            observed_rows_text = ""
+        return_present = return_path.exists()
+        blockers: list[str] = []
+        if not return_present:
+            blockers.append("missing returned CSV")
+        elif not shape_ready:
+            blockers.append("returned CSV header or row count mismatch")
+        if not roster_present:
+            blockers.append("missing qualified roster")
+        rows.append(
+            {
+                "surface_id": slot["surface_id"],
+                "language_pair": slot["language_pair"],
+                "reviewer_index": slot["reviewer_index"],
+                "rows_to_label": slot["rows_to_label"],
+                "bundle_path": slot["bundle_path"],
+                "expected_return_path": slot["expected_return_path"],
+                "return_present": str(return_present),
+                "observed_rows": observed_rows_text,
+                "shape_ready": str(shape_ready),
+                "completed_roster": slot["completed_roster"],
+                "roster_present": str(roster_present),
+                "ready_for_merge": str(return_present and shape_ready and roster_present),
+                "blocker": "; ".join(blockers) if blockers else "none",
+                "next_action": next_status_action(
+                    return_present=return_present,
+                    shape_ready=shape_ready,
+                    roster_present=roster_present,
+                ),
+                "claim_boundary": slot["claim_boundary"],
+            }
+        )
+    return rows
+
+
 def build_return_plan(commands: dict[str, str]) -> list[dict[str, Any]]:
     return [
         {
@@ -262,12 +332,16 @@ def write_markdown(
     path: Path,
     *,
     slots: list[dict[str, Any]],
+    status: list[dict[str, Any]],
     screener: list[dict[str, Any]],
     messages: list[dict[str, Any]],
     return_plan: list[dict[str, Any]],
 ) -> None:
     languages = sorted({row["language_pair"] for row in slots})
     total_row_judgments = sum(int(row["rows_to_label"]) for row in slots)
+    present_returns = sum(row["return_present"] == "True" for row in status)
+    ready_returns = sum(row["shape_ready"] == "True" for row in status)
+    roster_present = any(row["roster_present"] == "True" for row in status)
     lines = [
         "# Current-Model Label Sprint",
         "",
@@ -282,6 +356,9 @@ def write_markdown(
         f"- Unique audit rows: 48",
         f"- Preferred reviewer slots: {len(slots)}",
         f"- Preferred row judgments: {total_row_judgments}",
+        f"- Returned reviewer CSVs present: {present_returns}/{len(status)}",
+        f"- Shape-ready reviewer CSVs: {ready_returns}/{len(status)}",
+        f"- Qualified roster present: {roster_present}",
         f"- Language pairs: {', '.join(languages)}",
         "- Fallback minimum path: one qualified reviewer per language pair.",
         "- Stronger path: two independent reviewers per language pair, then",
@@ -299,6 +376,20 @@ def write_markdown(
         lines.append(
             f"| {row['language_pair']} | {row['reviewer_index']} | {row['rows_to_label']} | "
             f"`{row['bundle_path']}` | `{row['expected_return_path']}` |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Status Board",
+            "",
+            "| Language pair | Reviewer | Return present | Shape ready | Roster present | Ready for merge | Next action |",
+            "|---|---:|---|---|---|---|---|",
+        ]
+    )
+    for row in status:
+        lines.append(
+            f"| {row['language_pair']} | {row['reviewer_index']} | {row['return_present']} | "
+            f"{row['shape_ready']} | {row['roster_present']} | {row['ready_for_merge']} | {row['next_action']} |"
         )
     lines.extend(
         [
@@ -363,13 +454,15 @@ def main() -> None:
     slots = build_slots(read_csv(ASSIGNMENTS), read_csv(QUALIFICATION_REQUIREMENTS))
     screener = build_screener()
     messages = build_messages(slots)
+    status = build_status(slots)
     return_plan = build_return_plan(command_by_role(read_csv(RETURN_INTAKE)))
 
     write_csv(args.out_dir / "current_model_label_sprint_slots.csv", slots)
+    write_csv(args.out_dir / "current_model_label_sprint_status.csv", status)
     write_csv(args.out_dir / "current_model_label_sprint_screener.csv", screener)
     write_csv(args.out_dir / "current_model_label_sprint_messages.csv", messages)
     write_csv(args.out_dir / "current_model_label_sprint_return_plan.csv", return_plan)
-    write_markdown(args.out_md, slots=slots, screener=screener, messages=messages, return_plan=return_plan)
+    write_markdown(args.out_md, slots=slots, status=status, screener=screener, messages=messages, return_plan=return_plan)
     print(f"wrote current-model label sprint to {args.out_dir} and {args.out_md}")
 
 

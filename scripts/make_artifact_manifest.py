@@ -251,6 +251,7 @@ ARTIFACT_PATHS = [
     "results/tables/current_model_label_sprint_v02/current_model_label_sprint_return_plan.csv",
     "results/tables/current_model_label_sprint_v02/current_model_label_sprint_screener.csv",
     "results/tables/current_model_label_sprint_v02/current_model_label_sprint_slots.csv",
+    "results/tables/current_model_label_sprint_v02/current_model_label_sprint_status.csv",
     "results/tables/scorer_challenge_v02/scorer_challenge_by_family.csv",
     "results/tables/scorer_challenge_v02/scorer_challenge_by_language.csv",
     "results/tables/scorer_challenge_v02/scorer_challenge_by_type.csv",
