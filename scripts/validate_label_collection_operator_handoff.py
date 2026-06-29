@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import shlex
 from collections import Counter
 from pathlib import Path
 
@@ -52,6 +53,16 @@ def read_csv(path: Path) -> list[dict[str, str]]:
     require(path.exists(), f"missing operator handoff table {path}")
     with path.open(encoding="utf-8", newline="") as f:
         return list(csv.DictReader(f))
+
+
+def command_arg(command: str, flag: str) -> str:
+    parts = shlex.split(command)
+    if flag not in parts:
+        return ""
+    index = parts.index(flag)
+    if index + 1 >= len(parts):
+        return ""
+    return parts[index + 1]
 
 
 def sha256_file(path: Path) -> str:
@@ -150,6 +161,12 @@ def check_return_intake(path: Path) -> None:
         surface_rows = [row for row in rows if row["surface_id"] == surface_id]
         require(surface_rows, f"missing return-intake rows for {surface_id}")
         require({row["workflow_role"] for row in surface_rows} == EXPECTED_COMMAND_ROLES, f"{surface_id} command role mismatch")
+        commands_by_role = {row["workflow_role"]: row["command"] for row in surface_rows}
+        require(
+            command_arg(commands_by_role["finalize_adjudicated_labels"], "--out")
+            == command_arg(commands_by_role["validate_finalized_labels"], "--annotations"),
+            f"{surface_id} finalization output must match validator annotations",
+        )
         require(
             [row["step_order"] for row in sorted(surface_rows, key=lambda row: int(row["step_order"]))] == ["1", "2", "3", "4", "5", "6"],
             f"{surface_id} step order mismatch",
@@ -161,6 +178,9 @@ def check_return_intake(path: Path) -> None:
             if row["workflow_role"] in {"merge_single_label_exports", "validate_finalized_labels", "summarize_finalized_labels"}:
                 require("missing completed inputs" in row["required_before_running"], f"{surface_id} missing completed-input blocker")
             require(row["command"].startswith("conda run -n reprompt_tax python scripts/"), f"{surface_id} command must be reproducible")
+            if row["workflow_role"] == "summarize_finalized_labels" and surface_id in {"human_audit_v02", "current_model_human_audit_v02"}:
+                require("scripts/summarize_human_audit.py" in row["command"], f"{surface_id} should use human-audit summarizer")
+                require("--expected-models" not in row["command"], f"{surface_id} summarize_human_audit command uses unsupported --expected-models")
             if row["workflow_role"] == "merge_double_label_exports":
                 require("--labels-per-item 2" in row["command"], f"{surface_id} double-label merge missing labels-per-item")
                 require("_double_completed.csv" in row["command"], f"{surface_id} double-label merge missing double-completed output")

@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 47405,
-      "lines": 245,
+      "bytes": 47932,
+      "lines": 246,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "88aecd3a889d44a88415af560f3537f253454e257991ac9188adfa87ca2e58ab"
+      "sha256": "b03362c27d25bf27c9653216266d38089d3eda7ec6755fcc6026b4c71070d725"
     },
     {
       "bytes": 1125,
@@ -473,6 +473,12 @@
       "lines": 72,
       "path": "paper/current_model_human_audit_design_v02.md",
       "sha256": "d2748d022b41de82a75a1f3c77d5e34a826290d0dba2b93e2b5741fbb33f7b3b"
+    },
+    {
+      "bytes": 8834,
+      "lines": 82,
+      "path": "paper/current_model_label_sprint_v02.md",
+      "sha256": "7f5dcb372dda8618e07b9dea1b60fb6d2ab88822012c169d2a2db2ad0fbabb26"
     },
     {
       "bytes": 2484,
@@ -625,10 +631,10 @@
       "sha256": "5fe6cb8a863f932e638319073e1fd73183478c17c957b6a90c14b132ff0dcc55"
     },
     {
-      "bytes": 14361,
+      "bytes": 14286,
       "lines": 82,
       "path": "paper/label_collection_launch_pack_v02.md",
-      "sha256": "7423919bbdb910d019f6d6ec1203be5d1fb97f5a5b25b41dee77145e6fec991a"
+      "sha256": "772e8c7c6ffdfa99bea9fc962cbcad9d3238d1fdd1551e8aaf883abada775793"
     },
     {
       "bytes": 12910,
@@ -844,7 +850,7 @@
       "bytes": 1657,
       "lines": 36,
       "path": "paper/submission_anonymity_v02.md",
-      "sha256": "159ff5629f106fb172ee8d6202d7e440bf42948178cf7f67fd33448e711d6df2"
+      "sha256": "817e800af160cbe397772349d0bd6dc034bdb87ac028bc0cd2eb3a003c46775e"
     },
     {
       "bytes": 4265,
@@ -1483,6 +1489,30 @@
       "sha256": "8f678d1a463917e4e82ee98eb0a92d288c1f3f2694449d371485cbec105a26c9"
     },
     {
+      "bytes": 4474,
+      "lines": 7,
+      "path": "results/tables/current_model_label_sprint_v02/current_model_label_sprint_messages.csv",
+      "sha256": "ad02e201127d1becc41b87cbcf29843681517b1eeeeee8b3cd18e4a95bf1fca2"
+    },
+    {
+      "bytes": 4148,
+      "lines": 9,
+      "path": "results/tables/current_model_label_sprint_v02/current_model_label_sprint_return_plan.csv",
+      "sha256": "54327e25fa65f65660415b48827bf3bc0dbcafdd95a16a4c0a87a0d90cb80c53"
+    },
+    {
+      "bytes": 2358,
+      "lines": 16,
+      "path": "results/tables/current_model_label_sprint_v02/current_model_label_sprint_screener.csv",
+      "sha256": "bfeba37cec8a0515b4abccd768839f1476c5b139eb74b36571c7f6fdea6f2294"
+    },
+    {
+      "bytes": 5206,
+      "lines": 7,
+      "path": "results/tables/current_model_label_sprint_v02/current_model_label_sprint_slots.csv",
+      "sha256": "7a90cce7489ef9060451494030964f9be938c1b90ff02ae3de1089b330792d2f"
+    },
+    {
       "bytes": 139,
       "lines": 3,
       "path": "results/tables/current_model_refresh_v02/current_model_refresh_api_usage.csv",
@@ -1735,10 +1765,10 @@
       "sha256": "0a2f6b953e4b3f80668cf0cef79542d2db7c1301730ed22c648959f9995fc388"
     },
     {
-      "bytes": 11554,
+      "bytes": 11477,
       "lines": 19,
       "path": "results/tables/label_collection_launch_pack_v02/label_collection_commands.csv",
-      "sha256": "bbb9460eb0107962ac6acd037dd58b9b3568c450882e402269d5cdadab009d50"
+      "sha256": "9708858c8d52b96335fc69f89b1b03d61a36e35164fbafddad8ccf6877293b11"
     },
     {
       "bytes": 2058,
@@ -1747,10 +1777,10 @@
       "sha256": "992b99b8063795de6df4746efcfc92933befc9610054abe6e6783d20333b2245"
     },
     {
-      "bytes": 3356,
+      "bytes": 3320,
       "lines": 4,
       "path": "results/tables/label_collection_launch_pack_v02/label_collection_surfaces.csv",
-      "sha256": "660b79698a2f1d24a0a8dadd84713ce63cd12904b8713c022bcb461f2c3ff80d"
+      "sha256": "570ed25c158e629431006e4122bc685038ca8e3cc1d1919b2327e6a4ec79eeac"
     },
     {
       "bytes": 12602,
@@ -1765,10 +1795,10 @@
       "sha256": "70fbc6e5c1c410d7f17e5318eaaf97679d20eb54fddba0bd677844364da92e3f"
     },
     {
-      "bytes": 15792,
+      "bytes": 15715,
       "lines": 19,
       "path": "results/tables/label_collection_operator_handoff_v02/operator_return_intake.csv",
-      "sha256": "d9f227a09a37c514f30a83469dcc4b9759d7bc78b546ec43031d1ceac514fa02"
+      "sha256": "9c34d0d711b29cfd2bae271741531079382ec04620db70228059250a8bdae748"
     },
     {
       "bytes": 1834,
@@ -2860,7 +2890,7 @@
       "bytes": 714,
       "lines": 6,
       "path": "results/tables/submission_anonymity_v02/submission_anonymity_checks.csv",
-      "sha256": "c09615a8b48054f6a4889d91c1422d4d4ee25efb29d57dbc2ba3eb78011630a2"
+      "sha256": "625fdc83d45b12eb9627e4d8c4d5f63c2c95dc4c7fc7d625d4876f544dc7ab32"
     },
     {
       "bytes": 51,
@@ -2983,6 +3013,12 @@
       "sha256": "13344720677c0dc7ef80c14be19daa42c126a805e9424bbe41d9fa68130a4a7e"
     },
     {
+      "bytes": 16124,
+      "lines": 377,
+      "path": "scripts/analyze_current_model_label_sprint.py",
+      "sha256": "eb655a62647397e0fea860512f6b87a524d884e47a757226ff5b2d34d4fd6baf"
+    },
+    {
       "bytes": 10081,
       "lines": 209,
       "path": "scripts/analyze_current_model_refresh.py",
@@ -3091,10 +3127,10 @@
       "sha256": "4ba0ee4cfa8a5f4d45646f04e2f181d5bdf0b8637d665a46dacb6e857f5d30a4"
     },
     {
-      "bytes": 25761,
+      "bytes": 25650,
       "lines": 339,
       "path": "scripts/analyze_label_collection_launch_pack.py",
-      "sha256": "a9432d742681076a1cda671317831e2d3c1134a7688bc7c50da838be76990b09"
+      "sha256": "0c1fe7e3789ff4e770e1b2e841637ab6e65a4fdf30b3fcb31967021c30d00a00"
     },
     {
       "bytes": 14719,
@@ -3307,10 +3343,10 @@
       "sha256": "2e174a3e97414a84d9cad555556f35ae2be3cde72c6cadb655ad8e15bcff3487"
     },
     {
-      "bytes": 77075,
-      "lines": 922,
+      "bytes": 77774,
+      "lines": 931,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "aee6c8a8a995b7a7fffe22f2830d563ce6d90eea19e9cfff580447757318d07b"
+      "sha256": "f6f873ea2c927481ad8961fb9f28cda15b3f74e84d90461b4dec802fa86d2d2c"
     },
     {
       "bytes": 16653,
@@ -3373,10 +3409,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 37398,
-      "lines": 806,
+      "bytes": 37626,
+      "lines": 808,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "d2610f6bacff7b6807ec0cd0a918023981360f95e6783eab9b22b2f6f381c815"
+      "sha256": "1d55d35cda1ed350a01c9c5de7e16e5fe6d2cb8d8a8f318b1445da90c878b4bf"
     },
     {
       "bytes": 8236,
@@ -3559,6 +3595,12 @@
       "sha256": "0c1b17b057eb756321cf88d951207f13211b57e1d963d533e518bdaf517fe556"
     },
     {
+      "bytes": 10249,
+      "lines": 197,
+      "path": "scripts/validate_current_model_label_sprint.py",
+      "sha256": "65396434bddec9c5586f3f567d831a2f73ca4416651aa31d88a95e9e8e929c0c"
+    },
+    {
       "bytes": 5517,
       "lines": 142,
       "path": "scripts/validate_current_model_refresh.py",
@@ -3655,16 +3697,16 @@
       "sha256": "f39f7e33d373a9def4fca51ba134ada228df217622b5a45b1270370dd5148864"
     },
     {
-      "bytes": 9004,
-      "lines": 167,
+      "bytes": 10152,
+      "lines": 186,
       "path": "scripts/validate_label_collection_launch_pack.py",
-      "sha256": "3cbbe56c695d5c8cb0a7bdcad5d8ebddfed48c4cea8bb8663cbfc4e464a5d079"
+      "sha256": "26ca48efb4117fa0459940fd2771e1204645ea457f0808f04078aa3f7dc82af7"
     },
     {
-      "bytes": 12247,
-      "lines": 218,
+      "bytes": 13287,
+      "lines": 238,
       "path": "scripts/validate_label_collection_operator_handoff.py",
-      "sha256": "2c931ccb8d640c0c0cb475d32ce3a035314c54f6ff4d595212db6154cfe3d3ee"
+      "sha256": "a04bde73ed5b12f516ab1a8fcbaadb44164df6caeba4703c3ea44536f4adee95"
     },
     {
       "bytes": 6163,
@@ -3679,10 +3721,10 @@
       "sha256": "38f0820fa776ed6b260892e7897fdc1e3de7806b0ea3e190626ac81a57e6a837"
     },
     {
-      "bytes": 142613,
-      "lines": 2667,
+      "bytes": 142856,
+      "lines": 2670,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "8d2645be5cd34556e783d8f7b9d122635b29b79cdba75c4615c0a4885382664b"
+      "sha256": "ff6693e75a273014c1e8d2e26d04fd1625431d1c0f8b24c36a24d346dbcbd973"
     },
     {
       "bytes": 5629,
@@ -3887,6 +3929,8 @@
     "conda run -n reprompt_tax python scripts/validate_reviewer_qualification_requirements.py",
     "conda run -n reprompt_tax python scripts/analyze_label_collection_priority.py",
     "conda run -n reprompt_tax python scripts/validate_label_collection_priority.py",
+    "conda run -n reprompt_tax python scripts/analyze_current_model_label_sprint.py",
+    "conda run -n reprompt_tax python scripts/validate_current_model_label_sprint.py",
     "conda run -n reprompt_tax python scripts/analyze_current_prompt_mechanism.py",
     "conda run -n reprompt_tax python scripts/validate_current_prompt_mechanism.py",
     "conda run -n reprompt_tax python scripts/analyze_prompt_family_scorecard.py",

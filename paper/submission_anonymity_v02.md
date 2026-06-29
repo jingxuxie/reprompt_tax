@@ -16,7 +16,7 @@ local TeX build intermediates, caches, or private API-key files.
 
 | Check | Status | Signal | Scope | Next action |
 |---|---|---|---|---|
-| `tracked_text_identity_scan` | pass | 0 forbidden identity/path/API-secret text matches across 823 tracked-or-sendable files | git tracked files plus non-ignored new files | none |
+| `tracked_text_identity_scan` | pass | 0 forbidden identity/path/API-secret text matches across 830 tracked-or-sendable files | git tracked files plus non-ignored new files | none |
 | `tracked_tex_intermediates` | pass | 0 tracked TeX intermediary files | paper/*.aux, *.blg, *.fdb_latexmk, *.fls, *.log, *.out | none |
 | `main_tex_anonymous_author` | pass | main.tex uses the anonymous COLM submission author block | paper/main.tex | restore anonymous author block before submission |
 | `pdf_author_metadata` | pass | pdfinfo Author field is empty | paper/main.pdf | clear PDF author metadata before submission |

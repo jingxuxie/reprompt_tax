@@ -1,0 +1,16 @@
+language_pair,question_id,question,required_response,roster_field,disqualifying_response
+ar-en,native_or_near_native,Can you make native or near-native judgments for Arabic text in this review task?,TRUE,native_or_near_native,FALSE or blank
+ar-en,script_validation,Can you reliably validate Arabic script in short assistant responses?,TRUE,can_validate_script,FALSE or blank
+ar-en,qualification_notes,Provide a brief non-identifying note about the basis for your language qualification.,nonempty text,qualification_notes,blank
+ar-en,conflict_of_interest,Do you have any conflict of interest with this benchmark or its authors?,FALSE,conflict_of_interest,TRUE or blank
+ar-en,no_external_tools,Can you complete labels using your own judgment without machine translation or other external decision aids?,TRUE,reviewer_attestation,FALSE or blank
+es-en,native_or_near_native,Can you make native or near-native judgments for Spanish text in this review task?,TRUE,native_or_near_native,FALSE or blank
+es-en,script_validation,Can you reliably validate Latin-script Spanish in short assistant responses?,TRUE,can_validate_script,FALSE or blank
+es-en,qualification_notes,Provide a brief non-identifying note about the basis for your language qualification.,nonempty text,qualification_notes,blank
+es-en,conflict_of_interest,Do you have any conflict of interest with this benchmark or its authors?,FALSE,conflict_of_interest,TRUE or blank
+es-en,no_external_tools,Can you complete labels using your own judgment without machine translation or other external decision aids?,TRUE,reviewer_attestation,FALSE or blank
+hi-en,native_or_near_native,Can you make native or near-native judgments for Hindi text in this review task?,TRUE,native_or_near_native,FALSE or blank
+hi-en,script_validation,Can you reliably validate Devanagari Hindi in short assistant responses?,TRUE,can_validate_script,FALSE or blank
+hi-en,qualification_notes,Provide a brief non-identifying note about the basis for your language qualification.,nonempty text,qualification_notes,blank
+hi-en,conflict_of_interest,Do you have any conflict of interest with this benchmark or its authors?,FALSE,conflict_of_interest,TRUE or blank
+hi-en,no_external_tools,Can you complete labels using your own judgment without machine translation or other external decision aids?,TRUE,reviewer_attestation,FALSE or blank

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import shlex
 from collections import Counter
 from pathlib import Path
 
@@ -27,6 +28,16 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(f))
 
 
+def command_arg(command: str, flag: str) -> str:
+    parts = shlex.split(command)
+    if flag not in parts:
+        return ""
+    index = parts.index(flag)
+    if index + 1 >= len(parts):
+        return ""
+    return parts[index + 1]
+
+
 def check_surfaces(path: Path) -> None:
     rows = read_csv(path)
     require(len(rows) == len(EXPECTED_SURFACES), f"expected {len(EXPECTED_SURFACES)} launch surfaces, found {len(rows)}")
@@ -39,6 +50,7 @@ def check_surfaces(path: Path) -> None:
         require(row["roster_template_slots"] == expected["slots"], f"{surface_id} roster slot mismatch")
         require(row["review_sheet_count"] == expected["sheets"], f"{surface_id} sheet count mismatch")
         require(row["preferred_independent_labels_per_item"] == "2", f"{surface_id} should prefer two independent labels")
+        require(row["finalized_path"] == row["completed_path"], f"{surface_id} finalized path should be the canonical completed path")
         require("do_not_claim_completed" in row["claim_boundary"], f"{surface_id} missing claim boundary")
         for field in ("packet", "roster_template", "review_sheet_index", "launch_checklist", "design_report", "validator", "summarizer"):
             require(row[field], f"{surface_id} missing {field}")
@@ -80,6 +92,13 @@ def check_commands(path: Path) -> None:
         require("_double_completed.csv" in merge_double, f"{surface_id} double-label merge missing double-completed output")
         require("_reviewer1_completed.csv" in merge_double, f"{surface_id} double-label merge missing reviewer1 inputs")
         require("_reviewer2_completed.csv" in merge_double, f"{surface_id} double-label merge missing reviewer2 inputs")
+        summarize = commands_by_surface_role[(surface_id, "summarize_finalized_labels")]
+        if surface_id in {"human_audit_v02", "current_model_human_audit_v02"}:
+            require("scripts/summarize_human_audit.py" in summarize, f"{surface_id} should use human-audit summarizer")
+            require("--expected-models" not in summarize, f"{surface_id} summarize_human_audit command uses unsupported --expected-models")
+        validate = commands_by_surface_role[(surface_id, "validate_finalized_labels")]
+        finalize = commands_by_surface_role[(surface_id, "finalize_adjudicated_labels")]
+        require(command_arg(finalize, "--out") == command_arg(validate, "--annotations"), f"{surface_id} finalization output must match validator annotations")
 
     required_fragments = {
         ("human_audit_v02", "analyze_double_labels"): [
