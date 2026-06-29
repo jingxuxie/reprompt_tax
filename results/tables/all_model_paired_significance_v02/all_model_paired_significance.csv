@@ -1,0 +1,21 @@
+unit,stratum_type,stratum,n_units,both_pass,both_fail,positive_n,negative_n,tie_n,net_gain_units,delta_pp,two_sided_sign_p,two_sided_sign_p_display
+model_item,overall,all,600,452,75,67,6,527,61,10.2,3.94726065154e-14,3.95e-14
+item_cluster,overall,all,120,,,24,5,91,61,10.2,0.000546112656593,0.0005
+model_item,generation,GPT-4.1 family,360,263,60,36,1,323,35,9.7,5.52972778678e-10,5.53e-10
+item_cluster,generation,GPT-4.1 family,120,,,22,1,97,35,9.7,5.72204589844e-06,5.72e-06
+model_item,generation,GPT-5.x family,240,189,15,31,5,204,26,10.8,1.2913485989e-05,1.29e-05
+item_cluster,generation,GPT-5.x family,120,,,21,5,94,26,10.8,0.00249391794205,0.0025
+model_item,task_family,editing_preservation,150,50,39,61,0,89,61,40.7,8.67361737988e-19,8.67e-19
+item_cluster,task_family,editing_preservation,30,,,20,0,10,61,40.7,1.90734863281e-06,1.91e-06
+model_item,task_family,output_language_inference,150,149,0,1,0,149,1,0.7,1,1.0000
+item_cluster,task_family,output_language_inference,30,,,1,0,29,1,0.7,1,1.0000
+model_item,task_family,quote_preservation,150,139,8,1,2,147,-1,-0.7,1,1.0000
+item_cluster,task_family,quote_preservation,30,,,1,2,27,-1,-0.7,1,1.0000
+model_item,task_family,script_register_locale,150,114,28,4,4,142,0,0.0,1,1.0000
+item_cluster,task_family,script_register_locale,30,,,2,3,25,0,0.0,1,1.0000
+model_item,language_pair,ar-en,200,123,32,43,2,155,41,20.5,5.88897819398e-11,5.89e-11
+item_cluster,language_pair,ar-en,40,,,11,2,27,41,20.5,0.0224609375,0.0225
+model_item,language_pair,es-en,200,140,39,20,1,179,19,9.5,2.09808349609e-05,2.10e-05
+item_cluster,language_pair,es-en,40,,,11,1,28,19,9.5,0.00634765625,0.0063
+model_item,language_pair,hi-en,200,189,4,4,3,193,1,0.5,1,1.0000
+item_cluster,language_pair,hi-en,40,,,2,2,36,1,0.5,1,1.0000

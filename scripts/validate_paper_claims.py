@@ -2143,6 +2143,7 @@ def check_claim_checklist(path: Path) -> None:
         "scripts/validate_followup_probe.py",
         "scripts/validate_label_collection_launch_pack.py",
         "scripts/validate_label_collection_dispatch.py",
+        "scripts/validate_all_model_paired_significance.py",
         "scripts/validate_contract_benefit_decomposition.py",
     ]
     for phrase in required_phrases:
@@ -2555,6 +2556,7 @@ def main() -> None:
     check_auxiliary_validator(root, "scripts/validate_followup_plan_readiness.py", "follow-up plan readiness validation passed")
     check_auxiliary_validator(root, "scripts/validate_human_audit_acceptance_rules.py", "human/native-review acceptance rules validation passed")
     check_auxiliary_validator(root, "scripts/validate_human_audit_threshold_rationale.py", "human/native-review threshold-rationale validation passed")
+    check_auxiliary_validator(root, "scripts/validate_all_model_paired_significance.py", "all-model paired-significance validation passed")
     check_auxiliary_validator(root, "scripts/validate_contract_benefit_decomposition.py", "contract-benefit decomposition validation passed")
     check_auxiliary_validator(
         root,
