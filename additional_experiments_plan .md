@@ -18,7 +18,11 @@ deterministic audits: 390/390 known-bad probes fail with their expected signals,
 and 120/120 constrained positive-control templates pass all scorer components.
 The aggregate WildChat motivation scan now also has a taxonomy traceability
 audit: all six cue categories map to benchmark, scorer, or repair-metric
-surfaces, with five categories tied to deterministic scorer components.
+surfaces, with five categories tied to deterministic scorer components. The
+label-collection launch pack now has surface-specific, validator-checked
+commands for single-label merging, double-label adjudication analysis, and
+adjudicated finalization across the original v0.2 audit, current GPT-5.x audit,
+and v0.3 coverage review.
 
 **Main remaining gap:** completed qualified human/native labels are still
 missing. The current paper can conservatively submit with the GPT-5.5
@@ -160,9 +164,11 @@ This is the strongest quality upgrade after the model refresh.
 
 **Status:** launch-ready but not completed. The repo contains reviewer-facing
 CSV packets, static review sheets, roster templates, acceptance thresholds, and
-completion/adjudication validators. It does not contain qualified completed
-labels, so the paper should keep human/native validation as a planned or
-launch-ready protocol until labels are collected.
+completion/adjudication validators. The launch pack now documents
+surface-specific commands for both one-reviewer finalization and the preferred
+two-reviewer-plus-adjudication workflow. It does not contain qualified
+completed labels, so the paper should keep human/native validation as a planned
+or launch-ready protocol until labels are collected.
 
 **Question:** does the automatic scorer match qualified human judgments for language, script, preservation, and task success?
 

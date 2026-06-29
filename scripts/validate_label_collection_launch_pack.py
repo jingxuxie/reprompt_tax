@@ -60,9 +60,11 @@ def check_commands(path: Path) -> None:
     counts = Counter(row["surface_id"] for row in rows)
     require(counts == Counter({surface_id: 5 for surface_id in EXPECTED_SURFACES}), f"unexpected command counts: {counts}")
     roles_by_surface: dict[str, set[str]] = {surface_id: set() for surface_id in EXPECTED_SURFACES}
+    commands_by_surface_role: dict[tuple[str, str], str] = {}
     for row in rows:
         roles_by_surface[row["surface_id"]].add(row["command_role"])
         require(row["command"].startswith("conda run -n reprompt_tax python scripts/"), f"unexpected command prefix: {row['command']}")
+        commands_by_surface_role[(row["surface_id"], row["command_role"])] = row["command"]
     expected_roles = {
         "merge_single_label_exports",
         "validate_finalized_labels",
@@ -72,6 +74,48 @@ def check_commands(path: Path) -> None:
     }
     for surface_id, roles in roles_by_surface.items():
         require(roles == expected_roles, f"{surface_id} command roles mismatch: {roles}")
+
+    required_fragments = {
+        ("human_audit_v02", "analyze_double_labels"): [
+            "--answer-key data/human_audit/human_audit_answer_key_v0.2.csv",
+            "--annotator-roster data/human_audit/human_audit_annotator_roster_v0.2.csv",
+            "--out-dir results/tables/human_audit_v0.2_adjudication",
+            "--out-md paper/human_audit_adjudication_v02.md",
+        ],
+        ("human_audit_v02", "finalize_adjudicated_labels"): [
+            "--answer-key data/human_audit/human_audit_answer_key_v0.2.csv",
+            "--annotator-roster data/human_audit/human_audit_annotator_roster_v0.2.csv",
+            "--source-out results/tables/human_audit_v0.2_adjudication/human_audit_final_label_sources.csv",
+        ],
+        ("current_model_human_audit_v02", "analyze_double_labels"): [
+            "--answer-key data/current_model_human_audit/human_audit_answer_key_v0.2_current_gpt5.csv",
+            "--annotator-roster data/current_model_human_audit/human_audit_annotator_roster_v0.2_current_gpt5.csv",
+            "--expected-models gpt-5.4-mini,gpt-5.5",
+            "--out-dir results/tables/current_model_human_audit_v0.2_adjudication",
+            "--out-md paper/human_audit_adjudication_v02_current_gpt5.md",
+        ],
+        ("current_model_human_audit_v02", "finalize_adjudicated_labels"): [
+            "--answer-key data/current_model_human_audit/human_audit_answer_key_v0.2_current_gpt5.csv",
+            "--annotator-roster data/current_model_human_audit/human_audit_annotator_roster_v0.2_current_gpt5.csv",
+            "--expected-models gpt-5.4-mini,gpt-5.5",
+            "--source-out results/tables/current_model_human_audit_v0.2_adjudication/human_audit_final_label_sources.csv",
+        ],
+        ("coverage_native_review_v03", "analyze_double_labels"): [
+            "--launch-packet data/coverage_native_review_v03/coverage_native_review_packet_v03.csv",
+            "--reviewer-roster data/coverage_native_review_v03/coverage_native_review_roster_v03.csv",
+            "--out-dir results/tables/coverage_native_review_v03_adjudication",
+            "--out-md paper/coverage_native_review_adjudication_v03.md",
+        ],
+        ("coverage_native_review_v03", "finalize_adjudicated_labels"): [
+            "--launch-packet data/coverage_native_review_v03/coverage_native_review_packet_v03.csv",
+            "--reviewer-roster data/coverage_native_review_v03/coverage_native_review_roster_v03.csv",
+            "--source-out results/tables/coverage_native_review_v03_adjudication/coverage_native_review_final_label_sources.csv",
+        ],
+    }
+    for key, fragments in required_fragments.items():
+        command = commands_by_surface_role[key]
+        for fragment in fragments:
+            require(fragment in command, f"{key[0]} {key[1]} missing command fragment: {fragment}")
 
 
 def check_markdown(path: Path) -> None:

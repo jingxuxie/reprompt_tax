@@ -7,10 +7,10 @@
       "sha256": "5157c1b2e75d074bf1f17db0efab22574a16306cf571b24effdc988a0d335d30"
     },
     {
-      "bytes": 22936,
-      "lines": 482,
+      "bytes": 23344,
+      "lines": 488,
       "path": "additional_experiments_plan .md",
-      "sha256": "edc1282099489c2c5c028efec1eef2a1847a28fd31ceb29ed857530577552025"
+      "sha256": "533d1f62750e793abbacbb781d80bbddee396922663974d19b8860365fc1a400"
     },
     {
       "bytes": 72197,
@@ -625,10 +625,10 @@
       "sha256": "5fe6cb8a863f932e638319073e1fd73183478c17c957b6a90c14b132ff0dcc55"
     },
     {
-      "bytes": 9095,
+      "bytes": 10844,
       "lines": 78,
       "path": "paper/label_collection_launch_pack_v02.md",
-      "sha256": "7ee715c7fb4f5a17816d31b148a0871c5c485deacc60c743c54839b2e604ac18"
+      "sha256": "9019d40d413f2db95d0a9aa724e6cda04ce61b644961e6691d9f5f10593e1239"
     },
     {
       "bytes": 4236,
@@ -1699,10 +1699,10 @@
       "sha256": "0a2f6b953e4b3f80668cf0cef79542d2db7c1301730ed22c648959f9995fc388"
     },
     {
-      "bytes": 6362,
+      "bytes": 8115,
       "lines": 16,
       "path": "results/tables/label_collection_launch_pack_v02/label_collection_commands.csv",
-      "sha256": "a25381f0d49a3764482a4ddd350f4bc76a8fa63dd2fcc366e6e7ca8182b6d813"
+      "sha256": "8254d9a4b574d0a4de81e74c8795efbaec20e9243619f25910e60e5b6e1e8c1a"
     },
     {
       "bytes": 2058,
@@ -2977,10 +2977,10 @@
       "sha256": "4ba0ee4cfa8a5f4d45646f04e2f181d5bdf0b8637d665a46dacb6e857f5d30a4"
     },
     {
-      "bytes": 19191,
-      "lines": 324,
+      "bytes": 22226,
+      "lines": 330,
       "path": "scripts/analyze_label_collection_launch_pack.py",
-      "sha256": "4b2099d67aecbb65092ba565e599863e9c80dda907e5f2664141121ee3a66136"
+      "sha256": "0a5660d6df8dc176e2f576d201de775014e68e9359018f101aefdb45ab2a9e36"
     },
     {
       "bytes": 12627,
@@ -3493,10 +3493,10 @@
       "sha256": "f39f7e33d373a9def4fca51ba134ada228df217622b5a45b1270370dd5148864"
     },
     {
-      "bytes": 5365,
-      "lines": 116,
+      "bytes": 8354,
+      "lines": 160,
       "path": "scripts/validate_label_collection_launch_pack.py",
-      "sha256": "a488b744eb896cfe6d449002851d286202b98a53754649dd84f443a30b235ced"
+      "sha256": "516dfa597aaae2001bea00ada05060e65b42ac83c9fe1a91f8f9a47085c61641"
     },
     {
       "bytes": 6163,
