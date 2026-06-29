@@ -373,10 +373,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 37644,
-      "lines": 226,
+      "bytes": 38149,
+      "lines": 227,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "2a9cf566a7fc5a8482240c3d5a795eb2ebce653b5264c0e1c67d33175447f48d"
+      "sha256": "6252265385a33899c32397d622a5469cfcb809a07e08b9377013dc91b8cff986"
     },
     {
       "bytes": 1125,
@@ -563,6 +563,12 @@
       "lines": 74,
       "path": "paper/human_audit_design_audit_v02.md",
       "sha256": "d62ed82524a16695b16d6181a329843b2d334c63571d0989df43eb3ae587281b"
+    },
+    {
+      "bytes": 1889,
+      "lines": 26,
+      "path": "paper/human_audit_threshold_rationale_v02.md",
+      "sha256": "14cfc32665978e1850ed475910100c5ce28485eb0c6812493a9c28bb783213f0"
     },
     {
       "bytes": 3553,
@@ -1517,6 +1523,12 @@
       "lines": 4,
       "path": "results/tables/human_audit_acceptance_rules_v02/human_audit_acceptance_rules.csv",
       "sha256": "c9c2c2778909ec52fab76ccc22a0444723c61840af310e0e60622034590acfa3"
+    },
+    {
+      "bytes": 975,
+      "lines": 6,
+      "path": "results/tables/human_audit_threshold_rationale_v02/human_audit_threshold_rationale.csv",
+      "sha256": "062ce8ede3edd1e0aff3f9f6d8cced6e1ebab4d5abc9cef148b9ce2d3f060ac5"
     },
     {
       "bytes": 171,
@@ -2665,6 +2677,12 @@
       "sha256": "288283b01225c9defa4f9b2cdc723b4ee3e9b1a1a4e87d46e9389f4ec011191e"
     },
     {
+      "bytes": 6360,
+      "lines": 167,
+      "path": "scripts/analyze_human_audit_threshold_rationale.py",
+      "sha256": "07c9a55542e9bfec07f1ca3846608a19ba0c88608a4e4325d19544498d821b0a"
+    },
+    {
       "bytes": 13208,
       "lines": 292,
       "path": "scripts/analyze_item_consistency.py",
@@ -2833,10 +2851,10 @@
       "sha256": "b6f16925077cbcb9d5661f78be76bf90164de1c4db6500f8c218df2ea6a8fe0d"
     },
     {
-      "bytes": 67585,
-      "lines": 788,
+      "bytes": 68031,
+      "lines": 794,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "0dd1e9173007127f962a6b8955b99558589ecf6cf35f0d7f83b300c78badd6fc"
+      "sha256": "3ee4d9c5ec3d059a7f62ed1f5a00a19695e98d7ae29f17923d1b5028b1093fe6"
     },
     {
       "bytes": 16653,
@@ -2899,10 +2917,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 31467,
-      "lines": 754,
+      "bytes": 31864,
+      "lines": 757,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "5e9182ee4c5ed9a3ba9c484d9f51b748551cb31f67924d35e7fb77b5a6fa9c3e"
+      "sha256": "b5a70ef8c14cfb9d8269e7707ac1b74919eec722cfa83541100d75e702512c0f"
     },
     {
       "bytes": 8236,
@@ -3121,6 +3139,12 @@
       "sha256": "bdb55cae4576ec70fdc94844486e01591f8c72f9ecd28ef4882225746ca2e49c"
     },
     {
+      "bytes": 3457,
+      "lines": 98,
+      "path": "scripts/validate_human_audit_threshold_rationale.py",
+      "sha256": "71ddb81f8664b50b5397e2412662cbb8f134ace9c66a2772f46e73a51b7e2016"
+    },
+    {
       "bytes": 6241,
       "lines": 173,
       "path": "scripts/validate_judge_refresh.py",
@@ -3145,10 +3169,10 @@
       "sha256": "a488b744eb896cfe6d449002851d286202b98a53754649dd84f443a30b235ced"
     },
     {
-      "bytes": 137386,
-      "lines": 2607,
+      "bytes": 137601,
+      "lines": 2609,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "84eff2586c92a41d702b99f07305fe461d3a089930d0ecb4a75768c18f99ffab"
+      "sha256": "8f921135473849df83ce56cd25fa381cec2114ea76c22c09f5a2bfd4520f41d1"
     },
     {
       "bytes": 6982,
@@ -3271,6 +3295,8 @@
     "conda run -n reprompt_tax python scripts/validate_followup_plan_readiness.py",
     "conda run -n reprompt_tax python scripts/analyze_human_audit_acceptance_rules.py",
     "conda run -n reprompt_tax python scripts/validate_human_audit_acceptance_rules.py",
+    "conda run -n reprompt_tax python scripts/analyze_human_audit_threshold_rationale.py",
+    "conda run -n reprompt_tax python scripts/validate_human_audit_threshold_rationale.py",
     "conda run -n reprompt_tax python scripts/analyze_completed_label_claim_gates.py",
     "conda run -n reprompt_tax python scripts/validate_completed_label_claim_gates.py",
     "conda run -n reprompt_tax python scripts/analyze_label_collection_launch_pack.py",
