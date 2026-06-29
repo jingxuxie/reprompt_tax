@@ -104,6 +104,10 @@ def build_rows() -> list[dict[str, str]]:
     human_design = one_row(Path("results/tables/human_audit_v0.2_design/human_audit_design_summary.csv"))
     current_human_design = one_row(Path("results/tables/current_model_human_audit_v02_design/human_audit_design_summary.csv"))
     coverage_design = one_row(Path("results/tables/coverage_native_review_v03_design/coverage_native_review_summary.csv"))
+    operator_single_assignments = load_csv(Path("results/tables/label_collection_operator_handoff_v02/operator_dispatch_assignments.csv"))
+    operator_double_assignments = load_csv(Path("results/tables/label_collection_operator_handoff_v02/operator_double_label_assignments.csv"))
+    require(len(operator_single_assignments) == 12, "expected 12 minimum single-label operator assignments")
+    require(len(operator_double_assignments) == 24, "expected 24 preferred double-label operator assignments")
 
     efficiency_rows = load_csv(Path("results/tables/efficiency_tradeoff_v02/efficiency_tradeoff_paired_effects.csv"))
     require(len(efficiency_rows) == 5, "expected five efficiency paired-effect rows")
@@ -241,6 +245,26 @@ def build_rows() -> list[dict[str, str]]:
             ),
             "validation_signal": "GPT-5.5 judge refresh agrees with the automatic scorer on 70/72 sampled labels",
             "next_step": "do not substitute judge agreement for native-speaker validation",
+        },
+        {
+            "plan_item": "label_collection_operations",
+            "plan_section": "If labels can be collected before submission",
+            "status": "complete_supporting",
+            "paper_use": "operator-ready label dispatch and return intake",
+            "evidence": check_paths(
+                [
+                    "paper/label_collection_operator_handoff_v02.md",
+                    "results/tables/label_collection_operator_handoff_v02/operator_dispatch_assignments.csv",
+                    "results/tables/label_collection_operator_handoff_v02/operator_double_label_assignments.csv",
+                    "results/tables/label_collection_operator_handoff_v02/operator_return_intake.csv",
+                    "scripts/validate_label_collection_operator_handoff.py",
+                ]
+            ),
+            "validation_signal": (
+                f"{len(operator_single_assignments)} minimum single-label assignments and "
+                f"{len(operator_double_assignments)} preferred double-label reviewer assignments are checked against return-intake commands"
+            ),
+            "next_step": "send current-model reviewer bundles first; completed labels are still required before widening claims",
         },
         {
             "plan_item": "original_human_audit_labels",
@@ -418,6 +442,10 @@ def write_markdown(path: Path, rows: list[dict[str, str]]) -> None:
             "The consolidated label-collection launch pack in",
             "`paper/label_collection_launch_pack_v02.md` lists all reviewer-facing",
             "files, roster templates, finalization commands, and claim gates.",
+            "The operator handoff in `paper/label_collection_operator_handoff_v02.md`",
+            "adds validated minimum single-label assignments and preferred",
+            "reviewer1/reviewer2 double-label return filenames for those same",
+            "surfaces.",
             "",
             "The v0.3 model-output smokes remain bounded diagnostics. They show that",
             "the expanded coverage scaffold is runnable and scoreable, but they are",

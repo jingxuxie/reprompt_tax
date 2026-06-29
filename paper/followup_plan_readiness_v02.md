@@ -11,7 +11,7 @@ qualified human/native review before stronger claims are supportable.
 |---|---:|
 | bounded_diagnostic_not_headline | 1 |
 | complete_paper_facing | 8 |
-| complete_supporting | 2 |
+| complete_supporting | 3 |
 | launch_ready_needs_labels | 3 |
 | not_started_requires_validator | 1 |
 
@@ -27,6 +27,7 @@ qualified human/native review before stronger claims are supportable.
 | prompt_mechanism | Experiment C | complete_paper_facing | mechanism and mitigation-scope paragraph | content-preservation is close to the full contract on both current models, so prompt dominance is not claimed | none |
 | repair_realism | Experiment F | complete_supporting | interaction-burden sensitivity diagnostic | repair wording sensitivity is measured on the dominant editing-preservation failures | treat as a controlled diagnostic, not a user-study result |
 | judge_refresh | Experiment G | complete_supporting | scorer sanity-check evidence | GPT-5.5 judge refresh agrees with the automatic scorer on 70/72 sampled labels | do not substitute judge agreement for native-speaker validation |
+| label_collection_operations | If labels can be collected before submission | complete_supporting | operator-ready label dispatch and return intake | 12 minimum single-label assignments and 24 preferred double-label reviewer assignments are checked against return-intake commands | send current-model reviewer bundles first; completed labels are still required before widening claims |
 | original_human_audit_labels | Experiment B | launch_ready_needs_labels | protocol-ready only until completed annotations exist | 72 launch rows, 57 auto passes, 15 auto failures, blank annotation fields | collect qualified native/near-native labels and pass validate_completed_human_audit.py |
 | current_model_human_audit_labels | Experiment B extension | launch_ready_needs_labels | protocol-ready current-model validation only | 48 launch rows, 32 auto passes, 16 auto failures, one row per current-model stratum | collect qualified labels for GPT-5.x rows before claiming current-model human validation |
 | v03_coverage_native_review | Experiment D | launch_ready_needs_labels | v0.3 coverage protocol only | 60 synthetic rows across 6 slices; status launch_ready_but_not_completed_native_validation | complete native review before using v0.3 as paper-facing benchmark evidence |
@@ -49,6 +50,10 @@ annotation files and qualified rosters pass their validators.
 The consolidated label-collection launch pack in
 `paper/label_collection_launch_pack_v02.md` lists all reviewer-facing
 files, roster templates, finalization commands, and claim gates.
+The operator handoff in `paper/label_collection_operator_handoff_v02.md`
+adds validated minimum single-label assignments and preferred
+reviewer1/reviewer2 double-label return filenames for those same
+surfaces.
 
 The v0.3 model-output smokes remain bounded diagnostics. They show that
 the expanded coverage scaffold is runnable and scoreable, but they are

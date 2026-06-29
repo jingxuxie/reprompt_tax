@@ -18,6 +18,7 @@ EXPECTED_STATUSES = {
     "prompt_mechanism": "complete_paper_facing",
     "repair_realism": "complete_supporting",
     "judge_refresh": "complete_supporting",
+    "label_collection_operations": "complete_supporting",
     "original_human_audit_labels": "launch_ready_needs_labels",
     "current_model_human_audit_labels": "launch_ready_needs_labels",
     "v03_coverage_native_review": "launch_ready_needs_labels",
@@ -29,7 +30,7 @@ EXPECTED_STATUSES = {
 
 EXPECTED_STATUS_COUNTS = {
     "complete_paper_facing": 8,
-    "complete_supporting": 2,
+    "complete_supporting": 3,
     "launch_ready_needs_labels": 3,
     "bounded_diagnostic_not_headline": 1,
     "not_started_requires_validator": 1,
@@ -72,6 +73,14 @@ def check_csv(path: Path) -> None:
         "collect qualified native/near-native labels" in by_item["original_human_audit_labels"]["next_step"],
         "human-audit row missing native-label next step",
     )
+    require(
+        "12 minimum single-label assignments" in by_item["label_collection_operations"]["validation_signal"],
+        "label-collection operations row missing minimum assignment count",
+    )
+    require(
+        "24 preferred double-label reviewer assignments" in by_item["label_collection_operations"]["validation_signal"],
+        "label-collection operations row missing double-label assignment count",
+    )
 
 
 def check_markdown(path: Path) -> None:
@@ -81,6 +90,7 @@ def check_markdown(path: Path) -> None:
     required = [
         "Follow-up Plan Readiness Audit",
         "complete_paper_facing | 8",
+        "complete_supporting | 3",
         "launch_ready_needs_labels | 3",
         "Three launch-ready annotation surfaces remain incomplete",
         "original 72-row v0.2 human-audit packet",
@@ -88,6 +98,8 @@ def check_markdown(path: Path) -> None:
         "60-row v0.3 native-review packet",
         "paper/label_collection_launch_pack_v02.md",
         "all reviewer-facing files, roster templates, finalization commands, and claim gates",
+        "paper/label_collection_operator_handoff_v02.md",
+        "reviewer1/reviewer2 double-label return filenames",
         "Do not claim native/near-native validation has been completed",
         "The v0.3 model-output smokes remain bounded diagnostics",
         "Current recommendation: submit with the GPT-5.5 current-model headline",

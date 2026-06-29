@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 44712,
+      "bytes": 44754,
       "lines": 239,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "6ab5185caa1c3764bc5b2156acc0c8e7228bdecda886385d004eec1f1f968861"
+      "sha256": "675e2ac39a4342276d7f45e09be2e2ead2c843817c16bdac8b8773b7f1b68b12"
     },
     {
       "bytes": 1125,
@@ -565,10 +565,10 @@
       "sha256": "6014b54843d96e0387de4d122f9fb15076c04c9d5fd18fc1c19d370f8477d535"
     },
     {
-      "bytes": 5653,
-      "lines": 61,
+      "bytes": 6250,
+      "lines": 66,
       "path": "paper/followup_plan_readiness_v02.md",
-      "sha256": "3a24869b239bfa2e03f46ca724cdfa9c5c1cd79139ea40485512ee6d79c0d2f9"
+      "sha256": "d7bfed166b0f68707fb381c49e37afafa233bac381266e97f19922310f8e3742"
     },
     {
       "bytes": 2550,
@@ -1621,10 +1621,10 @@
       "sha256": "bb577054b3540faf0b4f6bca01ae14e4d448c1173c91f470d100f4aaa1cd5574"
     },
     {
-      "bytes": 6271,
-      "lines": 16,
+      "bytes": 7007,
+      "lines": 17,
       "path": "results/tables/followup_plan_readiness_v02/followup_plan_readiness.csv",
-      "sha256": "82989be3e5e95c5690a5f3bf6340a15e09528629a5602163d1136602f7712b04"
+      "sha256": "ee98127496551b6bcc261bdea26f123b89f46c194fa53365b2da65adeb114452"
     },
     {
       "bytes": 1137,
@@ -2959,10 +2959,10 @@
       "sha256": "eaf844b2f22730244de1b6ccfed32d1f2972686f8fa7284e6217799d78412911"
     },
     {
-      "bytes": 19919,
-      "lines": 449,
+      "bytes": 21940,
+      "lines": 477,
       "path": "scripts/analyze_followup_plan_readiness.py",
-      "sha256": "2c3272e32ce174c85f197cdfdee1278cab2a100b5a17700ec550b84f58fb62ea"
+      "sha256": "f30e70430b3ae7e66b1ab4f1b3945360880265929d068c75d5d920abf2613e2c"
     },
     {
       "bytes": 15165,
@@ -3487,10 +3487,10 @@
       "sha256": "fe841e1c80e876d8dd1073208b7dceaa055de1a99af3643821673b25daa95d9d"
     },
     {
-      "bytes": 4548,
-      "lines": 111,
+      "bytes": 5186,
+      "lines": 123,
       "path": "scripts/validate_followup_plan_readiness.py",
-      "sha256": "09bfaa141fc737a5716c3acf3e38ef24cc4668072ef7e7238d2bb57d5c2fb773"
+      "sha256": "9b1e08bc174fa2e11ffda951c0cbbf3697dbd794ed56df9d354cae8ee82ce7ce"
     },
     {
       "bytes": 6033,
