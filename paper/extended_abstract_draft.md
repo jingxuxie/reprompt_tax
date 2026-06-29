@@ -18,9 +18,12 @@ the GPT-4.1-family runs; the mitigation improves alignment to 76.7%-93.3% and
 reduces mean repair turns and token tax. The current-model refresh shows the
 same pressure under `gpt-5.5`: alignment rises from 81.7% to 98.3%, mean repair
 turns fall from 0.225 to 0.017, and unresolved trajectories fall to 0.0% while
-two first-turn residuals remain. A 10% stratified blinded LLM-judge audit agrees
-with the automatic scorer on 71/72 sampled pass/fail labels, and a paired
-GPT-5.5 judge refresh agrees on 70/72 labels.
+two first-turn residuals remain. A 72-row stratified blinded LLM-judge audit of
+the GPT-4.1-family first-turn surface agrees with the automatic scorer on 71/72
+sampled pass/fail labels, and a paired GPT-5.5 judge refresh agrees on 70/72
+labels. Deterministic scorer stress tests fail 390/390 known-bad probes and
+accept 120/120 constrained positive-control templates, while native-speaker
+validation remains launch-ready but incomplete.
 
 ## 1. Motivation
 
@@ -121,12 +124,16 @@ literal-preservation rules drive much of the effect. We therefore do not claim
 that the full contract is the best prompt tested or that every gain is unique to
 multilingual-contract wording.
 
-The largest baseline failure mode is implicit editing preservation: across
-models, 60/90 editing-preservation trajectories fail on the first turn and the
-aggregate family FTGA is 33.3%. The generated error atlas lists 157 first-turn
-failures overall, including 87 editing-preservation failures and 23 unresolved
-cases. For `gpt-4.1`, the Global Interaction Contract raises editing-preservation
-FTGA from 33.3% to 96.7%.
+The largest baseline failure mode is implicit editing preservation: across the
+GPT-4.1-family models, 60/90 editing-preservation trajectories fail on the
+first turn and the aggregate family FTGA is 33.3%. The GPT-4.1-family error
+atlas lists 157 first-turn failures across baseline and contract conditions,
+including 87 editing-preservation failures and 23 unresolved cases. The
+current-model residual analysis keeps the refresh boundary separate: under the
+contract, `gpt-5.5` leaves two first-turn failures and zero unresolved
+trajectories, while `gpt-5.4-mini` leaves 18 first-turn failures and six
+unresolved trajectories. For `gpt-4.1`, the Global Interaction Contract raises
+editing-preservation FTGA from 33.3% to 96.7%.
 
 The cheaper model shows an additional weakness: quote-preservation failures.
 `gpt-4.1-nano` translates semantically transparent quoted headings such as
@@ -136,13 +143,15 @@ from 70.0% to 73.3%, mean RTT drops from 0.63 to 0.37, and unresolved rate
 drops from 13.3% to 3.3%. The stronger two models pass those quote-preservation cases in
 this pilot.
 
-The judge audits support the scoring used for the main table. On 72 sampled
-first-turn responses, the original blinded GPT-4.1 judge and corrected
-automatic scorer agree on 71/72 pass/fail labels (98.6%). A paired GPT-5.5
-judge refresh agrees with the automatic scorer on 70/72 labels and with the
-GPT-4.1 judge on 69/72 labels. This does not replace native-speaker validation,
-but it reduces the immediate risk that the headline trend is an artifact of the
-automatic rules.
+The judge audits and deterministic scorer stress tests support the scoring used
+for the main table. On 72 sampled first-turn responses from the GPT-4.1-family
+surface, the original blinded GPT-4.1 judge and corrected automatic scorer
+agree on 71/72 pass/fail labels (98.6%). A paired GPT-5.5 judge refresh agrees
+with the automatic scorer on 70/72 labels and with the GPT-4.1 judge on 69/72
+labels. Separately, known-bad probes fail all 390/390 deterministic challenge
+cases and constrained positive-control templates pass 120/120 cases. This does
+not replace native-speaker validation, but it reduces the immediate risk that
+the headline trend is an artifact of the automatic rules.
 
 ## 5. Related Work
 

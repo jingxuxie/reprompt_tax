@@ -254,7 +254,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `paper/efficiency_tradeoff_v02.md` | 3136 | 49 | `d4c27f0ae567d49a16382d8b8982f819c1b550176779d881b0c92d177678eb8d` |
 | `paper/error_atlas_v02_full120.md` | 46430 | 220 | `8dc96aa65041be5d702af83a5661b7557634f68d10e24e25657981be23ee119a` |
 | `paper/experiment_ledger_v02.md` | 4777 | 86 | `07c9ece77151ea005a33df4943f4ffd51f4c07e79c7f5618a6685568cb78485b` |
-| `paper/extended_abstract_draft.md` | 10698 | 192 | `82e21261d8e226323d1ebcb5b95acad18921a6199ea852a35f3848760f577bc6` |
+| `paper/extended_abstract_draft.md` | 11451 | 201 | `4f4057b0cca666a2b137871fcdd12db98b80f0d8ea92adbaced8d1e0522aed8b` |
 | `paper/failure_mode_analysis_v02_full120.md` | 2474 | 40 | `9f451cb72c2eadbd941a9dfe40314a6a04292edbbdfd04621d26f4ea6bfb9601` |
 | `paper/figures/ftga_by_condition.png` | 85086 |  | `4a8531faacea1bbcc9503e5cc2f7d9fc99efe4683e1832b4b49bb892b7793d62` |
 | `paper/figures/repair_curve.png` | 124613 |  | `6014b54843d96e0387de4d122f9fb15076c04c9d5fd18fc1c19d370f8477d535` |
@@ -748,7 +748,7 @@ Schema: `reprompt-tax-artifact-manifest-v1`
 | `scripts/validate_label_collection_dispatch.py` | 5975 | 119 | `f39f7e33d373a9def4fca51ba134ada228df217622b5a45b1270370dd5148864` |
 | `scripts/validate_label_collection_launch_pack.py` | 8354 | 160 | `516dfa597aaae2001bea00ada05060e65b42ac83c9fe1a91f8f9a47085c61641` |
 | `scripts/validate_label_collection_priority.py` | 6163 | 131 | `adb71e37fdcfa7ca98df0e1241f6384eddb7bd928a1724a749954a0642da986d` |
-| `scripts/validate_paper_claims.py` | 139258 | 2625 | `3de0575c62549dd076eb69f26ad932b9b06b892caf1d4300b1c289f67736199d` |
+| `scripts/validate_paper_claims.py` | 140139 | 2638 | `9d0416af3c614bd469126773ff02517c21a7dbde3e7e1ae1974c084cd810068e` |
 | `scripts/validate_prompt_family_scorecard.py` | 5629 | 134 | `31f27419b50671eeb1888b9689e228fcfcdf5b976d2854db57269d7062b74467` |
 | `scripts/validate_qualitative_examples.py` | 6982 | 202 | `b483926397b7df75c18a626d0af28332e7c5c22e34ae9b8dc1f61ff28be78d62` |
 | `scripts/validate_release_docs.py` | 5757 | 140 | `6a489ebda2242cee1ab83ce90855cc573db1e5e243f56e0d5f2d4f7c2b5e9c89` |

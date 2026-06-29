@@ -541,10 +541,10 @@
       "sha256": "07c9ece77151ea005a33df4943f4ffd51f4c07e79c7f5618a6685568cb78485b"
     },
     {
-      "bytes": 10698,
-      "lines": 192,
+      "bytes": 11451,
+      "lines": 201,
       "path": "paper/extended_abstract_draft.md",
-      "sha256": "82e21261d8e226323d1ebcb5b95acad18921a6199ea852a35f3848760f577bc6"
+      "sha256": "4f4057b0cca666a2b137871fcdd12db98b80f0d8ea92adbaced8d1e0522aed8b"
     },
     {
       "bytes": 2474,
@@ -3505,10 +3505,10 @@
       "sha256": "adb71e37fdcfa7ca98df0e1241f6384eddb7bd928a1724a749954a0642da986d"
     },
     {
-      "bytes": 139258,
-      "lines": 2625,
+      "bytes": 140139,
+      "lines": 2638,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "3de0575c62549dd076eb69f26ad932b9b06b892caf1d4300b1c289f67736199d"
+      "sha256": "9d0416af3c614bd469126773ff02517c21a7dbde3e7e1ae1974c084cd810068e"
     },
     {
       "bytes": 5629,

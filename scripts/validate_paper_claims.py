@@ -2175,9 +2175,22 @@ def check_extended_abstract(path: Path) -> None:
         "two first-turn residuals remain",
         "all trajectories resolve within the two-repair budget",
         "reduces mean repair turns and token tax",
+        "72-row stratified blinded LLM-judge audit of the GPT-4.1-family first-turn surface",
+        "Deterministic scorer stress tests fail 390/390 known-bad probes",
+        "accept 120/120 constrained positive-control templates",
+        "native-speaker validation remains launch-ready but incomplete",
+        "GPT-4.1-family error atlas lists 157 first-turn failures",
+        "under the contract, `gpt-5.5` leaves two first-turn failures and zero unresolved trajectories",
+        "`gpt-5.4-mini` leaves 18 first-turn failures and six unresolved trajectories",
     ]
     for phrase in required_phrases:
         require(phrase in text or phrase in normalized, f"extended abstract missing required phrase: {phrase}")
+    stale_phrases = [
+        "A 10% stratified blinded LLM-judge audit",
+        "The generated error atlas lists 157 first-turn failures overall",
+    ]
+    for phrase in stale_phrases:
+        require(phrase not in text and phrase not in normalized, f"extended abstract still contains stale phrase: {phrase}")
 
 
 def check_appendix(path: Path) -> None:
