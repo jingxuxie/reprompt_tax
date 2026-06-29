@@ -397,10 +397,10 @@
       "sha256": "4496d0ad427b825daa769542bbb73c6c7e68cc0a071b412c23bdcba9e69e8fdc"
     },
     {
-      "bytes": 48385,
-      "lines": 247,
+      "bytes": 48865,
+      "lines": 248,
       "path": "paper/claim_evidence_checklist.md",
-      "sha256": "d3173198998a4fed78978673dfa5e135874daab9920ac8b988d628cdd068a2a7"
+      "sha256": "e9588b3920d6ffd4625775e97ba3a24c7de42ba6a25d69633333b30d8986fa6c"
     },
     {
       "bytes": 1125,
@@ -850,7 +850,7 @@
       "bytes": 1657,
       "lines": 36,
       "path": "paper/submission_anonymity_v02.md",
-      "sha256": "f25225558eb0ce9f3f1895012e6af3c372929120ac47f6913923d0a954cf7886"
+      "sha256": "36b70ad23abb4986e38e925c67fc92ea7fca92fd3a4d740803f0626532e74766"
     },
     {
       "bytes": 4265,
@@ -2890,7 +2890,7 @@
       "bytes": 714,
       "lines": 6,
       "path": "results/tables/submission_anonymity_v02/submission_anonymity_checks.csv",
-      "sha256": "cd8b196b6391911e60cee24ebe784a116a911b29f33719b5e4fd2fca3eaf0ae1"
+      "sha256": "f65dc77ee5201e402eb58292f6fafa3e31c6ef8313a67e77d0402f44ca4cdd73"
     },
     {
       "bytes": 51,
@@ -3343,10 +3343,10 @@
       "sha256": "2e174a3e97414a84d9cad555556f35ae2be3cde72c6cadb655ad8e15bcff3487"
     },
     {
-      "bytes": 77923,
-      "lines": 933,
+      "bytes": 78070,
+      "lines": 935,
       "path": "scripts/make_artifact_manifest.py",
-      "sha256": "75538c5f40ba1f7720c9e94555599ec3a6a4047edb78d48b394fbc739669390a"
+      "sha256": "20f489ec701e557a1e143ee83e7546ff93a7a54150a8a6f1513a3bc7bbad2126"
     },
     {
       "bytes": 16653,
@@ -3409,10 +3409,10 @@
       "sha256": "ee83343c399b68c03721488ed7f170e5dd33dc3ad89d861b4969f03cf58b781e"
     },
     {
-      "bytes": 37750,
-      "lines": 809,
+      "bytes": 37872,
+      "lines": 810,
       "path": "scripts/run_submission_checks.py",
-      "sha256": "2d312009546ae35ceeb2c0b9d951f167ee19a41f62832d0b95651ee9f1f7cf89"
+      "sha256": "1aad20b3898f83b0ad15b5a4c4198688c4d140e196b9ea6c8a16c0e0156072cb"
     },
     {
       "bytes": 8236,
@@ -3485,6 +3485,12 @@
       "lines": 256,
       "path": "scripts/test_human_audit_completion.py",
       "sha256": "90c4ab7276e4706c71942be0ecac55d63877891e3e9979762c3cc66dbda3562e"
+    },
+    {
+      "bytes": 18711,
+      "lines": 499,
+      "path": "scripts/test_label_adjudication_intake_dry_run.py",
+      "sha256": "bf576d83d966421f9648422e3f928249a5790d2b8dc804dde75cdaef052bac7b"
     },
     {
       "bytes": 10823,
@@ -3727,10 +3733,10 @@
       "sha256": "38f0820fa776ed6b260892e7897fdc1e3de7806b0ea3e190626ac81a57e6a837"
     },
     {
-      "bytes": 143059,
-      "lines": 2672,
+      "bytes": 143259,
+      "lines": 2674,
       "path": "scripts/validate_paper_claims.py",
-      "sha256": "f1ec0c1b2764562820eae661ec216b4a32cafa9c2a7af91e1ec58190d4900941"
+      "sha256": "7a3f71f16080ab2691cdf211ecbf50afbad8a2ce56f3f0b684fae9abe03e9ec1"
     },
     {
       "bytes": 5629,
@@ -3973,6 +3979,7 @@
     "conda run -n reprompt_tax python scripts/test_human_audit_adjudication.py",
     "conda run -n reprompt_tax python scripts/test_merge_review_exports.py",
     "conda run -n reprompt_tax python scripts/test_label_intake_dry_run.py",
+    "conda run -n reprompt_tax python scripts/test_label_adjudication_intake_dry_run.py",
     "conda run -n reprompt_tax python scripts/test_current_model_label_sprint_dry_run.py",
     "conda run -n reprompt_tax python scripts/test_completed_label_claim_gates.py",
     "conda run -n reprompt_tax python scripts/test_score_auto.py",

@@ -2152,6 +2152,7 @@ def check_claim_checklist(path: Path) -> None:
         "paper/reviewer_qualification_requirements_v02.md",
         "scripts/validate_reviewer_qualification_requirements.py",
         "scripts/test_label_intake_dry_run.py",
+        "scripts/test_label_adjudication_intake_dry_run.py",
         "paper/current_model_label_sprint_v02.md",
         "scripts/validate_current_model_label_sprint.py",
         "scripts/test_current_model_label_sprint_dry_run.py",
@@ -2589,6 +2590,7 @@ def main() -> None:
     check_auxiliary_validator(root, "scripts/test_coverage_native_review_completion.py", "coverage native-review completion regression tests passed")
     check_auxiliary_validator(root, "scripts/test_coverage_native_review_adjudication.py", "coverage native-review adjudication regression tests passed")
     check_auxiliary_validator(root, "scripts/test_label_intake_dry_run.py", "label-intake dry-run tests passed")
+    check_auxiliary_validator(root, "scripts/test_label_adjudication_intake_dry_run.py", "label-adjudication intake dry-run tests passed")
     check_auxiliary_validator(root, "scripts/validate_coverage_expansion_v03.py", "validated v0.3 coverage expansion scaffold")
     check_auxiliary_validator(root, "scripts/validate_coverage_native_review_packet_v03.py", "validated v0.3 coverage native-review launch packet")
     check_auxiliary_validator(root, "scripts/validate_coverage_native_review_sheets_v03.py", "coverage native-review sheet validation passed")
